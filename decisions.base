@@ -1,0 +1,23 @@
+filters:
+  and:
+    - file.inFolder("decisions")
+    - file.name != "_index"
+views:
+  - type: table
+    name: All decisions
+    order:
+      - file.name
+      - date
+      - kind
+      - outcome
+      - call
+      - judged_on
+  - type: table
+    name: Flawed calls
+    filters:
+      and:
+        - call == "flawed"
+    order:
+      - file.name
+      - date
+      - outcome
