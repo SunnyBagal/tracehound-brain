@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-15 21:20 IST
+updated: 2026-10-15 21:25 IST
 updated_by: chat
 ---
 
@@ -9,20 +9,18 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- TraceHound main: `5ee7677` (merge of #26, decision 057). #25 (GitHub Action) merged at `a38148b`.
-- Open, both checked by chat 2026-10-15 21:20 IST:
-  - **#27** relay 058 (`e3790b0`, freeze `c2f08be`). CI green (run 38758282829). Ready to merge; it records a loss.
-  - **#28** Codex action fixes (`6ec9a3b`). The diff is correct; CI was not visible from the chat. Before merging, add the lockfile fix (below).
+- TraceHound main: `7a92b88` (merge of #27, decision 058, recorded as a loss).
+- Open: **#28** Codex action fixes plus the lockfile commit `1a342de` (`packages/action: {}` only). CI run 38763695215 was in progress at 21:20 IST. Merge when green; it merges cleanly with main.
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Untouched since 2026-10-07. Never open Recall PRs #1 or #2.
 - Nebius ledger: $11.60211 of the $45 total cap. Per-run cap `nebiusCapUsd` = 3 (`~/Projects/tracehound-ops/ops/lanes.json` line 11).
 
 ## In flight
 
-Nothing running. Relay waits for #27 to merge and for the next brief.
+Nothing running. Relay waits for the next brief.
 
 ## Known problems
 
-- **Lockfile drift:** main's `pnpm-lock.yaml` has no importer for `packages/action`, so every local `pnpm install` rewrites it and dirties the tree. That is a step-0 trap for the next relay run. Fix: one commit adding only that importer (on #28's branch).
+- **Lockfile drift:** fixed in #28 (`1a342de`); gone once #28 merges. Until then, a local `pnpm install` on main still rewrites the lockfile.
 - **Codex automatic review** posted nothing on #27 or #28. Check its Review trigger setting, or comment `@codex review`.
 
 ## Schedule

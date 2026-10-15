@@ -8,7 +8,7 @@ outcome: loss
 call: sound
 judged_by: chat
 judged_on: 2026-10-15
-repo_entry: pending merge of PR #27
+repo_entry: https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md (058, merged 7a92b88)
 pr: 27
 ---
 
