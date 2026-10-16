@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-15 21:25 IST
+updated: 2026-10-16 15:20 IST
 updated_by: chat
 ---
 
@@ -16,7 +16,9 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## In flight
 
-Nothing running. Relay waits for the next brief.
+| Lane | Job | Status |
+|---|---|---|
+| Relay (benchmark) | 059 pool-verify-v1, brief `briefs/059-pool-verify.md` | Written 2026-10-16. Start only after #28 is merged (step 0 checks the lockfile). Expect a freeze commit, then a PR with STOP AND REPORT as a comment |
 
 ## Known problems
 
@@ -27,8 +29,8 @@ Nothing running. Relay waits for the next brief.
 
 | Date | Benchmark lane (relay) | Product lane (Codex) |
 |---|---|---|
-| 16 Oct | Next job (a) or (b), see Open decisions (058 finished early) | Merge #28 with the lockfile fix |
-| 17–18 Oct | The other of (a) and (b) | Demo repo with the action installed and real review comments (the judges' working demo); switch the action to the reviewer that wins |
+| 16 Oct | 059 pool-verify-v1 | Merge #28 with the lockfile fix |
+| 17–18 Oct | 060 scorer fairness: augmented precision plus a second judge | Demo repo with the action installed and real review comments (the judges' working demo); switch the action to the reviewer that wins |
 | 19–20 Oct | Spare, or a second precision round | Landing page section linking the demo and the benchmark tables |
 | 21–22 Oct | Spare for the weakest stage | README for judges |
 | 23 Oct | Freeze (tag), then the one Cal.com run | |
@@ -39,7 +41,7 @@ Nothing running. Relay waits for the next brief.
 ## Open decisions
 
 - [P004](decisions/P004-target-reset.md): pitch the honest benchmark and the live product rather than "beats Greptile". Proposed, not agreed.
-- Next benchmark job, two candidates: (a) a wider candidate pool (union of diff-v1 and ctx-v1 findings) filtered by verify-ctx-v1 unchanged, which 058 suggests could clear F 35%; (b) 059, augmented precision for every reviewer plus a second judge. The chat recommends (a) first, since it is cheap, then (b).
+- Decided 2026-10-16 (Sunny): (a) first, as 059 pool-verify-v1. Next after it: 060, augmented precision for every reviewer plus a second judge.
 - Product reviewer for the demo: diff-v1 (P 25.6%) is what the action runs today. agree-diff-ctx has P 57.7% but needs two reviewer runs per PR. Decide after the next job.
 - "What changed since 26 August": TraceHound's git history starts 2026-09-30. Does earlier history exist elsewhere (FixFlow), or does everything count as new? Sunny to answer.
 - Own-money cap for non-Nebius comparison arms, if any are ever run.
