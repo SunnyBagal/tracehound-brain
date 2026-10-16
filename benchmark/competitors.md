@@ -56,6 +56,23 @@ Per-repo n is 16–21, so one comment moves F by several points. Treat these as 
 - **059:** the raw pool (diff-v1 plus ctx-only) reaches **51.4% recall, above Greptile (47.3), CodeRabbit (43.2), Cursor and Copilot**; only Augment (55.4) is higher. The defects are in our candidates. The filter is what loses them: pool-verify-v1 keeps 26 of 38 TPs and lands at F 35.6. That's above Copilot and below CodeRabbit (41.0).
 - **Far behind:** Augment and Cursor on precision, and Augment on everything.
 
+## Under a second judge (060)
+
+- Under Qwen3-235B as judge, the ranking holds (tau-b 0.891). pool-verify-v1 is 5th of 11 under both judges: behind Augment, Cursor, Greptile and CodeRabbit, ahead of Copilot. Under Qwen it is 2.8 F points from CodeRabbit (44.6 vs 47.4); under Super, 5.4.
+- Augmented precision (are the "false positives" actually valid?) suggests the golden set undercounts valid findings for every tool. It isn't strong enough to re-rank anyone ([D060](../decisions/D060-scorer-checks.md)).
+
+## What the market looks like (Oct 2026, from [R2](../research/R2-market-benchmarks.md), citations checked)
+
+- **Pricing:**
+  - CodeRabbit: $24–72 per dev per month on annual plans.
+  - Cursor Bugbot: moved to usage billing, average $1.00–1.50 per run.
+  - Copilot code review: AI credits.
+- **TraceHound's estimated cost** is about $0.03 per PR (median, 059).
+- **Other open benchmarks:**
+  - GitHub ReviewBench (5 Oct 2026): 219 PRs, 19 languages, grounded and augmented metrics.
+  - Martian Code Review Bench: appears to use the same 50 PRs as ours. **Never use its Cal.com rows.**
+- **The top developer complaint about AI reviewers is noise and false positives.**
+
 ## Published claims (they disagree)
 
 On the same 50 PRs:

@@ -21,6 +21,7 @@ All Nebius spend is hackathon credit, recorded in the ledger (`.tracehound/spend
 | after 057 | $11.26866 | +$0.85726 (reviewer $0.83130, judge $0.02596) |
 | after 058 | $11.60211 | +$0.33345 (verifier $0.32254, judge $0.01091) |
 | after 059 | $11.81728 | +$0.21517 (verifier $0.18675, judge $0.02842) |
+| after 060 | $12.45236 | +$0.63508 (Qwen judge $0.0757, Super validity $0.3983, Qwen validity $0.1610) |
 
 Headroom: about $33 of the $45 total cap.
 

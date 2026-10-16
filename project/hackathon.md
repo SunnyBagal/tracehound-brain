@@ -9,6 +9,14 @@ Nebius x NVIDIA Global AI Hackathon, on Devpost: https://nebiusglobalaihackathon
 - **Feedback prizes:** ten $100 prizes for the most valuable feedback. Our source is `FEEDBACK.md`, which has 17 dated entries so far.
 - No official hashtag. When posting, tag @nebiusai and @devpost. The NVIDIA handle is not verified.
 
+**From R3 ([research](../research/R3-hackathon-demo.md), checked):**
+- Judging runs 1–15 Dec; winners around 11 Jan 2027.
+- **Judges are not required to test the project and may score from the text, images and video alone.**
+- The licence should be visible in the repo's About section.
+- Video: "a pitch, not a tutorial". Name Token Factory and the NVIDIA model with audio.
+- Track tip: "an agent that plans, writes, tests, and iterates on a real repo with minimal human input is where it gets interesting."
+- The gallery is unpublished; 23,565 participants.
+
 ## Required deliverables
 
 | Requirement | Status (2026-10-16) | Owner / when |

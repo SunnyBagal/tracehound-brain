@@ -16,6 +16,24 @@ Every measured result, newest last. One run per row unless stated. Differences o
 | pool-raw (report only) | [059](decisions/D059-pool-verify.md) | 243 | 38 | 117 | 10 | 78 | 36 | 24.5% | 51.4% | 33.2% | highest R of ours |
 | **pool-verify-v1, Super** | [059](decisions/D059-pool-verify.md) | 83 | 26 | 46 | 4 | 7 | 48 | 36.1% | 35.1% | **35.6%** | **adopted** (bar 35.0; one TP flip → 34.2) |
 
+### Under a second judge (060, bench-judge-x1 = Qwen3-235B, report only)
+
+| Run | F under v1 | F under x1 | Rank v1 → x1 (of 11, incl. the 5 tools) |
+|---|---|---|---|
+| Augment | 64.1 | 63.6 | 1 → 1 |
+| Cursor | 49.6 | 56.1 | 2 → 2 |
+| Greptile | 49.3 | 55.1 | 3 → 3 |
+| CodeRabbit | 41.0 | 47.4 | 4 → 4 |
+| **pool-verify-v1** | **35.6** | **44.6** | **5 → 5** |
+| pool-raw | 33.2 | 40.2 | 6 → 6 |
+| verify-ctx-v1 | 32.8 | 38.1 | 7 → 8 |
+| review-diff-v1 | 32.2 | 35.7 | 8 → 9 |
+| review-ctx-v1 | 31.8 | 34.8 | 9 → 10 |
+| Copilot | 31.3 | 38.9 | 10 → 7 |
+| agree-diff-ctx | 30.0 | 28.3 | 11 → 11 |
+
+Agreement: 78.6% same label, kappa 0.809, tau-b 0.891. Augmented precision (validity-v1, Super): pool-verify-v1 88.9%, Augment 92.6%, Cursor 90.7%, Greptile 88.2%, CodeRabbit 84.1%, Copilot 51.4%. This is weak evidence (validity judges' kappa 0.395; Super judging Super-verified comments) ([D060](decisions/D060-scorer-checks.md)).
+
 ### Per repo, F (n: sentry 21, grafana 16, keycloak 18, discourse 19)
 
 | Reviewer | sentry | grafana | keycloak | discourse |

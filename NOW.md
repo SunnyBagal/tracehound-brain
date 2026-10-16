@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-16 17:45 IST
+updated: 2026-10-16 19:15 IST
 updated_by: chat
 ---
 
@@ -9,24 +9,26 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- TraceHound main: `c34b2ed` (merge of #28). **Open: #29** (059, head `0fe0019`, freeze `8c78a75`, CI green, checked by chat 2026-10-16 17:15 IST). Ready to merge.
-- Recall main `20ac149`, `testable-baseline` `57d920e`. Untouched since 2026-10-07. Never open Recall PRs #1 or #2.
-- Nebius ledger: $11.81728 of the $45 total cap. Per-run cap `nebiusCapUsd` = 3. See [costs](ops/costs.md).
+- TraceHound main: `c70e931` (merge of #29, 059).
+- **Open, checked by chat 2026-10-16 19:10 IST:**
+  - **#30** Codex: Action switched to pool-verify-v1, head `813f22f`. Diff checked; CI not visible to the chat, so look at the Checks tab.
+  - **#31** relay 060 scorer checks, head `89c77fd`, freeze `b98f014`, CI green. Report only.
+  - The two touch disjoint files. Merge both.
+- Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
+- Nebius ledger: $12.45236 of $45. `nebiusCapUsd` = 5 (set for 060).
 
 ## In flight
 
 | Lane | Job | Status |
 |---|---|---|
-| Relay (benchmark) | **060 scorer checks**, brief `briefs/060-scorer-checks.md` ([D060](decisions/D060-scorer-checks.md)): second judge Qwen3-235B, plus augmented precision | Written 2026-10-16. Start after #29 merges **and `nebiusCapUsd` is set to 5** |
-| Codex (product) | `codex-03-action-pool-verify.md`: switch the Action to pool-verify-v1 (diff and ctx reviewers in parallel, pool, verify) | Written 2026-10-16. Start after #29 merges (it imports `scripts/bench/agree-rule.ts`). Next: the demo repo (repo choice open) |
-
-| Grok | Research R1–R3 ([research](research/README.md)): verifier methods, market and benchmarks, hackathon and demo | Sent 2026-10-16; paste the answers to the chat for a citation check |
+| Relay | 060 done (report only) | Waiting for #31 to merge and the next brief (Sunny to choose: freeze now, or one more verifier round) |
+| Codex | #30 done | Next: the demo repo (repo choice open) |
+| Grok | R1–R3 filed ([research](research/README.md)) | All 15 checked citations real |
 
 ## Known problems
 
-- **Codex automatic review** posted nothing on #27, #28 or #29. Check its Review trigger setting, or comment `@codex review`.
-- **No live reviewer demo yet.** This is the top hackathon risk ([hackathon](project/hackathon.md)).
-- **Same model reviews and judges** (Super); 060 adds a judge from a different family.
+- **Codex automatic review** has posted nothing on #27–#31. Check the Review trigger, or comment `@codex review`.
+- **No live reviewer demo yet**, and judges may score from the video and text alone (R3). The video and README matter as much as the demo.
 
 ## Schedule
 

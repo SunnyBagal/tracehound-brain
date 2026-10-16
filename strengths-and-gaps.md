@@ -1,6 +1,6 @@
 # Strengths and gaps
 
-An honest ledger, updated after each result. Last updated: 2026-10-16, after 059.
+An honest ledger, updated after each result. Last updated: 2026-10-16, after 060.
 
 ## Where we are good or better
 
@@ -23,11 +23,11 @@ An honest ledger, updated after each result. Last updated: 2026-10-16, after 059
 | **Precision** | diff-v1: 74% of comments wrong, the worst of any reviewer measured | 058 filters; 059 pools, then filters |
 | **Every precision fix costs recall** | 056–058: F stuck at 31.8–32.8%. 059 got to 35.6% by widening the pool, but the verifier still drops 12 of 38 real findings | Next: scorer checks (060) before more tuning |
 | **Thin margin, selection on dev** | 059 cleared the bar by 0.6 points (one judge flip → 34.2), on the fourth variant tried on the same 40 PRs | Only Cal.com confirms; report diff-v1 and pool-raw beside it, declared in advance |
-| **Same model reviews and judges** | Reviewer and judge are both Nemotron Super; a judge can favour outputs from its own model | 060: a second judge from a different model family |
+| **Same model reviews and judges** | Checked in 060: under a Qwen judge the ranking holds (tau-b 0.891) and pool-verify-v1 stays 5th; the self-preference gap is 2.1 points | Report both judges in the results doc |
 | **Far behind Augment and Cursor** | Augment F 64.1%, Cursor 49.6%, Greptile 49.3%, CodeRabbit 41.0% vs our best 35.6% | Pitch honesty and openness, not rank ([P004](decisions/P004-target-reset.md)) |
 | **No live reviewer demo yet** | The Action is merged but has never run on a real repo | Codex demo repo, 17–18 Oct |
-| **Golden set biased against new reviewers** | Augment extended it with the five tools' comments | 060 augmented precision |
-| **One judge** | Error not measured | 060 second judge |
+| **Golden set biased against new reviewers** | 060: the validity check says many "FPs" are valid for every tool, but it is too lenient to use (kappa 0.395) | State it as a limit; no re-ranking |
+| **One judge** | 060: second judge agrees (kappa 0.809), but is more lenient by 3–9 F points | Report both |
 | **The graph didn't help** | 050: 0 graph tool calls; S1: 2.1% pairing on unseen repos | Graph kept as a viewer and for context ideas; not the reviewer's engine |
 | **Brief quality (chat)** | 057's budget cut the thing under test; a fix prompt targeted a merged branch; a CI prediction was wrong | [lessons](lessons.md) |
 | **Unverified prices** | `config/prices.json` uses third-party rates | Confirm in the Nebius console before quoting costs publicly |

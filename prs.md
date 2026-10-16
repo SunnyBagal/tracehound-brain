@@ -35,4 +35,6 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 
 ## Open or not merged
 
-- [#29](https://github.com/SunnyBagal/TraceHound/pull/29) `build/059-pool-verify`, head `0fe0019`: 059 pool-verify-v1, adoption rule met. Checked by chat 2026-10-16; ready to merge.
+- [#30](https://github.com/SunnyBagal/TraceHound/pull/30) `codex/action-pool-verify`, head `813f22f`: Action runs pool-verify-v1. Checked by chat 2026-10-16.
+- [#31](https://github.com/SunnyBagal/TraceHound/pull/31) `build/060-scorer-checks`, head `89c77fd`: 060 scorer checks (report only). Checked by chat 2026-10-16.
+- #29 merged as `c70e931` (2026-10-16).
