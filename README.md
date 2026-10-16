@@ -27,6 +27,7 @@ The project's memory outside any one chat: what was built, what was tried, what 
 | How do I start relay, check a PR? | [ops/runbook](ops/runbook.md) |
 | How much have we spent? | [ops/costs](ops/costs.md) |
 | What does a term mean? | [glossary](glossary.md) |
+| What did outside research find? | [research](research/README.md) |
 
 ## Who reads and writes
 

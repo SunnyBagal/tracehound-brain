@@ -20,6 +20,8 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 | Relay (benchmark) | **060 scorer checks**, brief `briefs/060-scorer-checks.md` ([D060](decisions/D060-scorer-checks.md)): second judge Qwen3-235B, plus augmented precision | Written 2026-10-16. Start after #29 merges **and `nebiusCapUsd` is set to 5** |
 | Codex (product) | `codex-03-action-pool-verify.md`: switch the Action to pool-verify-v1 (diff and ctx reviewers in parallel, pool, verify) | Written 2026-10-16. Start after #29 merges (it imports `scripts/bench/agree-rule.ts`). Next: the demo repo (repo choice open) |
 
+| Grok | Research R1–R3 ([research](research/README.md)): verifier methods, market and benchmarks, hackathon and demo | Sent 2026-10-16; paste the answers to the chat for a citation check |
+
 ## Known problems
 
 - **Codex automatic review** posted nothing on #27, #28 or #29. Check its Review trigger setting, or comment `@codex review`.
