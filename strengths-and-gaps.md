@@ -24,7 +24,7 @@ An honest ledger, updated after each result. Last updated: 2026-10-16, after 059
 | **Every precision fix costs recall** | 056–058: F stuck at 31.8–32.8%. 059 got to 35.6% by widening the pool, but the verifier still drops 12 of 38 real findings | Next: scorer checks (060) before more tuning |
 | **Thin margin, selection on dev** | 059 cleared the bar by 0.6 points (one judge flip → 34.2), on the fourth variant tried on the same 40 PRs | Only Cal.com confirms; report diff-v1 and pool-raw beside it, declared in advance |
 | **Same model reviews and judges** | Reviewer and judge are both Nemotron Super; a judge can favour outputs from its own model | 060: a second judge from a different model family |
-| **Far behind Augment and Cursor** | Augment F 64.1%, Cursor 49.6%, Greptile 49.3% vs our best 32.8% | Pitch honesty and openness, not rank ([P004](decisions/P004-target-reset.md)) |
+| **Far behind Augment and Cursor** | Augment F 64.1%, Cursor 49.6%, Greptile 49.3%, CodeRabbit 41.0% vs our best 35.6% | Pitch honesty and openness, not rank ([P004](decisions/P004-target-reset.md)) |
 | **No live reviewer demo yet** | The Action is merged but has never run on a real repo | Codex demo repo, 17–18 Oct |
 | **Golden set biased against new reviewers** | Augment extended it with the five tools' comments | 060 augmented precision |
 | **One judge** | Error not measured | 060 second judge |

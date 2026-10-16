@@ -64,7 +64,8 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | 056 | [Verification pass on review findings, verify-v1](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#056--verification-pass-on-review-findings-verify-v1) | [D056-verify-v1](D056-verify-v1.md) |
 | 057 | [Repository context for the reviewer, review-ctx-v1](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#057--repository-context-for-the-reviewer-review-ctx-v1) | [D057-repo-context](D057-repo-context.md) |
 | 058 | Context-aware verifier, verify-ctx-v1 (PR #27) | [D058-verify-ctx](D058-verify-ctx.md) |
-| 059 | Pooled candidates filtered by the context verifier, pool-verify-v1 (brief written) | [D059-pool-verify](D059-pool-verify.md) |
+| 059 | Pooled candidates filtered by the context verifier, pool-verify-v1 (adopted, PR #29) | [D059-pool-verify](D059-pool-verify.md) |
+| 060 | Scorer checks: second judge Qwen3-235B and augmented precision (brief written) | [D060-scorer-checks](D060-scorer-checks.md) |
 
 ## Process decisions (chat, not in the repo)
 

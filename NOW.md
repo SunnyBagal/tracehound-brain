@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-16 17:20 IST
+updated: 2026-10-16 17:45 IST
 updated_by: chat
 ---
 
@@ -17,8 +17,8 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 | Lane | Job | Status |
 |---|---|---|
-| Relay (benchmark) | 059 done: **pool-verify-v1 adopted** (F 35.6, bar 35.0) | Waiting for #29 to merge and the 060 brief |
-| Codex (product) | Next: switch the Action to pool-verify-v1, plus the demo repo | Prompt waits on Sunny's choice |
+| Relay (benchmark) | **060 scorer checks**, brief `briefs/060-scorer-checks.md` ([D060](decisions/D060-scorer-checks.md)): second judge Qwen3-235B, plus augmented precision | Written 2026-10-16. Start after #29 merges **and `nebiusCapUsd` is set to 5** |
+| Codex (product) | `codex-03-action-pool-verify.md`: switch the Action to pool-verify-v1 (diff and ctx reviewers in parallel, pool, verify) | Written 2026-10-16. Start after #29 merges (it imports `scripts/bench/agree-rule.ts`). Next: the demo repo (repo choice open) |
 
 ## Known problems
 
@@ -43,8 +43,8 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 - [P004](decisions/P004-target-reset.md): pitch the honest benchmark and the live product rather than "beats Greptile". Proposed, not agreed.
 - Decided 2026-10-16 (Sunny): (a) first, as 059 pool-verify-v1. Next after it: 060, augmented precision for every reviewer plus a second judge.
-- Product reviewer for the demo: the Action runs diff-v1 today. Chat recommends switching to pool-verify-v1 (2.1 comments/PR at P 36% vs 3.6 at P 26%; median $0.03 per PR). Sunny to confirm.
-- Second judge model for 060 (Sunny to pick). Chat recommends a non-Nemotron family on Token Factory.
+- Decided 2026-10-16 (Sunny): the Action switches to pool-verify-v1; the 060 second judge is Qwen3-235B-A22B-Instruct-2507; 060 covers the second judge plus augmented precision.
+- Demo repo: which repo hosts the demo PRs? Open.
 - Cal.com run: pool-verify-v1 primary. Chat recommends declaring diff-v1 and pool-raw as secondary rows in advance; they come free from the same pipeline.
 - "What changed since 26 August": TraceHound's git history starts 2026-09-30, and decisions 001–031 first appear that same day, so they were likely carried over from earlier work. Is the earlier history (FixFlow) somewhere public? Sunny to answer.
 - Own-money cap for non-Nebius comparison arms, if any are ever run.

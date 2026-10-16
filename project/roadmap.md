@@ -19,8 +19,8 @@ Also cut on 7 Oct: more repair-agent work, Nebius Sandboxes (Contree), the three
 
 | Date | Benchmark lane (relay) | Product lane (Codex) |
 |---|---|---|
-| 16 Oct | **059 pool-verify-v1** (running) | — (#28 merged) |
-| 17–18 Oct | 060 scorer fairness: augmented precision for every reviewer, plus a second judge | **Demo repo**: Action installed, real comments on real PRs; switch the Action to the winning reviewer |
+| 16 Oct | 059 pool-verify-v1: **adopted** (F 35.6) | — (#28 merged) |
+| 17–18 Oct | 060 scorer checks: second judge (Qwen3-235B) and augmented precision | Action switched to pool-verify-v1 (codex-03), then the **demo repo** |
 | 19–20 Oct | Spare, or a second precision round | Landing page section linking the demo and the benchmark tables |
 | 21–22 Oct | Spare for the weakest stage | README for judges |
 | 23 Oct | Freeze (tag), then the **one** Cal.com run | |
