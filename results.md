@@ -13,7 +13,8 @@ Every measured result, newest last. One run per row unless stated. Differences o
 | review-ctx-v1, Super | [057](decisions/D057-repo-context.md) | 133 | 21 | 37 | 4 | 71 | 53 | 36.2% | 28.4% | 31.8% | tie |
 | verify-ctx-v1, Super | [058](decisions/D058-verify-ctx.md) | 63 | 21 | 33 | 3 | 6 | 53 | 38.9% | 28.4% | 32.8% | loss by bar (35.0%) |
 | agree-diff-ctx (report only) | [058](decisions/D058-verify-ctx.md) | 33 | 15 | 11 | 2 | 5 | 59 | 57.7% | 20.3% | 30.0% | highest P |
-| pool-verify-v1, Super | [059](decisions/D059-pool-verify.md) | | | | | | | | | | running; bar F ≥ 35.0% |
+| pool-raw (report only) | [059](decisions/D059-pool-verify.md) | 243 | 38 | 117 | 10 | 78 | 36 | 24.5% | 51.4% | 33.2% | highest R of ours |
+| **pool-verify-v1, Super** | [059](decisions/D059-pool-verify.md) | 83 | 26 | 46 | 4 | 7 | 48 | 36.1% | 35.1% | **35.6%** | **adopted** (bar 35.0; one TP flip → 34.2) |
 
 ### Per repo, F (n: sentry 21, grafana 16, keycloak 18, discourse 19)
 
@@ -24,6 +25,8 @@ Every measured result, newest last. One run per row unless stated. Differences o
 | review-ctx-v1 | 28.6 | 27.3 | 40.0 | 30.3 |
 | verify-ctx-v1 | 27.0 | 20.0 | 35.9 | 43.8 |
 | agree-diff-ctx | 25.8 | 11.8 | 50.0 | 28.6 |
+| pool-raw | 30.3 | 35.3 | 27.8 | 51.4 |
+| pool-verify-v1 | 27.3 | 34.8 | 37.2 | 44.4 |
 
 Commercial tools on the same set: [competitors](benchmark/competitors.md).
 
@@ -47,6 +50,8 @@ Commercial tools on the same set: [competitors](benchmark/competitors.md).
 | review-ctx-v1, Super | $0.8313 | ~$0.021 | 47.7 s / 330.9 s |
 | verify-v1 (143 findings) | $0.19 | ~$0.005 | — |
 | verify-ctx-v1 (143 findings) | $0.3225 | ~$0.008 | 6.5 s / 31.0 s |
+| verify-ctx-v1 on 100 ctx-only findings (059) | $0.18675 | — | — |
+| **Full pool pipeline** (diff + ctx + verifier, 059) | — | median $0.0317, max $0.2308 | 100 s / 581 s (sequential) |
 | Judge, one 40-PR scoring | ~$0.026 | — | — |
 
 ## Earlier phases
