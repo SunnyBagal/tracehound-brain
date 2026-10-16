@@ -1,0 +1,33 @@
+# Glossary
+
+- **Golden comment:** a reference review comment in the benchmark, with a severity (Low, Medium, High, Critical). Only Medium or higher counts.
+- **TP / FP / FN:** a comment matching a counted golden comment / matching nothing / a counted golden comment nobody matched.
+- **dup:** a second comment matching an already-matched golden comment. Neutral.
+- **low:** a comment matching a Low golden comment. Neutral.
+- **P / R / F:** precision TP/(TP+FP), recall TP/(TP+FN), F = harmonic mean. Micro-averaged.
+- **n = 74:** golden comments of Medium or higher across the four dev repos.
+- **Dev set / test set:** sentry, grafana, keycloak, discourse (tune freely) / Cal.com (blind, one run after the freeze).
+- **Blind / blindness:** no session that builds or tunes the reviewer reads test-set content. Counts are allowed.
+- **Judge, `bench-judge-v1`:** Nemotron Super prompt that maps each review comment to a golden comment or none.
+- **Augmented precision (planned, 060):** the judge also rules on each unmatched comment against the diff, so valid findings missing from the golden set stop counting as FPs.
+- **Chunk:** a slice of a PR's diff of at most 60,000 characters; one reviewer call each.
+- **review-diff-v1:** reviewer that sees title, description and diff only (055).
+- **review-ctx-v1:** review-diff-v1 plus a repo context block per chunk (057).
+- **verify-v1:** second pass per finding, diff only, confidence 1–5 (056).
+- **verify-ctx-v1:** second pass per finding with repo context, keep or drop (058).
+- **agree-diff-ctx:** diff-v1 findings that ctx-v1 also flagged within 3 lines (058, report only).
+- **ctx-only:** ctx-v1 findings not already made by diff-v1 (059).
+- **pool-verify-v1:** diff-v1 ∪ ctx-only, filtered by verify-ctx-v1 (059).
+- **Pre-registered / adoption rule:** a threshold written before any run (e.g. F ≥ 35.0%) that decides whether a variant is adopted.
+- **Freeze commit:** rules and prompt committed and pushed before the first model call, so `git diff` proves nothing changed after.
+- **STOP AND REPORT:** the structured report every relay job posts as a PR comment and ends on.
+- **Step 0:** the checks at the start of every brief (clean tree, current main, decision numbers, inputs).
+- **Relay:** Sunny's tool that runs a Claude Code builder and a Claude Code reviewer on one brief.
+- **Lane:** a set of paths and branches owned by one agent (relay: benchmark; Codex: product).
+- **Kill test:** Grok's audit is void if it cites a file or line that doesn't exist.
+- **Evidence (graph):** file, symbol, line range, extractor, confidence behind every graph edge.
+- **proven / resolved-default / dynamic:** graph edge confidence labels.
+- **Resolved / verified at stop:** repair-run outcomes. A run is resolved if the agent finished with all gates passing; it is verified at stop if the final patch passes the gates, whatever ended the run.
+- **Held-out:** tasks or data never used for tuning; run once after a freeze.
+- **eval-freeze-2:** the git tag of the frozen repair-evaluation code.
+- **Ledger:** the per-call spend log (`pnpm spend`).

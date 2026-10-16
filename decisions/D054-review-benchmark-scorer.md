@@ -29,7 +29,7 @@ Same F ranking as Augment's published table; our judge gives higher precision fo
 ## Verdict
 - **Outcome:** win. A working, reproducible scorer.
 - **Call:** sound, with known threats that are still open:
-  1. The golden set was extended by Augment using the recorded tools' own comments. A valid new finding from TraceHound counts as a false positive. This is the biggest threat to any "beats X" claim. Answer: [059](../NOW.md), augmented precision for every reviewer.
+  1. The golden set was extended by Augment using the recorded tools' own comments. A valid new finding from TraceHound counts as a false positive. This is the biggest threat to any "beats X" claim. Answer: 060 (see [roadmap](../project/roadmap.md)), augmented precision for every reviewer.
   2. One judge with unmeasured error; small n (74 dev; the test set is smaller).
   3. The judge sees no diff, and the goldens have no location, so matching depends on wording.
   4. The goldens are broader than "merge-blocking", which our reviewer prompt asks for. That can cost recall.

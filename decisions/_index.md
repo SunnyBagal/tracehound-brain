@@ -1,6 +1,6 @@
 # Decision index
 
-Every decision in the repo's `docs/decisions.md` (the source of truth), plus the vault's own notes. A vault note exists only where we judged the decision afterwards. Process decisions made in chat (P-numbers) are not in the repo.
+Every decision in the repo's `docs/decisions.md` (the source of truth), plus the vault's own notes. For a one-paragraph summary of each decision, see the [digest](digest.md). A vault note exists only where we judged the decision afterwards. Process decisions made in chat (P-numbers) are not in the repo.
 
 ## Repo decisions
 
