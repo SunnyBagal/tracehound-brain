@@ -21,6 +21,8 @@ All numbers come from our judge on the **dev set** (40 PRs, n = 74), from `docs/
 | Copilot | 26.7% | 37.8% | 31.3% | 3.27 | 0.70 | 1.93 | 73% |
 | *TraceHound diff-v1 (055)* | 25.6% | 43.2% | 32.2% | 3.58 | 0.80 | 2.33 | 74% |
 | *TraceHound verify-ctx-v1 (058)* | 38.9% | 28.4% | 32.8% | 1.57 | 0.53 | 0.82 | 61% |
+| *TraceHound pool-raw (059)* | 24.5% | **51.4%** | 33.2% | 6.08 | 0.95 | 2.93 | 75% |
+| *TraceHound pool-verify-v1 (059, adopted)* | 36.1% | 35.1% | **35.6%** | 2.08 | 0.65 | 1.15 | 64% |
 
 "Share wrong" = FP / (TP + FP). Per-PR rates divide by 40.
 
@@ -41,6 +43,8 @@ All numbers come from our judge on the **dev set** (40 PRs, n = 74), from `docs/
 | keycloak (18) | 73.3 | 48.0 | 40.0 | 39.0 | 34.0 | 25.7 | 40.0 | 35.9 | 50.0 |
 | discourse (19) | 61.1 | 42.4 | 60.0 | 38.3 | 31.4 | **45.5** | 30.3 | 43.8 | 28.6 |
 
+pool-verify-v1 (059) per repo: sentry 27.3, grafana 34.8, keycloak 37.2, discourse 44.4.
+
 Per-repo n is 16–21, so one comment moves F by several points. Treat these as hints, never as claims.
 
 ## Where we stand, honestly
@@ -49,6 +53,7 @@ Per-repo n is 16–21, so one comment moves F by several points. Treat these as 
 - **We tie:** CodeRabbit on recall (32 TPs each).
 - **Closest to the field:** discourse, where diff-v1 (45.5) is above CodeRabbit, Copilot and Cursor. A per-repo hint only.
 - **After 058, our wrong comments per PR (0.82) equal Greptile's.** The noise problem is mostly solved. The gap to Greptile is now real defects found: 0.53 vs 0.88 per PR. **The bottleneck has moved from precision to recall**, which is why 059 widens the candidate pool.
+- **059:** the raw pool (diff-v1 plus ctx-only) reaches **51.4% recall, above Greptile (47.3), CodeRabbit (43.2), Cursor and Copilot**; only Augment (55.4) is higher. The defects are in our candidates. The filter is what loses them: pool-verify-v1 keeps 26 of 38 TPs and lands at F 35.6. That's above Copilot and below CodeRabbit (41.0).
 - **Far behind:** Augment and Cursor on precision, and Augment on everything.
 
 ## Published claims (they disagree)

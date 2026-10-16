@@ -6,7 +6,7 @@ Every measured result, newest last. One run per row unless stated. Differences o
 
 | Reviewer | Decision | comments | TP | FP | dup | low | FN | P | R | F | Verdict |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| review-diff-v1, Super | [055](decisions/D055-diff-only-baseline.md) | 143 | 32 | 93 | 8 | 10 | 42 | 25.6% | 43.2% | 32.2% | baseline, current default |
+| review-diff-v1, Super | [055](decisions/D055-diff-only-baseline.md) | 143 | 32 | 93 | 8 | 10 | 42 | 25.6% | 43.2% | 32.2% | baseline; what the Action runs today |
 | review-diff-v1, Nano | [055](decisions/D055-diff-only-baseline.md) | 66 | 16 | 47 | 2 | 1 | 58 | 25.4% | 21.6% | 23.4% | Nano too weak |
 | verify-v1, threshold 1 (pre-set rule) | [056](decisions/D056-verify-v1.md) | 143 | 32 | 93 | | | 42 | 25.6% | 43.2% | 32.2% | loss: keeps everything |
 | verify-v1, thresholds 2–5 (after the fact) | [056](decisions/D056-verify-v1.md) | | | | | | | → 44.4% | → 21.6% | 32.1 / 31.2 / 29.2 / 29.1% | F falls as P rises |

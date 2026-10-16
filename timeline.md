@@ -24,7 +24,7 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 
 - **2026-10-14** Disclosure of who saw Recall's bugs (#21, [D053](decisions/D053-recall-disclosure.md)). Codex and Grok lanes set up ([P002](decisions/P002-lanes-and-tools.md)). Relay per-run Nebius cap set to $3.
 - **2026-10-15** Scorer and judge (#22, [D054](decisions/D054-review-benchmark-scorer.md)). Diff-only baseline, F 32.2% (#23, [D055](decisions/D055-diff-only-baseline.md)). Verifier v1 loss (#24, [D056](decisions/D056-verify-v1.md)). Grok's first audit passes the kill test ([P003](decisions/P003-grok-kill-test.md)). GitHub Action (#25). Repo context ties, F 31.8% (#26, [D057](decisions/D057-repo-context.md)). Context verifier F 32.8%, below the 35.0% bar, but it separates TPs from FPs (#27, [D058](decisions/D058-verify-ctx.md)). This vault started.
-- **2026-10-16** Action fixes, Codex review rules, lockfile fix (#28). Sunny picks pooling before scorer fairness. **059 pool-verify-v1 started** ([D059](decisions/D059-pool-verify.md)).
+- **2026-10-16** Action fixes, Codex review rules, lockfile fix (#28). Sunny picks pooling before scorer fairness. 059 pool-verify-v1: **F 35.6%, first variant over a pre-set bar, adopted**. The raw pool reaches 51.4% recall (PR #29, [D059](decisions/D059-pool-verify.md)).
 
 ## Ahead
 

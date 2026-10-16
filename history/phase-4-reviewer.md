@@ -14,7 +14,7 @@ Each step names the problem it attacked. Dev set: 40 PRs, n = 74. Numbers are P 
 | 057 | review-ctx-v1: reviewer sees repo context | 36.2 / 28.4 / 31.8 | tie, flawed brief | Context makes the generator timid; references mostly cut by the budget |
 | 058 | verify-ctx-v1: context used only to judge | 38.9 / 28.4 / **32.8**; kept 22/32 TPs, 31/93 FPs | loss by bar (35.0), sound | Separates well, but the pool has too few TPs |
 | 058 | agree-diff-ctx (report only) | 57.7 / 20.3 / 30.0 | — | Highest precision, lowest recall |
-| 059 | pool-verify-v1: diff-v1 ∪ ctx-only → verify-ctx-v1 | running | — | — |
+| 059 | pool-verify-v1: diff-v1 ∪ ctx-only → verify-ctx-v1 | 36.1 / 35.1 / **35.6**; pool-raw recall 51.4 | **win by bar**, adopted for the freeze | Margin within noise; verifier drops 12 of 38 TPs |
 
 Product side, in parallel (Codex): GitHub Action (#25), head recheck, example workflow `@main`, Codex review rules in AGENTS.md, lockfile fix (#28).
 

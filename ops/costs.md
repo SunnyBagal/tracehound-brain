@@ -20,9 +20,11 @@ All Nebius spend is hackathon credit, recorded in the ledger (`.tracehound/spend
 | after 056 (15 Oct) | $10.41140 | 054 judge validation, 055 baseline, 056 verifier |
 | after 057 | $11.26866 | +$0.85726 (reviewer $0.83130, judge $0.02596) |
 | after 058 | $11.60211 | +$0.33345 (verifier $0.32254, judge $0.01091) |
-| after 059 | — | expected under $1 |
+| after 059 | $11.81728 | +$0.21517 (verifier $0.18675, judge $0.02842) |
 
 Headroom: about $33 of the $45 total cap.
+
+Product pipeline (pool-verify-v1, 059): median $0.0317, max $0.2308 per PR.
 
 ## Unit costs (from results docs)
 

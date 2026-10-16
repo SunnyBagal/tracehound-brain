@@ -35,4 +35,4 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 
 ## Open or not merged
 
-- None as of 2026-10-16 15:30 IST. 059 (relay) is expected to open the next PR.
+- [#29](https://github.com/SunnyBagal/TraceHound/pull/29) `build/059-pool-verify`, head `0fe0019`: 059 pool-verify-v1, adoption rule met. Checked by chat 2026-10-16; ready to merge.
