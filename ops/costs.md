@@ -2,13 +2,18 @@
 
 All Nebius spend is hackathon credit, recorded in the ledger (`.tracehound/spend.jsonl`, `pnpm spend`). **Prices in `config/prices.json` are third-party estimates, not confirmed in the Nebius console**, so every figure here is an estimate.
 
+## Real balance
+
+- **2026-10-17: $46.22 left in the Nebius Token Factory console** (Sunny). The local ledger shows $12.45 spent. Its prices are third-party estimates, so the console figure is the truth.
+- **GitHub Action runs (dogfood, demo) spend from the same key but are not in the local ledger.** Each run starts with a fresh `.tracehound/`. Check the console after demo days.
+
 ## Caps
 
 | Cap | Value | Where |
 |---|---|---|
-| Per-run (code default) | $1 | `TRACEHOUND_BUDGET_RUN_USD` |
-| Total (code) | $45 | `TRACEHOUND_BUDGET_TOTAL_USD` |
-| Per relay run | $3 (set 14 Oct) | `~/Projects/tracehound-ops/ops/lanes.json` line 11, `nebiusCapUsd` |
+| Per-process (code default) | $1; 062's commands set **$15** in their own environment | `TRACEHOUND_BUDGET_RUN_USD` |
+| Total (code) | $45 default; **raise to $52** in `~/Projects/TraceHound/.env` (2026-10-17) | `TRACEHOUND_BUDGET_TOTAL_USD`. Ledger $12.45 + $39.5 headroom; leaves about $6.7 of the real balance for Action runs and price error |
+| Per relay run | 3 (14 Oct) → 5 (060) → **15 for 062** | `~/Projects/tracehound-ops/ops/lanes.json` line 11, `nebiusCapUsd` |
 | Relay's Claude spend per run | $30 | relay config (reported in relay output) |
 
 ## Ledger over time (cumulative)
@@ -23,7 +28,17 @@ All Nebius spend is hackathon credit, recorded in the ledger (`.tracehound/spend
 | after 059 | $11.81728 | +$0.21517 (verifier $0.18675, judge $0.02842) |
 | after 060 | $12.45236 | +$0.63508 (Qwen judge $0.0757, Super validity $0.3983, Qwen validity $0.1610) |
 
-Headroom: about $33 of the $45 total cap.
+Headroom: about $33 of the $45 total cap; about $39.5 once the total cap is raised to $52.
+
+## Spending plan (2026-10-17)
+
+| Item | Cap |
+|---|---|
+| 062: Cal.com run 1 (primary) plus both judges | $6 |
+| 062: Cal.com runs 2–3 (spread) | $5 |
+| 062: dev runs 2–3 (spread) | $4 |
+| GitHub Action: dogfood + 5 demo PRs + judges' window to 15 Dec | about $3 real (not in the ledger) |
+| Unallocated buffer | about $25 (no new arms planned; a post-hackathon ReviewBench run is a candidate) |
 
 Product pipeline (pool-verify-v1, 059): median $0.0317, max $0.2308 per PR.
 

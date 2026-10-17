@@ -22,8 +22,8 @@ pr:
 - **Primary:** pool-verify-v1.
 - **Declared secondaries:** review-diff-v1 and pool-raw, from the same pipeline. Plus the five tools.
 - **Scorer:** bench-judge-v1 is the scorer of record; bench-judge-x1 is reported alongside. No validity check.
-- **Runs:** one run. One rerun is allowed only for an infrastructure failure, and the original is kept.
-- **Predictions** are written before the run and scored afterwards. Cap $5.
+- **Runs:** Cal.com run 1 is the pre-registered headline. Runs 2–3 on Cal.com and runs 2–3 on dev measure run-to-run spread, with response-cache reads off. They were added 2026-10-17 because the balance is $46. One rerun is allowed only for an infrastructure failure, and the original is kept.
+- **Predictions** are written before the run and scored afterwards. Cap $15 (run 1 is never cut).
 
 ## Verdict
 Pending (after 062).

@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-16 19:35 IST
+updated: 2026-10-17 14:50 IST
 updated_by: chat
 ---
 
@@ -9,19 +9,15 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- TraceHound main: `c70e931` (merge of #29, 059).
-- **Open, checked by chat 2026-10-16 19:10 IST:**
-  - **#30** Codex: Action switched to pool-verify-v1, head `813f22f`. Diff checked; CI not visible to the chat, so look at the Checks tab.
-  - **#31** relay 060 scorer checks, head `89c77fd`, freeze `b98f014`, CI green. Report only.
-  - The two touch disjoint files. Merge both.
+- TraceHound main: `f437ecb` (#30 Action on pool-verify-v1 and #31 060 merged 2026-10-16/17). No open PRs.
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
-- Nebius ledger: $12.45236 of $45. `nebiusCapUsd` = 5 (set for 060).
+- Nebius: **console balance $46.22** (2026-10-17); ledger $12.45236. Caps: total → $52 in .env, per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
 
 ## In flight
 
 | Lane | Job | Status |
 |---|---|---|
-| Relay | **061 test plan** (`briefs/061-test-plan.md`): pre-register the Cal.com run and write the run code, no model calls | Written 2026-10-16. Start after #31 merges. Then 062 executes the plan (cap $5) |
+| Relay | **061 test plan** (`briefs/061-test-plan.md`): pre-register the Cal.com run and write the run code, no model calls | Written 2026-10-16. Revised 2026-10-17 to add repeat runs (spread). #31 is merged, so it can start now. Then 062 executes the plan (cap $15) |
 | Codex | **codex-04** dogfood + demo: TraceHound reviews its own PRs; `SunnyBagal/tracehound-demo` (Recall @ `57d920e`) with the 4 seeded dev bugs plus 1 control PR | Written 2026-10-16. Needs: #30 merged, `NEBIUS_API_KEY` secret in both repos, empty demo repo created |
 | Grok | R1–R3 filed ([research](research/README.md)) | All 15 checked citations real |
 
