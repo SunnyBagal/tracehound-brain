@@ -22,7 +22,7 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 | Grok | R1–R3 filed ([research](research/README.md)) | All 15 checked citations real |
 
 | Codex queue | **codex-05** fix pnpm setup → re-run 5 demo PRs + dogfood #32; then **codex-06** fix suggestions + review-data footer | codex-05 sent 2026-10-17 |
-| UI lane (P006) | **ui-01** viewer round 1 (no dev clutter, fresh snapshots, expandable nodes, inline code) in ~/Projects/TraceHound-ui, plain Claude Code session; then ui-02 dashboard + PR overlay + benchmark page | ui-01 sent 2026-10-17 |
+| UI lane (P006) | **ui-01** viewer round 1 (no dev clutter, fresh snapshots, expandable nodes, inline code) in ~/Projects/TraceHound-ui, plain Claude Code session; then ui-02 dashboard + PR overlay + benchmark page | ui-01 + addendum (kind colours, Super one-line summaries) sent 2026-10-17 |
 
 ## Known problems
 

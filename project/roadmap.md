@@ -36,6 +36,19 @@ Also cut on 7 Oct: more repair-agent work, Nebius Sandboxes (Contree), the three
 - If the verifier lowers dev F: ship without it and say so. **Triggered by 056; 058 missed the bar.**
 - If no variant clears F 35%: freeze review-diff-v1 and run it on Cal.com as is.
 
+## Product backlog (Sunny, 2026-10-17), in priority order
+
+| # | Feature | Where | When |
+|---|---|---|---|
+| 1 | **Kind colours + legend; one-line node summaries (Super, facts only, Sunny checks)** | UI lane, ui-01 addendum | now |
+| 2 | **Persistent graph per commit and per PR.** The Action also runs the analyzer: on push to main it writes a snapshot; on each PR it writes a change set (`tracehound changes`, base..head). Both go to an orphan branch `tracehound-data` in the target repo. The viewer reads them from raw.githubusercontent.com, giving history, a PR overlay, and "merged → moves to history". No server. TS repos only (analyzer limit) | Codex (codex-07, after 06) + UI (ui-02) | 20–22 Oct |
+| 3 | **File-level view:** expand a component into its most-used files as child nodes (ranked by importers and routes), the rest in a dropdown. Viewer-side, from snapshot file facts; no analyzer change needed | UI lane | ui-02/03 |
+| 4 | **Flow trace** ("login → … → final execution"): pick a route; the route pops out of its parent node; follow resolved declaration-level calls (change-set call edges, decision 038) node to node, each step lit, with evidence code | UI + analyzer (after the Cal.com run unfreezes analyzer src) | if time 24–26 Oct, else after |
+| 5 | **Other providers** (Claude, OpenAI/Codex, Grok) behind one provider interface. Token Factory and local servers (Ollama, LM Studio, vLLM) are OpenAI-compatible; Anthropic needs an adapter. **Bring your own model + see its benchmark score** reuses the scorer | analyzer `llm/` | after 30 Oct (hackathon rule: Nemotron is the engine) |
+| 6 | **Local models** to review PRs and explain a codebase offline | same interface, local endpoint | after 30 Oct |
+| 7 | Review memory: learn which findings a repo dismisses | Action + data branch | after 30 Oct |
+| 8 | Search / command palette, minimap, evidence on edge hover | UI | when time allows |
+
 ## After the hackathon (graph roadmap from CLAUDE.md, parked)
 
 API (Fastify) + Postgres (Drizzle) + BullMQ jobs; more extractors (Kafka, fetch/axios between services, tRPC, Next routes); snapshot diffing across commits. The graph-guided repair agent is parked after [D050](../decisions/D050-graph-did-not-help.md).
