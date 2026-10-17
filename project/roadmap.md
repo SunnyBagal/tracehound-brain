@@ -20,10 +20,12 @@ Also cut on 7 Oct: more repair-agent work, Nebius Sandboxes (Contree), the three
 | Date | Benchmark lane (relay) | Product lane (Codex) |
 |---|---|---|
 | 16 Oct | 059 pool-verify-v1: **adopted** (F 35.6) | — (#28 merged) |
-| 17–18 Oct | 060 scorer checks: second judge (Qwen3-235B) and augmented precision | Action switched to pool-verify-v1 (codex-03), then the **demo repo** |
-| 19–20 Oct | Spare, or a second precision round | Landing page section linking the demo and the benchmark tables |
+| 16 Oct (late) | 060 done: judges agree; validity check too lenient | #30 Action on pool-verify-v1 |
+| 17 Oct | 061 test plan: pre-registration and run code, no model calls | codex-04: dogfood on TraceHound + seeded-bug demo repo |
+| 18–19 Oct | 062: tag `review-freeze-1`, then the one Cal.com run | Demo results |
+| 20 Oct | Results doc | Landing page section linking the demo and the benchmark tables |
 | 21–22 Oct | Spare for the weakest stage | README for judges |
-| 23 Oct | Freeze (tag), then the **one** Cal.com run | |
+| 23 Oct | Spare (the freeze moved to 18–19 Oct) | |
 | 24–25 Oct | Results doc; Grok audit before anything goes public | |
 | 26 Oct | Devpost write-up, FEEDBACK.md cleanup, "what changed since 26 Aug" | |
 | 27–29 Oct | Video under 3 minutes; submit 29 Oct | |

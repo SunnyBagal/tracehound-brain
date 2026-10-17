@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-16 19:15 IST
+updated: 2026-10-16 19:35 IST
 updated_by: chat
 ---
 
@@ -21,8 +21,8 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 | Lane | Job | Status |
 |---|---|---|
-| Relay | 060 done (report only) | Waiting for #31 to merge and the next brief (Sunny to choose: freeze now, or one more verifier round) |
-| Codex | #30 done | Next: the demo repo (repo choice open) |
+| Relay | **061 test plan** (`briefs/061-test-plan.md`): pre-register the Cal.com run and write the run code, no model calls | Written 2026-10-16. Start after #31 merges. Then 062 executes the plan (cap $5) |
+| Codex | **codex-04** dogfood + demo: TraceHound reviews its own PRs; `SunnyBagal/tracehound-demo` (Recall @ `57d920e`) with the 4 seeded dev bugs plus 1 control PR | Written 2026-10-16. Needs: #30 merged, `NEBIUS_API_KEY` secret in both repos, empty demo repo created |
 | Grok | R1–R3 filed ([research](research/README.md)) | All 15 checked citations real |
 
 ## Known problems
@@ -36,7 +36,7 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 |---|---|---|
 | 16 Oct | 059 done (adopted) | #28 merged |
 | 17–18 Oct | 060 scorer fairness: augmented precision plus a second judge | Demo repo with the action installed and real review comments (the judges' working demo); switch the action to the reviewer that wins |
-| 19–20 Oct | Spare, or a second precision round | Landing page section linking the demo and the benchmark tables |
+| 20 Oct | Results doc (moved earlier) | Landing page section linking the demo and the benchmark tables |
 | 21–22 Oct | Spare for the weakest stage | README for judges |
 | 23 Oct | Freeze (tag), then the one Cal.com run | |
 | 24–25 Oct | Results doc; Grok audit before anything goes public | |
@@ -48,7 +48,7 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 - [P004](decisions/P004-target-reset.md): pitch the honest benchmark and the live product rather than "beats Greptile". Proposed, not agreed.
 - Decided 2026-10-16 (Sunny): (a) first, as 059 pool-verify-v1. Next after it: 060, augmented precision for every reviewer plus a second judge.
 - Decided 2026-10-16 (Sunny): the Action switches to pool-verify-v1; the 060 second judge is Qwen3-235B-A22B-Instruct-2507; 060 covers the second judge plus augmented precision.
-- Demo repo: which repo hosts the demo PRs? Open.
+- Decided 2026-10-16 (Sunny): **stop tuning, freeze now**; demo on **both** TraceHound itself (dogfood) and a seeded-bug demo repo.
 - Cal.com run: pool-verify-v1 primary. Chat recommends declaring diff-v1 and pool-raw as secondary rows in advance; they come free from the same pipeline.
 - "What changed since 26 August": TraceHound's git history starts 2026-09-30, and decisions 001–031 first appear that same day, so they were likely carried over from earlier work. Is the earlier history (FixFlow) somewhere public? Sunny to answer.
 - Own-money cap for non-Nebius comparison arms, if any are ever run.

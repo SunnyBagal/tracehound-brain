@@ -66,6 +66,7 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | 058 | Context-aware verifier, verify-ctx-v1 (PR #27) | [D058-verify-ctx](D058-verify-ctx.md) |
 | 059 | Pooled candidates filtered by the context verifier, pool-verify-v1 (adopted, PR #29) | [D059-pool-verify](D059-pool-verify.md) |
 | 060 | Scorer checks: second judge Qwen3-235B and augmented precision (report only, PR #31) | [D060-scorer-checks](D060-scorer-checks.md) |
+| 061 | Pre-registered Cal.com run plan and run code (brief written) | [D061-test-plan](D061-test-plan.md) |
 
 ## Process decisions (chat, not in the repo)
 
@@ -75,3 +76,4 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | P002 | Lanes: relay for the benchmark, Codex for the product, Grok for audits (2026-10-14/15) | [P002-lanes-and-tools](P002-lanes-and-tools.md) |
 | P003 | Grok kill test: every audit finding must cite a real file and line | [P003-grok-kill-test](P003-grok-kill-test.md) |
 | P004 | Pitch the honest benchmark and the live product, not "beats Greptile" (proposed 2026-10-15) | [P004-target-reset](P004-target-reset.md) |
+| P005 | Demo: dogfood on TraceHound + seeded-bug demo repo (2026-10-16) | [P005-demo-dogfood](P005-demo-dogfood.md) |
