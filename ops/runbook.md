@@ -8,7 +8,8 @@
 | **Relay** (Claude Code builder + reviewer) | Benchmark lane, one job at a time, in `~/Projects/TraceHound`; branches `build/*`, `docs/*`; posts STOP AND REPORT as a PR comment | Touches Codex paths or AGENTS.md; merges its own PR. (Relay's reviewer can't run `gh`, so it can't see CI) |
 | **Codex** (ChatGPT Plus) | Product lane in `~/Projects/TraceHound-codex`; branches `codex/*`; owns `.github/actions/`, `packages/action/`, `docs/action/`, `docs/demo/`. Also automatic PR review on GitHub (rules in AGENTS.md `## Code Review Rules`) | Touches benchmark data or relay paths |
 | **Grok** (Premium) | No code. Audits each results doc after merge; X posts; video script. Fresh chat each time | Sees Cal.com data or the chat's discussion |
-| **Sunny** | Merges; runs relay and Codex; decides | — |
+| **UI lane** (plain Claude Code session) | `viewer/`, `snapshots/`, `changesets/`, `impacts/`, `configs/`, `docs/ui/` in worktree `~/Projects/TraceHound-ui`, branches `ui/*` | Touches `packages/analyzer/src/` (frozen), bench, action or Codex paths |
+| **Sunny** | Merges; runs relay, Codex and the UI session; decides | — |
 
 **Grok kill test:** every audit finding must cite a file and line that exist. One invented citation means Grok is dropped and the audit is rerun in a fresh ChatGPT chat ([P003](../decisions/P003-grok-kill-test.md)).
 

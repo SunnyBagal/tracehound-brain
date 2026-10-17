@@ -30,6 +30,17 @@ pr:
 ## Why
 Sunny: the current site looks like a repo visualizer. No visible bugs, no fix button, so it reads as slop. Judges may score from the video and site alone (R3).
 
-## Open
-- Sunny's list of the UI changes he wants.
-- Which worker builds the dashboard: a separate Claude Code session in a third worktree, or Codex after codex-06.
+## UI feedback (Sunny, 2026-10-17, from screenshots)
+- The "toy cart" (a repair-harness test fixture) shows in the public repo switcher. Remove it.
+- Recall's orphan warnings point at deleted files, because the snapshot @ `5d2165a` is stale. Regenerate it at main.
+- The SHA copy chip is unclear. Replace it with "main @ sha · date · N behind".
+- Canvas nodes should expand to show their contents (routes on the API node, and so on).
+- The inspector's Summary and Stack are cramped. Routes and files should expand to show code inline, keeping the GitHub link.
+- **Later:** a live execution-flow trace (login → … → final execution, each node lit).
+- Dashboard flow confirmed: Landing → pick repo → PR list with bug counts → PR page (bug cards, fix diff, "Commit fix on GitHub", affected component lit) → Benchmark page.
+- New: open PRs overlaid on the graph showing affected nodes; merged PRs leave the overlay and stay in a history log.
+
+## Plan
+- **ui-01** (2026-10-17): the cleanup, fresh snapshots (plus a tracehound-demo snapshot), expandable nodes, readable inspector, inline code.
+- **ui-02** (after codex-06 merges): reviews dashboard, PR overlay plus history, benchmark page.
+- **Worker:** a plain Claude Code session in the worktree ~/Projects/TraceHound-ui, branches `ui/*`, as a third lane.
