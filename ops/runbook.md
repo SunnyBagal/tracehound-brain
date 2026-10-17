@@ -8,7 +8,7 @@
 | **Relay** (Claude Code builder + reviewer) | Benchmark lane, one job at a time, in `~/Projects/TraceHound`; branches `build/*`, `docs/*`; posts STOP AND REPORT as a PR comment | Touches Codex paths or AGENTS.md; merges its own PR. (Relay's reviewer can't run `gh`, so it can't see CI) |
 | **Codex** (ChatGPT Plus) | Product lane in `~/Projects/TraceHound-codex`; branches `codex/*`; owns `.github/actions/`, `packages/action/`, `docs/action/`, `docs/demo/`. Also automatic PR review on GitHub (rules in AGENTS.md `## Code Review Rules`) | Touches benchmark data or relay paths |
 | **Grok** (Premium) | No code. Audits each results doc after merge; X posts; video script. Fresh chat each time | Sees Cal.com data or the chat's discussion |
-| **UI lane** (plain Claude Code session) | `viewer/`, `snapshots/`, `changesets/`, `impacts/`, `configs/`, `docs/ui/` in worktree `~/Projects/TraceHound-ui`, branches `ui/*` | Touches `packages/analyzer/src/` (frozen), bench, action or Codex paths |
+| **UI lane** (Codex GPT Sol 6.1 since 17 Oct; was planned as a Claude Code session) | `viewer/`, `snapshots/`, `changesets/`, `impacts/`, `configs/`, `docs/ui/` in worktree `~/Projects/TraceHound-ui`, branches `ui/*` | Touches `packages/analyzer/src/` (frozen), bench, action or Codex paths |
 | **Sunny** | Merges; runs relay, Codex and the UI session; decides | — |
 
 **Grok kill test:** every audit finding must cite a file and line that exist. One invented citation means Grok is dropped and the audit is rerun in a fresh ChatGPT chat ([P003](../decisions/P003-grok-kill-test.md)).
@@ -34,6 +34,7 @@
 - The GIT_* env check; `pnpm test` and `pnpm typecheck` in a plain shell; stage by explicit path; open a PR and never merge it; one fix attempt on red CI.
 - Cal.com blind; counts only in messages; no destructive git; a spend cap.
 - A STOP AND REPORT list, posted as a PR comment.
+- **Small real commits** (Sunny, 17 Oct): one commit per logical step, each passing its tests; messages `area: what changed`. No empty, "wip" or padding commits. Merge PRs with **Create a merge commit** so every commit lands on main (a squash collapses them to one).
 
 ## How the chat checks a PR
 

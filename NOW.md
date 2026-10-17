@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-17 17:30 IST
+updated: 2026-10-17 22:10 IST
 updated_by: chat
 ---
 
@@ -15,15 +15,15 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## In flight
 
+#33 (061 + 061a) and #34 (pnpm pin) **merged by Sunny on 17 Oct, about 22:00 IST**, both with merge commits (Sunny's report; the next chat verifies on GitHub).
+
 | Lane | Job | Status |
 |---|---|---|
-| Relay | **061 + 061a**, PR [#33](https://github.com/SunnyBagal/TraceHound/pull/33), head `81d0147`, CI green, $0 | Checked by chat 17 Oct: clean. **Merge with a merge commit** |
-| Relay next | **062** Cal.com run (`062-test-run.md`, revised 17 Oct: uses #33's merge commit M even if main moves; checks the dogfood workflow isn't on main) | After #33 merges, `nebiusCapUsd` = 15, #32 unmerged, no other Nebius use |
-| Codex | **codex-05**, PR [#34](https://github.com/SunnyBagal/TraceHound/pull/34), head `50e1d4a`: pnpm `version: 11.20.0` + manifest test | Checked by chat 17 Oct: clean (2 files). **Merge with a merge commit** (the demo and dogfood pin `50e1d4a`; a squash would orphan it). All 7 Action runs now succeed |
-| Codex | #32 dogfood workflow + demo doc | **Hold until 062's PR is done.** Merging it makes every TraceHound PR call Nebius |
-| Codex queue | codex-06 fix suggestions → codex-07 data branch | after #34 merges; codex-06's Action runs must not overlap 062 |
-| UI lane (P006) | ui-01 + addendum | Super naming pass ($0.20) must finish before 062 |
-| Grok | **grok-04** X post draft (dev results, 5th of 6, demo 2/4) | Sent 17 Oct; post Mon 19 Oct. Add Cal.com numbers only if 062's results doc has merged |
+| Relay | **062** Cal.com run (`briefs/062-test-run.md`, cap $15): fetches → tag `review-freeze-1` on #33's merge commit → Cal.com run 1 (headline) → runs 2–3 → dev runs 2–3 → results doc | Starting 17 Oct night. Needs `nebiusCapUsd` = 15, #32 unmerged, no other Nebius use. Takes hours |
+| UI lane | **ui-01-codex.md**: round 1 + addendum merged, now **Codex GPT Sol 6.1** in ~/Projects/TraceHound-ui, branch `ui/viewer-round-1` | Starting 17 Oct night. No Nebius until Sunny writes "062 is done"; step 9 (Super summaries, $0.20) comes after |
+| Codex | #32 dogfood workflow + demo doc | **Hold until 062's PR is done** |
+| Codex queue | codex-06 fix suggestions → codex-07 data branch (persistence) | after 062 (its Action runs use Nebius) |
+| Grok | grok-04 X post draft | Post Mon 19 Oct; Cal.com numbers only once 062's results doc has merged and the chat has checked it |
 
 ## Known problems
 
