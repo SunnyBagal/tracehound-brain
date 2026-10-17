@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-17 · Codex got codex-06 before codex-05 existed
+- **What:** two Codex prompts went out the same day, and 06 was pasted first. Its step 0 ("the pnpm pin is merged") caught it and stopped at $0.
+- **Kept:** a step 0 that checks the previous job has merged. It worked.
+- **Changed:** NOW lists the next prompt per lane, and the chat names the exact file to paste each time.
+
 ### 2026-10-17 · A risk named on day one was never tested, and the demo was built on it
 - **What:** on 15 Oct the chat named `package_json_file: ${{ github.action_path }}/../../../package.json` as "the most likely thing to break on a real run". No live smoke test was scheduled. #25, #28 and #30 merged with unit tests only. Then all 7 runs in the dogfood and demo setup (codex-04) failed in that step: "No pnpm version is specified", because pnpm resolves the path against the target repo.
 - **Cost:** one Codex cycle and a day of the demo schedule. $0 of Nebius, since it failed before any model call.

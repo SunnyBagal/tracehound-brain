@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-17 16:10 IST
+updated: 2026-10-17 16:40 IST
 updated_by: chat
 ---
 
@@ -11,18 +11,18 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 - TraceHound main: `f437ecb` (#30 Action on pool-verify-v1 and #31 060 merged 2026-10-16/17). No open PRs.
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
-- Nebius: **console balance $46.22** (2026-10-17); ledger $12.45236. Caps: total → $52 in .env, per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
+- Nebius: **console balance $46.22** (2026-10-17); ledger $12.45236. Caps: total stays at the $45 default (ledger + $15 fits; decided 17 Oct), per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
 
 ## In flight
 
 | Lane | Job | Status |
 |---|---|---|
-| Relay | **061 test plan** (`briefs/061-test-plan.md`): pre-register the Cal.com run and write the run code, no model calls | Written 2026-10-16. Revised 2026-10-17 to add repeat runs (spread). #31 is merged, so it can start now. Then 062 executes the plan (cap $15) |
-| Codex | **codex-04** dogfood + demo: TraceHound reviews its own PRs; `SunnyBagal/tracehound-demo` (Recall @ `57d920e`) with the 4 seeded dev bugs plus 1 control PR | Written 2026-10-16. Needs: #30 merged, `NEBIUS_API_KEY` secret in both repos, empty demo repo created |
-| Grok | R1–R3 filed ([research](research/README.md)) | All 15 checked citations real |
-
-| Codex queue | **codex-05** fix pnpm setup → re-run 5 demo PRs + dogfood #32; then **codex-06** fix suggestions + review-data footer | codex-05 sent 2026-10-17 |
-| UI lane (P006) | **ui-01** viewer round 1 (no dev clutter, fresh snapshots, expandable nodes, inline code) in ~/Projects/TraceHound-ui, plain Claude Code session; then ui-02 dashboard + PR overlay + benchmark page | ui-01 + addendum (kind colours, Super one-line summaries) sent 2026-10-17 |
+| Relay | **061 test plan**, PR [#33](https://github.com/SunnyBagal/TraceHound/pull/33) (head `a01f0c6`, CI green, $0) | Checked by chat 17 Oct: clean. **Not merged yet.** Amend first with **061a** (one restart for a crashed run, only before any score exists; fetches before the freeze tag; annotated tag; total cap stays $45; no other Nebius calls during 062). Then merge #33 with a merge commit |
+| Relay next | **062** Cal.com run (`062-test-run.md`, cap $15) | Written 17 Oct. Send only after #33 merges and `nebiusCapUsd` = 15, with no other Nebius use running |
+| Codex | **codex-05** fix pnpm setup → re-run 5 demo PRs + dogfood #32 | **Not started yet.** codex-06 was sent first by mistake, and its step 0 stopped it ($0). Send codex-05 now; it must finish its Action runs before 062 starts |
+| Codex queue | codex-06 fix suggestions + review-data footer → codex-07 data branch (persistence) | after codex-05 merges |
+| UI lane (P006) | **ui-01** + addendum in ~/Projects/TraceHound-ui | Its Super naming pass ($0.20) must finish before 062 starts |
+| Grok | G1 audit passed, G2 script filed | Next: verify X handles for the 19 Oct post |
 
 ## Known problems
 

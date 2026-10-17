@@ -12,7 +12,7 @@ All Nebius spend is hackathon credit, recorded in the ledger (`.tracehound/spend
 | Cap | Value | Where |
 |---|---|---|
 | Per-process (code default) | $1; 062's commands set **$15** in their own environment | `TRACEHOUND_BUDGET_RUN_USD` |
-| Total (code) | $45 default; **raise to $52** in `~/Projects/TraceHound/.env` (2026-10-17) | `TRACEHOUND_BUDGET_TOTAL_USD`. Ledger $12.45 + $39.5 headroom; leaves about $6.7 of the real balance for Action runs and price error |
+| Total (code) | **$45 default, kept** (17 Oct: ledger $12.45 + $15 for 062 fits; the earlier plan to raise it to $52 was dropped) | `TRACEHOUND_BUDGET_TOTAL_USD`. Leaves about $14 of the real balance for Action runs and price error |
 | Per relay run | 3 (14 Oct) → 5 (060) → **15 for 062** | `~/Projects/tracehound-ops/ops/lanes.json` line 11, `nebiusCapUsd` |
 | Relay's Claude spend per run | $30 | relay config (reported in relay output) |
 
@@ -28,7 +28,7 @@ All Nebius spend is hackathon credit, recorded in the ledger (`.tracehound/spend
 | after 059 | $11.81728 | +$0.21517 (verifier $0.18675, judge $0.02842) |
 | after 060 | $12.45236 | +$0.63508 (Qwen judge $0.0757, Super validity $0.3983, Qwen validity $0.1610) |
 
-Headroom: about $33 of the $45 total cap; about $39.5 once the total cap is raised to $52.
+Headroom: about $32.5 of the $45 total cap.
 
 ## Spending plan (2026-10-17)
 

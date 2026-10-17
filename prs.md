@@ -35,6 +35,6 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 
 ## Open or not merged
 
-- [#30](https://github.com/SunnyBagal/TraceHound/pull/30) `codex/action-pool-verify`, head `813f22f`: Action runs pool-verify-v1. Checked by chat 2026-10-16.
-- [#31](https://github.com/SunnyBagal/TraceHound/pull/31) `build/060-scorer-checks`, head `89c77fd`: 060 scorer checks (report only). Checked by chat 2026-10-16.
-- #29 merged as `c70e931` (2026-10-16).
+- [#33](https://github.com/SunnyBagal/TraceHound/pull/33) `build/061-test-plan`, head `a01f0c6`: 061 Cal.com test plan and runner (not run). Checked by chat 2026-10-17; amend with 061a, then merge.
+- [#32](https://github.com/SunnyBagal/TraceHound/pull/32) `codex/dogfood`, head `063451b`: dogfood workflow plus demo results (all runs failed on pnpm). Waits for codex-05.
+- #30 and #31 merged (main `f437ecb`).
