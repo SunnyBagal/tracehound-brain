@@ -8,4 +8,14 @@ External research, mostly from Grok, checked by the chat before filing. A report
 | R2 | AI code review market, benchmarks, developer complaints, judge self-preference | README, Devpost write-up, results-doc framing, 060 limits | **Filed** ([R2](R2-market-benchmarks.md)); 5/5, two small overreaches noted |
 | R3 | Hackathon rules fine print, other submissions, winning demos | Demo repo and video plan | **Filed** ([R3](R3-hackathon-demo.md)); 5/5 |
 
-Prompt: `grok-02-research.md` (owner's Downloads). Blindness: Grok is told never to open `ai-code-review-evaluations` or Cal.com PR material.
+| G1 | Audit of results docs 058–060 | Integrity of the published numbers | **Passed** 2026-10-17: no findings; 6/6 cited lines checked |
+| G2 | Video script, first draft (placeholders for results) | Video, 27–29 Oct | Filed below; needs revising for the dashboard and fix button |
+
+Prompts: `grok-02-research.md`, `grok-03-audit-and-script.md` (owner's Downloads). Blindness: Grok is told never to open `ai-code-review-evaluations` or Cal.com PR material.
+
+
+## G2 · Video script draft (Grok, 2026-10-17)
+
+The draft runs about 2:40. It names Token Factory and Nemotron at 0:18 and at the close, and puts results in placeholders (`[TEST-SET F]`, `[RANK OF 6]`, `[DEMO: N OF 4 SEEDED BUGS CAUGHT]`, `[CONTROL PR COMMENTS]`).
+- **Shots:** problem (noise) → Action on Nemotron via Token Factory → two-reviewer + verifier diagram → demo PR with a seeded bug caught; control PR quiet → verifier keeps 69% of real findings / a third of false ones → benchmark table with placeholders → about 3¢ per PR, open source → close.
+- **To revise:** add the dashboard (bug cards, graph pin) and a "Commit suggestion" click. Lead with a demo-first opening.

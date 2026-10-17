@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-17 · A risk named on day one was never tested, and the demo was built on it
+- **What:** on 15 Oct the chat named `package_json_file: ${{ github.action_path }}/../../../package.json` as "the most likely thing to break on a real run". No live smoke test was scheduled. #25, #28 and #30 merged with unit tests only. Then all 7 runs in the dogfood and demo setup (codex-04) failed in that step: "No pnpm version is specified", because pnpm resolves the path against the target repo.
+- **Cost:** one Codex cycle and a day of the demo schedule. $0 of Nebius, since it failed before any model call.
+- **Changed:** a named risk gets a test that would catch it before anything is built on top. The fix PR (codex-05) adds a test that fails if `package_json_file` returns, and checks the version against the root `packageManager`. Every Action change now gets a live run on the demo repo, pinned to the branch sha, before merge.
+
 ### 2026-10-15 · CI green does not mean the lockfile is current
 - **What:** #25 added `packages/action` without a lockfile importer. CI's `--frozen-lockfile` passed, but relay's local `pnpm install` during 058 rewrote `pnpm-lock.yaml`. Relay restored it by hand.
 - **Cost:** none yet. The next relay step 0 would fail on a dirty tree.

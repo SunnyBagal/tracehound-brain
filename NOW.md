@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-17 14:50 IST
+updated: 2026-10-17 15:40 IST
 updated_by: chat
 ---
 
@@ -21,10 +21,15 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 | Codex | **codex-04** dogfood + demo: TraceHound reviews its own PRs; `SunnyBagal/tracehound-demo` (Recall @ `57d920e`) with the 4 seeded dev bugs plus 1 control PR | Written 2026-10-16. Needs: #30 merged, `NEBIUS_API_KEY` secret in both repos, empty demo repo created |
 | Grok | R1–R3 filed ([research](research/README.md)) | All 15 checked citations real |
 
+| Codex queue | **codex-05** fix pnpm setup → re-run 5 demo PRs + dogfood #32; then **codex-06** fix suggestions + review-data footer | codex-05 sent 2026-10-17 |
+| Dashboard (P006) | Reviews dashboard, no backend | Waiting for Sunny's UI change list; worker to be chosen |
+
 ## Known problems
 
 - **Codex automatic review** has posted nothing on #27–#31. Check the Review trigger, or comment `@codex review`.
-- **No live reviewer demo yet**, and judges may score from the video and text alone (R3). The video and README matter as much as the demo.
+- **All 7 Action runs failed (17 Oct):** pnpm setup can't find a version in other repos. Fix: codex-05 (`version: 11.20.0`).
+- **No live reviewer demo yet**, and judges may score from the video and text alone (R3).
+- **X post planned for Monday 19 Oct** (benchmark thread; tags to verify).
 
 ## Schedule
 
