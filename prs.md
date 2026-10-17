@@ -34,8 +34,9 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 | [#28](https://github.com/SunnyBagal/TraceHound/pull/28) | 2026-10-16 | `c34b2ed` | `codex/action-fixes` | Codex | action: head recheck, example ref, Codex review rules |
 | [#33](https://github.com/SunnyBagal/TraceHound/pull/33) | 2026-10-17 | `6b4276e` | `build/061-test-plan` | relay | bench: Cal.com plan + runner + one restart (061, 061a) |
 | [#34](https://github.com/SunnyBagal/TraceHound/pull/34) | 2026-10-17 | `e7309a5` | `codex/fix-action-pnpm` | Codex | action: pin pnpm for external runs |
+| [#35](https://github.com/SunnyBagal/TraceHound/pull/35) | 2026-10-18 | `3113c3a` | `ui/viewer-round-1` | UI (Codex Sol) | viewer round 1: no dev clutter, fresh snapshots, kinds, expand, inline code |
 
 ## Open or not merged
 
-- [#35](https://github.com/SunnyBagal/TraceHound/pull/35) `ui/viewer-round-1`, head `acc5752`: viewer round 1 (no dev clutter, fresh snapshots, kind colours + legend, expandable nodes, inline code). Checked by chat 2026-10-18; OK to merge with a merge commit. Step 9 → new branch.
-- [#32](https://github.com/SunnyBagal/TraceHound/pull/32) `codex/dogfood`, head `063451b`: dogfood workflow + seeded demo doc. Hold until 062 is done.
+- [#36](https://github.com/SunnyBagal/TraceHound/pull/36) `build/062-test-run`, head `9c0624f`: 062 Cal.com result. Checked by chat 2026-10-18 (tables recomputed, freeze ok, blind ok, CI green). Merge commit.
+- [#32](https://github.com/SunnyBagal/TraceHound/pull/32) `codex/dogfood`, head `bbe8991` (re-pinned to `50e1d4a`; same-repo PRs only): dogfood workflow + seeded demo doc. Merge after #36. Note: its runs spend Nebius from GitHub, outside the local ledger.

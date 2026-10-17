@@ -2,6 +2,15 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-18 · A 4-hour model batch ran as a background command inside the relay session
+- **What:** the 062 brief (written by chat) didn't say how to launch the runs. The builder ran items 2–3 as one background shell command, and the session's 2-hour limit killed it at dev run 2, PR 30 of 40. The run was restarted as 2r (061a), so dev run 3 then hit the $4 cap at PR 16 of 40.
+- **Cost:** $1.44 of Nebius with no score; the dev spread has 2 runs, not 3.
+- **Changed:** any model batch over about 60 minutes is launched detached (`nohup … &` with its own log), and the brief says so. The session then polls `run.json`. The chat's progress commands count *files* (`find -type f`), not folders: `ls | wc -l` counted repo folders twice on 18 Oct.
+
+### 2026-10-18 · The 062 brief's tag check peeled the tag
+- **What:** step 0 expected `eval-freeze-2^{commit}` to print `acefcf9`, but that is the tag object; the commit is `b5cafde`. The builder handled it correctly and reported a deviation.
+- **Changed:** check annotated tags with `git rev-parse TAG` (object) **and** `TAG^{commit}` (target), and name both.
+
 ### 2026-10-17 · Codex got codex-06 before codex-05 existed
 - **What:** two Codex prompts went out the same day, and 06 was pasted first. Its step 0 ("the pnpm pin is merged") caught it and stopped at $0.
 - **Kept:** a step 0 that checks the previous job has merged. It worked.

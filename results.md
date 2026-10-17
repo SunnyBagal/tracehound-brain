@@ -79,3 +79,20 @@ Commercial tools on the same set: [competitors](benchmark/competitors.md).
 - **Study S1, BullMQ on 10 unseen repos:** pairing rate 2.1% (4 of 179 producers), one false edge. Both kill criteria met. [phase 1](history/phase-1-graph.md)
 - **Naming audit (1 Oct):** Recall had 5 of 7 summaries wrong, CEX 2 of 7.
 - **Agent toy gate:** agent-v2, graph off, 2 of 5 (needed 4 of 5). v4 diagnostics: reasoning on 5/5, off 4/5.
+
+## Blind test: Cal.com (decision 062, pre-registered in 061; 10 PRs, n = 23; frozen at `review-freeze-1`)
+
+| Reviewer | F run 1, v1 (scorer of record) | F run 1, x1 | Rank run 1/2/3, v1 | Rank run 1/2/3, x1 |
+|---|---|---|---|---|
+| Augment | 73.2 | 73.2 | 1 | 1 |
+| Cursor | 66.7 | 66.7 | 2 | 2 |
+| **pool-verify-v1** | **58.3** (P 56.0, R 60.9) | 58.3 | **3 / 3 / 3** (58.3, 51.3, 52.8) | **3 / 3 / 5** (58.3, 57.1, 47.3) |
+| Greptile | 50.0 | 55.0 | — | — |
+| Copilot | 46.2 | 50.8 | — | — |
+| CodeRabbit | 36.7 | 37.5 | — | — |
+| review-diff-v1 (ours) | 53.8 | 60.0 | | |
+| pool-raw (ours) | 51.6 | 56.1 | | |
+
+- The tools were judged once on recorded reviews; our rows were run 3 times.
+- Predictions: (a) above review-diff-v1, right under v1 but reversed under x1; (b) 5th, **wrong** (3rd); (c) outside 30.6–40.6%, right.
+- **Dev spread:** pool-verify-v1 v1 F 35.6 (059) → 48.0 (2r). At temperature 0, run-to-run noise is larger than every margin the reviewer was chosen on. Dev run 3 was not done (cap).
