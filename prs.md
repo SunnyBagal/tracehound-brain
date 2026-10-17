@@ -35,6 +35,6 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 
 ## Open or not merged
 
-- [#33](https://github.com/SunnyBagal/TraceHound/pull/33) `build/061-test-plan`, head `a01f0c6`: 061 Cal.com test plan and runner (not run). Checked by chat 2026-10-17; amend with 061a, then merge.
-- [#32](https://github.com/SunnyBagal/TraceHound/pull/32) `codex/dogfood`, head `063451b`: dogfood workflow plus demo results (all runs failed on pnpm). Waits for codex-05.
-- #30 and #31 merged (main `f437ecb`).
+- [#33](https://github.com/SunnyBagal/TraceHound/pull/33) `build/061-test-plan`, head `81d0147` (061 + 061a): Cal.com plan, runner, one-restart rule. Checked by chat 2026-10-17. Merge commit.
+- [#34](https://github.com/SunnyBagal/TraceHound/pull/34) `codex/fix-action-pnpm`, head `50e1d4a`: pin pnpm 11.20.0 in the Action + manifest test. Checked by chat 2026-10-17. Merge commit (pinned by sha in demo and dogfood).
+- [#32](https://github.com/SunnyBagal/TraceHound/pull/32) `codex/dogfood`, head `063451b`: dogfood workflow + seeded demo doc. Hold until 062 is done.

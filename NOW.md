@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-17 16:40 IST
+updated: 2026-10-17 17:30 IST
 updated_by: chat
 ---
 
@@ -17,17 +17,18 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 | Lane | Job | Status |
 |---|---|---|
-| Relay | **061 test plan**, PR [#33](https://github.com/SunnyBagal/TraceHound/pull/33) (head `a01f0c6`, CI green, $0) | Checked by chat 17 Oct: clean. **Not merged yet.** Amend first with **061a** (one restart for a crashed run, only before any score exists; fetches before the freeze tag; annotated tag; total cap stays $45; no other Nebius calls during 062). Then merge #33 with a merge commit |
-| Relay next | **062** Cal.com run (`062-test-run.md`, cap $15) | Written 17 Oct. Send only after #33 merges and `nebiusCapUsd` = 15, with no other Nebius use running |
-| Codex | **codex-05** fix pnpm setup → re-run 5 demo PRs + dogfood #32 | **Not started yet.** codex-06 was sent first by mistake, and its step 0 stopped it ($0). Send codex-05 now; it must finish its Action runs before 062 starts |
-| Codex queue | codex-06 fix suggestions + review-data footer → codex-07 data branch (persistence) | after codex-05 merges |
-| UI lane (P006) | **ui-01** + addendum in ~/Projects/TraceHound-ui | Its Super naming pass ($0.20) must finish before 062 starts |
-| Grok | G1 audit passed, G2 script filed | Next: verify X handles for the 19 Oct post |
+| Relay | **061 + 061a**, PR [#33](https://github.com/SunnyBagal/TraceHound/pull/33), head `81d0147`, CI green, $0 | Checked by chat 17 Oct: clean. **Merge with a merge commit** |
+| Relay next | **062** Cal.com run (`062-test-run.md`, revised 17 Oct: uses #33's merge commit M even if main moves; checks the dogfood workflow isn't on main) | After #33 merges, `nebiusCapUsd` = 15, #32 unmerged, no other Nebius use |
+| Codex | **codex-05**, PR [#34](https://github.com/SunnyBagal/TraceHound/pull/34), head `50e1d4a`: pnpm `version: 11.20.0` + manifest test | Checked by chat 17 Oct: clean (2 files). **Merge with a merge commit** (the demo and dogfood pin `50e1d4a`; a squash would orphan it). All 7 Action runs now succeed |
+| Codex | #32 dogfood workflow + demo doc | **Hold until 062's PR is done.** Merging it makes every TraceHound PR call Nebius |
+| Codex queue | codex-06 fix suggestions → codex-07 data branch | after #34 merges; codex-06's Action runs must not overlap 062 |
+| UI lane (P006) | ui-01 + addendum | Super naming pass ($0.20) must finish before 062 |
+| Grok | **grok-04** X post draft (dev results, 5th of 6, demo 2/4) | Sent 17 Oct; post Mon 19 Oct. Add Cal.com numbers only if 062's results doc has merged |
 
 ## Known problems
 
 - **Codex automatic review** has posted nothing on #27–#31. Check the Review trigger, or comment `@codex review`.
-- **All 7 Action runs failed (17 Oct):** pnpm setup can't find a version in other repos. Fix: codex-05 (`version: 11.20.0`).
+- **Demo (17 Oct, pin `50e1d4a`):** the reviewer commented on the seeded line in 2 of 4 demo PRs (#2, #3), missed #1 and #4, and posted 0 comments on the control (#5). Dogfood #32: 1 comment.
 - **No live reviewer demo yet**, and judges may score from the video and text alone (R3).
 - **X post planned for Monday 19 Oct** (benchmark thread; tags to verify).
 
