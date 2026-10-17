@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-18 03:40 IST
+updated: 2026-10-18 04:05 IST
 updated_by: chat
 ---
 
@@ -9,7 +9,7 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- TraceHound main: `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). Open: **#36** (062 results, checked by chat, merge with a merge commit), #32 (merge after #36).
+- TraceHound main: `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 dogfood → `e95ef20` (merged 18 Oct; the dogfood ran OK on #37 with 0 comments). Open: **#37** (UI summaries, $0.001: 1 summary per repo plus Super names; OK to merge), **#38** draft (codex-06 fix suggestions: the live check exercised nothing → `codex-06b-live-check.md`).
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
 - Nebius: **console balance $46.22** (2026-10-17); ledger $12.45236. Caps: total stays at the $45 default (ledger + $15 fits; decided 17 Oct), per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
 
