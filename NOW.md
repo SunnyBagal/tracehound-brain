@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-17 22:10 IST
+updated: 2026-10-18 00:20 IST
 updated_by: chat
 ---
 
@@ -9,13 +9,16 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- TraceHound main: `f437ecb` (#30 Action on pool-verify-v1 and #31 060 merged 2026-10-16/17). No open PRs.
+- TraceHound main: `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. Open: #32 (hold), #35 (UI round 1, checked, OK to merge).
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
 - Nebius: **console balance $46.22** (2026-10-17); ledger $12.45236. Caps: total stays at the $45 default (ledger + $15 fits; decided 17 Oct), per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
 
 ## In flight
 
-#33 (061 + 061a) and #34 (pnpm pin) **merged by Sunny on 17 Oct, about 22:00 IST**, both with merge commits (Sunny's report; the next chat verifies on GitHub).
+#33 and #34 merged with merge commits: **verified on GitHub 18 Oct**.
+
+- **#35** `ui/viewer-round-1` head `acc5752`, 18 commits: checked by chat 18 Oct. Lane paths only; $0 Nebius; no deps; snapshots at Recall `20ac149` and demo `efc5844` = their mains; CI green (the prisma annotation comes from the analyzer fixture and was already there). One red intermediate commit (`f6df5a9`), disclosed. Nits go to ui-02: edge labels collide, titles truncate, "1 modules". Step 9 now goes to a **new branch** via `ui-01b-after-062.md`.
+- **062 running**: relay shows `tracehound/025 … run 21, cycle 1 of 6` at 00:00. The tag step was done at 22:14. Expected 4–6 h in total (10 Cal.com PRs ×3 plus 40 dev PRs ×2, about 100 s median per PR serially, plus judging).
 
 | Lane | Job | Status |
 |---|---|---|

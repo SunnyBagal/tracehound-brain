@@ -32,9 +32,10 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 | [#26](https://github.com/SunnyBagal/TraceHound/pull/26) | 2026-10-15 | `5ee7677` | `build/057-context` | relay | review: repository context reviewer review-ctx-v1 (057) |
 | [#27](https://github.com/SunnyBagal/TraceHound/pull/27) | 2026-10-15 | `7a92b88` | `build/058-ctx-verify` | relay | review: context-aware verifier verify-ctx-v1 (058) |
 | [#28](https://github.com/SunnyBagal/TraceHound/pull/28) | 2026-10-16 | `c34b2ed` | `codex/action-fixes` | Codex | action: head recheck, example ref, Codex review rules |
+| [#33](https://github.com/SunnyBagal/TraceHound/pull/33) | 2026-10-17 | `6b4276e` | `build/061-test-plan` | relay | bench: Cal.com plan + runner + one restart (061, 061a) |
+| [#34](https://github.com/SunnyBagal/TraceHound/pull/34) | 2026-10-17 | `e7309a5` | `codex/fix-action-pnpm` | Codex | action: pin pnpm for external runs |
 
 ## Open or not merged
 
-- [#33](https://github.com/SunnyBagal/TraceHound/pull/33) `build/061-test-plan`, head `81d0147` (061 + 061a): Cal.com plan, runner, one-restart rule. Checked by chat 2026-10-17. Merge commit.
-- [#34](https://github.com/SunnyBagal/TraceHound/pull/34) `codex/fix-action-pnpm`, head `50e1d4a`: pin pnpm 11.20.0 in the Action + manifest test. Checked by chat 2026-10-17. Merge commit (pinned by sha in demo and dogfood).
+- [#35](https://github.com/SunnyBagal/TraceHound/pull/35) `ui/viewer-round-1`, head `acc5752`: viewer round 1 (no dev clutter, fresh snapshots, kind colours + legend, expandable nodes, inline code). Checked by chat 2026-10-18; OK to merge with a merge commit. Step 9 → new branch.
 - [#32](https://github.com/SunnyBagal/TraceHound/pull/32) `codex/dogfood`, head `063451b`: dogfood workflow + seeded demo doc. Hold until 062 is done.
