@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 00:15 IST
+updated: 2026-10-19 01:40 IST
 updated_by: chat
 ---
 
@@ -9,9 +9,9 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- **TraceHound main: `c6c12b9` (verified 19 Oct 00:05, #44 merge).** Older: main `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). #38 → `41a92a8` and #39 → `6058d53` (both merged by Sunny 18 Oct ~20:25, merge commits; #38 before codex-06c, by accident; harmless: suggestions work, #2's just isn't committable). #40 merged (`e4e3e3a`).
+- **TraceHound main: `2af8c3a` (verified 19 Oct 00:40, #43 merged by Sunny).** Before that `c6c12b9` (#44 merge). Older: main `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). #38 → `41a92a8` and #39 → `6058d53` (both merged by Sunny 18 Oct ~20:25, merge commits; #38 before codex-06c, by accident; harmless: suggestions work, #2's just isn't committable). #40 merged (`e4e3e3a`).
   Open:
-  - **#43** codex-07 data branch, head **`19ece32`** (12 commits; ur-01 fixes on top of `d733a6a`). **Re-checked by chat 19 Oct 00:10:** source diff read against ur-01; #1 merge-base diff, #2 monotonic latest + state rank, #3 ref-lock retry, #4/#8 split `git`/`branchGit` from `cleanGitEnv()`, #9/#10 last-line footer + JSON temp file all match; #5 backlog line; #6/#7 example split into review (cancel-in-progress) and data (serialized, only `contents: write`) jobs. Action tests 153/153 and typecheck re-run locally; merges cleanly with main `c6c12b9`. `max-comments: '0'` returns before any GitHub/Nebius call (verified in `action.ts`). Accepted departures: reopened → open; #5 own commit; extra re-run row. **Merge once CI run 39154292617 is green** (in progress at 00:10). Residuals, backlog only: a manual re-run of an old `reopened` after a later close flips the entry back to open; a late event for a new head after close adds an open entry; dropped pending data jobs can leave a closed PR `open` (documented); the split example records no `reviewFooter` (viewer doesn't read it today; ui-03 must not depend on it). Dogfood pin still `e4e3e3a`.
+  - **#43** codex-07 data branch, head **`19ece32`** (12 commits; ur-01 fixes on top of `d733a6a`). **Re-checked by chat 19 Oct 00:10:** source diff read against ur-01; #1 merge-base diff, #2 monotonic latest + state rank, #3 ref-lock retry, #4/#8 split `git`/`branchGit` from `cleanGitEnv()`, #9/#10 last-line footer + JSON temp file all match; #5 backlog line; #6/#7 example split into review (cancel-in-progress) and data (serialized, only `contents: write`) jobs. Action tests 153/153 and typecheck re-run locally; merges cleanly with main `c6c12b9`. `max-comments: '0'` returns before any GitHub/Nebius call (verified in `action.ts`). Accepted departures: reopened → open; #5 own commit; extra re-run row. **Merged 19 Oct** (`2af8c3a`). Residuals, backlog only: a manual re-run of an old `reopened` after a later close flips the entry back to open; a late event for a new head after close adds an open entry; dropped pending data jobs can leave a closed PR `open` (documented); the split example records no `reviewFooter` (viewer doesn't read it today; ui-03 must not depend on it). Dogfood pin still `e4e3e3a`.
   - **#44** ui-02 dashboard: **merged** (main `c6c12b9`, verified 19 Oct 00:05). Re-sync `viewer/lib/benchmark.ts` after the R6 wording fixes land (it still shows "3rd").
   - #41 (cc-01 audit) and #42 (ReviewBench spike) are drafts; their content feeds later jobs. Next relay: **064 voting across runs** (`064-vote.md`, cap $10, dev only, PR as draft). Next Codex: `codex-06c-deleted-lines.md` (rewritten against main, new branch `codex/fix-committable`).
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
@@ -82,6 +82,20 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 - `git -C ~/Projects/TraceHound status --porcelain` prints nothing.
 - The caps match the brief.
 - Never rerun a brief whose PR is already open.
+
+## v2 architecture (19 Oct, proposed, Sunny to approve)
+
+See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → S2 contract map → S3 generators → S4 vote → S5 evidence verifier → S6 post-gate → S7 deliver → S8 learn. Freeze-2 is on 24 Oct, followed by **one** blind Cal.com run of v2. **065 is not run alone.** Ultrareview #2 moves to the int-01 branch. Codex and UI end 22 Oct; Claude B (the second subscription) takes integration and UI.
+
+| Lane | File (prompts/2026-10-19/) | Where | Status |
+|---|---|---|---|
+| Codex | `codex-08-gate.md` | ChatGPT Codex, `~/Projects/TraceHound-codex`, new task | ready |
+| Claude cloud | `cc-03-contracts.md` | claude.ai/code, new session on SunnyBagal/TraceHound | ready |
+| Grok | `grok-07-competitors-learning.md` | Grok, fresh chat | ready |
+| Relay | 064 (in flight) → 066 verifier v2 | — | 066 written after 064's output |
+| Cloud | cc-04 seeded cross-file test (Linea + Recall), a separate session blind to cc-03 | — | written 20 Oct |
+| Codex | codex-09 learning (S8) | — | written after codex-08 |
+| Claude B | int-01 integration (`th-v2` in the Action) | `~/Projects/TraceHound-claude2` | 22 Oct |
 
 ## Prompt queue (18 Oct 21:45). Every lane busy, no path overlaps
 
