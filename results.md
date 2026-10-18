@@ -96,3 +96,16 @@ Commercial tools on the same set: [competitors](benchmark/competitors.md).
 - The tools were judged once on recorded reviews; our rows were run 3 times.
 - Predictions: (a) above review-diff-v1, right under v1 but reversed under x1; (b) 5th, **wrong** (3rd); (c) outside 30.6–40.6%, right.
 - **Dev spread:** pool-verify-v1 v1 F 35.6 (059) → 48.0 (2r). At temperature 0, run-to-run noise is larger than every margin the reviewer was chosen on. Dev run 3 was not done (cap).
+
+## All 50 PRs combined (dev + Cal.com run 1, bench-judge-v1, n = 97). Chat's computation 18 Oct, from the published counts
+
+| Reviewer | TP | FP | P | R | F | Rank |
+|---|---|---|---|---|---|---|
+| Augment | 56 | 16 | 77.8 | 57.7 | 66.3 | 1 |
+| Cursor | 42 | 17 | 71.2 | 43.3 | 53.8 | 2 |
+| Greptile | 45 | 40 | 52.9 | 46.4 | 49.5 | 3 |
+| **TraceHound pool-verify-v1** | 40 | 57 | 41.2 | 41.2 | **41.2** | **4** |
+| CodeRabbit | 41 | 67 | 38.0 | 42.3 | 40.0 | 5 |
+| Copilot | 43 | 104 | 29.3 | 44.3 | 35.2 | 6 |
+
+Tools' dev TP/FP are back-computed from P/R with n = 74; Greptile's matches `context.md` exactly. This is the number a critic will compute. TraceHound's dev part was tuned on (4 variants), so it is not a clean test either.
