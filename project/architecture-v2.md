@@ -89,7 +89,7 @@ Each lane declares this type locally. The integration job unifies them into `pac
 ## 3. Measurement (where selection bias could fool us)
 - **Deterministic stages are evaluated for $0 on recorded dev outputs** (S1, S6 and the S4 vote need no model calls). Their rules are written before anyone looks at the dev scores, and builders never see bench data.
 - S5 is a new prompt, so it gets a pre-registered dev test (relay 065).
-- **Don't run 065 alone.** Every Cal.com run is another look at the test set. Do one look at the full v2 pipeline after freeze-2.
+- **No standalone Cal.com run after 064** (it lost anyway). Every Cal.com run is another look at the test set. Do one look at the full v2 pipeline after freeze-2.
 - **Freeze-2: 24 Oct.** Then exactly one blind Cal.com run of v2 (stated as the second look at that set), plus the all-50 table under both judges.
 - **Seeded cross-file test** on Linea and Recall (cc-04, below), pre-registered, with seeds written by a session that never sees the cc-03 code. It includes clean controls and compile-clean semantic breaks, so tsc alone can't ace it. Where free tiers allow it, competitors run on the same PRs (grok-07 finds out which ones can).
 - ReviewBench 60 (R7) stays optional; it needs Anthropic API credit for the judge.
