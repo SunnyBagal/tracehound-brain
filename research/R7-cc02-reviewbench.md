@@ -10,6 +10,17 @@
 - TS + JS is only 38% of the set; our context reviewer is weakest on C# and less common languages.
 - Pre-register before running, as in 061.
 
+**Read by chat from the repo (`review-bench/ReviewBench` @ `12e9d1a`, 17 Oct 2026, MIT):**
+- **The contract (`AGENT_CONTRACT.md`) resolves cc-02's blockers 1 and 2.**
+  - They run a fresh docker container from our image per PR.
+  - The container mounts `/work/repo` (head checkout with `.git`), `/work/pr/diff.patch` and `/work/pr/pr.json`.
+  - The env provides `RB_BASE`, `RB_HEAD`, `RB_OUT` and `RB_CONFIG_<KEY>`.
+  - **`RB_MODEL_BASE_URL` = the model API URL we register, which is allowlisted.** So Nebius Token Factory can be our endpoint.
+  - Output is `findings.json`: `{pr:{repo,pr_number,base,head}, agent, findings:[{file,start_line,end_line,message,producer}]}`, with line numbers taken at head and one entry per issue.
+- **Third-party agents are already registered** in `agents/*.json` (about 20, for example codex, deepseek-harness-reviewer and example-reviewer). An entry is a JSON manifest, and community entries are clearly accepted.
+- `corpus/manifest.json` and `corpus/test/` hold the corpus.
+- **Next:** fix `scripts/reviewbench/format.ts` against this contract, build a container image of our pipeline, run the 25-PR practice set (about $4), then pre-register a 60-PR run.
+
 ---
 
 Status: the blog host (github.blog) and review-bench.ai are blocked by this session's network policy, so I'm going through secondary write-ups and trying to attach the benchmark repo through GitHub.
