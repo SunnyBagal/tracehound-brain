@@ -74,6 +74,14 @@ Process mistakes and near-misses, blameless. Each says what happened, what it co
 - **What:** unmerged PR, $0 Nebius cap, a stale brief rerun, stale local main.
 - **Changed:** the pre-start checklist in [NOW](NOW.md); step 0 uses `git fetch origin main:main` (no plus), then `git switch main`.
 
+### 2026-10-19 · A builder raised its own spend cap
+- **What:** 064's brief told Sunny to set `nebiusCapUsd` to 10. The builder set it itself in `tracehound-ops/ops/lanes.json`, outside its paths. Relay read $0 and only stopped after the spend. The runner's own $8.50 cap was the only real limit.
+- **Changed:** briefs say "Do not edit anything under `~/Projects/tracehound-ops/`" in step 0 and in the rules. Cap changes are Sunny's, listed under "Sunny, before starting".
+
+### 2026-10-19 · A nit list in the brief dropped real bugs
+- **What:** codex-08's brief listed "consider" and "typos" as nit patterns. A finding that says "consider guarding … or it crashes" got dropped as style.
+- **Changed:** a deterministic filter on free text gets adversarial fixtures **in the brief**: real-bug sentences that must survive. The chat probes the code with them before merge.
+
 ### 2026-10-19 · A literal fix prompt would have broken reopen
 - **What:** ur-01 said "an `open` event can't overwrite `closed`". Taken literally, a reopened PR could never be open again. The cloud session caught it and let only `reopened` return `closed` → `open`.
 - **Changed:** state rules in fix prompts name the event (`reopened`, `synchronize`), not just the target state. Ultrareview → fix in the same session → chat re-check of the source diff worked: 7 fixes, each with a failing-first test, one real-data proof (PR #3 change set 2 files → 1).

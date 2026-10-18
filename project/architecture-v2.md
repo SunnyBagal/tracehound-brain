@@ -41,9 +41,9 @@ The gap to the top two is **precision**, not recall. Across all 50 PRs, we post 
    │  contract findings, deterministic (no LLM)         [new: cc-03]
    │  contract-v1 specialist (Super, sees contract map) [later: relay, only if S2b finds dependents]
    │
- S4 Agreement vote across N samples                     [064, in flight]
+ S4 Agreement vote across N samples                     [DROPPED: 064 lost; P up, R down, 5× cost]
    │
- S5 Evidence verifier v2 ("prove it or drop it")        [new: relay 066]
+ S5 Evidence verifier v2 ("prove it or drop it")        [new: relay 065]
    │  must return: verdict, ≥1 exact quote with path:line, a concrete failure
    │  scenario, severity, category
    │
@@ -88,7 +88,7 @@ Each lane declares this type locally. The integration job unifies them into `pac
 
 ## 3. Measurement (where selection bias could fool us)
 - **Deterministic stages are evaluated for $0 on recorded dev outputs** (S1, S6 and the S4 vote need no model calls). Their rules are written before anyone looks at the dev scores, and builders never see bench data.
-- S5 is a new prompt, so it gets a pre-registered dev test (relay 066).
+- S5 is a new prompt, so it gets a pre-registered dev test (relay 065).
 - **Don't run 065 alone.** Every Cal.com run is another look at the test set. Do one look at the full v2 pipeline after freeze-2.
 - **Freeze-2: 24 Oct.** Then exactly one blind Cal.com run of v2 (stated as the second look at that set), plus the all-50 table under both judges.
 - **Seeded cross-file test** on Linea and Recall (cc-04, below), pre-registered, with seeds written by a session that never sees the cc-03 code. It includes clean controls and compile-clean semantic breaks, so tsc alone can't ace it. Where free tiers allow it, competitors run on the same PRs (grok-07 finds out which ones can).
@@ -106,7 +106,7 @@ Linea is **smaller**, not bigger: 111 files, about 14k lines including lockfiles
 
 | Lane | Tool | Strength used | Jobs |
 |---|---|---|---|
-| Relay | Claude Code, `~/Projects/tracehound-ops` → `~/Projects/TraceHound` | Long, careful, pre-registered benchmark jobs | 064 (now) → 066 verifier v2 → 067 dev ablation of v2 → freeze-2 → 068 blind run |
+| Relay | Claude Code, `~/Projects/tracehound-ops` → `~/Projects/TraceHound` | Long, careful, pre-registered benchmark jobs | 064 (lost) → 065 evidence verifier + gate → 066 dev ablation of v2 → freeze-2 → 067 blind run |
 | Codex | ChatGPT Codex, `~/Projects/TraceHound-codex` (**ends 22 Oct**) | Fast, bounded, test-heavy modules | codex-08 gate (19–20) → codex-09 learning (21–22) |
 | UI | Codex GPT Sol 6.1, `~/Projects/TraceHound-ui` (**ends 22 Oct**) | Frontend | Sunny's UI changes |
 | Claude B (new subscription) | Claude Code, `~/Projects/TraceHound-claude2` (a new worktree) | Second builder | the integration job `int-01` (22–23): wires S1–S8 into the Action as reviewer `th-v2`; takes over UI after 22 Oct |
@@ -114,7 +114,7 @@ Linea is **smaller**, not bigger: 111 files, about 14k lines including lockfiles
 | Grok | Grok Premium, fresh chat | Live web research with links | grok-07 (now); the final audit (26 Oct) |
 | Planning chat | here | Checks every PR, keeps the brain | — |
 
-**Path guard (new):** codex-08 owns `packages/analyzer/src/gate/`; cc-03 owns `packages/analyzer/src/contracts/`; relay 066 owns `packages/analyzer/src/review/verify-evidence*`; codex-09 owns `packages/analyzer/src/learn/` and `packages/action/src/learn.ts`; int-01 owns `packages/action/src/pipeline.ts`, `reviewer.ts`, `action.ts` and `candidate.ts`. Each lane adds **one line** to `bin.ts`; that's the expected merge conflict.
+**Path guard (new):** codex-08 owns `packages/analyzer/src/gate/`; cc-03 owns `packages/analyzer/src/contracts/`; relay 065 owns `packages/analyzer/src/review/verify-evidence*`; codex-09 owns `packages/analyzer/src/learn/` and `packages/action/src/learn.ts`; int-01 owns `packages/action/src/pipeline.ts`, `reviewer.ts`, `action.ts` and `candidate.ts`. Each lane adds **one line** to `bin.ts`; that's the expected merge conflict.
 
 ## 6. Ultrareviews (2 left): proposed change
 - **#2 → the int-01 branch**, not the 064 branch. int-01 decides what gets posted on other people's PRs and produces the headline number. 064 is scoring scripts whose tables the chat recomputes anyway.
@@ -125,12 +125,12 @@ Linea is **smaller**, not bigger: 111 files, about 14k lines including lockfiles
 | Day | Relay | Codex / UI | Claude B | Cloud | Grok |
 |---|---|---|---|---|---|
 | Mon 19 | 064 finishes | codex-08 gate · UI | (set up the worktree) | cc-03 contracts | grok-07 |
-| Tue 20 | 066 verifier v2 (dev) | codex-08 PR · UI | — | cc-03 PR; cc-04 seeds | — |
-| Wed 21 | 066 | codex-09 learning · UI | — | — | — |
+| Tue 20 | 065 evidence verifier + gate (dev) | codex-08 PR · UI | — | cc-03 PR; cc-04 seeds | — |
+| Wed 21 | 065 | codex-09 learning · UI | — | — | — |
 | Thu 22 | gate+vote on dev ($0) | codex-09 PR (**last Codex day**) | int-01 starts | — | — |
 | Fri 23 | — | — | int-01 PR → Ultrareview #2 | — | — |
-| Sat 24 | 067 ablation → **freeze-2** | — | UI | — | — |
-| Sun 25 | 068 blind Cal.com + all-50; seeded test run | — | UI | — | — |
+| Sat 24 | 066 ablation → **freeze-2** | — | UI | — | — |
+| Sun 25 | 067 blind Cal.com + all-50; seeded test run | — | UI | — | — |
 | Mon 26 | results + judges' README (R6 fixes) | — | — | — | audit |
 | 27–28 | — | — | Devpost, video | Ultrareview #3 | — |
 | Thu 29 | **submit** | | | | |

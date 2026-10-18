@@ -67,6 +67,7 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | 059 | Pooled candidates filtered by the context verifier, pool-verify-v1 (adopted, PR #29) | [D059-pool-verify](D059-pool-verify.md) |
 | 060 | Scorer checks: second judge Qwen3-235B and augmented precision (report only, PR #31) | [D060-scorer-checks](D060-scorer-checks.md) |
 | 061 | Pre-registered Cal.com run plan and run code (brief written) | [D061-test-plan](D061-test-plan.md) |
+| 064 | Vote across 5 dev runs: a loss; 5-run spread 35.6–48.0 F (PR #46) | repo `docs/decisions.md#064` |
 
 ## Process decisions (chat, not in the repo)
 

@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 01:40 IST
+updated: 2026-10-19 03:45 IST
 updated_by: chat
 ---
 
@@ -15,7 +15,7 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
   - **#44** ui-02 dashboard: **merged** (main `c6c12b9`, verified 19 Oct 00:05). Re-sync `viewer/lib/benchmark.ts` after the R6 wording fixes land (it still shows "3rd").
   - #41 (cc-01 audit) and #42 (ReviewBench spike) are drafts; their content feeds later jobs. Next relay: **064 voting across runs** (`064-vote.md`, cap $10, dev only, PR as draft). Next Codex: `codex-06c-deleted-lines.md` (rewritten against main, new branch `codex/fix-committable`).
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
-- Nebius: **console balance $39.93** (18 Oct 21:00; was $46.22 on 17 Oct; −$6.29 = 062's $5.31 + about $0.98 of off-ledger CI: dogfood + demo live checks); ledger $12.45236. Caps: total stays at the $45 default (ledger + $15 fits; decided 17 Oct), per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
+- Nebius: **console balance $39.93** (18 Oct 21:00; was $46.22 on 17 Oct; −$6.29 = 062's $5.31 + about $0.98 of off-ledger CI: dogfood + demo live checks); ledger **$23.17092** after 064 (19 Oct; was $12.45236). Caps: total stays at the $45 default (ledger + $15 fits; decided 17 Oct), per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
 
 ## In flight
 
@@ -85,16 +85,28 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## v2 architecture (19 Oct, proposed, Sunny to approve)
 
-See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → S2 contract map → S3 generators → S4 vote → S5 evidence verifier → S6 post-gate → S7 deliver → S8 learn. Freeze-2 is on 24 Oct, followed by **one** blind Cal.com run of v2. **065 is not run alone.** Ultrareview #2 moves to the int-01 branch. Codex and UI end 22 Oct; Claude B (the second subscription) takes integration and UI.
+See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → S2 contract map → S3 generators → ~~S4 vote~~ (lost in 064) → S5 evidence verifier → S6 post-gate → S7 deliver → S8 learn. Freeze-2 is on 24 Oct, followed by **one** blind Cal.com run of v2. **No standalone Cal.com run for 064** (nothing was adopted). Ultrareview #2 moves to the int-01 branch. Codex and UI end 22 Oct; Claude B takes integration and UI.
+
+## Open PRs (checked by chat 19 Oct 03:40; all three merge cleanly with main and with each other; merged together locally, analyzer 724 tests pass and typecheck is clean)
+
+- **#46** 064 vote, head `d76eeb3`, draft, CI green. **Loss, recorded as one. Merge it** (mark it ready, which runs the dogfood review for a few cents; use a merge commit).
+  - Every table recomputes: comments = TP+FP+dup+low and TP+FN = 74 in all 18 rows.
+  - The means recompute: v1 F 42.3 / P 40.5; x1 F 51.3 / P 50.9.
+  - Commit order: plan `57f0b91` at 21:09 IST, then `vote.ts` at 21:13 IST, both before any run finished.
+  - Accepted: two test files under `packages/analyzer/test/`.
+  - **Not accepted:** the builder edited `tracehound-ops/ops/lanes.json` (cap 0 → 10). 065's brief now forbids any edit to tracehound-ops. Sunny: check what lanes.json says.
+- **HOLD #45** codex-08 gate, head `b19f5eb`. The `style` rule drops real bugs: "consider guarding it or the request crashes" is dropped as `consider`, and "Typo in the env var name … is never set" as `typos`. The cause is my brief, which listed "consider". The gate also checks every quote against the head, so it would drop **every** contract finding from #47 (their change-side evidence is `side: "base"`). Null-line findings are always dropped. The fix is `codex-08b-gate-fixes.md`, to the same Codex task.
+- **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
+
+## Prompt queue (19 Oct 03:45)
 
 | Lane | File (prompts/2026-10-19/) | Where | Status |
 |---|---|---|---|
-| Codex | `codex-08-gate.md` | ChatGPT Codex, `~/Projects/TraceHound-codex`, new task | ready |
-| Claude cloud | `cc-03-contracts.md` | claude.ai/code, new session on SunnyBagal/TraceHound | ready |
-| Grok | `grok-07-competitors-learning.md` | Grok, fresh chat | ready |
-| Relay | 064 (in flight) → 066 verifier v2 | — | 066 written after 064's output |
+| Codex | `codex-08b-gate-fixes.md` | the **same** Codex task as #45 | ready |
+| Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | after #45 (fixed), #46 and #47 merge; Sunny sets `nebiusCapUsd` = 5 |
+| Grok | `grok-07-competitors-learning.md` | Grok, fresh chat | ready (not started) |
 | Cloud | cc-04 seeded cross-file test (Linea + Recall), a separate session blind to cc-03 | — | written 20 Oct |
-| Codex | codex-09 learning (S8) | — | written after codex-08 |
+| Codex | codex-09 learning (S8) | — | after codex-08b |
 | Claude B | int-01 integration (`th-v2` in the Action) | `~/Projects/TraceHound-claude2` | 22 Oct |
 
 ## Prompt queue (18 Oct 21:45). Every lane busy, no path overlaps

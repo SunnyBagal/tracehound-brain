@@ -97,6 +97,20 @@ Commercial tools on the same set: [competitors](benchmark/competitors.md).
 - Predictions: (a) above review-diff-v1, right under v1 but reversed under x1; (b) 5th, **wrong** (3rd); (c) outside 30.6–40.6%, right.
 - **Dev spread:** pool-verify-v1 v1 F 35.6 (059) → 48.0 (2r). At temperature 0, run-to-run noise is larger than every margin the reviewer was chosen on. Dev run 3 was not done (cap).
 
+## Vote across runs, dev (decision 064, PR #46; 5 runs; a loss)
+
+| Row | P v1 | R v1 | F v1 | F x1 | comments / PR |
+|---|---|---|---|---|---|
+| pool-verify-v1, **5-run mean** | 40.5 | — | **42.3** (35.6 / 48.0 / 44.0 / 42.0 / 41.7) | **51.3** (44.6 / 53.4 / 51.6 / 51.7 / 55.1) | 2.08–2.67 |
+| vote-k3of5 | 53.3 | 43.2 | 47.8 | 50.4 | 1.82 |
+| vote-k3of5-cap2 | 62.8 | 36.5 | 46.2 | 49.6 | 1.32 |
+| vote-k2of5 | 34.9 | 50.0 | 41.1 | 50.6 | 3.33 |
+| vote-raw-k3of5 | 36.5 | 51.4 | 42.7 | 51.8 | 3.20 |
+
+- Rule: highest v1 F (k3of5) → +5.5 ≥ 5.0 ✓; P 53.3 > 40.5 ✓; x1 50.4 < 51.3 ✗ → **loss**. Recomputed by chat on 19 Oct.
+- **Run 1, the run 059 picked the reviewer on (and the dev part of the all-50 table below), is the lowest of 5 under both judges.** From now on, comparisons use 5-run means. The results-wording job should report the all-50 table with the dev 5-run mean beside run 1, declared as such; do not swap in the best run.
+- Voting costs about 5× per PR (median $0.15). Spend $5.409.
+
 ## All 50 PRs combined (dev + Cal.com run 1, bench-judge-v1, n = 97). Chat's computation 18 Oct, from the published counts
 
 | Reviewer | TP | FP | P | R | F | Rank |

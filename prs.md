@@ -43,7 +43,10 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 
 ## Open or not merged
 
-- [#43](https://github.com/SunnyBagal/TraceHound/pull/43) `codex/data-branch` `19ece32`: tracehound-data writer + dogfood pin + ur-01 fixes (8 commits on `d733a6a`). Re-checked 19 Oct 00:10: all fixes match. Merge after CI 39154292617 is green.
+- [#43](https://github.com/SunnyBagal/TraceHound/pull/43) `codex/data-branch` `19ece32`: tracehound-data writer + dogfood pin + ur-01 fixes. **Merged** 19 Oct → `2af8c3a`.
+- [#45](https://github.com/SunnyBagal/TraceHound/pull/45) `codex/gate-v1` `b19f5eb`: S1 pre-filter + S6 gate. **HOLD**: the style rule drops real bugs; base-side evidence; null lines (codex-08b).
+- [#46](https://github.com/SunnyBagal/TraceHound/pull/46) `build/064-vote` `d76eeb3`: 064 vote across runs, a **loss**. Checked 19 Oct; all tables recompute. Merge.
+- [#47](https://github.com/SunnyBagal/TraceHound/pull/47) `cc/contracts-v1` `d469e28`: S2b contract map + deterministic findings. Checked 19 Oct. Merge.
 - [#44](https://github.com/SunnyBagal/TraceHound/pull/44) `ui/reviews-dashboard` `b9b1aee`: reviews dashboard + benchmark page. **Merged** → main `c6c12b9` (verified 19 Oct).
 - [#41](https://github.com/SunnyBagal/TraceHound/pull/41) draft: cc-01 audit. [#42](https://github.com/SunnyBagal/TraceHound/pull/42) draft: ReviewBench spike.
 
