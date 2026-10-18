@@ -86,8 +86,8 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 | Relay | `064-vote.md` (voting across runs, dev only, cap $10) | `~/Projects/tracehound-ops` → TraceHound | `nebiusCapUsd` = 10 |
 | Codex | `codex-07-data-branch.md` (re-pin dogfood, `tracehound-data` orphan branch, opt-in `data-branch`) | `~/Projects/TraceHound-codex`, new task | **#40 merged** |
 | UI (Codex Sol) | `ui-02-reviews-dashboard.md` (PR list, bug cards, fix diff, benchmark page; GitHub API, no backend) | `~/Projects/TraceHound-ui` | nothing |
-| Claude cloud | `cc-01-independent-audit.md` (hostile audit of the claims, CI on Cal.com diff) | claude.ai/code on SunnyBagal/TraceHound | nothing |
-| Claude cloud | `cc-02-reviewbench-spike.md` (can we run on GitHub ReviewBench, 219 PRs; adapter skeleton + cost) | claude.ai/code | nothing |
+| ~~cc-01~~ → **#41** draft, [R6](research/R6-cc01-audit.md): numbers all correct; 5 wording overclaims in results.md; gaps within noise except CodeRabbit | | |
+| ~~cc-02~~ → **#42** draft, [R7](research/R7-cc02-reviewbench.md): probably feasible; 25-PR practice set ≈ $4; judge needs Anthropic API money | | |
 | Grok | ~~grok-05~~ → [R4](research/R4-precision-techniques.md) (done 18 Oct; Cursor's early Bugbot = 8-pass vote + validator) | | |
 | Grok | ~~grok-06~~ → [R5](research/R5-hackathon-and-nebius-levers.md) (done 18 Oct; Coding track favours plan → test → iterate agents; weights unknown) | | |
 
@@ -102,7 +102,8 @@ Path guard: relay owns `scripts/bench/`, `docs/bench/` except the cc-01/cc-02 fi
   Never on main, and never on docs-only PRs.
 - Claude cloud $96, expires 5 Nov. Spend it on audits, spikes, judges' README drafts and TariffLens setup after 29 Oct.
 
-## Honest claim status (18 Oct)
+## Honest claim status (18 Oct, revised after cc-01)
+- **Public line:** "on 10 blind PRs, statistically tied with Greptile and Cursor, ahead of CodeRabbit; 4th of 6 across all 50 PRs; every loss published." Don't say "3rd of 6" as a ranking.
 - Blind Cal.com: 3rd of 6 (10 PRs, n = 23).
 - All 50 PRs: **4th of 6** (41.2 vs Greptile 49.5, CodeRabbit 40.0).
 - Sunny does not want claims that draw "how did you beat CodeRabbit?" questions, so the post wording is "3rd of 6 blind, 4th of 6 across all 50, losses published".
