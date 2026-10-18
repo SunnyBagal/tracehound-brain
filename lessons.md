@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-18 · A PR was merged while a fix prompt for it was being written (again)
+- **What:** chat wrote codex-06c to add commits to #38's branch; Sunny merged #38 (and #39) minutes later. Same trap as 15 Oct.
+- **Cost:** one rewritten prompt. Main is fine: the suggestions work, only demo #2's isn't committable.
+- **Changed:** when the chat says "don't merge yet", NOW lists the PR as **HOLD** and the chat says it in the first line of its reply. A follow-up prompt for a draft PR is written against main on a new branch by default.
+
 ### 2026-10-18 · A 4-hour model batch ran as a background command inside the relay session
 - **What:** the 062 brief (written by chat) didn't say how to launch the runs. The builder ran items 2–3 as one background shell command, and the session's 2-hour limit killed it at dev run 2, PR 30 of 40. The run was restarted as 2r (061a), so dev run 3 then hit the $4 cap at PR 16 of 40.
 - **Cost:** $1.44 of Nebius with no score; the dev spread has 2 runs, not 3.

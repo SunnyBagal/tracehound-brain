@@ -36,10 +36,10 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 | [#34](https://github.com/SunnyBagal/TraceHound/pull/34) | 2026-10-17 | `e7309a5` | `codex/fix-action-pnpm` | Codex | action: pin pnpm for external runs |
 | [#36](https://github.com/SunnyBagal/TraceHound/pull/36) | 2026-10-18 | `d37ffa8` | `build/062-test-run` | relay | bench: Cal.com blind result (062) |
 | [#32](https://github.com/SunnyBagal/TraceHound/pull/32) | 2026-10-18 | `e95ef20` | `codex/dogfood` | Codex | dogfood workflow (pinned `50e1d4a`) + demo doc |
+| [#39](https://github.com/SunnyBagal/TraceHound/pull/39) | 2026-10-18 | `6058d53` | `build/063-bench-results` | relay | results page + README benchmark section (063) |
+| [#38](https://github.com/SunnyBagal/TraceHound/pull/38) | 2026-10-18 | `41a92a8` | `codex/fix-suggestions` | Codex | fix suggestions, `fixes: on|off`, `tracehound:v1` footer |
 | [#37](https://github.com/SunnyBagal/TraceHound/pull/37) | 2026-10-18 | `df4f915` | `ui/round-1-summaries` | UI (Codex Sol) | Super summaries + names, $0.001 |
 | [#35](https://github.com/SunnyBagal/TraceHound/pull/35) | 2026-10-18 | `3113c3a` | `ui/viewer-round-1` | UI (Codex Sol) | viewer round 1: no dev clutter, fresh snapshots, kinds, expand, inline code |
 
 ## Open or not merged
 
-- [#38](https://github.com/SunnyBagal/TraceHound/pull/38) draft `codex/fix-suggestions`, head `efdecaf` (4 commits incl. a main merge): live check 2: #3 committable; #2 suggestion crosses a deleted line → codex-06c. Then merge; re-pin dogfood (still `50e1d4a`) in codex-07 step 0.
-- [#39](https://github.com/SunnyBagal/TraceHound/pull/39) `build/063-bench-results`, head `2806d74`: results page + README section + decision 063. Checked by chat 18 Oct. Merge commit.
