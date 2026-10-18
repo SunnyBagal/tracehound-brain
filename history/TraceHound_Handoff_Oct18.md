@@ -1,4 +1,4 @@
-# TraceHound handoff, 18 Oct 2026, 22:40 IST
+# TraceHound handoff, 18 Oct 2026, 23:35 IST
 
 Paste this file into a new Claude chat as the first message, with: "Continue TraceHound from this handoff."
 
@@ -39,24 +39,35 @@ Today's prompts are archived in `prompts/2026-10-18/`.
   - #37 Super summaries;
   - #38 fix suggestions;
   - #39 063 results page and README section.
-- **Open: #40**, the codex-06c deleted-line guard (head `d17762d`). Checked by chat: the code is correct and demo #2 is now committable. Merge it once CI is green.
+- #40 merged (main `e4e3e3a`).
+- Open:
+  - **#43** data branch (checked; HOLD for Ultrareview #1, then merge);
+  - **#44** dashboard (checked; merge);
+  - #41 and #42 are drafts (cc-01 audit, ReviewBench spike).
+- Done and filed in `research/`:
+  - R4 (precision techniques: Cursor's early Bugbot = 8-pass vote + validator);
+  - R5 (hackathon rules: Coding track favours plan → test → iterate agents; a feedback section and "updates since 26 Aug" are required);
+  - R6 (audit: all numbers correct, 5 wording overclaims in results.md; "3rd of 6" isn't a ranking, gaps are within noise except CodeRabbit);
+  - R7 (ReviewBench: contract read; Nebius endpoint can be allowlisted; about $4 for the 25-PR practice set; the judge needs Anthropic API money).
 - **Benchmark (bench-judge-v1):**
   - Blind Cal.com run 1: pool-verify-v1 F 58.3, **3rd of 6** (Augment 73.2, Cursor 66.7 | Greptile 50.0, Copilot 46.2, CodeRabbit 36.7).
   - All 50 PRs combined: **4th of 6** (41.2; Greptile 49.5, CodeRabbit 40.0).
   - Dev spread 35.6 → 48.0 across two runs.
-- **Claims (Sunny, 18 Oct):** no posts that invite "how did you beat CodeRabbit" questions. Wording: "3rd of 6 on 10 blind PRs, 4th of 6 across all 50, losses published". The goal is still **top 2**, judged on all 50 PRs.
+- **Claims (Sunny, 18 Oct, revised after the audit):** "On 10 blind PRs, statistically tied with Greptile and Cursor, ahead of CodeRabbit; 4th of 6 across all 50; every loss published." Never "3rd of 6" as a ranking. The goal is still **top 2**, judged on all 50 PRs.
 - **Nebius:** console $39.93; ledger $17.76; total cap $45. GitHub Action runs (dogfood and demo) spend off the ledger, about $1 so far.
 
 ## In flight (prompt queue). Sunny is pasting the outputs back one at a time
 | File | Lane | What to check when the output arrives |
 |---|---|---|
 | `064-vote.md` | Relay, cap $10, dev only, draft PR | Freeze commit before the first model call; runs 4–6 launched detached; vote tables recompute; adoption rule (≥ +5 F over the 5-run baseline mean, P up, holds under x1) applied as written; no Cal.com; then **Ultrareview #2** on the branch |
-| `codex-07-data-branch.md` | Codex, after #40 merges | Dogfood re-pinned to #40's merge sha; `data-branch` opt-in; never fails the review job; live check on the demo repo; then **Ultrareview #1** |
-| `ui-02-reviews-dashboard.md` | UI | No HTML injection of comment text; rate-limit state; bug cards + fix diff + Commit link; benchmark page numbers copied, not invented; $0 Nebius |
-| `cc-01-independent-audit.md` | Claude cloud | Its mismatches and unsupported claims, and whether they're real; fold its fixes into the judges' README job |
-| `cc-02-reviewbench-spike.md` | Claude cloud | Feasible? Licence, judge cost, adapter skeleton. If feasible: a 60-PR subset run is the strongest answer to "10 PRs is too small" |
-| `grok-05-precision-research.md` | Grok | Kill test: open every link. Precision techniques → candidates for 065 if voting loses |
-| `grok-06-nebius-nvidia-levers.md` | Grok | Kill test. Hackathon criteria → write-up; batch or caching pricing → cost |
+
+Also pending: Ultrareview findings on #43 → check each one against the code before Sunny merges.
+
+## Next jobs to write (new session)
+- **Results wording fix + judges' README** (relay, $0): apply R6's 5 fixes, add the all-50 table (v1 + x1), add per-PR Cal.com counts (counts only), then re-sync `viewer/lib/benchmark.ts` (UI lane).
+- **ReviewBench** (if Sunny has Anthropic API credit for the judge): fix `scripts/reviewbench/format.ts` against `AGENT_CONTRACT.md`, build a container image, run the 25-PR practice set, pre-register 60.
+- **ui-03:** graph overlay from `tracehound-data` (after #43).
+- Decide on a "verified fix" path for the Coding track (R5).
 
 ## Next, in order
 1. Process the outputs above. Update NOW, prs, results and lessons after each.
