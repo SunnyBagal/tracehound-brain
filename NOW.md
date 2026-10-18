@@ -95,6 +95,11 @@ Path guard: relay owns `scripts/bench/`, `docs/bench/` except the cc-01/cc-02 fi
 
 ## Credits
 - Nebius console $39.93 (18 Oct 21:00).
+- **Ultrareview: 3 free runs** (Claude cloud bug-finding agent, about 15–25 min each). Spend them only on branches before merge, highest risk first:
+  1. codex-07 branch (adds `contents: write` and pushes the orphan branch; touches other people's repos);
+  2. 064 branch (voting and scoring code that the headline number depends on);
+  3. reserve: the final pre-submission branch (27–28 Oct), or ui-02 if it renders untrusted comment text.
+  Never on main, and never on docs-only PRs.
 - Claude cloud $96, expires 5 Nov. Spend it on audits, spikes, judges' README drafts and TariffLens setup after 29 Oct.
 
 ## Honest claim status (18 Oct)
