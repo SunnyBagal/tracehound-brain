@@ -2,6 +2,17 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-18 · Ultrareview found 10 issues in #43 that the brief, Codex and the chat's check all missed
+- **What:** the bugs came from three places.
+  - **Chat's brief (codex-07):** it told Codex to run `changes --diff <base>..<head>` (that's #1: diff against the base tip, not the merge base). It said "retry once on non-fast-forward" (#3) and never asked for replay or out-of-order safety (#2).
+  - **Codex:** used `{...env}` instead of `cleanGitEnv()` (#8). That rule is in CLAUDE.md, **but not in AGENTS.md, which is what Codex reads**. It also put the `GIT_CONFIG_GLOBAL` isolation on the workspace calls (#4) and made the concurrency choice (#7).
+  - **Chat's PR check:** looked at token handling and continue-on-error, and passed it.
+- **Cost:** none, because it was caught before merge. One fix round.
+- **Changed:**
+  - Briefs for anything that writes state must specify merge-base diffs, idempotency and out-of-order events.
+  - Copy the `cleanGitEnv` rule into AGENTS.md (next Codex job).
+  - Ultrareview stays mandatory for code that writes to other people's repos.
+
 ### 2026-10-18 · A PR was merged while a fix prompt for it was being written (again)
 - **What:** chat wrote codex-06c to add commits to #38's branch; Sunny merged #38 (and #39) minutes later. Same trap as 15 Oct.
 - **Cost:** one rewritten prompt. Main is fine: the suggestions work, only demo #2's isn't committable.
