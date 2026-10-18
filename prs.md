@@ -43,7 +43,7 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 
 ## Open or not merged
 
-- [#43](https://github.com/SunnyBagal/TraceHound/pull/43) `codex/data-branch` `d733a6a`: tracehound-data writer + dogfood pin. Checked 18 Oct. Ultrareview, then merge.
-- [#44](https://github.com/SunnyBagal/TraceHound/pull/44) `ui/reviews-dashboard` `b9b1aee`: reviews dashboard + benchmark page. Checked 18 Oct. Merge.
+- [#43](https://github.com/SunnyBagal/TraceHound/pull/43) `codex/data-branch` `19ece32`: tracehound-data writer + dogfood pin + ur-01 fixes (8 commits on `d733a6a`). Re-checked 19 Oct 00:10: all fixes match. Merge after CI 39154292617 is green.
+- [#44](https://github.com/SunnyBagal/TraceHound/pull/44) `ui/reviews-dashboard` `b9b1aee`: reviews dashboard + benchmark page. **Merged** → main `c6c12b9` (verified 19 Oct).
 - [#41](https://github.com/SunnyBagal/TraceHound/pull/41) draft: cc-01 audit. [#42](https://github.com/SunnyBagal/TraceHound/pull/42) draft: ReviewBench spike.
 

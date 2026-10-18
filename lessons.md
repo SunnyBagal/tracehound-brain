@@ -73,3 +73,7 @@ Process mistakes and near-misses, blameless. Each says what happened, what it co
 ### Before 2026-10-15 · Four relay cycles lost to step-0 stops
 - **What:** unmerged PR, $0 Nebius cap, a stale brief rerun, stale local main.
 - **Changed:** the pre-start checklist in [NOW](NOW.md); step 0 uses `git fetch origin main:main` (no plus), then `git switch main`.
+
+### 2026-10-19 · A literal fix prompt would have broken reopen
+- **What:** ur-01 said "an `open` event can't overwrite `closed`". Taken literally, a reopened PR could never be open again. The cloud session caught it and let only `reopened` return `closed` → `open`.
+- **Changed:** state rules in fix prompts name the event (`reopened`, `synchronize`), not just the target state. Ultrareview → fix in the same session → chat re-check of the source diff worked: 7 fixes, each with a failing-first test, one real-data proof (PR #3 change set 2 files → 1).

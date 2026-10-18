@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-18 21:45 IST
+updated: 2026-10-19 00:15 IST
 updated_by: chat
 ---
 
@@ -9,10 +9,10 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- TraceHound main: `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). #38 → `41a92a8` and #39 → `6058d53` (both merged by Sunny 18 Oct ~20:25, merge commits; #38 before codex-06c, by accident; harmless: suggestions work, #2's just isn't committable). #40 merged (`e4e3e3a`).
+- **TraceHound main: `c6c12b9` (verified 19 Oct 00:05, #44 merge).** Older: main `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). #38 → `41a92a8` and #39 → `6058d53` (both merged by Sunny 18 Oct ~20:25, merge commits; #38 before codex-06c, by accident; harmless: suggestions work, #2's just isn't committable). #40 merged (`e4e3e3a`).
   Open:
-  - **#43** codex-07 data branch (head `d733a6a`, 4 commits; checked by chat): token passed via env, not the URL; the data step is `continue-on-error`; retries only on non-fast-forward; dogfood re-pinned to `e4e3e3a`. **HOLD.** Ultrareview #1 found 10 issues (4 normal, 6 nits). Chat confirmed #1, #2, #4 and #8 in the code. Fix prompt `ur-01-fix-data-branch.md` goes to the same cloud session (fix #1–4 and #6–10, defer #5). Merge after the chat re-checks.
-  - **#44** ui-02 dashboard (head `b9b1aee`, 8 commits; checked): no HTML injection; rate-limit state; benchmark page copied from results.md @ `e4e3e3a` with a parity test. **Merge.** Re-sync `viewer/lib/benchmark.ts` after the R6 wording fixes land (it still shows "3rd").
+  - **#43** codex-07 data branch, head **`19ece32`** (12 commits; ur-01 fixes on top of `d733a6a`). **Re-checked by chat 19 Oct 00:10:** source diff read against ur-01; #1 merge-base diff, #2 monotonic latest + state rank, #3 ref-lock retry, #4/#8 split `git`/`branchGit` from `cleanGitEnv()`, #9/#10 last-line footer + JSON temp file all match; #5 backlog line; #6/#7 example split into review (cancel-in-progress) and data (serialized, only `contents: write`) jobs. Action tests 153/153 and typecheck re-run locally; merges cleanly with main `c6c12b9`. `max-comments: '0'` returns before any GitHub/Nebius call (verified in `action.ts`). Accepted departures: reopened → open; #5 own commit; extra re-run row. **Merge once CI run 39154292617 is green** (in progress at 00:10). Residuals, backlog only: a manual re-run of an old `reopened` after a later close flips the entry back to open; a late event for a new head after close adds an open entry; dropped pending data jobs can leave a closed PR `open` (documented); the split example records no `reviewFooter` (viewer doesn't read it today; ui-03 must not depend on it). Dogfood pin still `e4e3e3a`.
+  - **#44** ui-02 dashboard: **merged** (main `c6c12b9`, verified 19 Oct 00:05). Re-sync `viewer/lib/benchmark.ts` after the R6 wording fixes land (it still shows "3rd").
   - #41 (cc-01 audit) and #42 (ReviewBench spike) are drafts; their content feeds later jobs. Next relay: **064 voting across runs** (`064-vote.md`, cap $10, dev only, PR as draft). Next Codex: `codex-06c-deleted-lines.md` (rewritten against main, new branch `codex/fix-committable`).
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
 - Nebius: **console balance $39.93** (18 Oct 21:00; was $46.22 on 17 Oct; −$6.29 = 062's $5.31 + about $0.98 of off-ledger CI: dogfood + demo live checks); ledger $12.45236. Caps: total stays at the $45 default (ledger + $15 fits; decided 17 Oct), per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
