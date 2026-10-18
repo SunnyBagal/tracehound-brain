@@ -88,8 +88,8 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 | UI (Codex Sol) | `ui-02-reviews-dashboard.md` (PR list, bug cards, fix diff, benchmark page; GitHub API, no backend) | `~/Projects/TraceHound-ui` | nothing |
 | Claude cloud | `cc-01-independent-audit.md` (hostile audit of the claims, CI on Cal.com diff) | claude.ai/code on SunnyBagal/TraceHound | nothing |
 | Claude cloud | `cc-02-reviewbench-spike.md` (can we run on GitHub ReviewBench, 219 PRs; adapter skeleton + cost) | claude.ai/code | nothing |
-| Grok | `grok-05-precision-research.md` (how the top reviewers get precision; papers) | fresh chat | nothing |
-| Grok | `grok-06-nebius-nvidia-levers.md` (hackathon criteria, Token Factory batch/caching, Nemotron features) | fresh chat | nothing |
+| Grok | ~~grok-05~~ → [R4](research/R4-precision-techniques.md) (done 18 Oct; Cursor's early Bugbot = 8-pass vote + validator) | | |
+| Grok | ~~grok-06~~ → [R5](research/R5-hackathon-and-nebius-levers.md) (done 18 Oct; Coding track favours plan → test → iterate agents; weights unknown) | | |
 
 Path guard: relay owns `scripts/bench/`, `docs/bench/` except the cc-01/cc-02 files, and `docs/decisions.md`; Codex owns `packages/action/`, `.github/`, `docs/action/`; UI owns `viewer/`, `docs/ui/`; cc-02 owns `scripts/reviewbench/`.
 
