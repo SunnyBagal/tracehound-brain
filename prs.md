@@ -43,3 +43,7 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 
 ## Open or not merged
 
+- [#43](https://github.com/SunnyBagal/TraceHound/pull/43) `codex/data-branch` `d733a6a`: tracehound-data writer + dogfood pin. Checked 18 Oct. Ultrareview, then merge.
+- [#44](https://github.com/SunnyBagal/TraceHound/pull/44) `ui/reviews-dashboard` `b9b1aee`: reviews dashboard + benchmark page. Checked 18 Oct. Merge.
+- [#41](https://github.com/SunnyBagal/TraceHound/pull/41) draft: cc-01 audit. [#42](https://github.com/SunnyBagal/TraceHound/pull/42) draft: ReviewBench spike.
+

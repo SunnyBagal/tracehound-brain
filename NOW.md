@@ -9,7 +9,11 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- TraceHound main: `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). #38 → `41a92a8` and #39 → `6058d53` (both merged by Sunny 18 Oct ~20:25, merge commits; #38 before codex-06c, by accident; harmless: suggestions work, #2's just isn't committable). Open: **#40** (codex-06c: deleted-line guard + smallest-range hint, head `d17762d`; demo #2 now committable; checked by chat; merge once CI is green). Next relay: **064 voting across runs** (`064-vote.md`, cap $10, dev only, PR as draft). Next Codex: `codex-06c-deleted-lines.md` (rewritten against main, new branch `codex/fix-committable`).
+- TraceHound main: `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). #38 → `41a92a8` and #39 → `6058d53` (both merged by Sunny 18 Oct ~20:25, merge commits; #38 before codex-06c, by accident; harmless: suggestions work, #2's just isn't committable). #40 merged (`e4e3e3a`).
+  Open:
+  - **#43** codex-07 data branch (head `d733a6a`, 4 commits; checked by chat): token passed via env, not the URL; the data step is `continue-on-error`; retries only on non-fast-forward; dogfood re-pinned to `e4e3e3a`. **Run Ultrareview #1 on it, then merge.**
+  - **#44** ui-02 dashboard (head `b9b1aee`, 8 commits; checked): no HTML injection; rate-limit state; benchmark page copied from results.md @ `e4e3e3a` with a parity test. **Merge.** Re-sync `viewer/lib/benchmark.ts` after the R6 wording fixes land (it still shows "3rd").
+  - #41 (cc-01 audit) and #42 (ReviewBench spike) are drafts; their content feeds later jobs. Next relay: **064 voting across runs** (`064-vote.md`, cap $10, dev only, PR as draft). Next Codex: `codex-06c-deleted-lines.md` (rewritten against main, new branch `codex/fix-committable`).
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
 - Nebius: **console balance $39.93** (18 Oct 21:00; was $46.22 on 17 Oct; −$6.29 = 062's $5.31 + about $0.98 of off-ledger CI: dogfood + demo live checks); ledger $12.45236. Caps: total stays at the $45 default (ledger + $15 fits; decided 17 Oct), per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
 
@@ -84,8 +88,8 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 | Lane | File | Where | Waits on |
 |---|---|---|---|
 | Relay | `064-vote.md` (voting across runs, dev only, cap $10) | `~/Projects/tracehound-ops` → TraceHound | `nebiusCapUsd` = 10 |
-| Codex | `codex-07-data-branch.md` (re-pin dogfood, `tracehound-data` orphan branch, opt-in `data-branch`) | `~/Projects/TraceHound-codex`, new task | **#40 merged** |
-| UI (Codex Sol) | `ui-02-reviews-dashboard.md` (PR list, bug cards, fix diff, benchmark page; GitHub API, no backend) | `~/Projects/TraceHound-ui` | nothing |
+| ~~codex-07~~ → **#43** | | |
+| ~~ui-02~~ → **#44** | | |
 | ~~cc-01~~ → **#41** draft, [R6](research/R6-cc01-audit.md): numbers all correct; 5 wording overclaims in results.md; gaps within noise except CodeRabbit | | |
 | ~~cc-02~~ → **#42** draft, [R7](research/R7-cc02-reviewbench.md): probably feasible; 25-PR practice set ≈ $4; judge needs Anthropic API money | | |
 | Grok | ~~grok-05~~ → [R4](research/R4-precision-techniques.md) (done 18 Oct; Cursor's early Bugbot = 8-pass vote + validator) | | |
