@@ -65,7 +65,7 @@ Also pending: Ultrareview findings on #43 → check each one against the code be
 
 ## Next jobs to write (new session)
 - **Results wording fix + judges' README** (relay, $0): apply R6's 5 fixes, add the all-50 table (v1 + x1), add per-PR Cal.com counts (counts only), then re-sync `viewer/lib/benchmark.ts` (UI lane).
-- **ReviewBench** (if Sunny has Anthropic API credit for the judge): fix `scripts/reviewbench/format.ts` against `AGENT_CONTRACT.md`, build a container image, run the 25-PR practice set, pre-register 60.
+- **ReviewBench** (the cloud credit is session-only, not API; the judge needs an Anthropic API top-up of about $5–10, Sunny's call): fix `scripts/reviewbench/format.ts` against `AGENT_CONTRACT.md`, build a container image, run the 25-PR practice set, pre-register 60.
 - **ui-03:** graph overlay from `tracehound-data` (after #43).
 - Decide on a "verified fix" path for the Coding track (R5).
 

@@ -104,7 +104,8 @@ Path guard: relay owns `scripts/bench/`, `docs/bench/` except the cc-01/cc-02 fi
   2. 064 branch (voting and scoring code that the headline number depends on);
   3. reserve: the final pre-submission branch (27–28 Oct), or ui-02 if it renders untrusted comment text.
   Never on main, and never on docs-only PRs.
-- Claude cloud $96, expires 5 Nov. Spend it on audits, spikes, judges' README drafts and TariffLens setup after 29 Oct.
+- Claude cloud: **$89 of $100 left, expires 5 Nov 13:29 IST**. It's cloud-session credit only (screenshot 18 Oct), **not API credit**, so it can't pay the ReviewBench judge (Claude Sonnet 5 API). Judge cost is about $3 for the 25-PR practice set and about $7 per 60-PR run; that needs a separate Anthropic API top-up (Sunny's call).
+- (Superseded line follows.) Claude cloud $96, expires 5 Nov. Spend it on audits, spikes, judges' README drafts and TariffLens setup after 29 Oct.
 
 ## Honest claim status (18 Oct, revised after cc-01)
 - **Public line:** "on 10 blind PRs, statistically tied with Greptile and Cursor, ahead of CodeRabbit; 4th of 6 across all 50 PRs; every loss published." Don't say "3rd of 6" as a ranking.
