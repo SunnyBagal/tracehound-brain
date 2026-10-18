@@ -50,3 +50,5 @@ Product pipeline (pool-verify-v1, 059): median $0.0317, max $0.2308 per PR.
 - Rough full pool pipeline (diff + ctx + verifier): 3–5 cents per PR. 059 reports the measured number.
 
 Open: an own-money cap for non-Nebius comparison arms, if any are ever run (none planned). Nemotron Ultra only if its Nebius price is verified.
+
+- 2026-10-18 21:00: console $39.93. Ledger $17.76. Off-ledger GitHub Action spend 17–18 Oct ≈ $0.98 (dogfood on #37/#38/#39 + about 6 demo live-check runs). 064 cap $10.
