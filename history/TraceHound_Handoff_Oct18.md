@@ -1,4 +1,4 @@
-# TraceHound handoff, 18 Oct 2026, 23:35 IST
+# TraceHound handoff, 18 Oct 2026, 23:45 IST
 
 Paste this file into a new Claude chat as the first message, with: "Continue TraceHound from this handoff."
 
@@ -28,7 +28,7 @@ Today's prompts are archived in `prompts/2026-10-18/`.
 | Relay | Claude Code builder + reviewer, started from `~/Projects/tracehound-ops` | `~/Projects/TraceHound` |
 | Codex | ChatGPT Codex | `~/Projects/TraceHound-codex` |
 | UI | Codex GPT Sol 6.1 | `~/Projects/TraceHound-ui` |
-| Claude cloud | claude.ai/code, $96 credit, expires 5 Nov; **3 free Ultrareviews** | repo SunnyBagal/TraceHound |
+| Claude cloud | claude.ai/code, $89 of cloud-session credit (not API), expires 5 Nov 13:29 IST; **2 free Ultrareviews left** (#2 is for the 064 branch) | repo SunnyBagal/TraceHound |
 | Grok | Grok Premium, a fresh chat each time | — |
 
 ## State at handoff (verify on GitHub)
@@ -41,8 +41,8 @@ Today's prompts are archived in `prompts/2026-10-18/`.
   - #39 063 results page and README section.
 - #40 merged (main `e4e3e3a`).
 - Open:
-  - **#43** data branch (checked; HOLD for Ultrareview #1, then merge);
-  - **#44** dashboard (checked; merge);
+  - **#43** data branch: **HOLD**. Ultrareview #1 found 10 issues; the chat confirmed #1 (diff against the base tip, not the merge base), #2 (stale or replayed events overwrite latest and state), #4 (`GIT_CONFIG_GLOBAL` on workspace git) and #8 (no `cleanGitEnv`). The fix prompt `prompts/2026-10-18/ur-01-fix-data-branch.md` was sent to the same cloud session. Re-check its commits, then merge;
+  - **#44** dashboard (checked; Sunny merging; verify on GitHub);
   - #41 and #42 are drafts (cc-01 audit, ReviewBench spike).
 - Done and filed in `research/`:
   - R4 (precision techniques: Cursor's early Bugbot = 8-pass vote + validator);
