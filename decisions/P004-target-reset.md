@@ -4,10 +4,10 @@ title: Pitch the honest benchmark and the live product, not "beats Greptile"
 date: 2026-10-15
 kind: process
 lane: chat
-outcome: pending
+outcome: rejected
 call: too-early
-judged_by: 
-judged_on: 
+judged_by: Sunny
+judged_on: 2026-10-18
 repo_entry: none
 pr: 
 ---
@@ -24,4 +24,4 @@ Stop treating "beat Greptile and CodeRabbit on Cal.com" as the goal. Pitch Trace
 - The demo decides viability (pass/fail) and most of design.
 
 ## Status
-Waiting for Sunny's decision. Record it here with the date.
+**Rejected by Sunny, 2026-10-18.** "Beats" may appear, and the goal is the **top 2 on a blind test**. Chat's condition, accepted as framing: every "beats" claim names the test, the run and the scorer (for example "on our pre-registered blind test, F 58.3 vs Greptile 50.0"). Plan: 064 voting across runs (dev only) → 065 one pre-registered Cal.com run of the adopted variant.
