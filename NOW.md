@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-18 04:05 IST
+updated: 2026-10-18 20:20 IST
 updated_by: chat
 ---
 
@@ -9,7 +9,9 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 
 ## Repo state
 
-- TraceHound main: `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 dogfood → `e95ef20` (merged 18 Oct; the dogfood ran OK on #37 with 0 comments). Open: **#37** (UI summaries, $0.001: 1 summary per repo plus Super names; OK to merge), **#38** draft (codex-06 fix suggestions: the live check exercised nothing → `codex-06b-live-check.md`).
+- TraceHound main: `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). Open:
+  - **#39** (063 results page + README section; checked; merge);
+  - **#38** draft (fix suggestions; live check 2: demo #3 has a working "Commit suggestion" button, demo #2's renders but can't be applied because its range crosses a deleted line → `codex-06c-deleted-lines.md`, then merge).
 - Recall main `20ac149`, `testable-baseline` `57d920e`. Never open Recall PRs #1 or #2.
 - Nebius: **console balance $46.22** (2026-10-17); ledger $12.45236. Caps: total stays at the $45 default (ledger + $15 fits; decided 17 Oct), per-job `nebiusCapUsd` → 15 for 062 ([costs](ops/costs.md)).
 
@@ -29,7 +31,10 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
   - Dev spread: 35.6 → 48.0 across two runs (larger than the 0.6-point adoption margin).
   - Dev run 2 was void (relay's 2 h background limit killed it), then 2r; dev run 3 was stopped at the cap.
   - Spend $5.31; **ledger $17.76**.
-- Next relay job: **063** results page + README section ($0), file `063-bench-results.md`, `nebiusCapUsd` → 0.
+- 063 → PR #39 (relay 026). Checked by chat 18 Oct: 4 small commits; ranks, spreads and costs trace to the repo.
+  - Wording nit for the judges' README job: section 1 says x1 "changes nothing". It means it decides nothing; x1 reverses (a) and gives a 5th in run 3, both stated in §3/5/6.
+  - Relay lane is idle until the judges' README (21–22 Oct).
+- **Dogfood spend is off the local ledger** (`secrets.NEBIUS_API_KEY` in CI), roughly $0.03–0.25 per PR. Decided by chat: keep it on (it's live demo evidence) and track it via the Nebius console. Any future job that needs "no other Nebius use" opens its PRs as drafts (the workflow skips drafts).
 
 | Lane | Job | Status |
 |---|---|---|
