@@ -40,7 +40,7 @@ PR (title, description, diff)
 judge: bench-judge-v1 (Super, temperature 0) maps each comment to a golden comment or none
 ```
 
-What the Action runs today: `review` (review-diff-v1) only. It posts one GitHub COMMENT review, capped at 15 findings, skips forks, and rechecks the PR head before posting.
+What the Action runs today: **pool-verify-v1** (since #30: diff-v1 + ctx-v1 pooled, then verify-ctx-v1), plus Super summaries (#37), fix suggestions (#38) and an optional data branch (#43). Planned v2: [architecture-v2](architecture-v2.md). (Before #30 it ran `review`, review-diff-v1, only.) It posts one GitHub COMMENT review, capped at 15 findings, skips forks, and rechecks the PR head before posting.
 
 ## Key commands
 

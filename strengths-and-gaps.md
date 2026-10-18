@@ -1,6 +1,6 @@
 # Strengths and gaps
 
-An honest ledger, updated after each result. Last updated: 2026-10-16, after 060.
+An honest ledger, updated after each result. Last updated: 2026-10-19 (gaps re-mapped onto Sunny's four focus areas; see [P007](decisions/P007-v2-architecture.md)).
 
 ## Where we are good or better
 
@@ -25,7 +25,11 @@ An honest ledger, updated after each result. Last updated: 2026-10-16, after 060
 | **Thin margin, selection on dev** | 059 cleared the bar by 0.6 points (one judge flip → 34.2), on the fourth variant tried on the same 40 PRs | Only Cal.com confirms; report diff-v1 and pool-raw beside it, declared in advance |
 | **Same model reviews and judges** | Checked in 060: under a Qwen judge the ranking holds (tau-b 0.891) and pool-verify-v1 stays 5th; the self-preference gap is 2.1 points | Report both judges in the results doc |
 | **Far behind Augment and Cursor** | Augment F 64.1%, Cursor 49.6%, Greptile 49.3%, CodeRabbit 41.0% vs our best 35.6% | Pitch honesty and openness, not rank ([P004](decisions/P004-target-reset.md)) |
-| **No live reviewer demo yet** | The Action is merged but has never run on a real repo | Codex demo repo, 17–18 Oct |
+| ~~No live reviewer demo~~ | Fixed 17–18 Oct: demo repo (2 of 4 seeded bugs caught, 0 comments on the control), dogfood on TraceHound, committable fix suggestions (#38) | — |
+| **All 50 PRs: 4th of 6** | F 41.2. FPs: 57 for us vs 16 (Augment) and 17 (Cursor); recall is about Cursor's | v2 gates: S1, S4, S5, S6 ([architecture-v2](project/architecture-v2.md)) |
+| **No cross-file checks of unedited files** | Context is `git grep` + changed files; the graph isn't used by the reviewer | cc-03 contract map (typed + string-keyed) |
+| **Findings aren't actionable enough** | 1–4 sentence body; no scenario, evidence or severity | S5 evidence verifier + S7 format |
+| **No adaptive learning** | No conventions input, no memory of rejected comments | codex-09 (S8); demo only, no benchmark claim |
 | **Golden set biased against new reviewers** | 060: the validity check says many "FPs" are valid for every tool, but it is too lenient to use (kappa 0.395) | State it as a limit; no re-ranking |
 | **One judge** | 060: second judge agrees (kappa 0.809), but is more lenient by 3–9 F points | Report both |
 | **The graph didn't help** | 050: 0 graph tool calls; S1: 2.1% pairing on unseen repos | Graph kept as a viewer and for context ideas; not the reviewer's engine |
