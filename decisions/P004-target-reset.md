@@ -25,3 +25,5 @@ Stop treating "beat Greptile and CodeRabbit on Cal.com" as the goal. Pitch Trace
 
 ## Status
 **Rejected by Sunny, 2026-10-18.** "Beats" may appear, and the goal is the **top 2 on a blind test**. Chat's condition, accepted as framing: every "beats" claim names the test, the run and the scorer (for example "on our pre-registered blind test, F 58.3 vs Greptile 50.0"). Plan: 064 voting across runs (dev only) → 065 one pre-registered Cal.com run of the adopted variant.
+
+**Update 18 Oct 21:20 (Sunny):** he doesn't want posts that invite "how did you beat CodeRabbit/Greptile?" questions. Public wording reverts to the scoped form: "3rd of 6 on the 10 blind PRs, 4th of 6 across all 50". The top-2 goal stays, measured on all 50 PRs (`results.md`).

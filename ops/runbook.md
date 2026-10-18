@@ -9,7 +9,8 @@
 | **Codex** (ChatGPT Plus) | Product lane in `~/Projects/TraceHound-codex`; branches `codex/*`; owns `.github/actions/`, `packages/action/`, `docs/action/`, `docs/demo/`. Also automatic PR review on GitHub (rules in AGENTS.md `## Code Review Rules`) | Touches benchmark data or relay paths |
 | **Grok** (Premium) | No code. Audits each results doc after merge; X posts; video script. Fresh chat each time | Sees Cal.com data or the chat's discussion |
 | **UI lane** (Codex GPT Sol 6.1 since 17 Oct; was planned as a Claude Code session) | `viewer/`, `snapshots/`, `changesets/`, `impacts/`, `configs/`, `docs/ui/` in worktree `~/Projects/TraceHound-ui`, branches `ui/*` | Touches `packages/analyzer/src/` (frozen), bench, action or Codex paths |
-| **Sunny** | Merges; runs relay, Codex and the UI session; decides | — |
+| **Claude cloud** (Claude Code on the web, claude.ai/code; $96 credit, expires **5 Nov**; added 18 Oct) | Parallel research, audit and spike jobs on `SunnyBagal/TraceHound`, one fresh session per prompt (`cc-NN`), draft PRs only | Has no Nebius key and makes no model calls through our code; never fetches Cal.com content; never merges |
+| **Sunny** | Merges; runs relay, Codex, the UI session and cloud sessions; decides | — |
 
 **Grok kill test:** every audit finding must cite a file and line that exist. One invented citation means Grok is dropped and the audit is rerun in a fresh ChatGPT chat ([P003](../decisions/P003-grok-kill-test.md)).
 

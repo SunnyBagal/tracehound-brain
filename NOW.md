@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-18 20:35 IST
+updated: 2026-10-18 21:45 IST
 updated_by: chat
 ---
 
@@ -78,3 +78,27 @@ Verify against GitHub before acting on anything here: `git ls-remote https://git
 - `git -C ~/Projects/TraceHound status --porcelain` prints nothing.
 - The caps match the brief.
 - Never rerun a brief whose PR is already open.
+
+## Prompt queue (18 Oct 21:45). Every lane busy, no path overlaps
+
+| Lane | File | Where | Waits on |
+|---|---|---|---|
+| Relay | `064-vote.md` (voting across runs, dev only, cap $10) | `~/Projects/tracehound-ops` → TraceHound | `nebiusCapUsd` = 10 |
+| Codex | `codex-07-data-branch.md` (re-pin dogfood, `tracehound-data` orphan branch, opt-in `data-branch`) | `~/Projects/TraceHound-codex`, new task | **#40 merged** |
+| UI (Codex Sol) | `ui-02-reviews-dashboard.md` (PR list, bug cards, fix diff, benchmark page; GitHub API, no backend) | `~/Projects/TraceHound-ui` | nothing |
+| Claude cloud | `cc-01-independent-audit.md` (hostile audit of the claims, CI on Cal.com diff) | claude.ai/code on SunnyBagal/TraceHound | nothing |
+| Claude cloud | `cc-02-reviewbench-spike.md` (can we run on GitHub ReviewBench, 219 PRs; adapter skeleton + cost) | claude.ai/code | nothing |
+| Grok | `grok-05-precision-research.md` (how the top reviewers get precision; papers) | fresh chat | nothing |
+| Grok | `grok-06-nebius-nvidia-levers.md` (hackathon criteria, Token Factory batch/caching, Nemotron features) | fresh chat | nothing |
+
+Path guard: relay owns `scripts/bench/`, `docs/bench/` except the cc-01/cc-02 files, and `docs/decisions.md`; Codex owns `packages/action/`, `.github/`, `docs/action/`; UI owns `viewer/`, `docs/ui/`; cc-02 owns `scripts/reviewbench/`.
+
+## Credits
+- Nebius console $39.93 (18 Oct 21:00).
+- Claude cloud $96, expires 5 Nov. Spend it on audits, spikes, judges' README drafts and TariffLens setup after 29 Oct.
+
+## Honest claim status (18 Oct)
+- Blind Cal.com: 3rd of 6 (10 PRs, n = 23).
+- All 50 PRs: **4th of 6** (41.2 vs Greptile 49.5, CodeRabbit 40.0).
+- Sunny does not want claims that draw "how did you beat CodeRabbit?" questions, so the post wording is "3rd of 6 blind, 4th of 6 across all 50, losses published".
+- The top-2 push (064) is judged on all 50 PRs, not on Cal.com alone.
