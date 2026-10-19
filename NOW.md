@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 16:30 IST
+updated: 2026-10-19 17:50 IST
 updated_by: chat
 ---
 
@@ -113,7 +113,7 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 | Codex | `codex-09-learning.md` (S8: 👎 / resolved-unchanged / reply → suppress; maintainers only; `learn` input default off; conventions reader, not wired) | ChatGPT Codex, `~/Projects/TraceHound-codex`, new task | **ready, must land by 22 Oct** |
 | (old) Relay | `065-evidence-gate.md` | Run 1 stopped at step 0 at 13:00 IST ($0). Brief patched. **#45 is merged now, so it's ready to rerun**: re-copy the brief from the brain, then start. lanes.json = 5 (confirmed by relay) |
 | ~~Grok~~ | ~~grok-07~~ → [R8](research/R8-competitors-learning.md): links recovered and 5 of 5 checked. **Sunny keeps CodeRabbit** (seeded test + public numbers) despite §4.2(iv) of its terms. Seeded-test tools: TraceHound, CodeRabbit, Greptile, Bugbot (Bugbot ≈ $1–1.5 per run) | | done 19 Oct |
-| Cloud | ~~cc-04~~ **done 15:00**: 30 seed branches on the mirrors (15 per repo; 6 typed / 6 keyed / 4 semantic / 6 in-diff / 8 controls), `verify.ts` 30/30 against the pushed branches; `tracehound-seeds` `e98720d`. **Scoring flaw (chat's brief):** rule (a) can't fire for X seeds (inline comments only on diff files), and CodeRabbit is missing (Sunny pasted the 12:40 version). → `cc-04b-scoring-fix.md`, same session. **Don't publish the hashes until cc-04b is done** | Claude cloud, same session | ready |
+| Cloud | ~~cc-04 + cc-04b~~ **done 17:40**: `tracehound-seeds` `a4a6c83`. Scorer has 13/13 offline checks; `open-prs.sh` triggers CodeRabbit and opens one PR per 450 s (≈3 h 40 m for 30). **Pre-registration (published 19 Oct 17:50 IST):** `sha256(key.json) = abbde0097f11358f91b55b10886e257731f840d262d1fd6df12d55b275391bc1`, `sha256(SCORING.md) = ebac16b3961512720c8c85463ce0b504aa1cab2fbb3b18dbafa026f3acaa5c1d`. 25 Oct: install the TraceHound Action (freeze-2 pin), CodeRabbit, Greptile and Bugbot on both mirrors, then Sunny runs `open-prs.sh` | | done |
 | Codex | codex-09 learning (S8) | — | after codex-08b |
 | Claude B | int-01 integration (`th-v2` in the Action) | `~/Projects/TraceHound-claude2` | 22 Oct |
 
