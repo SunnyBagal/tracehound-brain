@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 17:50 IST
+updated: 2026-10-19 18:20 IST
 updated_by: chat
 ---
 
@@ -102,6 +102,12 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
 **Blindness (from 19 Oct):** no TraceHound lane (relay, Codex, Claude B, cloud builders, Grok) and not the chat may open `linea-seeded`, `recall-seeded` or `tracehound-seeds` until scoring starts on 25 Oct. Every brief from now on says so.
+
+## ReviewBench (19 Oct 18:20): the main lever toward "above Greptile and Cursor"
+- 219 PRs, run by GitHub + Microsoft; grounded F1 is driven by recall; Greptile 27.2, Cursor 17.3, Copilot 40.1 ([R7](research/R7-cc02-reviewbench.md), [R9](research/R9-reviewbench-methodology.txt)).
+- **Pre-registered: [P008](decisions/P008-reviewbench-preregistration.md).** Never open `golden/`. Choose between pool-verify-v1, pool-raw and pool-raw-x2 from the 25-PR test runs only; then one final run.
+- Prompt `rb-01-reviewbench-image.md` (cloud session): adapter, Dockerfile, ghcr build, smoke workflow. Then Sunny: portal registration → approval → 3 test runs → final.
+- Needs a Nebius top-up of about $25. Sunny has Nebius **sandbox** access (beta); it's not needed for ReviewBench, but it's a candidate for "checked fixes" later.
 
 ## Prompt queue (19 Oct 03:45)
 

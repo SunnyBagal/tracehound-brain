@@ -80,4 +80,5 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | P004 | Pitch the honest benchmark and the live product, not "beats Greptile" (proposed 2026-10-15) | [P004-target-reset](P004-target-reset.md) |
 | P005 | Demo: dogfood on TraceHound + seeded-bug demo repo (2026-10-16) | [P005-demo-dogfood](P005-demo-dogfood.md) |
 | P006 | Reviews dashboard (no backend) + one-click fix suggestions (2026-10-17) | [P006-reviews-dashboard](P006-reviews-dashboard.md) |
+| P008 | ReviewBench: pre-registered config choice (25-PR test runs only; never open golden/) (2026-10-19) | [P008-reviewbench-preregistration](P008-reviewbench-preregistration.md) |
 | P007 | Reviewer v2: gate hard, cross-file contracts, learn from feedback (proposed 2026-10-19) | [P007-v2-architecture](P007-v2-architecture.md) |
