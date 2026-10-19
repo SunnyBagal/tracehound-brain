@@ -29,6 +29,7 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 - **2026-10-18** UI round 1 (#35) checked and merged. **062 blind Cal.com run: pool-verify-v1 F 58.3%, 3rd of 6** (behind Augment, Cursor; ahead of Greptile, Copilot, CodeRabbit), prediction (b) wrong; dev spread 35.6 → 48.0; $5.31 (#36, checked). #36, #32 (dogfood on) and #37 (Super summaries) merged. 063 results page (#39). Fix suggestions are live: demo #3 shows a working "Commit suggestion" button (#38).
 - **2026-10-19** ur-01 fixed all 10 Ultrareview findings on #43 (one deferred to backlog). The chat re-checked the source diff and re-ran the tests (153/153). #44 merged (`c6c12b9`), then #43 merged (`2af8c3a`). **v2 architecture proposed** ([P007](decisions/P007-v2-architecture.md)): gate hard, cross-file contracts, learning. Prompts codex-08 (gate), cc-03 (contracts) and grok-07 written. Decided: no standalone 065, and Ultrareview #2 moves to int-01.
 - **2026-10-19 (night)** 064 vote across runs: a **loss** (#46). The 5-run spread of pool-verify-v1 is 35.6–48.0 F, so comparisons now use means. cc-03 contracts (#47): 10 of 10 fixture breaks caught, 0 findings on the controls. codex-08 gate (#45) is on hold: its nit rules drop real bugs (fix codex-08b). 065 (evidence verifier + gate) written.
+- **2026-10-19 (day)** #46 and #47 merged. 065 run 1 stopped at step 0 ($0). grok-07 → R8 (links recovered, 5 of 5 checked). **Sunny keeps CodeRabbit** in tests and numbers. cc-04 seeded test written. codex-08b fixes #45 (re-checked). Handoff to a new chat at 13:45.
 
 ## Ahead
 

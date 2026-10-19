@@ -55,9 +55,9 @@ Branch names look like a normal developer's (`feat/...`, `fix/...`, `refactor/..
   - Each tool's caught/missed status is decided by `score.ts` for (a). Sunny decides (b), and every (b) call is listed with the comment quoted.
   - Report, per tool and per class: caught / n. Also report the comments on C controls (Sunny marks each valid or invalid) and the extra comments on seeded PRs.
   - No LLM judge.
-  - Tools: TraceHound (frozen at freeze-2), Greptile, and Bugbot. CodeRabbit is excluded: its terms forbid publishing benchmark results.
+  - Tools: TraceHound (frozen at freeze-2), CodeRabbit (OSS plan), Greptile (Starter), and Bugbot.
 - `verify.ts`: for every seed, it checks the branch has one commit on `main`; that the typecheck result matches the class rule above (and for X-typed, every error is outside `edited`); that tests pass where the rule says so; that `accept` lines exist at the branch head; and that the no-hint words don't appear on the public branch. It prints a table, and every row must pass.
-- `open-prs.sh`: Sunny runs this himself on 25 Oct. For each seed it runs `gh pr create --repo <mirror> --head <branch> --base main --title … --body-file prs/<id>.md`, in a shuffled order with a seed recorded in the script. Write it, but **don't run it.** Bugbot only reviews PRs its user authored, so the PRs must come from Sunny's account, after the reviewers are installed.
+- `open-prs.sh`: Sunny runs this himself on 25 Oct. For each seed it runs `gh pr create --repo <mirror> --head <branch> --base main --title … --body-file prs/<id>.md`, in a shuffled order with a seed recorded in the script. Write it, but **don't run it.** Bugbot only reviews PRs its user authored, so the PRs must come from Sunny's account, after the reviewers are installed. Right after creating each PR, the script also posts a comment `@coderabbitai review`, because CodeRabbit's OSS plan needs a manual trigger on repos with fewer than 10 stars. Keep the script's pace to at most 8 PRs per hour, to stay under CodeRabbit's rate limit.
 - `score.ts`: reads each PR's review comments through the GitHub API (`GITHUB_TOKEN` from env) and `key.json`, then prints the (a) table. Test it on fixtures only.
 - `README.md`: what this is, the blindness rules, and how to run it.
 

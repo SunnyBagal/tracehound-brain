@@ -1,11 +1,11 @@
 ---
-updated: 2026-10-19 13:15 IST
+updated: 2026-10-19 13:45 IST
 updated_by: chat
 ---
 
 # Now
 
-Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+**Latest handoff: [history/TraceHound_Handoff_Oct19.md](history/TraceHound_Handoff_Oct19.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
 ## Repo state
 
@@ -95,7 +95,7 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
   - Commit order: plan `57f0b91` at 21:09 IST, then `vote.ts` at 21:13 IST, both before any run finished.
   - Accepted: two test files under `packages/analyzer/test/`.
   - **Not accepted:** the builder edited `tracehound-ops/ops/lanes.json` (cap 0 → 10). 065's brief now forbids any edit to tracehound-ops. Sunny: check what lanes.json says.
-- **HOLD #45** codex-08 gate, head `b19f5eb`. The `style` rule drops real bugs: "consider guarding it or the request crashes" is dropped as `consider`, and "Typo in the env var name … is never set" as `typos`. The cause is my brief, which listed "consider". The gate also checks every quote against the head, so it would drop **every** contract finding from #47 (their change-side evidence is `side: "base"`). Null-line findings are always dropped. The fix is `codex-08b-gate-fixes.md`, to the same Codex task.
+- **#45** codex-08 gate, head **`efb61d7`** (codex-08b: `6fe9803`, `efb61d7`). **Re-checked 19 Oct 13:40:** the bug sentences are kept and the nits dropped; contract/tsc findings are exempt from `style`; base-side evidence goes through `git show` (cleanGitEnv, `--no-textconv`), and with no base reader the check is skipped, not dropped; null lines are kept when their path is in the diff; the usage line has `--base`; 122 gate tests pass locally; it merges cleanly. **Merge when CI is green.**
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
 ## Prompt queue (19 Oct 03:45)
@@ -104,7 +104,7 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 |---|---|---|---|
 | Codex | `codex-08b-gate-fixes.md` | the **same** Codex task as #45 | ready |
 | Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | **Run 1 stopped at step 0 at 13:00 IST** ($0; #45 wasn't merged). Brief patched: it checks the usage line, not `--help`, which the gate CLI doesn't support, and requires `--base`. **Re-copy the brief**, then rerun after #45 is fixed, checked and merged. lanes.json = 5 (confirmed by relay) |
-| ~~Grok~~ | ~~grok-07~~ → [R8](research/R8-competitors-learning.md): **CodeRabbit's terms ban publishing benchmark results** (§4.2(iv)), so it's excluded from our own runs; Greptile (free Starter) + Bugbot (trial) for the seeded test | | done 19 Oct |
+| ~~Grok~~ | ~~grok-07~~ → [R8](research/R8-competitors-learning.md): links recovered and 5 of 5 checked. **Sunny keeps CodeRabbit** (seeded test + public numbers) despite §4.2(iv) of its terms. Seeded-test tools: TraceHound, CodeRabbit, Greptile, Bugbot (Bugbot ≈ $1–1.5 per run) | | done 19 Oct |
 | Cloud | `cc-04-seeded-test.md` (30 seeds, private answer key, no PRs until 25 Oct) | claude.ai/code, **new** session on `SunnyBagal/tracehound-seeds` | ready once Sunny creates the 3 repos (commands in the prompt) |
 | Codex | codex-09 learning (S8) | — | after codex-08b |
 | Claude B | int-01 integration (`th-v2` in the Action) | `~/Projects/TraceHound-claude2` | 22 Oct |
