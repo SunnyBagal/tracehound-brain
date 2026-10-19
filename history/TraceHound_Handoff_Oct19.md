@@ -26,7 +26,7 @@ Paste this file into a new Claude chat as the first message, with: "Continue Tra
 5. `research/R8-competitors-learning.md`
 
 ## State at handoff (verify on GitHub)
-- **Main `5857179`.** Merged on 19 Oct: #43 data branch (`2af8c3a`), #44 dashboard, #46 064 vote (a loss), #47 cc-03 contracts.
+- **Main `b98f753`** (#45 merged at 13:46). Before that `5857179`. Merged on 19 Oct: #43 data branch (`2af8c3a`), #44 dashboard, #46 064 vote (a loss), #47 cc-03 contracts.
 - **#45 gate-v1, head `efb61d7`.** codex-08b landed in two commits (`6fe9803`, `efb61d7`). **Checked by the chat at 13:40:**
   - Defect signals now protect real bugs. Probe: the two bug sentences are kept, and "Consider renaming…" and "nit: trailing whitespace" are dropped.
   - Contract and tsc findings are exempt from `style`.
@@ -63,7 +63,7 @@ Paste this file into a new Claude chat as the first message, with: "Continue Tra
 
 | # | Job | Lane | Status |
 |---|---|---|---|
-| 1 | Merge #45 when CI is green | Sunny | ready |
+| 1 | ~~Merge #45~~ **done** 13:46 → main `b98f753` (full suite green). Merge #41 (audit, docs). #42 stays a draft until the ReviewBench decision | Sunny | — |
 | 2 | `065-evidence-gate.md` | Relay, cap $5 | Run 1 stopped at step 0 ($0; #45 wasn't merged). The brief is patched (it checks the usage line, not `--help`). After #45 merges, Sunny re-copies it with `cp ~/Projects/tracehound-brain/prompts/2026-10-19/065-evidence-gate.md ~/Projects/tracehound-ops/briefs/` and restarts `caffeinate -i bun src/relay.ts start tracehound briefs/065-evidence-gate.md`. When the output arrives, check: freeze before the first call; the 5-run means; the **drop log per gate rule with TPs lost**; the adoption rule as written; no edits under tracehound-ops |
 | 3 | `cc-04-seeded-test.md` | Claude cloud, new session on `SunnyBagal/tracehound-seeds` | Sunny is creating the 3 repos (commands at the top of the prompt). **Updated at 13:35 to include CodeRabbit** (with a manual `@coderabbitai review` trigger and ≤ 8 PRs/hour). If Sunny started the session before that, he must tell it about the change. Check: 30 seeds, verify.ts all passing, no hint words, the sha256 of key.json and SCORING.md (record it in NOW publicly) |
 | 4 | codex-09 learning (S8) | Codex, **must land by 22 Oct** | **Not written yet.** Write it next. Inputs from R8: read `AGENTS.md`, `CLAUDE.md`, `.cursor/BUGBOT.md`, `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md` (applyTo) and `.tracehound/rules.md`; feedback from 👍/👎, threads resolved without a commit touching the line, and replies → fingerprints on `tracehound-data/feedback/`; lexical matching (embeddings optional, behind a flag); implements the gate's `Suppression` interface; owns `packages/analyzer/src/learn/` + `packages/action/src/learn.ts`; adversarial fixtures in the brief |

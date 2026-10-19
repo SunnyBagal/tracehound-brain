@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 13:45 IST
+updated: 2026-10-19 13:55 IST
 updated_by: chat
 ---
 
@@ -9,7 +9,7 @@ updated_by: chat
 
 ## Repo state
 
-- **TraceHound main: `2af8c3a` (verified 19 Oct 00:40, #43 merged by Sunny).** Before that `c6c12b9` (#44 merge). Older: main `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). #38 → `41a92a8` and #39 → `6058d53` (both merged by Sunny 18 Oct ~20:25, merge commits; #38 before codex-06c, by accident; harmless: suggestions work, #2's just isn't committable). #40 merged (`e4e3e3a`).
+- **TraceHound main: **`b98f753`** (verified 19 Oct 13:55, #45 merge). Earlier: `5857179` (#47), `a9d16b5` (#46), `2af8c3a` (#43).** Before that `c6c12b9` (#44 merge). Older: main `e7309a5` (verified 18 Oct 00:10): #33 merge `6b4276e`, #34 merge `e7309a5`. Tag `review-freeze-1` → `6b4276e` (#33's merge commit), tagged 17 Oct 22:14 IST. #35 merged 18 Oct (`3113c3a`). #36 → `d37ffa8`, #32 → `e95ef20`, #37 → `df4f915` (all merged 18 Oct). #38 → `41a92a8` and #39 → `6058d53` (both merged by Sunny 18 Oct ~20:25, merge commits; #38 before codex-06c, by accident; harmless: suggestions work, #2's just isn't committable). #40 merged (`e4e3e3a`).
   Open:
   - **#43** codex-07 data branch, head **`19ece32`** (12 commits; ur-01 fixes on top of `d733a6a`). **Re-checked by chat 19 Oct 00:10:** source diff read against ur-01; #1 merge-base diff, #2 monotonic latest + state rank, #3 ref-lock retry, #4/#8 split `git`/`branchGit` from `cleanGitEnv()`, #9/#10 last-line footer + JSON temp file all match; #5 backlog line; #6/#7 example split into review (cancel-in-progress) and data (serialized, only `contents: write`) jobs. Action tests 153/153 and typecheck re-run locally; merges cleanly with main `c6c12b9`. `max-comments: '0'` returns before any GitHub/Nebius call (verified in `action.ts`). Accepted departures: reopened → open; #5 own commit; extra re-run row. **Merged 19 Oct** (`2af8c3a`). Residuals, backlog only: a manual re-run of an old `reopened` after a later close flips the entry back to open; a late event for a new head after close adds an open entry; dropped pending data jobs can leave a closed PR `open` (documented); the split example records no `reviewFooter` (viewer doesn't read it today; ui-03 must not depend on it). Dogfood pin still `e4e3e3a`.
   - **#44** ui-02 dashboard: **merged** (main `c6c12b9`, verified 19 Oct 00:05). Re-sync `viewer/lib/benchmark.ts` after the R6 wording fixes land (it still shows "3rd").
@@ -95,7 +95,9 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
   - Commit order: plan `57f0b91` at 21:09 IST, then `vote.ts` at 21:13 IST, both before any run finished.
   - Accepted: two test files under `packages/analyzer/test/`.
   - **Not accepted:** the builder edited `tracehound-ops/ops/lanes.json` (cap 0 → 10). 065's brief now forbids any edit to tracehound-ops. Sunny: check what lanes.json says.
-- **#45** codex-08 gate, head **`efb61d7`** (codex-08b: `6fe9803`, `efb61d7`). **Re-checked 19 Oct 13:40:** the bug sentences are kept and the nits dropped; contract/tsc findings are exempt from `style`; base-side evidence goes through `git show` (cleanGitEnv, `--no-textconv`), and with no base reader the check is skipped, not dropped; null lines are kept when their path is in the diff; the usage line has `--base`; 122 gate tests pass locally; it merges cleanly. **Merge when CI is green.**
+- **#45** codex-08 gate (+08b): **merged by Sunny 19 Oct 13:46 → main `b98f753`**. Chat re-ran the full suite on main afterwards: action 153, analyzer 778 (+7 skipped), viewer 186; typecheck clean; the `gate` usage line has `--base`, and `contracts` prints its usage. Main CI run 39221589986 was in progress at 13:55.
+- **#41** cc-01 audit (draft, docs only, 1 file, merges cleanly; counts only, no Cal.com text): **merge** (mark it ready). The wording-fix job later cites it.
+- **#42** ReviewBench spike (draft, `scripts/reviewbench/` + doc): **leave as a draft** until Sunny decides on ReviewBench (it needs Anthropic API credit: ~$3 for the practice set, ~$7 for a 60-PR run). If it's a no by 22 Oct, close it unmerged; R7 keeps the findings.
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
 ## Prompt queue (19 Oct 03:45)
@@ -103,7 +105,7 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 | Lane | File (prompts/2026-10-19/) | Where | Status |
 |---|---|---|---|
 | Codex | `codex-08b-gate-fixes.md` | the **same** Codex task as #45 | ready |
-| Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | **Run 1 stopped at step 0 at 13:00 IST** ($0; #45 wasn't merged). Brief patched: it checks the usage line, not `--help`, which the gate CLI doesn't support, and requires `--base`. **Re-copy the brief**, then rerun after #45 is fixed, checked and merged. lanes.json = 5 (confirmed by relay) |
+| Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | Run 1 stopped at step 0 at 13:00 IST ($0). Brief patched. **#45 is merged now, so it's ready to rerun**: re-copy the brief from the brain, then start. lanes.json = 5 (confirmed by relay) |
 | ~~Grok~~ | ~~grok-07~~ → [R8](research/R8-competitors-learning.md): links recovered and 5 of 5 checked. **Sunny keeps CodeRabbit** (seeded test + public numbers) despite §4.2(iv) of its terms. Seeded-test tools: TraceHound, CodeRabbit, Greptile, Bugbot (Bugbot ≈ $1–1.5 per run) | | done 19 Oct |
 | Cloud | `cc-04-seeded-test.md` (30 seeds, private answer key, no PRs until 25 Oct) | claude.ai/code, **new** session on `SunnyBagal/tracehound-seeds` | ready once Sunny creates the 3 repos (commands in the prompt) |
 | Codex | codex-09 learning (S8) | — | after codex-08b |
