@@ -7,7 +7,7 @@ caffeinate -i bun src/relay.ts start tracehound briefs/065-evidence-gate.md
 ```
 
 **Sunny, before starting:**
-- #45 (gate, after codex-08b), #46 (064) and #47 (contracts) are merged.
+- #45 (gate, **with the codex-08b fixes**, checked by the chat), #46 (064) and #47 (contracts) are merged. #46 and #47 were merged on 19 Oct.
 - Set `nebiusCapUsd` to **5** in `~/Projects/tracehound-ops/ops/lanes.json` yourself.
 
 Decision number: 065. Nebius cap: **$5**. The ledger stands at $23.17; the total cap is $45.
@@ -20,9 +20,10 @@ Decision number: 065. Nebius cap: **$5**. The ledger stands at $23.17; the total
   - The new verifier must quote the exact code and name a concrete failure, or the finding is dropped.
 
 ## Step 0 (if any check fails, STOP AND REPORT)
-- `git fetch origin`; `git status --porcelain` prints nothing; you are on main, equal to origin/main.
+- `git fetch origin`; `git status --porcelain` prints nothing. If the checkout isn't on main, run `git switch main`, then `git merge --ff-only origin/main`. Don't push, rename or delete the branch you left. HEAD must equal origin/main.
 - Main contains the merges of #45, #46 and #47. `grep -c '^## 064' docs/decisions.md` prints 1, and `grep -c '^## 065'` prints 0.
-- `node packages/analyzer/src/bin.ts gate --help` works.
+- `packages/analyzer/src/gate/` exists. Run `node packages/analyzer/src/bin.ts gate` **with no arguments**. It exits 1 and prints a usage line, which is expected; `--help` is not supported. The usage line must list `--pr`, `--findings`, `--repo`, `--base`, `--out`, `--require-evidence` and `--min-severity`. If any of them is missing or named differently, STOP AND REPORT the usage line verbatim. Do not substitute other options.
+- `node packages/analyzer/src/bin.ts contracts` with no arguments prints its usage line, which lists `--repo`, `--base`, `--head` and `--out`.
 - The records exist for all **five** dev runs (1, 2r, 4, 5, 6), as listed in `docs/bench/vote-plan.md`: `pool-raw/` and `pool-verify-v1/` for 40 PRs each.
 - The bare repos in `~/Projects/tracehound-bench/repos/` resolve every head sha.
 - The `GIT_*` env check prints nothing.

@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 03:45 IST
+updated: 2026-10-19 13:15 IST
 updated_by: chat
 ---
 
@@ -103,7 +103,7 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 | Lane | File (prompts/2026-10-19/) | Where | Status |
 |---|---|---|---|
 | Codex | `codex-08b-gate-fixes.md` | the **same** Codex task as #45 | ready |
-| Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | after #45 (fixed), #46 and #47 merge; Sunny sets `nebiusCapUsd` = 5 |
+| Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | **Run 1 stopped at step 0 at 13:00 IST** ($0; #45 wasn't merged). Brief patched: it checks the usage line, not `--help`, which the gate CLI doesn't support, and requires `--base`. **Re-copy the brief**, then rerun after #45 is fixed, checked and merged. lanes.json = 5 (confirmed by relay) |
 | ~~Grok~~ | ~~grok-07~~ → [R8](research/R8-competitors-learning.md): **CodeRabbit's terms ban publishing benchmark results** (§4.2(iv)), so it's excluded from our own runs; Greptile (free Starter) + Bugbot (trial) for the seeded test | | done 19 Oct |
 | Cloud | `cc-04-seeded-test.md` (30 seeds, private answer key, no PRs until 25 Oct) | claude.ai/code, **new** session on `SunnyBagal/tracehound-seeds` | ready once Sunny creates the 3 repos (commands in the prompt) |
 | Codex | codex-09 learning (S8) | — | after codex-08b |
