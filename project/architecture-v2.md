@@ -19,7 +19,7 @@ The gap to the top two is **precision**, not recall. Across all 50 PRs, we post 
 | Ingestion | GitHub Action on PR events + push; data branch (#43) | Enough for the hackathon | #43 |
 | IDE | none (an MCP server exists for graph queries only) | — | agent/mcp.ts |
 
-**What "beating Augment and Cursor" means in 10 days.** All-50 top 2 means F above Cursor's 53.8. With recall held at about 45, that needs precision of about 65. That's plausible if gating works, and it's not guaranteed. Beating Augment (66.3, P 77.8) by 29 Oct is unlikely; we won't plan around it. Where we can honestly be **first**: cross-file contract breaks on a pre-registered seeded test, cost per PR, and an open model and code.
+**What "beating Augment and Cursor" means in 10 days.** All-50 top 2 means F above Cursor's 53.8. With recall held at about 45, that needs precision of about 65. That's plausible if gating works, and it's not guaranteed. Beating Augment (66.3, P 77.8) by 29 Oct is unlikely; we won't plan around it. Where we might honestly lead: cross-file breaks **on our pre-registered seeded test, against the tools we ran** (Greptile and Augment also claim cross-file; R8), cost per PR, and an open model and code. Never "only TraceHound catches cross-file".
 
 ## 2. The pipeline
 
@@ -59,7 +59,8 @@ The gap to the top two is **precision**, not recall. Across all 50 PRs, we post 
    │  data branch write (#43)
    │
  S8 Learn                                               [new: codex-09]
-      conventions: .tracehound/rules.md + AGENTS.md / CLAUDE.md / CONTRIBUTING excerpts → S3, S5
+      conventions: .tracehound/rules.md + AGENTS.md / CLAUDE.md / .cursor/BUGBOT.md /
+                   .github/copilot-instructions.md / .github/instructions/*.instructions.md (applyTo) → S3, S5 (R8)
       feedback: 👎 reactions, threads resolved without a change, "won't fix"/"nit" replies →
       fingerprints in tracehound-data/feedback/ → S6 suppression
 ```
@@ -91,7 +92,7 @@ Each lane declares this type locally. The integration job unifies them into `pac
 - S5 is a new prompt, so it gets a pre-registered dev test (relay 065).
 - **No standalone Cal.com run after 064** (it lost anyway). Every Cal.com run is another look at the test set. Do one look at the full v2 pipeline after freeze-2.
 - **Freeze-2: 24 Oct.** Then exactly one blind Cal.com run of v2 (stated as the second look at that set), plus the all-50 table under both judges.
-- **Seeded cross-file test** on Linea and Recall (cc-04, below), pre-registered, with seeds written by a session that never sees the cc-03 code. It includes clean controls and compile-clean semantic breaks, so tsc alone can't ace it. Where free tiers allow it, competitors run on the same PRs (grok-07 finds out which ones can).
+- **Seeded cross-file test** on public mirrors of Linea and Recall (cc-04; 30 seeds: 6 typed, 6 keyed, 4 semantic, 6 in-diff, 8 controls; key in the private `tracehound-seeds`, sha256 published before the PRs open; tools: TraceHound, Greptile, Bugbot; **CodeRabbit excluded by its terms**), pre-registered, with seeds written by a session that never sees the cc-03 code. It includes clean controls and compile-clean semantic breaks, so tsc alone can't ace it. Where free tiers allow it, competitors run on the same PRs (grok-07 finds out which ones can).
 - ReviewBench 60 (R7) stays optional; it needs Anthropic API credit for the judge.
 - **The learning stage (S8) can't move a benchmark number.** We show it as a scripted demo (👎 a comment → the same comment is suppressed on the next push) and say exactly that.
 

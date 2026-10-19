@@ -104,8 +104,8 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 |---|---|---|---|
 | Codex | `codex-08b-gate-fixes.md` | the **same** Codex task as #45 | ready |
 | Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | after #45 (fixed), #46 and #47 merge; Sunny sets `nebiusCapUsd` = 5 |
-| Grok | `grok-07-competitors-learning.md` | Grok, fresh chat | ready (not started) |
-| Cloud | cc-04 seeded cross-file test (Linea + Recall), a separate session blind to cc-03 | — | written 20 Oct |
+| ~~Grok~~ | ~~grok-07~~ → [R8](research/R8-competitors-learning.md): **CodeRabbit's terms ban publishing benchmark results** (§4.2(iv)), so it's excluded from our own runs; Greptile (free Starter) + Bugbot (trial) for the seeded test | | done 19 Oct |
+| Cloud | `cc-04-seeded-test.md` (30 seeds, private answer key, no PRs until 25 Oct) | claude.ai/code, **new** session on `SunnyBagal/tracehound-seeds` | ready once Sunny creates the 3 repos (commands in the prompt) |
 | Codex | codex-09 learning (S8) | — | after codex-08b |
 | Claude B | int-01 integration (`th-v2` in the Action) | `~/Projects/TraceHound-claude2` | 22 Oct |
 

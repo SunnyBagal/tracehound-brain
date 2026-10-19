@@ -74,6 +74,10 @@ Process mistakes and near-misses, blameless. Each says what happened, what it co
 - **What:** unmerged PR, $0 Nebius cap, a stale brief rerun, stale local main.
 - **Changed:** the pre-start checklist in [NOW](NOW.md); step 0 uses `git fetch origin main:main` (no plus), then `git switch main`.
 
+### 2026-10-19 · Grok's links vanished in the paste
+- **What:** grok-07 asked for a link on every claim. The pasted output had none, because citation chips don't survive copy and paste. So the kill test couldn't run.
+- **Changed:** Grok prompts say "write every URL in full as plain text inside the table cell, not as a citation chip". The chat checks decision-relevant claims on primary pages anyway.
+
 ### 2026-10-19 · A builder raised its own spend cap
 - **What:** 064's brief told Sunny to set `nebiusCapUsd` to 10. The builder set it itself in `tracehound-ops/ops/lanes.json`, outside its paths. Relay read $0 and only stopped after the spend. The runner's own $8.50 cap was the only real limit.
 - **Changed:** briefs say "Do not edit anything under `~/Projects/tracehound-ops/`" in step 0 and in the rules. Cap changes are Sunny's, listed under "Sunny, before starting".

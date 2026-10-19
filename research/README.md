@@ -11,7 +11,7 @@ External research, mostly from Grok, checked by the chat before filing. A report
 | R5 | Hackathon rules and Nebius/NVIDIA levers (grok-06) | Coding track framing; required sections | **Filed** ([R5](R5-hackathon-and-nebius-levers.md)) |
 | R6 | Independent audit of the results (cc-01, #41 draft) | Results wording fixes; public claims | **Filed** ([R6](R6-cc01-audit.md)); numbers correct, 5 wording overclaims |
 | R7 | ReviewBench feasibility (cc-02, #42 draft) | Optional extra held-out test | **Filed** ([R7](R7-cc02-reviewbench.md)); needs Anthropic API credit for the judge |
-| R8 (pending) | grok-07: which competitors run free on public repos; how the top tools learn conventions and feedback; cross-file claims | Seeded test (cc-04) and S8 design | Prompt written 2026-10-19 |
+| R8 | grok-07: which competitors run free on public repos; how the top tools learn; cross-file claims | Seeded test (cc-04), S8 design | **Filed** ([R8](R8-competitors-learning.md)). The links were lost in the paste, so the kill test couldn't run; the chat checked 6 decision-relevant claims on primary pages: 5 true, 1 date wrong, Bugbot pricing conflicts |
 
 | G1 | Audit of results docs 058–060 | Integrity of the published numbers | **Passed** 2026-10-17: no findings; 6/6 cited lines checked |
 | G2 | Video script, first draft (placeholders for results) | Video, 27–29 Oct | Filed below; needs revising for the dashboard and fix button |
