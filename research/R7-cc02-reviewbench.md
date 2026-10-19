@@ -3,6 +3,8 @@
 **Source:** Claude cloud session, 18 Oct; draft PR **#42** (`scripts/reviewbench/`, `docs/bench/reviewbench-spike.md`).
 **Chat check (18 Oct):** the session couldn't read the ReviewBench repo, but **the chat's sandbox can clone `github.com/review-bench/ReviewBench`**. It has `AGENT_CONTRACT.md`, `corpus/`, `agents/` and `examples/`, and the licence is MIT. So blocker 1 is solvable: the next cloud or relay job gets the contract text pasted in, or reads it from a session that has the repo.
 
+**Correction (chat, 19 Oct 17:55, from the [GitHub blog post](https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/)):** "ReviewBench supplies the judge". Participants register a container image, a config and **their own model key**. So **no Anthropic API money is needed**; the cost is our Nebius calls only. The flow: a 25-PR test set (per-PR detail, repeatable), then a final run on **all 219 PRs, three rounds**, then a maintainer approves publication. The blog has no results table. The leaderboard numbers below (Greptile 27.2 etc.) came from secondary sources and are **unverified**; review-bench.ai blocks the chat's fetcher, so Sunny should read the leaderboard in a browser. Cost estimate: 219 × 3 ≈ 657 pipeline runs × $0.03–0.05 ≈ **$20–33 of Nebius**, which is over the remaining self-imposed cap.
+
 **Chat's reading:**
 - **This is the best answer to "10 PRs is too small".** It's a third-party benchmark in which GitHub itself ran Copilot, Devin, Qodo, Cubic and Greptile. Published grounded F1: Copilot 40.1, Devin 37.0, Qodo 35.1, Cubic 27.3, Greptile 27.2.
 - **Costs:** about $3.5–4 for the 25-PR practice set; about $9 per stratified-60 run, mostly the judge.
