@@ -25,6 +25,13 @@ Written **before** any TraceHound output has been run on any ReviewBench PR (19 
 2. `pool-raw`: the same generators with no verifier.
 3. `pool-raw-x2`: pool-raw twice, union, deduplicated.
 
+## Amendment 1 (19 Oct 19:15 IST, before any run): a model dimension
+Nemotron 3.5 Super is on Token Factory at the same price ([R10](../research/R10-smarter-reviewer.md)). Two candidates are added, using the same frozen prompts at temperature 0 with only the model id changed:
+4. `pool-verify-v1` with `nvidia/Nemotron-3.5-Super-VL` (id to be confirmed in the console);
+5. `pool-raw` with `nvidia/Nemotron-3.5-Super-VL`.
+
+That makes five test runs on the 25-PR test set. The selection rule below applies to all five. The cost order for ties is unchanged; same-price models count as equal cost, and the tie goes to 3 Super, the model with the longer record. Selecting among five configs on 25 PRs adds selection bias; we'll state it.
+
 ## Selection rule
 - Run each config **once** on the 25-PR test run (3 runs).
 - Pick the highest **grounded F1**. If two are within 2.0 points, pick the cheaper one (the order is pool-verify-v1, pool-raw, pool-raw-x2).

@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 18:20 IST
+updated: 2026-10-19 19:15 IST
 updated_by: chat
 ---
 
@@ -107,6 +107,7 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 - 219 PRs, run by GitHub + Microsoft; grounded F1 is driven by recall; Greptile 27.2, Cursor 17.3, Copilot 40.1 ([R7](research/R7-cc02-reviewbench.md), [R9](research/R9-reviewbench-methodology.txt)).
 - **Pre-registered: [P008](decisions/P008-reviewbench-preregistration.md).** Never open `golden/`. Choose between pool-verify-v1, pool-raw and pool-raw-x2 from the 25-PR test runs only; then one final run.
 - Prompt `rb-01-reviewbench-image.md` (cloud session): adapter, Dockerfile, ghcr build, smoke workflow. Then Sunny: portal registration → approval → 3 test runs → final.
+- **Nemotron 3.5 Super is on Token Factory at the same price** as 3 Super (SWE-bench Verified 71.1 vs 60.5); see [R10](research/R10-smarter-reviewer.md). It was added to the ReviewBench candidates (P008 amendment 1) and to rb-01's support list. Fine-tuning isn't possible: Token Factory post-training has no Nemotron.
 - Needs a Nebius top-up of about $25. Sunny has Nebius **sandbox** access (beta); it's not needed for ReviewBench, but it's a candidate for "checked fixes" later.
 
 ## Prompt queue (19 Oct 03:45)

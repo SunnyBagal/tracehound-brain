@@ -25,7 +25,7 @@ You're packaging TraceHound's existing reviewer as a ReviewBench agent: a `linux
      - `pool-raw`: diff-v1 + the ctx-only findings, no verifier. This is pool-verify-v1 with the last stage skipped; reuse the same functions;
      - `pool-raw-x2`: pool-raw run twice with the same prompts, then the union, deduplicated with `scripts/bench/agree-rule.ts` `agrees` (keep the first).
      - No other values. An unknown value exits non-zero with a clear message.
-   - `RB_CONFIG_MODEL` picks the model id. The default is the one pool-verify-v1 uses today. Print the settings applied, e.g. `pipeline=pool-raw model=…`, because the contract requires it.
+   - `RB_CONFIG_MODEL` picks the model id for **every** stage (each CLI takes `--model`). The default is the one pool-verify-v1 uses today. It must also accept `nvidia/Nemotron-3.5-Super-VL`, which is on Token Factory at the same price. Check that the reasoning setting the pipeline uses works with it. If 3.5 needs `chat_template_kwargs: {enable_thinking: true}` instead of what 3 Super uses, STOP and report; don't change `packages/`. Print the settings applied, e.g. `pipeline=pool-raw model=…`, because the contract requires it.
    - **Output** `findings.json` exactly per the contract:
      - `pr` holds repo, pr_number, base, head; `head` must equal `RB_HEAD`.
      - Each finding has `file`, `start_line`, `end_line`, `message` and `producer` = `RB_AGENT`.
@@ -45,6 +45,7 @@ You're packaging TraceHound's existing reviewer as a ReviewBench agent: a `linux
 4. **`.github/workflows/reviewbench-smoke.yml`:** `workflow_dispatch` only.
    - It clones ReviewBench at `12e9d1a` and runs `scripts/try-agent.sh <image@digest> --pr <index>` for **two** PRs from their 25-PR test set: index 0, plus one in a non-TS language.
    - Pass `-e NEBIUS_API_KEY` from repo secret `NEBIUS_API_KEY`, `-e RB_MODEL_BASE_URL=<our base URL>`, and `-e RB_CONFIG_PIPELINE=pool-raw`.
+   - Run a third smoke invocation on PR index 0 with `-e RB_CONFIG_MODEL=nvidia/Nemotron-3.5-Super-VL`, to prove the 3.5 model id, reasoning setting and prices work end to end. Report its findings count, wall time and spend.
    - It uploads the findings files as an artifact. It must **not** run their judge, and must not read `golden/`.
 5. **Tests:**
    - unit tests for `entry.ts`: input mapping, output schema, the never-fail path writing `[]` on a thrown error, the cap, null-line drops, and an unknown pipeline value;
@@ -53,6 +54,7 @@ You're packaging TraceHound's existing reviewer as a ReviewBench agent: a `linux
    - Cost: about 657 PR runs (219 × 3) × our per-PR cost. Use `results.md`'s pipeline cost: median $0.0317, max $0.23 for pool-verify-v1. pool-raw skips the verifier.
 
 ## Rules
+- Also add one price entry to `config/prices.json`: `"nvidia/Nemotron-3.5-Super-VL": { "inputPer1M": 0.30, "outputPer1M": 0.90, "placeholder": false }` (source: nebius.com Nemotron models page). Add nothing else to `config/`.
 - Touch only `scripts/reviewbench/`, `Dockerfile.reviewbench`, `.dockerignore` (if needed), `.github/workflows/reviewbench-*.yml`, `docs/bench/reviewbench.md`, and tests under `scripts/reviewbench/`.
 - **Don't change** `packages/` (prompts, pipelines, Action), `config/` or `scripts/bench/`. If the pipeline can't run in-process without a change there, STOP and report what's needed.
 - No force-push, no merge. Open the PR to main **as a draft**, titled `rb-01: ReviewBench agent image (adapter, Dockerfile, build + smoke workflows)`. #42 can be closed after this merges; say whether anything in it is still needed.
