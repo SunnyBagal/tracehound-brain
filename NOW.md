@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 13:55 IST
+updated: 2026-10-19 15:15 IST
 updated_by: chat
 ---
 
@@ -100,6 +100,8 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 - **#42** ReviewBench spike (draft, `scripts/reviewbench/` + doc): **leave as a draft** until Sunny decides on ReviewBench (it needs Anthropic API credit: ~$3 for the practice set, ~$7 for a 60-PR run). If it's a no by 22 Oct, close it unmerged; R7 keeps the findings.
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
+**Blindness (from 19 Oct):** no TraceHound lane (relay, Codex, Claude B, cloud builders, Grok) and not the chat may open `linea-seeded`, `recall-seeded` or `tracehound-seeds` until scoring starts on 25 Oct. Every brief from now on says so.
+
 ## Prompt queue (19 Oct 03:45)
 
 | Lane | File (prompts/2026-10-19/) | Where | Status |
@@ -107,7 +109,7 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 | Codex | `codex-08b-gate-fixes.md` | the **same** Codex task as #45 | ready |
 | Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | Run 1 stopped at step 0 at 13:00 IST ($0). Brief patched. **#45 is merged now, so it's ready to rerun**: re-copy the brief from the brain, then start. lanes.json = 5 (confirmed by relay) |
 | ~~Grok~~ | ~~grok-07~~ → [R8](research/R8-competitors-learning.md): links recovered and 5 of 5 checked. **Sunny keeps CodeRabbit** (seeded test + public numbers) despite §4.2(iv) of its terms. Seeded-test tools: TraceHound, CodeRabbit, Greptile, Bugbot (Bugbot ≈ $1–1.5 per run) | | done 19 Oct |
-| Cloud | `cc-04-seeded-test.md` (30 seeds, private answer key, no PRs until 25 Oct) | claude.ai/code, **new** session on `SunnyBagal/tracehound-seeds` | ready once Sunny creates the 3 repos (commands in the prompt) |
+| Cloud | ~~cc-04~~ **done 15:00**: 30 seed branches on the mirrors (15 per repo; 6 typed / 6 keyed / 4 semantic / 6 in-diff / 8 controls), `verify.ts` 30/30 against the pushed branches; `tracehound-seeds` `e98720d`. **Scoring flaw (chat's brief):** rule (a) can't fire for X seeds (inline comments only on diff files), and CodeRabbit is missing (Sunny pasted the 12:40 version). → `cc-04b-scoring-fix.md`, same session. **Don't publish the hashes until cc-04b is done** | Claude cloud, same session | ready |
 | Codex | codex-09 learning (S8) | — | after codex-08b |
 | Claude B | int-01 integration (`th-v2` in the Action) | `~/Projects/TraceHound-claude2` | 22 Oct |
 

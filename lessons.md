@@ -74,6 +74,10 @@ Process mistakes and near-misses, blameless. Each says what happened, what it co
 - **What:** unmerged PR, $0 Nebius cap, a stale brief rerun, stale local main.
 - **Changed:** the pre-start checklist in [NOW](NOW.md); step 0 uses `git fetch origin main:main` (no plus), then `git switch main`.
 
+### 2026-10-19 · A scoring rule that couldn't fire
+- **What:** cc-04's rule (a) counted only inline comments at the stale-use line. But GitHub allows inline comments only on files in the diff, and every cross-file seed's stale use is in an **unedited** file. So rule (a) could never fire for 16 of the 30 seeds. The cloud session caught it.
+- **Changed:** scoring rules get a dry run against the platform's constraints before they're frozen: can each tool physically produce a matching comment? For cross-file seeds, use a mention rule (path + symbol anywhere on the PR) with an automatic and a manual column.
+
 ### 2026-10-19 · Grok's links vanished in the paste
 - **What:** grok-07 asked for a link on every claim. The pasted output had none, because citation chips don't survive copy and paste. So the kill test couldn't run.
 - **Changed:** Grok prompts say "write every URL in full as plain text inside the table cell, not as a citation chip". The chat checks decision-relevant claims on primary pages anyway.
