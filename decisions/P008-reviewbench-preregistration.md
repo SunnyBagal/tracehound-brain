@@ -37,5 +37,5 @@ ReviewBench's grounded precision ignores findings that don't match the golden se
 - Grounded recall ≥ 16% would put us above Greptile (27.2) and Cursor (17.3). We guess the 25–30% range (F ≈ 38–44), not promised.
 - pool-raw is expected to beat pool-verify-v1 on grounded F1 and lose on augmented precision.
 
-## Budget
+## Budget (Sunny, 19 Oct 18:26: will top up about $25 before the final run, so all three candidates stay)
 About $26 of Nebius for the final run plus about $3 for the three test runs. That needs a top-up (Sunny, 19 Oct).
