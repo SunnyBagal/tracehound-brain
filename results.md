@@ -111,6 +111,19 @@ Commercial tools on the same set: [competitors](benchmark/competitors.md).
 - **Run 1, the run 059 picked the reviewer on (and the dev part of the all-50 table below), is the lowest of 5 under both judges.** From now on, comparisons use 5-run means. The results-wording job should report the all-50 table with the dev 5-run mean beside run 1, declared as such; do not swap in the best run.
 - Voting costs about 5× per PR (median $0.15). Spend $5.409.
 
+## Evidence verifier + deterministic gate, dev (decision 065, PR #48; 5-run means; a loss)
+
+| Row | P v1 | F v1 | F x1 | comments / PR |
+|---|---|---|---|---|
+| pool-verify-v1 (baseline) | 40.5 | 42.3 | 51.3 | 2.39 |
+| A: + deterministic gate | 40.3 | 41.6 | 50.4 | 2.33 |
+| B: pool-raw → verify-evidence-v1 → gate (+ severity floor) | 37.2 | 38.3 | 45.7 | 2.37 |
+| B-all (no severity floor) | 36.9 | 38.4 | 46.3 | 2.42 |
+
+- A removed 11 of 478 comments (10 duplicates, 1 style). B's verifier kept 61% of the pool (verify-ctx-v1 keeps about 35–40%). The evidence rules dropped 59, of which 13 were TP: the pool's base rate, so **a matching quote isn't a signal of a correct finding**.
+- Contracts: 0 findings on 40 dev PRs (typed stage ran on keycloak only; the others were over budget or had no tsconfig). That measures its reach on these repos, not its precision.
+- Chat recomputed all 40 rows on 19 Oct. Spend $2.651.
+
 ## All 50 PRs combined (dev + Cal.com run 1, bench-judge-v1, n = 97). Chat's computation 18 Oct, from the published counts
 
 | Reviewer | TP | FP | P | R | F | Rank |

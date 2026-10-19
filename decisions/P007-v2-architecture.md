@@ -32,5 +32,11 @@ pr:
 - Top 2 on all 50 PRs needs F above 53.8 (Cursor). At R ≈ 45, that means P ≈ 65. Plausible, not promised. Beating Augment (66.3) is not expected.
 - The S8 learning stage moves no benchmark number; it is shown as a scripted demo only.
 
+## After 064 and 065 (chat, 19 Oct 16:30; Sunny to confirm)
+- Three precision levers lost on dev in a row: verify-ctx (058), vote (064), evidence + gate (065). The adopted reviewer's own run-to-run spread (12 F points) is bigger than any effect tried.
+- **Proposed scope cut:** stop precision tuning. The benchmarked reviewer stays pool-verify-v1, unchanged. v2 = pool-verify-v1 + **deterministic contract findings** (measured on the seeded test) + **learning** (demo only) + actionable delivery. The gate and verify-evidence stay merged as libraries; neither is wired in, because neither was adopted.
+- **The top 2 across all 50 is not reachable by 29 Oct** on current evidence. The pitch becomes an honest benchmark, cross-file breaks on a pre-registered seeded test, and a product that learns, all on an open model at cents per PR.
+- The one untried lever with a real reason behind it is temperature 1.0 / top_p 0.95 (NVIDIA's recommendation; we run 0). A 5-run dev test costs about $9 of the remaining $19. Chat's recommendation: skip it.
+
 ## Links
 - Prompts: `prompts/2026-10-19/codex-08-gate.md`, `cc-03-contracts.md`, `grok-07-competitors-learning.md`.

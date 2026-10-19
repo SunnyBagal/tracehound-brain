@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-19 15:15 IST
+updated: 2026-10-19 16:30 IST
 updated_by: chat
 ---
 
@@ -96,7 +96,8 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
   - Accepted: two test files under `packages/analyzer/test/`.
   - **Not accepted:** the builder edited `tracehound-ops/ops/lanes.json` (cap 0 → 10). 065's brief now forbids any edit to tracehound-ops. Sunny: check what lanes.json says.
 - **#45** codex-08 gate (+08b): **merged by Sunny 19 Oct 13:46 → main `b98f753`**. Chat re-ran the full suite on main afterwards: action 153, analyzer 778 (+7 skipped), viewer 186; typecheck clean; the `gate` usage line has `--base`, and `contracts` prints its usage. Main CI run 39221589986 was in progress at 13:55.
-- **#41** cc-01 audit (draft, docs only, 1 file, merges cleanly; counts only, no Cal.com text): **merge** (mark it ready). The wording-fix job later cites it.
+- **#41** cc-01 audit: **merged** (in main `9a81505`).
+- **#48** 065 evidence verifier + gate, head `d2e5a6b`, draft, CI green. **A loss, recorded as one. Merge it** (mark it ready, merge commit). Checked by chat 19 Oct 16:20: all 40 table rows recompute; means v1 baseline F 42.3 / P 40.5, A 41.6 / 40.3, B 38.3 / 37.2; x1 baseline 51.3, A 50.4, B 45.7. Freeze `9bfb3eb` came before the driver and the first call, and the diff after it is empty. Spend $2.651 → **ledger $25.82**. The evidence checks dropped TPs at the pool's base rate (13 of 59), and contracts made 0 findings on dev (mostly non-TS repos).
 - **#42** ReviewBench spike (draft, `scripts/reviewbench/` + doc): **leave as a draft** until Sunny decides on ReviewBench (it needs Anthropic API credit: ~$3 for the practice set, ~$7 for a 60-PR run). If it's a no by 22 Oct, close it unmerged; R7 keeps the findings.
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
@@ -107,7 +108,10 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 | Lane | File (prompts/2026-10-19/) | Where | Status |
 |---|---|---|---|
 | Codex | `codex-08b-gate-fixes.md` | the **same** Codex task as #45 | ready |
-| Relay | `065-evidence-gate.md` (verify-evidence-v1 + gate, 5-run means, cap $5) | `~/Projects/tracehound-ops` → TraceHound | Run 1 stopped at step 0 at 13:00 IST ($0). Brief patched. **#45 is merged now, so it's ready to rerun**: re-copy the brief from the brain, then start. lanes.json = 5 (confirmed by relay) |
+| ~~Relay~~ | ~~065~~ → **#48, a loss** | | done |
+| Relay | `066-results-docs.md` (R6 fixes, all-50 with a dev 5-run-mean row, levers table, README headline; **$0**) | `~/Projects/tracehound-ops` → TraceHound | after #48 merges; Sunny sets `nebiusCapUsd` = 0 |
+| Codex | `codex-09-learning.md` (S8: 👎 / resolved-unchanged / reply → suppress; maintainers only; `learn` input default off; conventions reader, not wired) | ChatGPT Codex, `~/Projects/TraceHound-codex`, new task | **ready, must land by 22 Oct** |
+| (old) Relay | `065-evidence-gate.md` | Run 1 stopped at step 0 at 13:00 IST ($0). Brief patched. **#45 is merged now, so it's ready to rerun**: re-copy the brief from the brain, then start. lanes.json = 5 (confirmed by relay) |
 | ~~Grok~~ | ~~grok-07~~ → [R8](research/R8-competitors-learning.md): links recovered and 5 of 5 checked. **Sunny keeps CodeRabbit** (seeded test + public numbers) despite §4.2(iv) of its terms. Seeded-test tools: TraceHound, CodeRabbit, Greptile, Bugbot (Bugbot ≈ $1–1.5 per run) | | done 19 Oct |
 | Cloud | ~~cc-04~~ **done 15:00**: 30 seed branches on the mirrors (15 per repo; 6 typed / 6 keyed / 4 semantic / 6 in-diff / 8 controls), `verify.ts` 30/30 against the pushed branches; `tracehound-seeds` `e98720d`. **Scoring flaw (chat's brief):** rule (a) can't fire for X seeds (inline comments only on diff files), and CodeRabbit is missing (Sunny pasted the 12:40 version). → `cc-04b-scoring-fix.md`, same session. **Don't publish the hashes until cc-04b is done** | Claude cloud, same session | ready |
 | Codex | codex-09 learning (S8) | — | after codex-08b |
