@@ -33,3 +33,43 @@ Grok passes P003 (nothing fabricated), but its dates and its Q4 framing are loos
 
 ## One thing to carry into rb-01b
 - Reasoning tokens share `max_tokens` on 3.5. If our stage calls cap `max_tokens` low, 3.5 could truncate answers. rb-01b's 3.5 smoke run must report **finish_reason** and whether any stage returned empty/truncated content.
+
+---
+
+# ChatGPT pass on the same prompt (chat check, 20 Oct 18:35 IST)
+
+Raw output: `prompts/2026-10-19/grok-08-smarter-reviewer.chatgpt.out.md`. Better than Grok: it flags its own gaps ("not found", "bundled", "estimate") and doesn't claim any single change gives ≥5 points.
+
+## Kill test (P003): 5 of 5 real; 1 misattribution, 1 number not in the text
+
+| Link | ChatGPT's claim | What the page says |
+|---|---|---|
+| [CR-Bench, arXiv 2603.11078](https://arxiv.org/html/2603.11078v1) (10 Mar 2026) | missed-issue reflection: recall 27.01 → 32.76 (GPT-5.2), 18.39 → 27.59 (GPT-5-mini); usefulness 83.6 → 66.1 | **True.** 174 PRs from SWE-bench, Sonnet 4.5 judge. But the loop is **iterative with an unstated number of calls**, closed models only, precision stays ~3–5%, SNR falls 5.1 → 2.0. |
+| [Qodo benchmark post](https://www.qodo.ai/blog/qodo-outperforms-claude-in-code-review-benchmark/) (12 Mar 2026) | extended mode recall 60 → 71, F1 68.2 → 74.7 | **Partly checkable.** Default 79 P / 60 R is in the text; the extended numbers are **only in charts**. Qodo's own benchmark (injected bugs). "Extended" = category agents **plus models from OpenAI, Anthropic and Google** plus verification: bundled, not prompt-only on one model. |
+| [LAURA, arXiv 2512.01356](https://arxiv.org/html/2512.01356v1) | context +4.7, exemplars +4.4; cited for callers/callees | Numbers right (human "helpful/instrumental" share, 384 samples, GPT-4o). **Misattributed:** LAURA's context is the enclosing function + imports + PR text, **not callers/callees**, and the metric isn't recall. |
+| [OpenCodeReview, arXiv 2608.09290](https://arxiv.org/html/2608.09290v1) (10 Aug 2026) | F1 11.57 → 25.10 while recall 28.9 → 20.0 | **True.** AACR-Bench, 200 PRs, Qwen3-235B judge. Gain is all precision; recall **fell**. No per-file ablation. |
+| [Cursor: building Bugbot](https://cursor.com/blog/building-bugbot) (15 Jan 2026) | 8 passes + majority vote, voting's gain not isolated | **True.** Also: resolution 52% → 70%+ over 11 versions; the **largest gain came from moving to a fully agentic design**. |
+
+## What's new versus R10 and Grok
+1. **Missed-issue pass (CR-Bench).** The only controlled result for a prompt-only change that raises recall by ≥5 points. R10 and Grok both missed it. It suits ReviewBench, since grounded precision ignores the extra noise. Limits: closed models, iterative, unknown call count, and the noise hurts the product.
+2. **OpenCodeReview is a warning for us.** A precision-tuned design doubled F1 on a precision-sensitive benchmark while recall dropped. ReviewBench grounded F1 runs the other way. This supports including `pool-raw` and `pool-raw-x2`.
+3. **Freeze memory before any benchmark.** The ReviewBench image must run with `learn` off and no data branch (rb-01b check).
+
+## Where it agrees
+- No Nemotron fine-tuning on Token Factory. Training papers (CoRAL, Desiview KTO, DPO-f+) need 6k–176k pairs and GPUs, and their gains are BLEU or repair, not recall. Closed.
+- 3.5 id, price, SWE-bench 71.10. It also warns, as R10 did, that the gap from 60.47 is cross-harness.
+- `medium_effort` exists; reasoning shares `max_tokens`. `reasoning_budget` is an NVIDIA client wrapper, not a confirmed Nebius parameter. **This corrects Grok.**
+- Skip voting. Rejection memory doesn't create findings, so it doesn't help a benchmark.
+
+## Where the chat disagrees with ChatGPT's Q4
+- **#1 dependency context and #2 complementary specialists:** both rest on misattributed or bundled evidence (above). They're new code against a 12-point run spread, with no time to ablate before 29 Oct. **Not before submission.**
+- **Its schedule (implement 20–22, ablate 23–25):** this collides with freeze-2 on 24 Oct and the seeded test on 25 Oct. No.
+- **Temperature 1.0 check:** still a separate, later variable (R8, R10). It needs a per-stage temperature option.
+
+## P008 amendment?
+**Not by the chat. One option for Sunny.** Under P008 every candidate uses existing frozen prompts. A missed-issue pass would be candidate 6 (`pool-raw` + one omissions call, about 1.33× cost), and it needs:
+- a new prompt and stage code, frozen before the first test run;
+- an rb-01c;
+- a split between the reviewer we benchmark and the one the Action ships, unless the Action adopts it too.
+
+`pool-raw-x2` already tests the cheap recall boost. The chat recommends **no**: the evidence is from closed models only, and the split weakens the "same reviewer" claim. If Sunny says yes, it must be written and frozen before the 25-PR test runs.
