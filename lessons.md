@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-20 · Bunny chained a commit after a failing test
+- **What:** in 066, the builder (Bunny, Sonnet) ran the tests and the commit in one chained command, so step 3 was committed with the viewer test red. It noticed, never pushed it, and undid it (`git reset --soft`).
+- **Cost:** none.
+- **Changed:** briefs say: run the gates as their own command, read the result, then commit separately. A test written by one lane (viewer #44) can block another lane's docs. Briefs that edit `docs/bench/results.md` must name the viewer test that mirrors it.
+
 ### 2026-10-18 · Ultrareview found 10 issues in #43 that the brief, Codex and the chat's check all missed
 - **What:** the bugs came from three places.
   - **Chat's brief (codex-07):** it told Codex to run `changes --diff <base>..<head>` (that's #1: diff against the base tip, not the merge base). It said "retry once on non-fast-forward" (#3) and never asked for replay or out-of-order safety (#2).

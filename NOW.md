@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 19:50 IST
+updated: 2026-10-20 20:20 IST
 updated_by: chat
 ---
 
@@ -120,8 +120,20 @@ Grok bots: [grok-09](prompts/2026-10-20/grok-09-bots.md) has three jobs:
 - B: X and LinkedIn drafts, with the Verifier checking numbers against results.md.
 - C: a daily digest.
 
+## Lanes and jobs (20 Oct 20:20)
+| Lane | Job | Status |
+|---|---|---|
+| **Sunny** (you, by hand) | close #42; rebuild the ReviewBench image on main → 4 smoke runs; register in the portal; decide on the judge API key (~$20) or the P008 amendment 3 fallback; send Verifier B | now |
+| **Bunny** | [bunny-066b](prompts/2026-10-20/bunny-066b.md): finish 066 (viewer sync, CodeRabbit wording fix) | same session |
+| **Codex** | [codex-10 int-01](prompts/2026-10-20/codex-10-int-01-contracts.md): contracts in the Action, default on, fail-soft. Gate and evidence verifier **not** wired (065 lost) | new task, by 22 Oct |
+| **Claude cloud** | Ultrareview #2 on int-01's PR once it opens. Otherwise reserve | waits |
+| **Grok bots** | [grok-10](prompts/2026-10-20/grok-10-bots.md): D (benchmark clauses in Greptile/Bugbot/CodeRabbit terms), E (Devpost submission checklist) | now |
+| **Sunny's Claude Code** | idle until the smoke and test runs; then the pre-registered 3.5 dev check, then the judges' README after 066 and int-01 | waits |
+
+**Chat decision (20 Oct):** v2 in the Action = pool-verify-v1 + **contracts** (+ `learn`, off by default). The gate and the evidence verifier stay out (065). This is what freeze-2 (24 Oct) and the seeded test (25 Oct) run.
+
 ## 20 Oct 19:50: #49 and #51 cleared, #50 merged
-- **#50 merged** → main `8193651`. Next: rebuild the image on main, then 3 smoke runs (pool-raw 3 Super, pool-verify-v1 3 Super, pool-raw 3.5) **plus a 4th, pool-raw-missed on 3 Super, after #51 merges**.
+- **#50, #49 and #51 merged** (main includes `review-missed` and learn `dee2bed`). #50 → `8193651`. Next: rebuild the image on main, then 3 smoke runs (pool-raw 3 Super, pool-verify-v1 3 Super, pool-raw 3.5) **plus a 4th, pool-raw-missed on 3 Super, after #51 merges**.
 - **#49 cleared:** head `9b21e70`, chat re-probed. A different variable in the same file and template-alike comments in other files are now **kept**. Learn tests 60, action 179. Merge it (mark ready), then int-01.
 - **#51 cleared** (rb-02, candidate 6): head `99f35d0`. The chat recomputed the prompt sha256 (`a5a2115f…53bc`, now in P008). Frozen prompt files and `packages/action` are unchanged; missed tests 10, adapter 46. The prompt is generic. rb-02 ran in the cloud, not relay. Merge it.
 - **Judge cost ([R12](research/R12-reviewbench-portal.md)):** test runs are judged at **our** cost (Sonnet 5, about $3 each, so about $18 for 6). The final run is paid by ReviewBench. **Sunny decides:** fund an Anthropic API key (all 6 candidates), or take the fallback in P008 amendment 3 (candidates 2, 5 and 6 only, about $9). Register in the portal **now**; approval takes up to a business day and a new digest later needs no re-approval.
