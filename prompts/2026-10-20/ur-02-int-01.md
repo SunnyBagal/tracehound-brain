@@ -1,6 +1,6 @@
 # ur-02: Ultrareview #2 on PR #53 (int-01, contracts in the Action)
 
-Tool: **Claude cloud** (claude.ai/code), a **new session** on repo `SunnyBagal/TraceHound`, branch `codex/int-01-contracts`. Uses one of the last 2 Ultrareviews. Type the command, then paste the focus text below the line if the session asks for focus (or as the first message after the command starts).
+Tool: **Claude cloud** (claude.ai/code), a **new session** on repo `SunnyBagal/TraceHound`, branch `codex/int-01-contracts`. Uses one of the last 2 Ultrareviews. **Type only the bare command.** `/ultrareview` takes either a PR number or free text (which reviews the current branch), not both: adding text with `#53` in it makes it stop and ask (20 Oct 21:57, nothing ran). The focus text below is for the chat's triage of the findings; don't paste it.
 
 ```
 /ultrareview 53
