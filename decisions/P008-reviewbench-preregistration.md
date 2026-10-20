@@ -46,3 +46,25 @@ ReviewBench's grounded precision ignores findings that don't match the golden se
 
 ## Budget (Sunny, 19 Oct 18:26: will top up about $25 before the final run, so all three candidates stay)
 About $26 of Nebius for the final run plus about $3 for the three test runs. That needs a top-up (Sunny, 19 Oct).
+
+## Amendment 2 (20 Oct 18:45 IST, before any run): candidate 6, a missed-issue pass
+Decided by the chat; Sunny delegated the call. Evidence: [R11](../research/R11-grok08.md) (CR-Bench, arXiv 2603.11078: a missed-issue pass raised recall by 5.75 points on GPT-5.2 and 9.2 on GPT-5-mini; closed models only).
+
+6. `pool-raw-missed`: pool-raw, then **one** missed-issue pass (`review-missed-v1`, built in rb-02). The pass sees:
+   - the diff chunk;
+   - the same repository context review-ctx-v1 builds;
+   - the pooled findings.
+
+   It asks only for defects that aren't already listed. Its findings join the pool through decision 058's agree rule. If the pass fails or runs out of time, the output is the pool alone, logged as such.
+
+Rules for candidate 6, on top of the ones above:
+- **Frozen first.** The prompt's sha256 is recorded here before the first 25-PR test run of *any* candidate. It is written with no model calls and without reading any ReviewBench data.
+- **Model.** It uses the model of whichever of candidates 2 and 5 (pool-raw on 3 Super vs 3.5) scores higher on grounded F1. A tie within 2.0 points goes to 3 Super. So candidate 6 is run last.
+- **Stricter margin.** It is chosen only if its grounded F1 beats the best of candidates 1–5 by **≥ 3.0 points**. Otherwise the original rule picks among 1–5.
+- **Cutoff.** If rb-02 isn't merged and smoke-tested by **23 Oct 12:00 IST**, candidate 6 is dropped and recorded here as not run. It never delays the test runs of 1–5.
+- **Disclosure.** The Action keeps pool-verify-v1. If candidate 6 wins, the results say the ReviewBench config differs from the Action's default, as they would for pool-raw.
+- **Cost.** About 1.5× pool-raw. Final run ≈ $33 if chosen. Total ledger stays under the ~$75 cap after the top-up.
+
+Selection bias now covers 6 configs on 25 PRs; we'll state it.
+
+`review-missed-v1` sha256: _to be filled from rb-02's PR, before any test run_
