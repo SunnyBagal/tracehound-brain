@@ -51,3 +51,5 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#41](https://github.com/SunnyBagal/TraceHound/pull/41) draft `2df600e`: cc-01 audit, docs only. **Merge** (chat, 19 Oct).
 - [#42](https://github.com/SunnyBagal/TraceHound/pull/42) draft `433212c`: ReviewBench spike. Leave it as a draft until the ReviewBench decision; close it if that's a no.
 
+- [#50](https://github.com/SunnyBagal/TraceHound/pull/50) draft `rb/image-v1` `1d06203`: ReviewBench image (rb-01). **HOLD** (chat, 20 Oct): no 3.5 price (calls refused under the $1 run cap), and the smoke test cannot fail. Fix: rb-01b.
+- [#49](https://github.com/SunnyBagal/TraceHound/pull/49) `30a3d44`: codex-09 learning. Not checked yet; Codex ends 22 Oct.

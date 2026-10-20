@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 18:35 IST
+updated: 2026-10-20 18:55 IST
 updated_by: chat
 ---
 
@@ -102,6 +102,24 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
 **Blindness (from 19 Oct):** no TraceHound lane (relay, Codex, Claude B, cloud builders, Grok) and not the chat may open `linea-seeded`, `recall-seeded` or `tracehound-seeds` until scoring starts on 25 Oct. Every brief from now on says so.
+
+## HOLD #50 (20 Oct 18:55): don't merge until rb-01b lands
+Checked by chat on head `1d06203`:
+- 27/27 adapter tests pass on Node 22.
+- The never-fail wrapper, the 40-finding cap and the contract schema check are fine.
+- `golden/` is banned in the docs.
+- The image workflow run #1 is green. **Sunny:** read its summary for the digest and whether the package is public.
+
+Gaps:
+1. **No 3.5 price.** The $5/$15 placeholder × 32k `max_tokens` breaks the $1 per-process cap, so every 3.5 call is refused and the run silently scores 0.
+2. **The smoke test can't fail.** The wrapper always exits 0.
+3. The smoke test has no model input.
+
+Fix: [rb-01b](prompts/2026-10-20/rb-01b-nemotron-3.5.md), in the same cloud session as #50.
+
+**P008 amendment 2 (decided by the chat, Sunny delegated):** candidate 6 is `pool-raw-missed`, built by [rb-02](prompts/2026-10-20/rb-02-missed-issue-pass.md) (new cloud session, after #50 merges). Cutoff 23 Oct 12:00 IST.
+- **No ReviewBench test run of any candidate starts until the chat has recorded rb-02's prompt sha256 in P008.**
+- If rb-02 misses the cutoff, drop candidate 6 and start the runs.
 
 ## grok-08 (20 Oct 18:20)
 - Filed → [R11](research/R11-grok08.md). Kill test 5/5 real, 3 overstated. **No P008 amendment**: its top 3 are `pool-raw-x2` (already candidate 3) or new prompts/code. Adds one rb-01b check: 3.5 smoke must report `finish_reason` (reasoning shares `max_tokens`). **ChatGPT pass (18:35):** kill test 5/5 (LAURA misattributed to callers/callees; Qodo extended numbers only in charts). New: **missed-issue pass** (CR-Bench: +5.75 recall on GPT-5.2, closed models, iterative). Chat recommends **no** candidate 6; **Sunny decides before any test run**. rb-01b also checks `learn` off in the image.
