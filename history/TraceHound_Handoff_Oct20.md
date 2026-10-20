@@ -74,10 +74,17 @@ Sunny is considering a **Team plan (2 seats)** for Claude Motion; the decision i
 4. **Not possible:** fine-tuning or RL (Token Factory post-training has no Nemotron). "Learning" is memory-based: codex-09 now, Bugbot-style learned rules later.
 5. Sunny has **Nebius sandbox** access (beta). Candidate use after ReviewBench: "checked fixes" (apply the fix suggestion, run the tests).
 
+## Sunny's update (20 Oct 17:59)
+- **rb-01 is done** and is PR #50. As noted above, it was built from the version of the prompt **before** Nemotron 3.5 support was added, so rb-01b is still needed.
+- **grok-08 is running now** in Grok. When its output arrives: file it as `prompts/2026-10-19/grok-08-smarter-reviewer.out.md`; open 5 of its links (kill test, P003); compare it with R10; and file the agreements and disagreements as `research/R11-grok08.md`. If it surfaces a lever R10 missed, write it up as a P008 amendment **only if no ReviewBench test run has happened yet**.
+- **Sunny hasn't acted on R10 yet.** R10 is the chat's own research, filed on 19 Oct. Its actions are still open:
+  - confirm the Nemotron 3.5 Super model id in the Token Factory console;
+  - rb-01b (3.5 support in the image);
+  - the 3.5 candidates in the ReviewBench test runs (already pre-registered in P008 amendment 1).
+
 ## Pending with Sunny
 - Start **066** in relay (`prompts/2026-10-19/066-results-docs.md`, cap 0): the R6 wording fixes, the all-50 table with a 5-run-mean row, the levers table, the README headline. Check whether it has run.
 - Confirm the **3.5 model id** in the Token Factory console.
-- Optional: run **grok-08** in Grok or ChatGPT as a second opinion on R10.
 - The X/LinkedIn post, using the Cal.com blind table. He wants a Claude Motion animation, which needs a Team plan.
 
 ## Next jobs to write
