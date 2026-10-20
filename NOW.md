@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 20:20 IST
+updated: 2026-10-20 20:35 IST
 updated_by: chat
 ---
 
@@ -128,7 +128,10 @@ Grok bots: [grok-09](prompts/2026-10-20/grok-09-bots.md) has three jobs:
 | **Codex** | [codex-10 int-01](prompts/2026-10-20/codex-10-int-01-contracts.md): contracts in the Action, default on, fail-soft. Gate and evidence verifier **not** wired (065 lost) | new task, by 22 Oct |
 | **Claude cloud** | Ultrareview #2 on int-01's PR once it opens. Otherwise reserve | waits |
 | **Grok bots** | [grok-10](prompts/2026-10-20/grok-10-bots.md): D (benchmark clauses in Greptile/Bugbot/CodeRabbit terms), E (Devpost submission checklist) | now |
-| **Sunny's Claude Code** | idle until the smoke and test runs; then the pre-registered 3.5 dev check, then the judges' README after 066 and int-01 | waits |
+| **Sunny's Claude Code (relay)** | [067](prompts/2026-10-20/067-dev-nemotron-3.5.md): Nemotron 3.5 on dev, 3 runs, cap $8, pre-registered adoption rule (≥ +3.0 F, P not lower, x1 not lower). Moved earlier: it's dev-only, so it can't bias ReviewBench | **now** |
+| **Bunny, next** | [bunny-02](prompts/2026-10-20/bunny-02-judges-readme.md): judges' README with number placeholders | after 066b's PR |
+
+**Post plan (Sunny, 20 Oct):** one LinkedIn and X post once the numbers are in, about 26 Oct: ReviewBench final, the 3.5 dev verdict, the seeded test and the v2 blind Cal.com run. Sunny will probably fund the Anthropic API key for the test-run judge.
 
 **Chat decision (20 Oct):** v2 in the Action = pool-verify-v1 + **contracts** (+ `learn`, off by default). The gate and the evidence verifier stay out (065). This is what freeze-2 (24 Oct) and the seeded test (25 Oct) run.
 
