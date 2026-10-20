@@ -7,6 +7,10 @@ updated_by: chat
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
+## 20 Oct 23:00: image rebuilt on main; Codex extended
+- **ReviewBench image on main `2a95756`** (includes #51): `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:ff22b972feb243d7c4f73db69ced12ee4a811e66f552a094e77794e1276b23ba`. Public; adapter tests 46/46. Warnings are harmless (Node 20 deprecation, the `FROM --platform` lint). Use it for smoke runs 1–3 and the portal registration. The per-model base-URL fix will produce a newer digest, which is added in the portal with no re-approval.
+- **Codex lane extended:** Sunny has ChatGPT Plus for 1 month (free). Codex no longer ends 22 Oct.
+
 ## 20 Oct 22:40: 3.5 found. It is on us-north1
 - **Nemotron 3.5 Super VL answers on `https://api.tokenfactory.us-north1.nebius.com/v1`** with id `nvidia/Nemotron-3.5-Super-VL` (Sunny's curl, 22:37: 200, reasoning on). **3 Super is not on us-north1** (`model_not_found`), and 3.5 is not callable on us-central1, even though us-central1's `/v1/models` lists it (Nebius bug, FEEDBACK).
 - **Effect:** the client has one global base URL (`DEFAULT_BASE_URL` us-central1, or `NEBIUS_BASE_URL`), so no run can mix the two. 067 needs 3.5 reviewers plus Super/Qwen judges. ReviewBench candidates 4/5 need 3.5, and 1–3 need 3 Super.
