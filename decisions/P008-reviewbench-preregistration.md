@@ -68,3 +68,9 @@ Rules for candidate 6, on top of the ones above:
 Selection bias now covers 6 configs on 25 PRs; we'll state it.
 
 `review-missed-v1` sha256: **`a5a2115f559b82de82c51ee2629e30b05c37ebe0e528e5a02b3de753b42053bc`**. Recorded 20 Oct 19:50 IST, before any test run. Source: PR #51 head `99f35d0`; the chat recomputed it from `REVIEW_MISSED_SYSTEM_PROMPT`, and the prompt has general categories only, no dataset references. Cost estimate revised by rb-02: ≈ $0.027/PR, ≈ $18 for the final run.
+
+## Amendment 3 (20 Oct 20:05 IST, before any run): a fallback if the judge can't be paid for
+[R12](../research/R12-reviewbench-portal.md): test runs are judged at our cost (Claude Sonnet 5, roughly $3 per 25-PR run by R7's estimate, so about $18 for six runs).
+- If Sunny funds an Anthropic API key, all six candidates run as amended above.
+- **If not**, only candidates **2 (pool-raw, 3 Super), 5 (pool-raw, 3.5) and 6 (pool-raw-missed)** run, about $9. The selection rule is unchanged among them, with candidate 6's margin of ≥3.0 points measured against the better of 2 and 5. Candidates 1, 3 and 4 are recorded as not run, with this reason.
+- Either way, the per-PR "misses" in test-run reports are **read only to check that runs worked** (status, finding counts). No prompt, threshold or config is changed because of them.
