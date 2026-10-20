@@ -1,6 +1,6 @@
 # rb-02: missed-issue pass, ReviewBench candidate 6 (`pool-raw-missed`)
 
-**Where:** Claude cloud (claude.ai/code), a **new session** on TraceHound. Start it only after #50 (with rb-01b) has merged.
+**Where:** **Relay**: local Claude Code, `~/Projects/tracehound-ops` → `~/Projects/TraceHound`, after 066. Moved off the cloud on 20 Oct, when the credit dropped to $52. Start it only after #50 (with rb-01b) has merged. Before starting, Sunny sets `nebiusCapUsd` = 0 and runs the usual relay checks (clean tree, PR merged).
 **Spend:** $0. There's no Nebius key in this session, and no model calls are made.
 **Hard cutoff:** this must be merged and smoke-tested by **23 Oct 12:00 IST**. Otherwise candidate 6 is dropped (P008 amendment 2).
 

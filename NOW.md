@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 19:05 IST
+updated: 2026-10-20 19:10 IST
 updated_by: chat
 ---
 
@@ -102,6 +102,9 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
 **Blindness (from 19 Oct):** no TraceHound lane (relay, Codex, Claude B, cloud builders, Grok) and not the chat may open `linea-seeded`, `recall-seeded` or `tracehound-seeds` until scoring starts on 25 Oct. Every brief from now on says so.
+
+## Credit (20 Oct 18:50)
+**Claude cloud: $52** (Sunny). It was ~$85 at 18:00. This planning chat may be a cloud session too; Sunny is checking per-session usage. From now on: rb-02 and int-01 go to **relay** (Pro plan), and the cloud is only for rb-01b. The chat keeps PR checks lean.
 
 ## HOLD #49 (20 Oct 19:05): codex-09b first
 Checked by chat on `30a3d44`. Paths are in scope; analyzer learn tests 47/47 and action tests 174/174 pass; `learn: 'off'` is unchanged; the permission check is right.
