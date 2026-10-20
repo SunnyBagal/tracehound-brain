@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-21 · The int-01 brief specified a path the analyzer can't produce
+- **What:** codex-10 asked for inline `Contract:` comments, a 10-inline cap and a ±3 dedupe. The contract checker only reports files the PR didn't edit, so none of these can trigger. The chat wrote the brief without reading `findings.ts` / `keyed.ts`, and its PR check didn't catch it either. Ultrareview #2 did.
+- **Cost:** dead code and a false docs claim, fixed in codex-11's docs item.
+- **Changed:** before a brief wires a stage's output somewhere, the chat reads where that output comes from: which files and lines it can name.
+
 ### 2026-10-20 · The live demo wasn't running the benchmarked model
 - **What:** the Action's reviewers default to Nano (`DEFAULT_MODEL`). The demo and dogfood workflows never set `model`, so since 17 Oct every live review used Nano generators with a Super verifier, while the benchmark is all Super. The demo stats in NOW (2 of 4 seeded lines) are Nano-generator numbers. Bunny caught it while writing the judges' README; no PR check had compared a live review's header with the benchmark config.
 - **Cost:** none yet. It would have put a different config in front of judges than the one the numbers describe, and the seeded test (25 Oct) would have measured it.

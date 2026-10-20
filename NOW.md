@@ -1,11 +1,32 @@
 ---
-updated: 2026-10-20 21:45 IST
+updated: 2026-10-21 00:10 IST
 updated_by: chat
 ---
 
 # Now
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+
+## 21 Oct 00:10: HOLD #53 → codex-11; smoke runs on 3 Super green
+- **HOLD #53.** Ultrareview #2 ([output](prompts/2026-10-20/ur-02-int-01.out.md)) found 7 issues. The chat checked all 7 against `747a3a7` and confirmed them all. Fix round [codex-11](prompts/2026-10-21/codex-11-int-01-fixes.md) runs on the same branch. Findings:
+  1. SIGKILL can leave `.git/shallow.lock`, which breaks a data-branch step in the same job.
+  2. `--budget-s 90` doesn't subtract the time already spent, so worktrees leak.
+  3. A typed check skipped for budget (more than 5,000 root files) drops the keyed findings.
+  4. The contracts section sits before the disclaimer and gets swallowed by `learn` `bodyFindings`.
+  5. Unescaped reason text: `<User>` is stripped and `@team` pings that team.
+  6. With no checkout, a review-diff-v1 review now gains a footer.
+  7. The inline path is unreachable, because the analyzer reports only unedited files. That's a docs fix.
+- **Not covered by anyone yet:** a hostile tsconfig (`extends`, `plugins`) or symlinks in the PR. The focus text never reached the Ultrareview. Risk is low: fork PRs are skipped, so the PR author already has write access. Backlog.
+- **Ultrareviews: 1 left** (reserve).
+- **Smoke runs on `ff22b972`, all on 3 Super, all green:**
+
+  | pipeline | idx 0 (TS) | idx 4 (Py) |
+  |---|---|---|
+  | pool-raw | 2 findings, $0.0586, 284 s | 1, $0.0040, 16 s |
+  | pool-verify-v1 | 0, $0.0436, 208 s | 1, $0.0047, 39 s |
+  | pool-raw-missed | 1 (pool 0, missed 1, new 1), $0.1021, 607 s | 2 (pool 1, missed 1, new 1), $0.0066, 28 s |
+
+  About $0.22 of CI spend, outside the local ledger. idx 0's pool varies between runs (2 vs 0 at temperature 0), the known spread. pool-raw-missed took 10 min on idx 0, against the 25-min limit. The 3.5 smoke run waits for the per-model base URL fix.
 
 ## 20 Oct 23:00: image rebuilt on main; Codex extended
 - **ReviewBench image on main `2a95756`** (includes #51): `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:ff22b972feb243d7c4f73db69ced12ee4a811e66f552a094e77794e1276b23ba`. Public; adapter tests 46/46. Warnings are harmless (Node 20 deprecation, the `FROM --platform` lint). Use it for smoke runs 1–3 and the portal registration. The per-model base-URL fix will produce a newer digest, which is added in the portal with no re-approval.
