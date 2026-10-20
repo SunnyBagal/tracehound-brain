@@ -44,7 +44,8 @@ Builders (Bunny, relay) write their final report to the brain's `inbox/` and pus
   - #50: ReviewBench image + rb-01b (3.5 price, smoke test that can fail, learning kept out of the image);
   - #49: learning, after codex-09b fixed the matcher (identifiers kept);
   - #51: rb-02, `review-missed-v1` + `pool-raw-missed`, prompt sha256 `a5a2115f…53bc`, recorded in P008.
-- **Open:**
+- **Open (21:07):** **#53 int-01** (Codex, contracts in the Action, CI 4/4 green) and **#54** (Bunny, judges' README, CI running). **Check both first**; then Ultrareview #2 on #53.
+- **Also open:**
   - **#52** (Bunny, 066 results docs, head `e91a268`): **cleared to merge**.
   - **#42** (old spike): Sunny to close it unmerged.
 - **ReviewBench** (P008, six candidates):
@@ -78,6 +79,13 @@ Builders (Bunny, relay) write their final report to the brain's `inbox/` and pus
   - Cursor allows publishing benchmarks with a full replication kit;
   - Greptile §1.4(a) bars sharing "any results" without OK, so Sunny should email them;
   - CodeRabbit: Sunny keeps it. Don't re-argue.
+
+## Answers given to relay's three 067 questions (21:07)
+1. Sunny finds the callable id. The resume prompt may add **one key** to `config/prices.json`.
+2. Set `nebiusCapUsd` = 8 in lanes.json before resuming.
+3. A model-id-only amendment to the plan is approved, pushed before any call, with run 7 fresh under the new slug. **If 3.5 isn't callable by 23 Oct, drop 067** (freeze-2 is 24 Oct).
+
+Relay's proposed resume prompt is in `prompts/2026-10-20/067-dev-nemotron-3.5.relay-review.out.md`.
 
 ## Pending with Sunny
 1. Merge #52; close #42.
