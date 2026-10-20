@@ -1,11 +1,11 @@
 ---
-updated: 2026-10-20 20:50 IST
+updated: 2026-10-20 21:00 IST
 updated_by: chat
 ---
 
 # Now
 
-**Latest handoff: [history/TraceHound_Handoff_Oct20.md](history/TraceHound_Handoff_Oct20.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+**Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
 ## Repo state
 
@@ -123,7 +123,8 @@ Grok bots: [grok-09](prompts/2026-10-20/grok-09-bots.md) has three jobs:
 ## 20 Oct 20:50: 3.5 not callable; relay stuck; #52 nearly done
 - **Nemotron 3.5 Super VL: listed but HTTP 404 on chat** (067 builder: 35/35 calls failed, $0). `GET /v1/models` lists it next to 3 Super, which works. 067 stopped correctly after run 7's first calls (branch `build/067-dev-3.5`, `cf5b70b`). **Sunny:** try it in the Token Factory playground, copy its exact API id and base URL from the model page's code sample, and ask Nebius support with the FEEDBACK entry. P008 amendment 4: 3.5 candidates are dropped if it's still uncallable when the test runs start. Smoke run 3 (3.5) will go red until it's fixed.
 - **Relay is stuck by design, not a bug:** it polls CI for `cf5b70b`, but CI runs only on `main` pushes and PRs, and the branch has no PR. **Ctrl-C the relay.** 067 resumes once 3.5 answers.
-- **#52 (Bunny 066):** checked. Scope OK (8 allowed files), CI green, all-50 rows recompute (row ii: P 44.2, R 48.2, F 46.1). Three leftovers → [bunny-066c](prompts/2026-10-20/bunny-066c.md), then **merge**.
+- **#52 (Bunny 066): cleared to merge** at `e91a268` (066c fixed the three leftovers; tests green locally). Nit: `BENCHMARK_REVISION` pins `e54ee63`, whose tables are identical; re-pin it in any later viewer job.
+- **Devpost ([R14](research/R14-devpost-checklist.md)):** **no competitor names or logos in the video** (trademark rule); the demo must work without a judge's key; MIT LICENSE exists.
 - **Terms ([R13](research/R13-tool-terms.md)):** Cursor allows publishing benchmarks with a full replication kit; Greptile §1.4(a) bars sharing "any results" without OK (ask Greptile); CodeRabbit is Sunny's call (kept).
 
 ## Lanes and jobs (20 Oct 20:20)
