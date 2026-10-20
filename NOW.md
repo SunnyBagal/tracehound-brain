@@ -104,7 +104,7 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 **Blindness (from 19 Oct):** no TraceHound lane (relay, Codex, Claude B, cloud builders, Grok) and not the chat may open `linea-seeded`, `recall-seeded` or `tracehound-seeds` until scoring starts on 25 Oct. Every brief from now on says so.
 
 ## Credit (20 Oct 18:50)
-**Claude cloud: $52** (Sunny). It was ~$85 at 18:00. This planning chat may be a cloud session too; Sunny is checking per-session usage. From now on: rb-02 and int-01 go to **relay** (Pro plan), and the cloud is only for rb-01b. The chat keeps PR checks lean.
+**Claude cloud: $52** (Sunny). The handoff's ~$85 was two days stale; most of the drop is the rb-01 session (#50), not this chat. A big builder job costs roughly $20–30 of cloud credit. From now on: rb-02 and int-01 go to **relay** (Pro plan), and the cloud is only for rb-01b. The chat keeps PR checks lean.
 
 ## HOLD #49 (20 Oct 19:05): codex-09b first
 Checked by chat on `30a3d44`. Paths are in scope; analyzer learn tests 47/47 and action tests 174/174 pass; `learn: 'off'` is unchanged; the permission check is right.
