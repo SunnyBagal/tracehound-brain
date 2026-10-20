@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 18:55 IST
+updated: 2026-10-20 19:05 IST
 updated_by: chat
 ---
 
@@ -102,6 +102,20 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
 **Blindness (from 19 Oct):** no TraceHound lane (relay, Codex, Claude B, cloud builders, Grok) and not the chat may open `linea-seeded`, `recall-seeded` or `tracehound-seeds` until scoring starts on 25 Oct. Every brief from now on says so.
+
+## HOLD #49 (20 Oct 19:05): codex-09b first
+Checked by chat on `30a3d44`. Paths are in scope; analyzer learn tests 47/47 and action tests 174/174 pass; `learn: 'off'` is unchanged; the permission check is right.
+
+**Defect** (it came from the brief): code spans are dropped, so identifiers vanish. The probes:
+- a rejected null-deref on `user` suppressed a null-deref on `order` in the same file;
+- it also suppressed a template-alike comment in another `.ts` file.
+
+Fix: [codex-09b](prompts/2026-10-20/codex-09b-learn-fixes.md), in the same Codex task. **Must land by 22 Oct.**
+
+Grok bots: [grok-09](prompts/2026-10-20/grok-09-bots.md) has three jobs:
+- A: ReviewBench portal questions. Includes who pays the judge, and whether we can re-register a digest for candidate 6.
+- B: X and LinkedIn drafts, with the Verifier checking numbers against results.md.
+- C: a daily digest.
 
 ## HOLD #50 (20 Oct 18:55): don't merge until rb-01b lands
 Checked by chat on head `1d06203`:
