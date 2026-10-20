@@ -30,6 +30,7 @@ updated_by: chat
   - **Fix at freeze-2:** re-pin the demo and dogfood workflows with `model: nvidia/nemotron-3-super-120b-a12b`. No code change, no freeze risk.
   - **The seeded test (25 Oct) must set it too**, or it measures Nano generators.
   - The alternative, making Super the Action default, is a code change for Codex by 22 Oct. Sunny decides; chat recommends the workflow fix.
+- **Portal: the Model API URL is locked after registration** (only a maintainer can change it, via the onboarding PR; ReviewBench ONBOARDING.md step 5). Sunny confirms 3.5's base URL in the playground code sample **before** registering. If it isn't `https://api.tokenfactory.us-central1.nebius.com/v1`, the chat decides the URL first. If 3.5's model id differs from `nvidia/Nemotron-3.5-Super-VL`, the smoke workflow's `model` choice list needs a one-line PR.
 - **Tag name:** `eval-freeze-2` already exists (4 Oct, repair eval). The 24 Oct tag is **`review-freeze-2`**.
 
 ## Repo state
