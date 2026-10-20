@@ -7,6 +7,12 @@ updated_by: chat
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
+## 20 Oct 22:40: 3.5 found. It is on us-north1
+- **Nemotron 3.5 Super VL answers on `https://api.tokenfactory.us-north1.nebius.com/v1`** with id `nvidia/Nemotron-3.5-Super-VL` (Sunny's curl, 22:37: 200, reasoning on). **3 Super is not on us-north1** (`model_not_found`), and 3.5 is not callable on us-central1, even though us-central1's `/v1/models` lists it (Nebius bug, FEEDBACK).
+- **Effect:** the client has one global base URL (`DEFAULT_BASE_URL` us-central1, or `NEBIUS_BASE_URL`), so no run can mix the two. 067 needs 3.5 reviewers plus Super/Qwen judges. ReviewBench candidates 4/5 need 3.5, and 1–3 need 3 Super.
+- **Fix (proposed):** a per-model base URL in the client (3.5 → us-north1, else the default), used by every stage and the ReviewBench adapter; the smoke workflow passes it through. No network in tests. Then 067 resumes and smoke run 4 runs.
+- **Portal:** register with Model API URL **us-central1** plus other egress host **`api.tokenfactory.us-north1.nebius.com`**. Declare it now, because the docs don't say egress hosts can be edited later.
+
 ## 20 Oct 21:40: #53 and #54 checked; #52 merged
 - **main `2a95756`** (#52 merged, verified). #42 closed unmerged by Sunny (21:33).
 - **Ultrareview #2 on #53: run it** ([ur-02](prompts/2026-10-20/ur-02-int-01.md), new cloud session). Then **1 Ultrareview left**, kept in reserve for its fix round or an emergency. No later PR before submit is bigger: #53 is the last product code that runs on untrusted PR code by default.
