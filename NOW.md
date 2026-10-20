@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 19:10 IST
+updated: 2026-10-20 19:15 IST
 updated_by: chat
 ---
 
@@ -120,7 +120,10 @@ Grok bots: [grok-09](prompts/2026-10-20/grok-09-bots.md) has three jobs:
 - B: X and LinkedIn drafts, with the Verifier checking numbers against results.md.
 - C: a daily digest.
 
-## HOLD #50 (20 Oct 18:55): don't merge until rb-01b lands
+## #50 CLEARED (20 Oct 19:15): rb-01b checked, merge it
+Head `6bb935c`, 5 new commits, all in scope, no `packages/` changes, adapter tests 38/38 (chat re-ran them). The smoke test now fails on any non-ok status and on zero total findings. Image `sha256:95cc69d2…`, anonymous pull works. The builder corrected the brief: the cap is crossed by the verifier's 4 concurrent calls, not by 2 reviewer calls. **The 3.5 id is still unconfirmed:** smoke run 3 (pool-raw, 3.5) is the confirmation, because a wrong id now turns the run red.
+
+### Earlier: HOLD #50 (20 Oct 18:55)
 Checked by chat on head `1d06203`:
 - 27/27 adapter tests pass on Node 22.
 - The never-fail wrapper, the 40-finding cap and the contract schema check are fine.
