@@ -9,6 +9,7 @@ updated_by: chat
 
 ## 20 Oct 23:00: image rebuilt on main; Codex extended
 - **ReviewBench image on main `2a95756`** (includes #51): `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:ff22b972feb243d7c4f73db69ced12ee4a811e66f552a094e77794e1276b23ba`. Public; adapter tests 46/46. Warnings are harmless (Node 20 deprecation, the `FROM --platform` lint). Use it for smoke runs 1–3 and the portal registration. The per-model base-URL fix will produce a newer digest, which is added in the portal with no re-approval.
+- **Smoke runs on `ff22b972`:** #1 failed at the image check (a stray space in the input; $0). **#2 pool-raw / 3 Super: green.** idx 0 (TS): ok, 2 findings, $0.0586, 284 s; idx 4 (Py): ok, 1 finding, $0.0040, 16 s. pool-verify-v1 and pool-raw-missed are next.
 - **Codex lane extended:** Sunny has ChatGPT Plus for 1 month (free). Codex no longer ends 22 Oct.
 
 ## 20 Oct 22:40: 3.5 found. It is on us-north1
