@@ -74,3 +74,9 @@ Selection bias now covers 6 configs on 25 PRs; we'll state it.
 - If Sunny funds an Anthropic API key, all six candidates run as amended above.
 - **If not**, only candidates **2 (pool-raw, 3 Super), 5 (pool-raw, 3.5) and 6 (pool-raw-missed)** run, about $9. The selection rule is unchanged among them, with candidate 6's margin of ≥3.0 points measured against the better of 2 and 5. Candidates 1, 3 and 4 are recorded as not run, with this reason.
 - Either way, the per-PR "misses" in test-run reports are **read only to check that runs worked** (status, finding counts). No prompt, threshold or config is changed because of them.
+
+## Amendment 4 (20 Oct 20:50 IST, before any run): if 3.5 can't be called
+Job 067 found that `nvidia/Nemotron-3.5-Super-VL` is listed by `GET /v1/models` but every chat completion returns HTTP 404, "does not exist" (35 of 35 calls, $0; FEEDBACK.md on `build/067-dev-3.5`). Therefore:
+- If 3.5 is not callable when the test runs start, candidates **4 and 5 are dropped** and recorded as not run (reason: model not callable on Token Factory).
+- Candidate 6 then uses **3 Super**.
+- If it becomes callable before the test runs start, nothing changes.
