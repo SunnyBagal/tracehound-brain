@@ -24,3 +24,6 @@ Prompts: `grok-02-research.md`, `grok-03-audit-and-script.md` (owner's Downloads
 The draft runs about 2:40. It names Token Factory and Nemotron at 0:18 and at the close, and puts results in placeholders (`[TEST-SET F]`, `[RANK OF 6]`, `[DEMO: N OF 4 SEEDED BUGS CAUGHT]`, `[CONTROL PR COMMENTS]`).
 - **Shots:** problem (noise) → Action on Nemotron via Token Factory → two-reviewer + verifier diagram → demo PR with a seeded bug caught; control PR quiet → verifier keeps 69% of real findings / a third of false ones → benchmark table with placeholders → about 3¢ per PR, open source → close.
 - **To revise:** add the dashboard (bug cards, graph pin) and a "Commit suggestion" click. Lead with a demo-first opening.
+
+## R11 · grok-08 vs R10 (2026-10-20)
+Kill test 5/5 real. Union already pre-registered; specialists and caller/callee slicing have no measured evidence. No P008 amendment. [R11](R11-grok08.md)

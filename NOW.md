@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 18:00 IST
+updated: 2026-10-20 18:20 IST
 updated_by: chat
 ---
 
@@ -102,6 +102,9 @@ See [project/architecture-v2.md](project/architecture-v2.md): S1 pre-filter → 
 - **#47** cc-03 contracts, head `d469e28`, draft. Paths are in scope; 141 tests; 10 breaks caught, 0 findings on the 10 controls; 0 findings on 9 real commits; excalidraw takes 53–65 s against a 120 s budget. **Merge** (mark it ready). Known gaps are written up: package types are `any` without node_modules, and route mount prefixes are ignored.
 
 **Blindness (from 19 Oct):** no TraceHound lane (relay, Codex, Claude B, cloud builders, Grok) and not the chat may open `linea-seeded`, `recall-seeded` or `tracehound-seeds` until scoring starts on 25 Oct. Every brief from now on says so.
+
+## grok-08 (20 Oct 18:20)
+- Filed → [R11](research/R11-grok08.md). Kill test 5/5 real, 3 overstated. **No P008 amendment**: its top 3 are `pool-raw-x2` (already candidate 3) or new prompts/code. Adds one rb-01b check: 3.5 smoke must report `finish_reason` (reasoning shares `max_tokens`). ChatGPT's pass on the same prompt is next.
 
 ## ReviewBench (19 Oct 18:20): the main lever toward "above Greptile and Cursor"
 - 219 PRs, run by GitHub + Microsoft; grounded F1 is driven by recall; Greptile 27.2, Cursor 17.3, Copilot 40.1 ([R7](research/R7-cc02-reviewbench.md), [R9](research/R9-reviewbench-methodology.txt)).
