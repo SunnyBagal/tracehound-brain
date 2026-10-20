@@ -4,6 +4,9 @@ Claude B is a **builder lane**: a second Claude Code login on the same Mac, in i
 
 ## 1. Terminal (one time, about 5 minutes)
 ```bash
+# the brain, so Bunny can drop its reports in inbox/ (skip if you already have it)
+git clone https://github.com/SunnyBagal/tracehound-brain ~/Projects/tracehound-brain
+
 # a separate clone, so B never touches relay's checkout
 git clone https://github.com/SunnyBagal/TraceHound ~/Projects/TraceHound-claude2
 cd ~/Projects/TraceHound-claude2 && corepack enable && pnpm install --frozen-lockfile
@@ -31,6 +34,7 @@ Check account A afterwards: in another terminal, `claude auth status --text` mus
 > - Make no Nebius or model API calls unless the brief gives a cap. There is no `.env` here, on purpose.
 > - Never edit `~/Projects/tracehound-ops/`.
 > - Open PRs as drafts. Never merge, never force-push.
+> - When done, write your final report verbatim to `~/Projects/tracehound-brain/inbox/<YYYY-MM-DD>-bunny-<job>.md`, following `inbox/README.md`, and push it. Edit nothing else in the brain.
 > - Follow the brief exactly. If a step's check fails, STOP and report. End with: the PR number, head sha, one line per commit, and test counts.
 
 ## 3. First job: 066 (docs only, $0). Moved here from relay, which is busy with rb-02

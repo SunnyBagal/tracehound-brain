@@ -125,6 +125,8 @@ Grok bots: [grok-09](prompts/2026-10-20/grok-09-bots.md) has three jobs:
 - **#49 cleared:** head `9b21e70`, chat re-probed. A different variable in the same file and template-alike comments in other files are now **kept**. Learn tests 60, action 179. Merge it (mark ready), then int-01.
 - **#51 cleared** (rb-02, candidate 6): head `99f35d0`. The chat recomputed the prompt sha256 (`a5a2115f…53bc`, now in P008). Frozen prompt files and `packages/action` are unchanged; missed tests 10, adapter 46. The prompt is generic. rb-02 ran in the cloud, not relay. Merge it.
 - **Test runs may start** once the 4 smoke runs are green and the new digest is registered.
+- **Builders report via the brain:** Bunny (and Sunny's Claude Code) write their final report to `inbox/` only and push it. The chat files it, checks the PR, and updates NOW/prs. Builders never edit anything else ([inbox/README](inbox/README.md)).
+- **#42** (ReviewBench spike, draft): close it unmerged now that #50 has merged; R7 keeps the findings.
 - Names: **Sunny** = account A's local Claude Code; **Bunny** = account B (`claudeb`).
 
 ## Lanes (20 Oct 19:30)

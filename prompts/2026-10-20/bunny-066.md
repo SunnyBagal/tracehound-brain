@@ -11,6 +11,7 @@ You are a builder on TraceHound, an open-source AI PR reviewer. Rules:
 - Make no Nebius or model API calls. There's no `.env` here, on purpose.
 - Never edit `~/Projects/tracehound-ops/`.
 - Open PRs as drafts. Never merge, never force-push.
+- When done, write your final report verbatim to `~/Projects/tracehound-brain/inbox/<YYYY-MM-DD>-bunny-<job>.md`, following `inbox/README.md`, and push it. Edit nothing else in the brain.
 - If a step's check fails, STOP and report. End with: the PR number, the head sha, one line per commit, and test counts.
 
 This brief was written for a tool called relay. You are not running under relay:
