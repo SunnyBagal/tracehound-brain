@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 19:15 IST
+updated: 2026-10-20 19:30 IST
 updated_by: chat
 ---
 
@@ -119,6 +119,13 @@ Grok bots: [grok-09](prompts/2026-10-20/grok-09-bots.md) has three jobs:
 - A: ReviewBench portal questions. Includes who pays the judge, and whether we can re-register a digest for candidate 6.
 - B: X and LinkedIn drafts, with the Verifier checking numbers against results.md.
 - C: a daily digest.
+
+## Lanes (20 Oct 19:30)
+- **Relay:** rb-02, started 19:22 by Sunny. Its step 0 needs #50 merged.
+- **Claude B:** a second Pro account, set up per [claude-b-setup](prompts/2026-10-20/claude-b-setup.md), in `~/Projects/TraceHound-claude2` with `CLAUDE_CONFIG_DIR=~/.claude-b` and no `.env`. First job: **066** (moved from relay, Sonnet). Then int-01.
+- **Codex:** codex-09b (ends 22 Oct).
+- **Cloud:** reserve only ($52).
+- **Grok bots:** grok-09.
 
 ## #50 CLEARED (20 Oct 19:15): rb-01b checked, merge it
 Head `6bb935c`, 5 new commits, all in scope, no `packages/` changes, adapter tests 38/38 (chat re-ran them). The smoke test now fails on any non-ok status and on zero total findings. Image `sha256:95cc69d2…`, anonymous pull works. The builder corrected the brief: the cap is crossed by the verifier's 4 concurrent calls, not by 2 reviewer calls. **The 3.5 id is still unconfirmed:** smoke run 3 (pool-raw, 3.5) is the confirmation, because a wrong id now turns the run red.
