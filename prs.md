@@ -55,3 +55,7 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#49](https://github.com/SunnyBagal/TraceHound/pull/49) `30a3d44`: codex-09 learning. codex-09b landed (`9b21e70`). **Cleared to merge** (chat, 20 Oct 19:50).
 - [#51](https://github.com/SunnyBagal/TraceHound/pull/51) draft `rb/missed-v1` `99f35d0`: rb-02, review-missed-v1 + pool-raw-missed (P008 candidate 6). **Cleared to merge** (chat, 20 Oct 19:50). Prompt sha256 recorded in P008.
 - [#52](https://github.com/SunnyBagal/TraceHound/pull/52) draft `docs/066-results` `0d3a6c4` (Bunny): 066 results wording, all-50 tables, levers table, viewer sync. Checked by chat 20 Oct 20:50; 066c → `e91a268`. **Cleared to merge** (21:00).
+
+- [#52](https://github.com/SunnyBagal/TraceHound/pull/52) **merged** → main `2a95756` (verified 20 Oct 21:20).
+- [#53](https://github.com/SunnyBagal/TraceHound/pull/53) draft `codex/int-01-contracts` `747a3a7` (Codex): contracts in the Action, default on, fail-soft. Checked by chat 20 Oct 21:40: no HOLD; merge after Ultrareview #2. Backlog in NOW.
+- [#54](https://github.com/SunnyBagal/TraceHound/pull/54) draft `docs/judges-readme` `db83286` (Bunny): judges' README with placeholders. Checked by chat 20 Oct 21:40: **leave it a draft** until the placeholders are filled (26 Oct).

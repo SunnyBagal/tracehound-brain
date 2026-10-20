@@ -33,6 +33,7 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 - **2026-10-19 (afternoon)** cc-04 seeded test built (30 branches; scoring fix cc-04b sent). **065 evidence verifier + gate: a loss** (#48). Chat proposes stopping precision tuning (P007 update). 066 results-docs and codex-09 learning written.
 - **2026-10-20** rb-01 → #50 (pre-3.5 prompt; rb-01b needed). grok-08 → [R11](research/R11-grok08.md): no new ReviewBench candidate.
 - **2026-10-20 (evening)** #50 (ReviewBench image + rb-01b), #49 (learning, after codex-09b) and #51 (missed-issue pass, candidate 6) merged. P008 amendments 2–4. Nemotron 3.5 Super VL is listed but returns 404 (067 stopped at $0). Bunny, the second Claude Pro account, does 066 (#52). Grok bots: R12 (portal; the test-run judge is self-funded), R13 (tool terms), R14 (Devpost checklist; no competitor trademarks in the video). Handoff Oct20b.
+- **2026-10-20 (night)** #52 merged (066 results docs). int-01 → #53 (contracts in the Action; chat check passed, Ultrareview #2 next). bunny-02 → #54 (judges' README, stays a draft). Found: the demo and dogfood workflows run Nano generators, not the benchmarked Super.
 
 ## Ahead
 

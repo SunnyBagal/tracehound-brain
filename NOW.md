@@ -1,11 +1,35 @@
 ---
-updated: 2026-10-20 21:00 IST
+updated: 2026-10-20 21:40 IST
 updated_by: chat
 ---
 
 # Now
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+
+## 20 Oct 21:40: #53 and #54 checked; #52 merged
+- **main `2a95756`** (#52 merged, verified). #42 still open: close it unmerged.
+- **#53 int-01 (Codex), head `747a3a7`: chat check passed, no HOLD.** Merge after Ultrareview #2 (cloud). Run it **tonight**: Codex ends 22 Oct, so a fix round has to start tomorrow.
+  - Verified: 13 files, all in lane; Action tests 214/214 on Node 22. `contracts: 'off'` is byte-identical: hard-coded legacy payloads for both reviewers and both fixes modes, and no off-path change in the diff. It runs concurrently and uses the merge base. It is fail-soft with one log line and doesn't apply `learn`. Inline is capped at 10, outside `max-comments`. The ±3 dedupe keeps the contract finding. Credentials are stripped (tokens, askpass, `extraheader` reset for the fetch).
+  - Live: demo PR #6 is pinned to `747a3a7`. Its review body lists 4 dependents (`index.ts:13`, `scripts/repair-blocked-metadata.ts:22`, `test/linkDetector.test.ts:4`, `worker.ts:10`, all TS2305). The 2.255 s is in the hidden footer and wasn't checked here. Demo PR #6 must never merge.
+  - Backlog (not blocking):
+    1. The dedupe matches against every contract finding, including ones shown only as "and N more", so a model finding can vanish while its contract is hidden. This needs more than 10 body findings.
+    2. The body's reason text isn't Markdown-escaped (the path label is). Route, env and event keys come from PR code, so a PR can inject links or @mentions into the bot's review.
+    3. A typed check skipped for budget or error marks the whole stage failed and drops the keyed findings too, so big repos always report failed.
+    4. The review checkout is depth 1, so every run takes the credential-free unshallow fetch. Private repos fail soft (documented: `fetch-depth: 0`).
+    5. The footer has no `status: "off"` when off. That's needed for byte-identical output, and it's documented. Accepted.
+- **#54 bunny-02 judges' README, head `db83286`: fine, but leave it a draft.** Merging now would put `[[RESULTS-TABLE]]` placeholders on the public README. The fill job (26 Oct) must:
+  - change the try-it pin from `@main` to the freeze-2 tag;
+  - drop "landing in int-01 (draft PR #53)" once #53 merges;
+  - drop the 3.5 line if 067 is dropped;
+  - remove the second `# TraceHound` H1 in Details;
+  - check the Mermaid render.
+  - Wording passes: no "beats", no "3rd of 6".
+- **Demo and dogfood don't run the benchmarked model.** Neither workflow sets `model`: the demo pins `41a92a8` on main, and PR #6 and dogfood pin `e4e3e3a`. So both generators run on **Nano** (`DEFAULT_MODEL`), and only the verifier and fixes use Super. Demo #6's review header lists both models. The benchmark is Super. Bunny caught this in the README.
+  - **Fix at freeze-2:** re-pin the demo and dogfood workflows with `model: nvidia/nemotron-3-super-120b-a12b`. No code change, no freeze risk.
+  - **The seeded test (25 Oct) must set it too**, or it measures Nano generators.
+  - The alternative, making Super the Action default, is a code change for Codex by 22 Oct. Sunny decides; chat recommends the workflow fix.
+- **Tag name:** `eval-freeze-2` already exists (4 Oct, repair eval). The 24 Oct tag is **`review-freeze-2`**.
 
 ## Repo state
 

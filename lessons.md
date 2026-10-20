@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-20 · The live demo wasn't running the benchmarked model
+- **What:** the Action's reviewers default to Nano (`DEFAULT_MODEL`). The demo and dogfood workflows never set `model`, so since 17 Oct every live review used Nano generators with a Super verifier, while the benchmark is all Super. The demo stats in NOW (2 of 4 seeded lines) are Nano-generator numbers. Bunny caught it while writing the judges' README; no PR check had compared a live review's header with the benchmark config.
+- **Cost:** none yet. It would have put a different config in front of judges than the one the numbers describe, and the seeded test (25 Oct) would have measured it.
+- **Changed:** every workflow that stands for the product sets `model:` explicitly. The seeded-test brief names it. A chat PR check of a live review compares the header's models with the benchmark config.
+
 ### 2026-10-20 · Bunny chained a commit after a failing test
 - **What:** in 066, the builder (Bunny, Sonnet) ran the tests and the commit in one chained command, so step 3 was committed with the viewer test red. It noticed, never pushed it, and undid it (`git reset --soft`).
 - **Cost:** none.
