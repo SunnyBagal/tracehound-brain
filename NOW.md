@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-20 19:30 IST
+updated: 2026-10-20 19:50 IST
 updated_by: chat
 ---
 
@@ -119,6 +119,13 @@ Grok bots: [grok-09](prompts/2026-10-20/grok-09-bots.md) has three jobs:
 - A: ReviewBench portal questions. Includes who pays the judge, and whether we can re-register a digest for candidate 6.
 - B: X and LinkedIn drafts, with the Verifier checking numbers against results.md.
 - C: a daily digest.
+
+## 20 Oct 19:50: #49 and #51 cleared, #50 merged
+- **#50 merged** → main `8193651`. Next: rebuild the image on main, then 3 smoke runs (pool-raw 3 Super, pool-verify-v1 3 Super, pool-raw 3.5) **plus a 4th, pool-raw-missed on 3 Super, after #51 merges**.
+- **#49 cleared:** head `9b21e70`, chat re-probed. A different variable in the same file and template-alike comments in other files are now **kept**. Learn tests 60, action 179. Merge it (mark ready), then int-01.
+- **#51 cleared** (rb-02, candidate 6): head `99f35d0`. The chat recomputed the prompt sha256 (`a5a2115f…53bc`, now in P008). Frozen prompt files and `packages/action` are unchanged; missed tests 10, adapter 46. The prompt is generic. rb-02 ran in the cloud, not relay. Merge it.
+- **Test runs may start** once the 4 smoke runs are green and the new digest is registered.
+- Names: **Sunny** = account A's local Claude Code; **Bunny** = account B (`claudeb`).
 
 ## Lanes (20 Oct 19:30)
 - **Relay:** rb-02, started 19:22 by Sunny. Its step 0 needs #50 merged.

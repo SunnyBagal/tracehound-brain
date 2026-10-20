@@ -52,4 +52,5 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#42](https://github.com/SunnyBagal/TraceHound/pull/42) draft `433212c`: ReviewBench spike. Leave it as a draft until the ReviewBench decision; close it if that's a no.
 
 - [#50](https://github.com/SunnyBagal/TraceHound/pull/50) draft `rb/image-v1` `1d06203`: ReviewBench image (rb-01). rb-01b landed (`6bb935c`, 38 tests). **Cleared to merge** (chat, 20 Oct 19:15). After merge: rebuild on main, then 3 smoke runs.
-- [#49](https://github.com/SunnyBagal/TraceHound/pull/49) `30a3d44`: codex-09 learning. **HOLD** (chat, 20 Oct): code spans dropped → one 👎 suppresses the same bug class across files. Fix: codex-09b. Codex ends 22 Oct.
+- [#49](https://github.com/SunnyBagal/TraceHound/pull/49) `30a3d44`: codex-09 learning. codex-09b landed (`9b21e70`). **Cleared to merge** (chat, 20 Oct 19:50).
+- [#51](https://github.com/SunnyBagal/TraceHound/pull/51) draft `rb/missed-v1` `99f35d0`: rb-02, review-missed-v1 + pool-raw-missed (P008 candidate 6). **Cleared to merge** (chat, 20 Oct 19:50). Prompt sha256 recorded in P008.

@@ -67,4 +67,4 @@ Rules for candidate 6, on top of the ones above:
 
 Selection bias now covers 6 configs on 25 PRs; we'll state it.
 
-`review-missed-v1` sha256: _to be filled from rb-02's PR, before any test run_
+`review-missed-v1` sha256: **`a5a2115f559b82de82c51ee2629e30b05c37ebe0e528e5a02b3de753b42053bc`**. Recorded 20 Oct 19:50 IST, before any test run. Source: PR #51 head `99f35d0`; the chat recomputed it from `REVIEW_MISSED_SYSTEM_PROMPT`, and the prompt has general categories only, no dataset references. Cost estimate revised by rb-02: ≈ $0.027/PR, ≈ $18 for the final run.
