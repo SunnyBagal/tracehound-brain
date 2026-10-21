@@ -9,6 +9,7 @@ updated_by: chat
 
 ## 21 Oct 21:32: #55 merged → main `da13585`; image `bc6530f2`
 - **ReviewBench image with 3.5 routing:** `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:bc6530f2d2fc9379a55f466be9917b8e9bf51dd5816fa90db0c8f759bbe6d0eb`, built from `da13585` (#55 merge). Adapter 47/47, public. Use it for smoke run 4 (3.5) and candidates 3–6.
+- Smoke on `bc6530f2` (21:42) ran **3 Super by mistake** (model input left at default): pool-raw green, idx 0 2 findings $0.0422 175 s, idx 4 1 finding $0.0044 27 s. That confirms #55 leaves 3 Super unchanged. **The 3.5 smoke run is still to do.**
 
 ## 21 Oct 21:00: #55 (bunny-03) CLEARED, CI green (21:07): merge it
 - **#55** `fix/model-base-url` head `5ec764d`, 4 commits. Checked by chat:
