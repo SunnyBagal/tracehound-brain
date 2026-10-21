@@ -9,7 +9,7 @@ updated_by: chat
 
 ## 21 Oct 21:32: #55 merged → main `da13585`; image `bc6530f2`
 - **ReviewBench image with 3.5 routing:** `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:bc6530f2d2fc9379a55f466be9917b8e9bf51dd5816fa90db0c8f759bbe6d0eb`, built from `da13585` (#55 merge). Adapter 47/47, public. Use it for smoke run 4 (3.5) and candidates 3–6.
-- Smoke on `bc6530f2` (21:42) ran **3 Super by mistake** (model input left at default): pool-raw green, idx 0 2 findings $0.0422 175 s, idx 4 1 finding $0.0044 27 s. That confirms #55 leaves 3 Super unchanged. **The 3.5 smoke run is still to do.**
+- Smoke on `bc6530f2` (21:42) ran **3 Super by mistake** (model input left at default): pool-raw green, idx 0 2 findings $0.0422 175 s, idx 4 1 finding $0.0044 27 s. That confirms #55 leaves 3 Super unchanged. **Smoke 3.5 (21:54), pool-raw on `bc6530f2`: RED.** The routing works: the calls reached 3.5. idx 4 ok, 1 finding, $0.008, 12 s. idx 0 `failed: review: failed chunks (first: the reply is not valid JSON; after one retry: the reply is not valid JSON)`, 0 findings, $0.0957, 159 s. Likely reasoning using up `max_tokens` 32k (unverified, no `finish_reason` kept). That's model behaviour, so it doesn't trigger P008 amendment 4 (3.5 is callable). → [067b](prompts/2026-10-21/067b-resume-dev-3.5.md): resume 067 on dev with a pre-registered stop-rule amendment (failed chunks count as the result; stop if more than 10/40 PRs fail or on any request error). Verdict by 23 Oct.
 
 ## 21 Oct 21:00: #55 (bunny-03) CLEARED, CI green (21:07): merge it
 - **#55** `fix/model-base-url` head `5ec764d`, 4 commits. Checked by chat:
