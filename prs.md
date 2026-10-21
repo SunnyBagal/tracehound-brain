@@ -64,3 +64,4 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#53] **merged** → main `7de5dbd` (verified 21 Oct 20:30). Freeze-2 re-pin target.
 - [#55](https://github.com/SunnyBagal/TraceHound/pull/55) draft `fix/model-base-url` `5ec764d` (Bunny, bunny-03): per-model base URL (3.5 → us-north1). Checked by chat 21 Oct 21:00: **cleared to merge once CI is green**.
 - [#55] **merged** → main `da13585` (21 Oct).
+- [#56](https://github.com/SunnyBagal/TraceHound/pull/56) draft `build/067-dev-3.5` `46a678d` (relay 067b): 3.5 adopted on dev (2 runs). Checked by chat 22 Oct 04:15: **cleared to merge**. Default switch + partial results → codex-12 (068).

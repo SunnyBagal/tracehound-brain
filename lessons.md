@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-22 · The bench and the product disagreed on failed chunks
+- **What:** the dev bench keeps partial results when a reviewer chunk fails. The Action and the ReviewBench adapter post nothing. With 3 Super this never mattered (1 failed PR in 4 runs). With 3.5 it's 7/40 PRs per run. 067's adoption would have shipped a config that wasn't measured. The chat caught it while checking #56; neither relay's builder nor its reviewer did.
+- **Cost:** none. It was caught before the default switch.
+- **Changed:** any brief that adopts a measured config into the product names every place the measurement and the product could differ (failure handling, caps, models per stage), and the product follows the measurement.
+
 ### 2026-10-21 · The int-01 brief specified a path the analyzer can't produce
 - **What:** codex-10 asked for inline `Contract:` comments, a 10-inline cap and a ±3 dedupe. The contract checker only reports files the PR didn't edit, so none of these can trigger. The chat wrote the brief without reading `findings.ts` / `keyed.ts`, and its PR check didn't catch it either. Ultrareview #2 did.
 - **Cost:** dead code and a false docs claim, fixed in codex-11's docs item.

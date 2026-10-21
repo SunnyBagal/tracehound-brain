@@ -1,11 +1,27 @@
 ---
-updated: 2026-10-21 17:10 IST
+updated: 2026-10-22 04:15 IST
 updated_by: chat
 ---
 
 # Now
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+
+## 22 Oct 04:15: 067 says ADOPT 3.5, but the Action doesn't match what was measured
+- **#56** (relay 067b, head `46a678d`, CI green): **cleared to merge.** Chat recomputed every P/R/F from the TP/FP/FN columns (7r v1 50.72, 8 v1 50.00, mean 50.4; x1 54.41/55.88 → 55.1). The rule passes on 2 runs (run 9 was cut by the cap, so the fallback applies). Bootstrap v1 +8.1 [+1.4, +14.4]; x1 +3.9 [−4.2, +11.1] includes 0. Both 3.5 runs beat every one of the five 3 Super runs. The gain is precision (half the FPs). Cost per PR about 2× (median $0.063). Spend $7.98; **ledger $33.81 / $45**.
+- **Catch (chat):** the bench scores a PR with a `CHUNK_FAILED` chunk **with partial results** (`review.ts:5`), and 3.5 failed a chunk on 7/40 PRs per run. The **Action** (`pipeline.ts`: throw on `chunkFailed > 0`) and the **ReviewBench adapter** (all-or-nothing) post **nothing** in that case. Switching the default alone would ship an unmeasured config that is silent on about 1 in 6 PRs. → [codex-12 / decision 068](prompts/2026-10-22/codex-12-068-default-3.5.md):
+  - partial results in the Action and the adapter;
+  - `model` input default → 3.5;
+  - fixes stay on Super;
+  - byte-identical when nothing fails.
+
+  It must land before freeze-2 (24 Oct).
+- **P008 amendment 5 (proposed, Sunny to approve, before any test run):** candidates run on the image with 068's partial rule (all candidates alike). Without it, 3.5 candidates 4/5 lose about 17% of PRs outright on ReviewBench, under a rule that 067 didn't use.
+- **Relay's 3 questions, answered:**
+  1. Merge #56: yes.
+  2. The default switch goes to Codex (owns the Action), not relay's proposed 068.
+  3. Relay Nebius cap goes to **$0** until the v2 Cal.com run brief (about 25 Oct), which gets its own cap.
+- **Money:** 3.5 doubles cost. ReviewBench final on 3.5 pool-verify ≈ 657 × $0.063 ≈ **$41** (was $21). That's on the separate `reviewbench` key, so the **console balance needs a bigger top-up** before the final.
 
 ## 21 Oct 21:32: #55 merged → main `da13585`; image `bc6530f2`
 - **ReviewBench image with 3.5 routing:** `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:bc6530f2d2fc9379a55f466be9917b8e9bf51dd5816fa90db0c8f759bbe6d0eb`, built from `da13585` (#55 merge). Adapter 47/47, public. Use it for smoke run 4 (3.5) and candidates 3–6.
