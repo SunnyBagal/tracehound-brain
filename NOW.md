@@ -7,6 +7,9 @@ updated_by: chat
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
+## 21 Oct 21:32: #55 merged → main `da13585`; image `bc6530f2`
+- **ReviewBench image with 3.5 routing:** `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:bc6530f2d2fc9379a55f466be9917b8e9bf51dd5816fa90db0c8f759bbe6d0eb`, built from `da13585` (#55 merge). Adapter 47/47, public. Use it for smoke run 4 (3.5) and candidates 3–6.
+
 ## 21 Oct 21:00: #55 (bunny-03) CLEARED, CI green (21:07): merge it
 - **#55** `fix/model-base-url` head `5ec764d`, 4 commits. Checked by chat:
   - `baseUrlFor` rewrites only Token Factory hosts (`^api\.tokenfactory\.[a-z0-9-]+\.nebius\.com$`) and only exact table ids (`Object.hasOwn`).

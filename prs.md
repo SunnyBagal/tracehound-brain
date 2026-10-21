@@ -63,3 +63,4 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#53] codex-11 → head `3b196fa` (7 fix commits). Checked by chat 21 Oct 17:10: **cleared to merge**. Residual (analyzer budget covers only typed) goes to the backlog.
 - [#53] **merged** → main `7de5dbd` (verified 21 Oct 20:30). Freeze-2 re-pin target.
 - [#55](https://github.com/SunnyBagal/TraceHound/pull/55) draft `fix/model-base-url` `5ec764d` (Bunny, bunny-03): per-model base URL (3.5 → us-north1). Checked by chat 21 Oct 21:00: **cleared to merge once CI is green**.
+- [#55] **merged** → main `da13585` (21 Oct).
