@@ -7,6 +7,16 @@ updated_by: chat
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
+## 21 Oct 21:00: #55 (bunny-03) CLEARED once CI is green
+- **#55** `fix/model-base-url` head `5ec764d`, 4 commits. Checked by chat:
+  - `baseUrlFor` rewrites only Token Factory hosts (`^api\.tokenfactory\.[a-z0-9-]+\.nebius\.com$`) and only exact table ids (`Object.hasOwn`).
+  - Probes: a lowercase id, 3 Super, a look-alike attacker host, localhost, `__proto__`/`toString`, and a non-URL all stay unchanged.
+  - The cache key is sha256(model + request), with no URL, so it's unchanged.
+  - Analyzer guardrail tests 25/25, adapter 47/47, adapter tsc clean (Node 22).
+  - The FEEDBACK entry sticks to facts.
+  
+  **Merge when CI is green**, then rebuild the ReviewBench image → smoke run 4 (pool-raw on 3.5) → the 067 resume prompt. Bunny's inbox report is still to come.
+
 ## 21 Oct 20:35: bunny-03 written
 - Image rebuilt on `7de5dbd` (20:52): `sha256:8e1ec5f267a02e8448a32309e1a054f128b93b2d0ce1efe0ea80ae7ae85b166d`. It was built **before** bunny-03, so it has no 3.5 routing. ReviewBench behaviour is the same as `ff22b972` (#53 touches only the Action). Don't use it for 3.5, and don't register it.
 - [bunny-03](prompts/2026-10-21/bunny-03-model-base-url.md): per-model base URL in the client (3.5 → us-north1), adapter log, docs, FEEDBACK entry. Draft PR. After merge, Sunny rebuilds the ReviewBench image → smoke run 4 (pool-raw on 3.5) → the chat writes the 067 resume prompt (relay). 067 must run by 23 Oct.
