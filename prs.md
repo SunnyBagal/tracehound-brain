@@ -60,3 +60,4 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#53](https://github.com/SunnyBagal/TraceHound/pull/53) draft `codex/int-01-contracts` `747a3a7` (Codex): contracts in the Action, default on, fail-soft. Checked by chat 20 Oct 21:40: no HOLD; merge after Ultrareview #2. Backlog in NOW.
 - [#54](https://github.com/SunnyBagal/TraceHound/pull/54) draft `docs/judges-readme` `db83286` (Bunny): judges' README with placeholders. Checked by chat 20 Oct 21:40: **leave it a draft** until the placeholders are filled (26 Oct).
 - [#53] **HOLD** (chat, 21 Oct 00:10): Ultrareview #2 found 7 confirmed issues → [codex-11](prompts/2026-10-21/codex-11-int-01-fixes.md) on the same branch.
+- [#53] codex-11 → head `3b196fa` (7 fix commits). Checked by chat 21 Oct 17:10: **cleared to merge**. Residual (analyzer budget covers only typed) goes to the backlog.

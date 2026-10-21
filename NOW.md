@@ -1,11 +1,24 @@
 ---
-updated: 2026-10-21 00:10 IST
+updated: 2026-10-21 17:10 IST
 updated_by: chat
 ---
 
 # Now
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+
+## 21 Oct 17:10: #53 CLEARED to merge (codex-11 checked)
+- **#53 head `3b196fa`: merge it** (mark ready, merge commit). codex-11 ([report](prompts/2026-10-21/codex-11-int-01-fixes.out.md)): 7 commits, one per Ultrareview finding. The chat read the source diff against ur-02:
+  - SIGTERM, then SIGKILL after 5 s (Node's own timeout is off; a timer of its own sends the kills). `shallow.lock` is removed only after our own SIGKILL, and only if it didn't exist before.
+  - The fetch needs at least 30 s left. The analyzer gets the remaining time minus 10 s, and is skipped below 5 s.
+  - A typed check skipped for budget or error keeps the keyed findings, with a `typed` footer field.
+  - The section comes after the disclaimer; with `contracts` undefined the order is unchanged.
+  - `escapeContractText` covers `& < > [ ] \` and backticks, and breaks `@`.
+  - No checkout (or `rev-parse --git-dir` failing) gives status `off` and no delivery, so output is byte-identical.
+  - Docs say "always body findings".
+  - Action tests **226/226 locally (Node 22)**. The demo branch is pinned to `3b196fa` (`303b689`), trigger commit `71c5f49`. Section-after-disclaimer is checked in code and tests; WebFetch only rendered the old 20 Oct review.
+- **Residual, backlog (analyzer lane):** `--budget-s` bounds only the **typed** check (`computeContracts`), not keyed or dependents. If those run long, the outer SIGTERM still lands. The Node analyzer has no SIGTERM handler, so its `finally` (closing the worktrees) doesn't run, and worktrees can still leak in that case. That's rare and cosmetic; the fix needs a change in `packages/analyzer`.
+- **Next for freeze-2 (24 Oct, tag `review-freeze-2`):** re-pin the demo `main` and dogfood workflows to the merge commit **with `model: nvidia/nemotron-3-super-120b-a12b`**. Demo PR #6's review still lists Nano generators.
 
 ## 21 Oct 00:10: HOLD #53 → codex-11; smoke runs on 3 Super green
 - **HOLD #53.** Ultrareview #2 ([output](prompts/2026-10-20/ur-02-int-01.out.md)) found 7 issues. The chat checked all 7 against `747a3a7` and confirmed them all. Fix round [codex-11](prompts/2026-10-21/codex-11-int-01-fixes.md) runs on the same branch. Findings:
