@@ -7,7 +7,7 @@ updated_by: chat
 
 **Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
-## 21 Oct 17:10: #53 CLEARED to merge (codex-11 checked)
+## 21 Oct 17:10: #53 CLEARED → **merged, main `7de5dbd`** (verified 20:30)
 - **#53 head `3b196fa`: merge it** (mark ready, merge commit). codex-11 ([report](prompts/2026-10-21/codex-11-int-01-fixes.out.md)): 7 commits, one per Ultrareview finding. The chat read the source diff against ur-02:
   - SIGTERM, then SIGKILL after 5 s (Node's own timeout is off; a timer of its own sends the kills). `shallow.lock` is removed only after our own SIGKILL, and only if it didn't exist before.
   - The fetch needs at least 30 s left. The analyzer gets the remaining time minus 10 s, and is skipped below 5 s.
