@@ -14,6 +14,23 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 22:50: v3 recall mode: R16 research → P008 amendment 7 + P009 + relay brief 070
+- **[R16](research/R16-reviewbench-grounded-f1.md)** (Sunny's Research chat):
+  - recall is the lever;
+  - the leaders win by "include nits", gates off, lenses and a "look once more" pass;
+  - our self-imposed losses: the adapter caps at 40, drops null-line findings, and about 1/6 of chunks truncate;
+  - Semgrep and "author next fix" rank low;
+  - estimate (unmeasured): grounded F1 28–37 at about $0.05/PR (about $33 final).
+  - **Risk: augmented precision** (ours 52.5 vs 80–92 for everyone on the board).
+- **[P008 amendment 7](decisions/P008-reviewbench-preregistration.md):** still one final run. It goes to v3 only if P009 picks it. Disclosed: designed after seeing candidate 2's aggregate.
+- **[P009](decisions/P009-reviewbench-v3-recall.md):**
+  - `recall-v3`: per-file chunks; lens A (correctness, reliability, security, performance, API) + lens B (tests, docs, typos, maintainability, completeness) + `review-missed-v1`; T 1.0 / top_p 0.95; reasoning budget; reduce (anchor, dedup, cap 60, never fail).
+  - **Dev:** arms S (3 Super) and V (3.5), one run each; floor = v1 P ≥ same-model pool-raw dev mean − 10; pick = higher v1 recall.
+  - **ReviewBench:** smoke → one test run; final to v3 only if its test grounded F1 ≥ P008 winner + 3.0.
+  - **Cutoff:** v3 test run by 25 Oct 23:59.
+  - **Budget:** relay $14; local total cap $45 → $60 (Sunny to confirm).
+- **[070 brief](prompts/2026-10-23/070-v3-recall-mode.md)** for relay, overnight; dev verdict by 24 Oct 12:00.
+
 ## 23 Oct 22:10: #60 (069b) and #61 cleared; results page waits for 26 Oct; v3 recall research started
 - **#60 (069b intervals, relay, head `aec07e3`, CI green): cleared to merge.** 6 files, all in scope; `intervals.test.ts` 10/10 on Node 22; the relay reviewer recomputed the counts. **Allowed sentences (PR-level paired bootstrap, seed 69):**
   - **All 50, both judges:** v2 is behind Augment; **statistically tied with Cursor and Greptile**; ahead of Copilot and CodeRabbit.
