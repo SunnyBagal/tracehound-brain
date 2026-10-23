@@ -1,11 +1,24 @@
 ---
-updated: 2026-10-22 04:15 IST
+updated: 2026-10-23 16:40 IST
 updated_by: chat
 ---
 
 # Now
 
-**Latest handoff: [history/TraceHound_Handoff_Oct20b.md](history/TraceHound_Handoff_Oct20b.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+**Latest handoff: [history/TraceHound_Handoff_Oct23.md](history/TraceHound_Handoff_Oct23.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+
+## 23 Oct 16:40: #56 merged (main `8d0fb7a`); #57 CLEARED; handoff Oct23
+- **#57** (codex-12, decision 068, head `4e3a0a8`): **cleared to merge.** Checked against the source diff:
+  - partial results in `runPipeline`; it fails only when both reviewers fail every chunk;
+  - the footer field `chunkFailed {diff, ctx}`;
+  - `...pipeline` replaced by explicit `pool`/`kept`, so the key order and bytes are unchanged when nothing fails;
+  - `review-diff-v1` keeps all-or-nothing;
+  - the `model` default is 3.5; `FIX_MODEL` is unchanged;
+  - the adapter's pool-raw / x2 / missed keep successful chunks, and a pass fails only if all its chunks failed;
+  - the smoke regex is `^ok( partial=N/M)?$`.
+
+  Action 237/237, adapter 70/70, adapter tsc clean (Node 22). [Report](prompts/2026-10-22/codex-12-068-default-3.5.out.md).
+- **Sunny:** top up about **$50** on the Nebius console (decided). P008 amendment 5 is still unanswered. Next: merge #57 → rebuild image → 3.5 smoke → re-add portal configs on the new digest → freeze-2 (24 Oct, tag `review-freeze-2`, re-pin demo and dogfood).
 
 ## 22 Oct 04:15: 067 says ADOPT 3.5, but the Action doesn't match what was measured
 - **#56** (relay 067b, head `46a678d`, CI green): **cleared to merge.** Chat recomputed every P/R/F from the TP/FP/FN columns (7r v1 50.72, 8 v1 50.00, mean 50.4; x1 54.41/55.88 → 55.1). The rule passes on 2 runs (run 9 was cut by the cap, so the fallback applies). Bootstrap v1 +8.1 [+1.4, +14.4]; x1 +3.9 [−4.2, +11.1] includes 0. Both 3.5 runs beat every one of the five 3 Super runs. The gain is precision (half the FPs). Cost per PR about 2× (median $0.063). Spend $7.98; **ledger $33.81 / $45**.

@@ -35,6 +35,7 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 - **2026-10-20 (evening)** #50 (ReviewBench image + rb-01b), #49 (learning, after codex-09b) and #51 (missed-issue pass, candidate 6) merged. P008 amendments 2–4. Nemotron 3.5 Super VL is listed but returns 404 (067 stopped at $0). Bunny, the second Claude Pro account, does 066 (#52). Grok bots: R12 (portal; the test-run judge is self-funded), R13 (tool terms), R14 (Devpost checklist; no competitor trademarks in the video). Handoff Oct20b.
 - **2026-10-20 (night)** #52 merged (066 results docs). int-01 → #53 (contracts in the Action; chat check passed, Ultrareview #2 next). bunny-02 → #54 (judges' README, stays a draft). Found: the demo and dogfood workflows run Nano generators, not the benchmarked Super.
 - **2026-10-21** Ultrareview #2 on #53: 7 findings, all confirmed; codex-11 fixed them (`3b196fa`), #53 cleared. Smoke runs 1–3 on 3 Super are green on image `ff22b972`. ReviewBench registered (onboarding PR #92, candidates 1–2; the judge is paid by ReviewBench). 3.5 found on us-north1. Codex extended (ChatGPT Plus).
+- **2026-10-22/23** 067b: 3.5 adopted on 2 dev runs (#56 merged, `8d0fb7a`). The chat caught a bench-vs-product mismatch on failed chunks → codex-12 / decision 068 (#57: 3.5 default + partial reviews), cleared. Handoff Oct23.
 
 ## Ahead
 
