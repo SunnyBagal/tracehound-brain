@@ -122,6 +122,13 @@ Paste this file into a new Claude chat as the first message, with: "Continue Tra
 
    (`eval-freeze-2` already exists, from 4 Oct; don't reuse the name.)
 
+**Schedule change (23 Oct 16:40):** Sunny is in **HackerRank Orchestrate** (24h, 24 Oct 18:00 → 25 Oct 18:00 IST). He's unavailable then.
+- **Freeze-2 must finish before 24 Oct 18:00**, or move to 26 Oct.
+- The v2 Cal.com run (relay, unattended) can run during the event if it's launched before 18:00 on the 24th.
+- **The seeded test moves to 26 Oct** (it needs Sunny).
+- 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
+- **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
 ## Next jobs to write
 1. A **freeze-2 checklist** for Sunny (tag, re-pin; exact clicks and commands).
 2. **The v2 blind Cal.com run brief** (relay, its own Nebius cap; 3.5 costs about 2×). Pre-register it like 061.

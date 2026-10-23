@@ -7,6 +7,13 @@ updated_by: chat
 
 **Latest handoff: [history/TraceHound_Handoff_Oct23.md](history/TraceHound_Handoff_Oct23.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
+**Schedule change (23 Oct 16:40):** Sunny is in **HackerRank Orchestrate** (24h, 24 Oct 18:00 → 25 Oct 18:00 IST). He's unavailable then.
+- **Freeze-2 must finish before 24 Oct 18:00**, or move to 26 Oct.
+- The v2 Cal.com run (relay, unattended) can run during the event if it's launched before 18:00 on the 24th.
+- **The seeded test moves to 26 Oct** (it needs Sunny).
+- 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
+- **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
 ## 23 Oct 16:40 (Sunny was unwell 22 Oct; no hand steps done that day): #56 merged (main `8d0fb7a`); #57 CLEARED; handoff Oct23
 - **#57** (codex-12, decision 068, head `4e3a0a8`): **cleared to merge.** Checked against the source diff:
   - partial results in `runPipeline`; it fails only when both reviewers fail every chunk;
