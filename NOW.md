@@ -21,12 +21,12 @@ updated_by: chat
 | 332 | 4 pool-verify-v1 · 3.5 | 12.2 | 69.2 | 6.7 | 17.6 | 57.2 | 10.4 | 60 (19) | 3m28s |
 - All five so far: **3 > 2 (16.0) > 1 (13.9) > 5 (13.5) > 4 (12.2).** Volume drives grounded F1, as R16 said: x2 nearly doubles findings and adds +5.3 F1. 3.5 is worse than 3 Super in both pipelines on ReviewBench.
 - **Current P008 winner: candidate 3 (21.3).** Candidate 6 needs ≥ 24.3 to win (amendment 2's ≥ 3.0 margin). **v3 needs ≥ 24.3** (amendment 7).
-- **Console: $60.09** (02:25). Still to pay:
+- **Console: $68.09** (Sunny, 02:26; an earlier line said $60.09, which was wrong). Still to pay:
   - candidate 6 smoke + test, about $2.5;
   - the rest of relay 070, up to $14;
   - v3 smoke + test, about $3;
   - **one final**: x2 is about 2× pool-raw ≈ **$40** (unmeasured; v3 is estimated at about $33).
-  - Worst case is about $60, so **a small top-up (~$20) before the final is advisable**. Ultra (amendment 6) won't fit.
+  - Worst case is about $60 against $68, so it fits with about $8 spare. Top up only if the final's measured cost per PR comes out higher. Ultra (amendment 6) likely won't fit.
 
 ## 23 Oct 23:00: test runs 3/6 done; candidate 6 uses 3 Super; cap $60 confirmed; #60 and #61 merged; relay on 070
 - **#60 and #61 merged** (Sunny). **Relay running 070.** **The local total cap goes to $60** (Sunny confirmed 22:50).
