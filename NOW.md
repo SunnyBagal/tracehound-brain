@@ -14,6 +14,22 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 20:05: 069 DONE (v2 Cal.com, all 3 predictions right); #59 and #58 checked; codex-13 stopped on flakes → 13b
+- **069 / #59** (relay, head `7f757c1`, CI green): **cleared to merge** (merge commit). Chat checked:
+  - the diff is only `scripts/bench/run-test-set.ts`, `test-set.ts`, `test-set-run.test.ts` and docs; `packages/analyzer/src` and `config` are identical to `review-freeze-2`;
+  - gate 069 + model check run before any call; runs 1–3 are pinned;
+  - `test-set-run.test.ts` 50/50 on Node 22;
+  - headline and all-50 P/R/F recomputed from the counts, all match.
+  - Pre-registration `b2ec214` was pushed 13:38:03Z, 48 s before the first Cal.com 3.5 call. [Report](prompts/2026-10-23/069-v2-calcom.out.md).
+- **v2 result (Cal.com run 4, n = 23, one run, second look):**
+  - pool-verify-v1 on 3.5: **v1 P 63.2 / R 52.2 / F 57.1**, x1 F 58.5. 3 Super run 1 was F 58.3 (runs 1–3: 51.3 / 52.8 / 58.3).
+  - Predictions (a) F ≥ 52.8 ✔, (b) P ≥ 55.6 ✔, (c) ≤ 3/10 failed-chunk PRs ✔ (1/10: PR 4, both reviewers invalid JSON, scored 0).
+  - 10 of 64 responses hit 32k tokens. $0.7285; **ledger $34.53 / $45**.
+  - **All-50 v2 (dev 7r + Cal.com 4): v1 F 52.2, x1 F 55.4, 3rd of 6 under both judges as a point estimate** (Greptile 49.5 / 55.1; x1 gap 0.3). No bootstrap was done, so **no public ranking claim**: public wording is decided with the 26 Oct numbers. Precision up, recall down vs 3 Super, the same pattern as dev.
+  - Brief error (chat's): the Action's `max-comments` default is **15**, not 10 (the dogfood sets 10). Relay reported both; irrelevant here (no PR > 10 kept).
+- **bunny-04 / #58** (head `3d5a62d`, docs only, 5 files in `docs/devpost/`): **fine, keep it a draft** until the 26–27 Oct fill. No competitor names, "beats" or "3rd" in the text. Hold one sentence in `writeup.md` ("no script from the pull request is run") until codex-13b answers Q9. [Report](prompts/2026-10-23/bunny-04-devpost-drafts.out.md) has 12 `[[SUNNY]]` questions. Also found: the repo About description is pre-pivot, with empty topics (Sunny fixes it by hand); #54's install block is stale after 068 (fill job).
+- **codex-13** stopped at Step 0: two 5 s test timeouts under load, nothing audited ([out](prompts/2026-10-23/codex-13-hostile-pr-audit.out-1-stopped.md)). → [codex-13b](prompts/2026-10-23/codex-13b-hostile-pr-audit-resume.md): timeout-only failures get a 30 s rerun of that file, then continue; adds Q9 (is "no PR script runs" true?).
+
 ## 23 Oct 17:15: #57 MERGED (main `0aeef06`), ReviewBench #92 approved; today's hand steps written
 - **#57 merged** 16:25 IST → main **`0aeef06fa8742cc8a36581c3894e554b8748c965`** (merge commit, parents `8d0fb7a` + `4e3a0a8`). CI on main green. No ReviewBench image built from it yet.
 - **ReviewBench #92 merged** 22 Oct (maintainer dapirian approved; bot: "start a test run in the vendor portal"). Onboarding done.
