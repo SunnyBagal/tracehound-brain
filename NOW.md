@@ -21,6 +21,7 @@ updated_by: chat
 - **P008 amendment 5: explained to Sunny again (plain words), awaiting yes/no.** Not written to P008 yet. No portal test run before it is.
 - **Freeze-2 moved to today** (Orchestrate takes 24 Oct 18:00 → 25 Oct 18:00). Hand steps for Sunny: [sunny-today-freeze-2](prompts/2026-10-23/sunny-today-freeze-2.md): top-up → image rebuild → 3.5 smoke → portal configs 1–5 (6 after 2 vs 5) → tag `review-freeze-2` on `0aeef06` → re-pin dogfood + demo to `0aeef06` **with explicit `model: nvidia/Nemotron-3.5-Super-VL`** → close/reopen demo PR #2 to check a live 3.5 review.
 - Relay: Sunny says done; nothing pending there.
+- **Top-up done (17:06): Token Factory console $70.69.** Portal shows TraceHound `approved`, test run page live, only the old `ff22b972` configs listed, no runs yet.
 
 ## 23 Oct 16:40 (Sunny was unwell 22 Oct; no hand steps done that day): #56 merged (main `8d0fb7a`); #57 CLEARED; handoff Oct23
 - **#57** (codex-12, decision 068, head `4e3a0a8`): **cleared to merge.** Checked against the source diff:
