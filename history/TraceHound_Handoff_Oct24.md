@@ -1,4 +1,4 @@
-# TraceHound handoff, 24 Oct 2026, 02:35 IST
+# TraceHound handoff, 24 Oct 2026, 02:35 IST (updated 03:15)
 
 Paste this file into a new Claude chat as the first message, with: "Continue TraceHound from this handoff."
 
@@ -116,7 +116,11 @@ Paste this file into a new Claude chat as the first message, with: "Continue Tra
    - CLAUDE.md's "read-only symlinks".
    - Coordinate with the UI branch.
 5. Bunny: Devpost + video script fill (27 Oct); Grok Verifier B (post drafts).
-6. **Ultra on build.nvidia.com (free, 40 RPM):** a dev-only, report-only row; brief after 070 merges (see NOW 03:05).
+6. **Ultra on build.nvidia.com (free; 40 requests/min, 429 above it):** a dev-only, report-only row; brief after 070 merges.
+   - Endpoint `https://integrate.api.nvidia.com/v1`, model `nvidia/nemotron-3-ultra-550b-a55b`, confirmed 200 at 03:12; reasoning on by default.
+   - Key `NVIDIA_API_KEY` in Sunny's `.env`.
+   - The client needs a per-model endpoint + key, a $0 price entry, and a throttle with 429 backoff.
+   - Not for ReviewBench (egress is Token Factory only; the hackathon requires Token Factory).
 7. **Backlog:**
    - the no-post log line should carry pool/kept counts;
    - the contracts budget covers only the typed check;

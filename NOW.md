@@ -24,6 +24,7 @@ updated_by: chat
   - 429 backoff / ≤ 40 RPM throttle.
 - **Arms (proposal):** recall-v3 (whichever P009 picks) and pool-verify-v1 on Ultra over the 40 dev PRs, v1 + x1 judges (judges stay on Token Factory). Report only. If Ultra is clearly better on dev, that informs amendment 6 (a paid Token Factory Ultra test run) if money is left after the final.
 - **Confirmed (03:12):** `https://integrate.api.nvidia.com/v1`, model id **`nvidia/nemotron-3-ultra-550b-a55b`** (lowercase), HTTP 200. It returns `reasoning_content` (reasoning on by default; 5 tokens → `finish_reason: length`), so the brief must budget reasoning tokens. The key is in Sunny's shell / `.env` as `NVIDIA_API_KEY`.
+- **Rate limit: 40 requests/minute** (HTTP 429 above it). A 40-PR recall-v3 dev run is about 300–500 calls, roughly 8–13 min plus latency. The client needs a throttle (≤ 40/min, wait on 429 with backoff), not full parallelism.
 
 ## 24 Oct 02:55: candidate 6 smoke green; test run #333 queued
 - Smoke `pool-raw-missed` · 3 Super on `9b9a5127` (02:48, green): idx 0 ok, 3 findings (pool 2, missed 1, new 1), $0.0432, 158 s; idx 4 ok, 1 finding (pool 1, missed 0, new 0), $0.0076, 37 s.
