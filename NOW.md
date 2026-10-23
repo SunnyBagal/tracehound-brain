@@ -14,6 +14,12 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 21:35: RB test run #328 (candidate 2) running; 069b + bunny-05 written
+- ReviewBench test run **#328** (pool-raw / 3 Super, `9b9a5127`) started 21:05:36. The others wait for it to succeed, then go **two at a time** (shared Nebius key; 429 risk).
+- [069b](prompts/2026-10-23/069b-v2-intervals.md) (relay, $0): PR-level paired bootstrap (seed 69) for the v2 gaps on Cal.com and all-50, plus the cc-01 §3.2 method for continuity. The wording rule is fixed in advance: "ahead/behind" only if the primary 95% excludes 0.
+- [bunny-05](prompts/2026-10-23/bunny-05-readme-and-docs-fixes.md): #54 README brought up to date except numbers (pin `@review-freeze-2`, no `model:` line, contracts merged, 067/068 wording, duplicate H1, Mermaid); new docs PR for the contracts security boundary (codex-13); #58's sentence fixed.
+- Codex and Grok: nothing useful right now. Chat writes the 26 Oct seeded-test brief next.
+
 ## 23 Oct 21:05: portal configs 1–5 ready
 - All 5 configs are on `9b9a5127317b…`, labels exact, credentials stored (Sunny's screenshot, checked by chat). Candidates 1 and 2 were edited in place (rows kept); 3, 4 and 5 were added. No runs yet. Next: test runs in order 2, 5, 1, 4, 3, then 6 (model per amendment 2).
 
