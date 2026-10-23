@@ -14,10 +14,10 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
-## 24 Oct 03:30: 070 branch progressing; Bugbot not on yet
+## 24 Oct 03:30: 070 branch progressing; Bugbot on (manual)
 - `build/070-v3-recall` at `8ffc2a6` (02:43): pipeline, CLI, ReviewBench pipeline, tests; **lens prompt shas committed at 02:39, before any v3 call** (P009 rule OK so far). Reasoning-budget probe: neither model honoured the budget, so both arms use the fallback. No PR yet; dev arms running.
 - Inbox empty. Test run #333 (cand 6) result still to come from Sunny.
-- **Bugbot isn't enabled.** Connecting repos to Cursor (agents/indexing) is not Bugbot. It's a separate tab: cursor.com/dashboard → Bugbot → Connect GitHub → per-repo toggle. It only reviews PRs Sunny authors; manual trigger is a `bugbot run` comment. Relay's PRs are opened under Sunny's account, so 070's PR qualifies.
+- **Bugbot set up (03:47).** Via the X Subscription (Cursor Premium); config at cursor.com/automations/from-cursor/bugbot. 1/54 repos enabled (TraceHound only), Trigger **Manual Only**, effort Smart. Chat asked Sunny to set **Autofix Off** and **PR Summaries Off** (neither may touch a measured branch or a relay PR body). Use: comment `bugbot run` on the 070 PR. Billed from the shared X quota (14% used, resets 29 Oct; credits $0).
 
 ## 24 Oct 03:05: Sunny has build.nvidia.com free API access (40 RPM), including Nemotron 3 Ultra
 - **Idea:** run Ultra for free there.
