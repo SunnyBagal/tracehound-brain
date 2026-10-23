@@ -5,7 +5,7 @@ updated_by: chat
 
 # Now
 
-**Latest handoff: [history/TraceHound_Handoff_Oct23.md](history/TraceHound_Handoff_Oct23.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+**Latest handoff: [history/TraceHound_Handoff_Oct24.md](history/TraceHound_Handoff_Oct24.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
 **Schedule change (23 Oct 16:40):** Sunny is in **HackerRank Orchestrate** (24h, 24 Oct 18:00 → 25 Oct 18:00 IST). He's unavailable then.
 - **Freeze-2 must finish before 24 Oct 18:00**, or move to 26 Oct.
@@ -13,6 +13,10 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 24 Oct 02:35: handoff Oct24; relay restarted on 070
+- Relay hit its session limit during 070 and was restarted about 02:30 (Sunny). Candidate 6's smoke on `9b9a5127` is next (Sunny).
+- main `f488cef` (#61 merge). Handoff: [Oct24](history/TraceHound_Handoff_Oct24.md).
 
 ## 24 Oct 02:30: test runs 5/6 done. Candidate 3 (pool-raw-x2) leads at 21.3; v3's bar is 24.3; money is tight
 | # | candidate | G F1 | G P | G R | A F1 | A P | A R | findings (novel) | avg time |
