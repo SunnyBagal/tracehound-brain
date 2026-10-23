@@ -14,6 +14,13 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 22:55: Sunny has a Cursor premium subscription
+- Uses (chat's proposal):
+  1. **Bugbot in the 26 Oct seeded test** as the fourth tool (R13: Cursor's terms want a replication kit to publish results).
+  2. **Bugbot as an extra independent reviewer on the 070 (recall-v3) PR**, standing in for the spent Ultrareviews. Its comments are input, not a gate.
+  3. **A Cursor agent as the UI lane's builder**, working from the UI chat's spec: `viewer/` only, never `packages/` or `scripts/` (relay owns those tonight).
+- Not for: anything touching the Action, the bench or ReviewBench code (one owner per path).
+
 ## 23 Oct 22:50: v3 recall mode: R16 research → P008 amendment 7 + P009 + relay brief 070
 - **[R16](research/R16-reviewbench-grounded-f1.md)** (Sunny's Research chat):
   - recall is the lever;
