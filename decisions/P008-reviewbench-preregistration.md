@@ -92,3 +92,18 @@ Approved by Sunny 23 Oct 17:11 ("yes"). No ReviewBench test run of any candidate
 - **Disclosure.** Results state that partial reviews are posted, and give the number of PRs with `partial=N/M` where the run logs show it.
 - **Earlier amendments.** Amendment 3's fallback is moot: ReviewBench pays the judge on test runs (credentials form asked only for `NEBIUS_API_KEY`), so all six candidates run. Amendment 4 is moot: 3.5 is callable (us-north1, #55). Candidate 6's cutoff (amendment 2) was met: rb-02 merged (#51) and smoke-tested green 21 Oct.
 - Selection rule, candidate list and candidate 6's rules are unchanged.
+
+## Amendment 6 (23 Oct 21:55 IST, before any test-run result has been seen): one report-only Nemotron 3 Ultra row
+Asked for by Sunny at 21:48. Test run #328 (candidate 2) had started but had no result. **This amendment changes nothing about candidates 1–6, the selection rule or the final run.**
+
+- **Row U (report only, never selectable):** the pipeline of the config the selection rule picks, with `RB_CONFIG_MODEL=nvidia/Nemotron-3-Ultra-550b-a55b`, on the same image `9b9a5127…`. One 25-PR test run.
+- **Conditions, all required:**
+  - Ultra answers on a Token Factory region the portal's egress allows (us-central1 or us-north1). If it needs routing the image doesn't have, row U is not run, because the image doesn't change for it.
+  - It has one green smoke on that image.
+  - It runs **after** the final run has finished.
+  - The console balance after the final is ≥ $15. Ultra lists at about $1.00/$3.00 per 1M tokens (third-party tracker, unverified), roughly 3× Super. `config/prices.json` has it as a placeholder, so the budget guard uses the $5/$15 fallback.
+- **Reporting:** its grounded and augmented numbers go beside the selected config's test-run numbers, labelled "report only, chosen after selection, one 25-PR run". It never changes the final configuration, the Action's model, or any claim about the final run.
+- **Not added:** Claude Opus 5.5, GPT/Codex and Kimi K3.
+  - Opus and GPT aren't Token Factory models: they need a new egress host (locked at registration, a maintainer change), client code and paid API keys.
+  - Kimi K3 lists at about $3/$15 per 1M (third-party), roughly 15× Super's output price, which the balance can't cover alongside the final.
+  - For context on frontier closed models, the report cites ReviewBench's existing leaderboard rows instead of running them.

@@ -14,6 +14,15 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 21:55: P008 amendment 6 (report-only Ultra row); model-study and "beat Greptile/Cursor" answered
+- Sunny asked for single test runs on Nemotron 3 Ultra, Claude Opus 5.5, Kimi K3 and Codex, plus architecture changes to get above Greptile and Cursor, and may buy Cursor for a month.
+- **Amendment 6 written** (before any test result): one **report-only** Ultra row after the final, if Ultra is callable in the egress regions, smoke-green, and ≥ $15 is left. Opus, GPT and Kimi are out (egress locked, API keys, cost).
+- **Chat's view on beating Greptile and Cursor:**
+  - no product change before submission: freeze-2 is set, and Cal.com's one v2 look is spent, so nothing new can be validated blind;
+  - we're already tied with both on Cal.com, and 069b gives the all-50 intervals;
+  - the one lever with mechanistic evidence is **truncation**: 10/64 Cal.com 3.5 responses hit `max_tokens` 32k, and 7/40 dev PRs and 1/10 Cal.com PRs lost a chunk. It's a "what's next" item for after the hackathon, tested on dev.
+- **Cursor for a month:** only useful for **Bugbot in the 26 Oct seeded test**. Bugbot draws from Pro's included usage, about $1–1.50 per run (third-party, Sep 2026), so 30 PRs could exceed the pool. Cursor's terms need a replication kit to publish results (R13).
+
 ## 23 Oct 21:35: RB test run #328 (candidate 2) running; 069b + bunny-05 written
 - ReviewBench test run **#328** (pool-raw / 3 Super, `9b9a5127`) started 21:05:36. The others wait for it to succeed, then go **two at a time** (shared Nebius key; 429 risk).
 - [069b](prompts/2026-10-23/069b-v2-intervals.md) (relay, $0): PR-level paired bootstrap (seed 69) for the v2 gaps on Cal.com and all-50, plus the cc-01 §3.2 method for continuity. The wording rule is fixed in advance: "ahead/behind" only if the primary 95% excludes 0.
