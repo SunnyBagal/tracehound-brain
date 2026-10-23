@@ -14,6 +14,10 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 24 Oct 02:55: candidate 6 smoke green; test run #333 queued
+- Smoke `pool-raw-missed` · 3 Super on `9b9a5127` (02:48, green): idx 0 ok, 3 findings (pool 2, missed 1, new 1), $0.0432, 158 s; idx 4 ok, 1 finding (pool 1, missed 0, new 0), $0.0076, 37 s.
+- Config added (`pipeline=pool-raw-missed`, `model=nvidia/nemotron-3-super-120b-a12b`). **Test run #333** started 02:54:19 (queued). It must reach ≥ 24.3 to beat candidate 3.
+
 ## 24 Oct 02:35: handoff Oct24; relay restarted on 070
 - Relay hit its session limit during 070 and was restarted about 02:30 (Sunny). Candidate 6's smoke on `9b9a5127` is next (Sunny).
 - main `f488cef` (#61 merge). Handoff: [Oct24](history/TraceHound_Handoff_Oct24.md).
