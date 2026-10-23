@@ -1,0 +1,25 @@
+I've written up all 10 references and sent them to @Verifier. I opened each page myself today between 8:37 and 8:50 PM IST. Two gaps come up across the board: none of the code-review landing pages shows a YAML or one-command install, and none of the leaderboards shows confidence intervals.
+
+**AI code-review landing pages**
+1. [CodeRabbit](https://www.coderabbit.ai/), no date shown. It shows the whole flag, fix and verify loop in one comment card, and numbered sections give the long page a clear outline. **Borrow** the comment card: a bot header, a "Potential issue | Major" label, a one-line title, the diff, and a one-click "Committable suggestion." **Avoid** its slogan hero ("The future isn't writing code. It's reviewing it."), which never says what the product does.
+2. [Greptile](https://www.greptile.com/), no date shown. The hero says exactly what it is ("The AI Code Reviewer"), and the proof comes from bugs in famous open-source repos. **Borrow** its bug card: repo stars, file path, a two-line diff, a one-line title and a "See PR" link. **Avoid** its long repeating marquee text, which is noisy and bad for screen readers.
+3. [Cursor Bugbot](https://cursor.com/bugbot), no date shown. Each bug title states the effect on users, like "Route settings leak between riders," and Bugbot appears as a check in the merge box, right where people will meet it. **Borrow** that effect-first title above a line-numbered diff. **Avoid** a claim like "70%+ of flags get resolved" with no sample size or method behind it.
+
+**Benchmark and leaderboard pages**
+4. [SWE-bench](https://www.swebench.com/), with no date on the leaderboard (newest news is from May 2026). Each benchmark shows its task count, such as Verified's 500, and an icon marks runs the SWE-bench team checked. **Borrow** that verified icon plus a view where every model runs in the same setup. **Avoid** bare percentages with no interval.
+5. [Aider leaderboards](https://aider.chat/docs/leaderboards/), last updated 20 Nov 2025. Every row shows the exact command to reproduce it, cost sits next to the score, and failure counts are visible. **Borrow** the expandable row that holds the full run record. **Avoid** single runs with no spread, and a date nearly a year old on a live leaderboard.
+6. [Greptile Benchmarks](https://www.greptile.com/benchmarks), from a July 2025 evaluation. The method is clear (5 repos × 10 real bug-fix PRs, each tool on default settings), and ties with Bugbot and Copilot are visible. **Borrow** its case table, where every tick or cross links to the real PR. **Avoid** a vendor grading itself, ignoring false positives, on old data.
+
+**Graph visualisations**
+7. [Nx graph docs](https://nx.dev/docs/features/explore-graph), no date shown. The docs teach the controls a big graph needs: focus on one project, group by folder, search and hide. Clicking a dependency line shows which file created it. **Borrow** the path trace, which highlights the chain between two projects you pick. **Avoid** opening on the full graph; Nx itself warns that it gets "unmanageable."
+8. [Datadog Service Map](https://docs.datadoghq.com/tracing/services/services_map/), no date shown. The layout carries meaning: services on the left are closer to customers, and ones on the right are likely root causes. **Borrow** the red or yellow border showing each service's health, plus an inspect view of its neighbours. **Avoid** services that drop off the map after 30 days with no visual cue.
+
+**Hackathon winners**
+9. [Project Blackbox](https://devpost.com/software/project-blackbox), Grand Prize at the DataHub Agent Hackathon, Aug 2026. A one-line pipeline (READ, PROVE, ACT, VERIFY, WRITE) is told through one real incident. **Borrow** its ✅/❌ lines showing which explanations were ruled out and which was confirmed. **Avoid** emoji-heavy bullets; there are also only two screenshots.
+10. [RippleProof](https://devpost.com/software/blastradius), Honourable Mention at the same hackathon, Aug 2026. Its 10 screenshots each carry a one-line caption, and it's frank about its limits. **Borrow** the table comparing a trap, a naive agent and RippleProof's behaviour. **Avoid** a web address that doesn't match the product's name.
+
+**(a) Patterns in most of them:** they show real proof (file paths, diffs, links to actual PRs and runs) instead of mock-ups. A short summary opens up into the full detail. And they put sample sizes, dates or stated limits right next to the claims.
+
+**(b) Dark themes:** five of the ten pages have one. They use a tinted near-black instead of pure black (`#14120b` on Bugbot, `#111827` on SWE-bench) and off-white text (`#e6edf3` to `#f3f4f6`). Cards and code blocks sit one shade lighter (`#1f2937`, `#23262f`), and borders stay faint (`#374151` or see-through). Syntax colours switch to brighter versions in dark mode; Nx's look like GitHub's dark theme, which is my guess from the colour values. None of them uses alternating row colours, and Aider, Datadog and Devpost have no dark theme.
+
+I couldn't open [WebDev Arena](https://lmarena.ai/leaderboard/webdev) because it blocked me. Want me to turn this into a Page you can come back to?

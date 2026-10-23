@@ -70,3 +70,4 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#57] **merged** 23 Oct 16:25 IST → main `0aeef06` (merge commit; CI green; verified 17:15).
 - [#58](https://github.com/SunnyBagal/TraceHound/pull/58) draft `docs/devpost-drafts` `3d5a62d` (Bunny, bunny-04): Devpost drafts in `docs/devpost/`. Checked by chat 23 Oct 20:05: fine, **stays a draft** until the 26–27 Oct fill; hold the "no script from the PR" sentence until codex-13b Q9.
 - [#59](https://github.com/SunnyBagal/TraceHound/pull/59) draft `build/069-v2-calcom` `7f757c1` (relay, 069): v2 blind Cal.com run. Checked by chat 23 Oct 20:05: **cleared to merge** (merge commit).
+- [#59] **merged** 23 Oct → main `5fb8cdc` (verified 20:55).

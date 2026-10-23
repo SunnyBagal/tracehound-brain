@@ -14,6 +14,11 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 20:55: #59 merged (main `5fb8cdc`); R15 UI references filed
+- **#59 merged** → main **`5fb8cdc`** (merge commit, parents `8712273` + `7f757c1`; verified).
+- **grok-11 → [R15](research/R15-ui-references.md):** 10 verified references plus lmarena. Patterns: real artefacts; honesty markers beside each claim; a summary that expands into detail.
+- **UI redesign runs in a separate chat session** (Sunny). It's major on the frontend and small on the graph page. That chat should read R15, R14 (no competitor names in the video), `viewer/test/benchmark.test.tsx` (the `/benchmark` tables must equal `results.md`), and know the 26 Oct numbers fill. Merge by 27 Oct noon.
+
 ## 23 Oct 20:20: codex-13 audit (partial; OpenAI's cyber filter cut it off), so no freeze break
 - The **OpenAI cyber filter blocked Codex** mid-audit. Sunny had it stop and report. [Report](prompts/2026-10-23/codex-13-hostile-pr-audit.out.md).
 - **Verified:**
