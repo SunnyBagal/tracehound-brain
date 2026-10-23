@@ -14,6 +14,28 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 22:10: #60 (069b) and #61 cleared; results page waits for 26 Oct; v3 recall research started
+- **#60 (069b intervals, relay, head `aec07e3`, CI green): cleared to merge.** 6 files, all in scope; `intervals.test.ts` 10/10 on Node 22; the relay reviewer recomputed the counts. **Allowed sentences (PR-level paired bootstrap, seed 69):**
+  - **All 50, both judges:** v2 is behind Augment; **statistically tied with Cursor and Greptile**; ahead of Copilot and CodeRabbit.
+  - **Cal.com:** tied with all except CodeRabbit (ahead; a 10-cluster bootstrap, so caveat it).
+  - **vs 3 Super, all 50:** ahead under v1, tied under x1.
+  - "3rd of 6" only as a point estimate.
+  - The secondary (cc-01) method wasn't reproduced to 0.1, so it was skipped as pre-registered.
+- **Relay's proposed 070 (results page now): NO.** It goes into the **26 Oct fill**: one results/README/viewer update with ReviewBench final, seeded test, 069 and 069b together. The UI redesign chat is editing the viewer, and two viewer edits would collide.
+- **bunny-05:**
+  - #54 head `1c57c72` (stays draft);
+  - **#61** docs-only contracts security boundary (head `eef0604`): **cleared to merge**;
+  - #58 head `ff483fc` (stays draft).
+  - Open question from Bunny: "no network" in the write-up. The contracts stage can run a credential-free `git fetch` of the base commit, so the wording becomes "no model calls; network only for a credential-free git fetch of the base commit". Sunny to OK.
+  - CLAUDE.md still says "read-only symlinks": the fill job fixes it.
+- **Sunny wants grounded F1 to rise a lot (v3).** Chat's analysis:
+  - The metric excludes unmatched findings, so **recall is the lever**: about 5 findings per PR against about 12 golden TPs.
+  - The golden set includes Semgrep and author follow-up fixes.
+  - The levers: per-file fan-out, diverse lenses unioned, sampling, static tools, a missed pass, truncation.
+  - → [research-01](prompts/2026-10-23/research-01-reviewbench-grounded-f1.md) for a Research-mode chat.
+  - **Integrity:** a v3 would be a new pre-registration (P009) designed *after* seeing candidate 2's aggregate score. Disclose it; never use `golden/`; validate on our dev set.
+  - Constraint: money (a v3 final likely costs 2–4× pool-raw) and time (Orchestrate 24–25).
+
 ## 23 Oct 22:00: RB test run #328 (candidate 2, pool-raw / 3 Super): succeeded
 - **Grounded F1 16.0 (P 70.6 / R 9.0); augmented F1 23.0 (P 52.5 / R 14.7).** 124 findings (35 novel) on 25 PRs, average 2m 33s per PR.
 - For context (leaderboard, all 219 × 3, from R7): Greptile 27.2 (P 86.1 / R 16.2), Cursor 17.3 (P 87.7 / R 9.6), Copilot 40.1. A 25-PR test subset isn't directly comparable.
