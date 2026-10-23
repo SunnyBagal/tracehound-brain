@@ -107,3 +107,9 @@ Asked for by Sunny at 21:48. Test run #328 (candidate 2) had started but had no 
   - Opus and GPT aren't Token Factory models: they need a new egress host (locked at registration, a maintainer change), client code and paid API keys.
   - Kimi K3 lists at about $3/$15 per 1M (third-party), roughly 15× Super's output price, which the balance can't cover alongside the final.
   - For context on frontier closed models, the report cites ReviewBench's existing leaderboard rows instead of running them.
+
+## Amendment 7 (23 Oct 22:45 IST, after one test-run result): the one final run may go to P009's v3
+**Seen so far:** only candidate 2's aggregate (test run #328: grounded F1 16.0, P 70.6, R 9.0), far below this plan's expectation (F 38–44). [R16](../research/R16-reviewbench-grounded-f1.md), a research report on what drives grounded recall, followed. It used public leaderboard A/B rows and ReviewBench's methodology, not our test-run detail. A recall-mode configuration (v3) is now being built and pre-registered separately in [P009](P009-reviewbench-v3-recall.md). **It was designed after seeing candidate 2's aggregate score, and the results will say so.**
+- Candidates 1–6, their test runs and this plan's selection rule are unchanged. The P008 winner is picked exactly as before.
+- **There is still exactly one final run.** It goes to P009's v3 only if P009's rule picks it (v3's test-run grounded F1 ≥ the P008 winner's + 3.0, and v3 meets P009's precision floor). Otherwise it goes to the P008 winner.
+- No golden data, judge or classifier prompt is opened; P008's blindness section applies to P009 unchanged.
