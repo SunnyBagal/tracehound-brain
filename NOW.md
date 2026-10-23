@@ -23,7 +23,7 @@ updated_by: chat
   - a $0 price entry so the ledger doesn't book fake spend at the $5/$15 placeholder fallback;
   - 429 backoff / ≤ 40 RPM throttle.
 - **Arms (proposal):** recall-v3 (whichever P009 picks) and pool-verify-v1 on Ultra over the 40 dev PRs, v1 + x1 judges (judges stay on Token Factory). Report only. If Ultra is clearly better on dev, that informs amendment 6 (a paid Token Factory Ultra test run) if money is left after the final.
-- Sunny: put the key in `~/Projects/TraceHound/.env` as `NVIDIA_API_KEY` (never in chat or the brain); confirm the exact model id with one curl.
+- **Confirmed (03:12):** `https://integrate.api.nvidia.com/v1`, model id **`nvidia/nemotron-3-ultra-550b-a55b`** (lowercase), HTTP 200. It returns `reasoning_content` (reasoning on by default; 5 tokens → `finish_reason: length`), so the brief must budget reasoning tokens. The key is in Sunny's shell / `.env` as `NVIDIA_API_KEY`.
 
 ## 24 Oct 02:55: candidate 6 smoke green; test run #333 queued
 - Smoke `pool-raw-missed` · 3 Super on `9b9a5127` (02:48, green): idx 0 ok, 3 findings (pool 2, missed 1, new 1), $0.0432, 158 s; idx 4 ok, 1 finding (pool 1, missed 0, new 0), $0.0076, 37 s.
