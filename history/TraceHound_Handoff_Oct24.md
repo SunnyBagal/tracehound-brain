@@ -116,7 +116,8 @@ Paste this file into a new Claude chat as the first message, with: "Continue Tra
    - CLAUDE.md's "read-only symlinks".
    - Coordinate with the UI branch.
 5. Bunny: Devpost + video script fill (27 Oct); Grok Verifier B (post drafts).
-6. **Backlog:**
+6. **Ultra on build.nvidia.com (free, 40 RPM):** a dev-only, report-only row; brief after 070 merges (see NOW 03:05).
+7. **Backlog:**
    - the no-post log line should carry pool/kept counts;
    - the contracts budget covers only the typed check;
    - compiler-read containment + env allowlist;

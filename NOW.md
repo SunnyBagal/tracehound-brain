@@ -14,6 +14,17 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 24 Oct 03:05: Sunny has build.nvidia.com free API access (40 RPM), including Nemotron 3 Ultra
+- **Idea:** run Ultra for free there.
+- **Chat's call:** yes, but as a **dev-set, report-only** row ("does the biggest Nemotron help?"), at $0.
+- **Not on ReviewBench:** its egress is locked to the two Token Factory hosts, and the hackathon's runtime requirement is Token Factory. So the product and ReviewBench stay on Token Factory, and the NVIDIA-API runs are disclosed as a side experiment.
+- **Needs a small client change**, done **after 070 merges** (relay owns `packages/analyzer` tonight):
+  - a per-model endpoint + key for a non-Token-Factory host (`integrate.api.nvidia.com/v1`, key `NVIDIA_API_KEY` in `.env`);
+  - a $0 price entry so the ledger doesn't book fake spend at the $5/$15 placeholder fallback;
+  - 429 backoff / ≤ 40 RPM throttle.
+- **Arms (proposal):** recall-v3 (whichever P009 picks) and pool-verify-v1 on Ultra over the 40 dev PRs, v1 + x1 judges (judges stay on Token Factory). Report only. If Ultra is clearly better on dev, that informs amendment 6 (a paid Token Factory Ultra test run) if money is left after the final.
+- Sunny: put the key in `~/Projects/TraceHound/.env` as `NVIDIA_API_KEY` (never in chat or the brain); confirm the exact model id with one curl.
+
 ## 24 Oct 02:55: candidate 6 smoke green; test run #333 queued
 - Smoke `pool-raw-missed` · 3 Super on `9b9a5127` (02:48, green): idx 0 ok, 3 findings (pool 2, missed 1, new 1), $0.0432, 158 s; idx 4 ok, 1 finding (pool 1, missed 0, new 0), $0.0076, 37 s.
 - Config added (`pipeline=pool-raw-missed`, `model=nvidia/nemotron-3-super-120b-a12b`). **Test run #333** started 02:54:19 (queued). It must reach ≥ 24.3 to beat candidate 3.
