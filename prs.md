@@ -74,3 +74,4 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#60](https://github.com/SunnyBagal/TraceHound/pull/60) draft `build/069b-v2-intervals` `aec07e3` (relay, 069b): intervals. Checked by chat 23 Oct 22:10: **cleared to merge**.
 - [#61](https://github.com/SunnyBagal/TraceHound/pull/61) draft `docs/contracts-boundary` `eef0604` (Bunny, bunny-05): contracts security boundary docs. Checked by chat 23 Oct 22:10: **cleared to merge**.
 - [#54] bunny-05 → head `1c57c72` (still draft). [#58] → `ff483fc` (still draft).
+- [#60] **merged** 23 Oct (Sunny). [#61] **merged** 23 Oct (Sunny).

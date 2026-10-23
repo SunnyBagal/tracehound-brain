@@ -14,6 +14,22 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 23:00: test runs 3/6 done; candidate 6 uses 3 Super; cap $60 confirmed; #60 and #61 merged; relay on 070
+- **#60 and #61 merged** (Sunny). **Relay running 070.** **The local total cap goes to $60** (Sunny confirmed 22:50).
+- **ReviewBench test runs on `9b9a5127`** (25 PRs each; grounded F1 / P / R · augmented F1 / P / R · findings (novel) · time):
+
+  | # | candidate | G F1 | G P | G R | A F1 | A P | A R | findings | avg time |
+  |---|---|---|---|---|---|---|---|---|---|
+  | 328 | 2 pool-raw · 3 Super | **16.0** | 70.6 | 9.0 | 23.0 | 52.5 | 14.7 | 124 (35) | 2m33s |
+  | 329 | 5 pool-raw · 3.5 | 13.5 | 56.3 | 7.7 | 19.0 | 44.0 | 12.1 | 86 (22) | 3m08s |
+  | 330 | 1 pool-verify-v1 · 3 Super | 13.9 | 79.5 | 7.6 | 22.3 | 67.2 | 13.4 | 99 (40) | 2m53s |
+
+- **Candidate 6's model (amendment 2): 3 Super.** Candidate 2 (16.0) beats 5 (13.5) by 2.5, which is more than the 2.0 tie band.
+  - Before its config is added: **one smoke of `pool-raw-missed` on 3 Super on `9b9a5127`**. Its earlier green smoke was on `ff22b972`; the 23 Oct lesson requires the exact image.
+- On ReviewBench, **3.5 did worse than 3 Super** on pool-raw: lower precision (56 vs 71) and fewer findings, the opposite of dev. Single 25-PR runs; noted, not acted on.
+- Remaining: candidate 4 (pool-verify-v1 · 3.5) + candidate 3 (pool-raw-x2 · 3 Super) now; then smoke 6, add config 6, run 6.
+- **v3's bar (P008 amendment 7):** test grounded F1 ≥ the P008 winner + 3.0. Currently 16.0 + 3.0 = **19.0**.
+
 ## 23 Oct 22:55: Sunny has a Cursor premium subscription
 - Uses (chat's proposal):
   1. **Bugbot in the 26 Oct seeded test** as the fourth tool (R13: Cursor's terms want a replication kit to publish results).
