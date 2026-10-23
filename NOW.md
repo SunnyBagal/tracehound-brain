@@ -14,6 +14,20 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 20:20: codex-13 audit (partial; OpenAI's cyber filter cut it off), so no freeze break
+- The **OpenAI cyber filter blocked Codex** mid-audit. Sunny had it stop and report. [Report](prompts/2026-10-23/codex-13-hostile-pr-audit.out.md).
+- **Verified:**
+  - **Q1 issue:** a PR's tsconfig `extends` (relative or absolute) and `paths` make the compiler read files **outside the checkout**. A fixture's external `.d.ts` literal reached a finding's text (TS2345 in an unedited file), so it could land in the posted contracts section (`typed.ts:114/163`, `findings.ts:44`, Action `contracts.ts:185`). Arbitrary credential-file disclosure was **not** shown: the content has to type-check into a diagnostic.
+  - **Q2 / Q9:** tsconfig `plugins`, `typeRoots`/`types` and package `extends` were read as JSON or `.d.ts`; **no PR JS was executed** (`PLUGIN_EXECUTED False`).
+  - **Q6, partly:** the child env strips `GITHUB_TOKEN`, `GH_TOKEN`, `NEBIUS_API_KEY` and askpass, but keeps `ACTIONS_*`.
+- **Unchecked:** Q3 symlinks, Q4 size/hang, Q5 text injection, Q7 git filters/submodules, Q8 (node_modules symlinks aren't actually read-only).
+- **Chat's call: no freeze break; backlog plus docs.** Threat model: the Action reviews **same-repo PRs only** (forks skipped in code, `action.ts`). A same-repo PR author has write access, and on `pull_request` their branch's workflow file runs with the repo's secrets, so they can already read the runner's files and secrets directly. Q1 doesn't cross a trust boundary the Action promises. It *would* matter if fork PRs were ever reviewed, so the fork skip must stay hard-coded.
+  - **Docs, in the 26 Oct fill (docs-only, allowed after freeze):**
+    - `docs/action/README.md:171` and Devpost `writeup.md` change to "doesn't execute PR code or tsserver plugins; it parses the PR's config and type files, which can reference files outside the checkout. Only same-repo PRs are reviewed; forks are skipped." No "no script" absolute, and no sandbox implication.
+    - `docs/contracts.md:15`: node_modules symlinks aren't enforced read-only.
+  - **Backlog (post-hackathon):** an allowed-root read policy for compiler/config reads (realpaths, symlinks included); an env allowlist for the analyzer child (drop `ACTIONS_*`); finish Q3–Q8 in a Claude lane.
+  - Not re-running the rest now: Bunny's time goes to UI/Devpost; the residual risk is inside the existing trust boundary.
+
 ## 23 Oct 20:05: 069 DONE (v2 Cal.com, all 3 predictions right); #59 and #58 checked; codex-13 stopped on flakes → 13b
 - **069 / #59** (relay, head `7f757c1`, CI green): **cleared to merge** (merge commit). Chat checked:
   - the diff is only `scripts/bench/run-test-set.ts`, `test-set.ts`, `test-set-run.test.ts` and docs; `packages/analyzer/src` and `config` are identical to `review-freeze-2`;
@@ -27,7 +41,7 @@ updated_by: chat
   - 10 of 64 responses hit 32k tokens. $0.7285; **ledger $34.53 / $45**.
   - **All-50 v2 (dev 7r + Cal.com 4): v1 F 52.2, x1 F 55.4, 3rd of 6 under both judges as a point estimate** (Greptile 49.5 / 55.1; x1 gap 0.3). No bootstrap was done, so **no public ranking claim**: public wording is decided with the 26 Oct numbers. Precision up, recall down vs 3 Super, the same pattern as dev.
   - Brief error (chat's): the Action's `max-comments` default is **15**, not 10 (the dogfood sets 10). Relay reported both; irrelevant here (no PR > 10 kept).
-- **bunny-04 / #58** (head `3d5a62d`, docs only, 5 files in `docs/devpost/`): **fine, keep it a draft** until the 26–27 Oct fill. No competitor names, "beats" or "3rd" in the text. Hold one sentence in `writeup.md` ("no script from the pull request is run") until codex-13b answers Q9. [Report](prompts/2026-10-23/bunny-04-devpost-drafts.out.md) has 12 `[[SUNNY]]` questions. Also found: the repo About description is pre-pivot, with empty topics (Sunny fixes it by hand); #54's install block is stale after 068 (fill job).
+- **bunny-04 / #58** (head `3d5a62d`, docs only, 5 files in `docs/devpost/`): **fine, keep it a draft** until the 26–27 Oct fill. No competitor names, "beats" or "3rd" in the text. `writeup.md`'s "no script from the pull request is run" must be reworded in the fill (see 20:20 entry). [Report](prompts/2026-10-23/bunny-04-devpost-drafts.out.md) has 12 `[[SUNNY]]` questions. Also found: the repo About description is pre-pivot, with empty topics (Sunny fixes it by hand); #54's install block is stale after 068 (fill job).
 - **codex-13** stopped at Step 0: two 5 s test timeouts under load, nothing audited ([out](prompts/2026-10-23/codex-13-hostile-pr-audit.out-1-stopped.md)). → [codex-13b](prompts/2026-10-23/codex-13b-hostile-pr-audit-resume.md): timeout-only failures get a 30 s rerun of that file, then continue; adds Q9 (is "no PR script runs" true?).
 
 ## 23 Oct 17:15: #57 MERGED (main `0aeef06`), ReviewBench #92 approved; today's hand steps written
