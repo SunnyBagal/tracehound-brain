@@ -80,3 +80,15 @@ Job 067 found that `nvidia/Nemotron-3.5-Super-VL` is listed by `GET /v1/models` 
 - If 3.5 is not callable when the test runs start, candidates **4 and 5 are dropped** and recorded as not run (reason: model not callable on Token Factory).
 - Candidate 6 then uses **3 Super**.
 - If it becomes callable before the test runs start, nothing changes.
+
+## Amendment 5 (23 Oct 17:20 IST, before any test run): every candidate on the partial-results image
+Approved by Sunny 23 Oct 17:11 ("yes"). No ReviewBench test run of any candidate has started (portal: "No runs yet"); the only feedback seen is our own smoke runs on PR indexes 0 and 4.
+
+- **Image.** All candidates run on `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:9b9a5127317be79f4bc9f7e771b84b441d887f5cdd52e38e934b8657ceb84508`, built from main `0aeef06` (#57 merge; adapter 70/70 in the build). The configs on `ff22b972` are never run.
+- **What changed from `ff22b972`, for the adapter** (`git diff 2a95756 0aeef06` on the files the image runs): only `packages/action/src/pipeline.ts`, `scripts/reviewbench/entry.ts` (decision 068: failed reviewer chunks) and `packages/analyzer/src/llm/client.ts` (#55: 3.5 routed to us-north1). No prompt, threshold, temperature, `max_tokens` or pipeline step changed.
+- **The rule, the same for all six candidates.** A reviewer chunk that fails (invalid reply after one retry) is dropped; the PR's output is the findings from the chunks that worked. A pass fails only if **every** chunk of that pass failed (`pool-verify-v1`: both reviewers failed every chunk). This is what the Action ships since #57 and what 067 measured on dev. Before, one failed chunk failed the whole PR.
+- **Why now.** 3.5 failed a chunk on 7/40 dev PRs per run (067). Under the old rule candidates 4, 5 (and 6 if it takes 3.5) would lose those PRs outright, under a rule neither the dev measurement nor the product uses. 3 Super rarely fails a chunk (1 failed PR in 4 dev runs), so candidates 1–3 are expected to be almost unchanged.
+- **Models per stage.** `RB_CONFIG_MODEL` goes to every stage through `--model`, the verifier included, as in the Action and in 067. Fixes don't exist in the adapter.
+- **Disclosure.** Results state that partial reviews are posted, and give the number of PRs with `partial=N/M` where the run logs show it.
+- **Earlier amendments.** Amendment 3's fallback is moot: ReviewBench pays the judge on test runs (credentials form asked only for `NEBIUS_API_KEY`), so all six candidates run. Amendment 4 is moot: 3.5 is callable (us-north1, #55). Candidate 6's cutoff (amendment 2) was met: rb-02 merged (#51) and smoke-tested green 21 Oct.
+- Selection rule, candidate list and candidate 6's rules are unchanged.

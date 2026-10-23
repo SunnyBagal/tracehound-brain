@@ -25,11 +25,14 @@ Console balance was $20.69. Do this before step 4: the smoke and every ReviewBen
 **→ send** the full digest.
 
 ## 4. Smoke on 3.5 with the new image
-1. Actions → **ReviewBench smoke** → **Run workflow** → branch **main**.
-   - image: the full `ghcr.io/…@sha256:…` from step 3 (no spaces before/after)
-   - pipeline: `pool-raw`
-   - model: `nvidia/Nemotron-3.5-Super-VL` (**change it**, the default is 3 Super)
-2. Expect green: each row's status is `ok` or `ok partial=N/M`. About $0.15.
+Image (built 17:09, run #8): `ghcr.io/sunnybagal/tracehound-reviewbench@sha256:9b9a5127317be79f4bc9f7e771b84b441d887f5cdd52e38e934b8657ceb84508`
+
+Three runs (added 17:20: candidate 4 was never smoked on any image, candidate 3 never at all). Actions → **ReviewBench smoke** → **Run workflow** → branch **main**, image as above, three times:
+   - A: pipeline `pool-raw`, model `nvidia/Nemotron-3.5-Super-VL`
+   - B: pipeline `pool-verify-v1`, model `nvidia/Nemotron-3.5-Super-VL`
+   - C: pipeline `pool-raw-x2`, model `nvidia/nemotron-3-super-120b-a12b`
+
+Expect green: each row's status is `ok` or `ok partial=N/M`, and wall time well under 1800 s. About $0.40 for all three.
 
 **→ send** a screenshot of the summary table. Red = stop and send it; don't add portal configs.
 
