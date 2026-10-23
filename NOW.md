@@ -14,6 +14,12 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 23 Oct 22:00: RB test run #328 (candidate 2, pool-raw / 3 Super): succeeded
+- **Grounded F1 16.0 (P 70.6 / R 9.0); augmented F1 23.0 (P 52.5 / R 14.7).** 124 findings (35 novel) on 25 PRs, average 2m 33s per PR.
+- For context (leaderboard, all 219 × 3, from R7): Greptile 27.2 (P 86.1 / R 16.2), Cursor 17.3 (P 87.7 / R 9.6), Copilot 40.1. A 25-PR test subset isn't directly comparable.
+- **P008's expectation (recall 25–30%, F 38–44) was badly wrong.** Recall 9% at about 5 findings per PR, against about 12 golden TPs per PR. The metric is recall-driven, as P008 said, so the volume candidates (3 x2, 6 missed) matter most.
+- Per P008: no tuning on this; agent output is read only for status and counts. Next: candidates 5 + 1 together.
+
 ## 23 Oct 21:55: P008 amendment 6 (report-only Ultra row); model-study and "beat Greptile/Cursor" answered
 - Sunny asked for single test runs on Nemotron 3 Ultra, Claude Opus 5.5, Kimi K3 and Codex, plus architecture changes to get above Greptile and Cursor, and may buy Cursor for a month.
 - **Amendment 6 written** (before any test result): one **report-only** Ultra row after the final, if Ultra is callable in the egress regions, smoke-green, and ≥ $15 is left. Opus, GPT and Kimi are out (egress locked, API keys, cost).
