@@ -104,6 +104,8 @@ Paste this file into a new Claude chat as the first message, with: "Continue Tra
 - **Blindness:** no lane opens `linea-seeded`, `recall-seeded` or `tracehound-seeds` until scoring on 25 Oct. Cal.com stays blind except in pre-registered runs. No ReviewBench `golden/`.
 
 ## Pending with Sunny
+(Sunny was unwell on 22 Oct and did none of the hand steps that day. Relay's 3 questions, relay's `nebiusCapUsd` = 0 and the top-up are all still open. If freeze-2 can't happen on 24 Oct, it may slip to 25 Oct. Everything after it shifts one day, which uses the 30 Oct buffer. Submit on 29 Oct stays the target.)
+
 1. **Merge #57**: "Ready for review", then merge with a merge commit. Then send the merge sha.
 2. **P008 amendment 5:** yes or no.
 3. **After #57 merges:**

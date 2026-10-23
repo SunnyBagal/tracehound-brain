@@ -7,7 +7,7 @@ updated_by: chat
 
 **Latest handoff: [history/TraceHound_Handoff_Oct23.md](history/TraceHound_Handoff_Oct23.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
-## 23 Oct 16:40: #56 merged (main `8d0fb7a`); #57 CLEARED; handoff Oct23
+## 23 Oct 16:40 (Sunny was unwell 22 Oct; no hand steps done that day): #56 merged (main `8d0fb7a`); #57 CLEARED; handoff Oct23
 - **#57** (codex-12, decision 068, head `4e3a0a8`): **cleared to merge.** Checked against the source diff:
   - partial results in `runPipeline`; it fails only when both reviewers fail every chunk;
   - the footer field `chunkFailed {diff, ctx}`;
