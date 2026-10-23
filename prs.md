@@ -67,3 +67,4 @@ Every merged PR on TraceHound main, from merge commits. Update after each merge.
 - [#56](https://github.com/SunnyBagal/TraceHound/pull/56) draft `build/067-dev-3.5` `46a678d` (relay 067b): 3.5 adopted on dev (2 runs). Checked by chat 22 Oct 04:15: **cleared to merge**. Default switch + partial results → codex-12 (068).
 - [#56] **merged** → main `8d0fb7a` (verified 23 Oct).
 - [#57](https://github.com/SunnyBagal/TraceHound/pull/57) draft `codex/068-default-3.5` `4e3a0a8` (Codex, codex-12, decision 068): 3.5 default + partial reviews. Checked by chat 23 Oct 16:40: **cleared to merge**.
+- [#57] **merged** 23 Oct 16:25 IST → main `0aeef06` (merge commit; CI green; verified 17:15).

@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-23 16:40 IST
+updated: 2026-10-23 17:15 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,14 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 23 Oct 17:15: #57 MERGED (main `0aeef06`), ReviewBench #92 approved; today's hand steps written
+- **#57 merged** 16:25 IST → main **`0aeef06fa8742cc8a36581c3894e554b8748c965`** (merge commit, parents `8d0fb7a` + `4e3a0a8`). CI on main green. No ReviewBench image built from it yet.
+- **ReviewBench #92 merged** 22 Oct (maintainer dapirian approved; bot: "start a test run in the vendor portal"). Onboarding done.
+- Adapter check (for amendment 5): `pool-verify-v1` in `scripts/reviewbench/entry.ts` calls the Action's `runPipeline`, which is partial since #57; pool-raw / x2 / missed keep successful chunks (`reportPass` fails only when every chunk of the pass failed). So the post-#57 image applies the partial rule to **all four pipelines**.
+- **P008 amendment 5: explained to Sunny again (plain words), awaiting yes/no.** Not written to P008 yet. No portal test run before it is.
+- **Freeze-2 moved to today** (Orchestrate takes 24 Oct 18:00 → 25 Oct 18:00). Hand steps for Sunny: [sunny-today-freeze-2](prompts/2026-10-23/sunny-today-freeze-2.md): top-up → image rebuild → 3.5 smoke → portal configs 1–5 (6 after 2 vs 5) → tag `review-freeze-2` on `0aeef06` → re-pin dogfood + demo to `0aeef06` **with explicit `model: nvidia/Nemotron-3.5-Super-VL`** → close/reopen demo PR #2 to check a live 3.5 review.
+- Relay: Sunny says done; nothing pending there.
 
 ## 23 Oct 16:40 (Sunny was unwell 22 Oct; no hand steps done that day): #56 merged (main `8d0fb7a`); #57 CLEARED; handoff Oct23
 - **#57** (codex-12, decision 068, head `4e3a0a8`): **cleared to merge.** Checked against the source diff:
