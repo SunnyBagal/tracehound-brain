@@ -2,6 +2,16 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-23 · Two ReviewBench candidates had never been smoke-tested
+- **What:** candidate 3 (pool-raw-x2) had never run on any image, and candidate 4 (pool-verify-v1 on 3.5) had never run on 3.5. The plan was to register them and spend a one-shot test run on each. Chat caught it while rethinking amendment 5.
+- **Cost:** none. Two extra smokes, about $0.10.
+- **Changed:** every config gets one green smoke on the exact image and model before its portal config is added. The test-run checklist lists the smoke run for each candidate.
+
+### 2026-10-23 · A link ending a sentence picked up the period
+- **What:** chat wrote "Open github.com/…/pull/2." and GitHub routed `pull/2.` to the compare page.
+- **Cost:** one round trip.
+- **Changed:** URLs Sunny should click go on their own line, as full `https://` links, with no punctuation after them.
+
 ### 2026-10-22 · The bench and the product disagreed on failed chunks
 - **What:** the dev bench keeps partial results when a reviewer chunk fails. The Action and the ReviewBench adapter post nothing. With 3 Super this never mattered (1 failed PR in 4 runs). With 3.5 it's 7/40 PRs per run. 067's adoption would have shipped a config that wasn't measured. The chat caught it while checking #56; neither relay's builder nor its reviewer did.
 - **Cost:** none. It was caught before the default switch.

@@ -36,7 +36,7 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 - **2026-10-20 (night)** #52 merged (066 results docs). int-01 → #53 (contracts in the Action; chat check passed, Ultrareview #2 next). bunny-02 → #54 (judges' README, stays a draft). Found: the demo and dogfood workflows run Nano generators, not the benchmarked Super.
 - **2026-10-21** Ultrareview #2 on #53: 7 findings, all confirmed; codex-11 fixed them (`3b196fa`), #53 cleared. Smoke runs 1–3 on 3 Super are green on image `ff22b972`. ReviewBench registered (onboarding PR #92, candidates 1–2; the judge is paid by ReviewBench). 3.5 found on us-north1. Codex extended (ChatGPT Plus).
 - **2026-10-22/23** 067b: 3.5 adopted on 2 dev runs (#56 merged, `8d0fb7a`). The chat caught a bench-vs-product mismatch on failed chunks → codex-12 / decision 068 (#57: 3.5 default + partial reviews), cleared. Handoff Oct23.
-- **2026-10-23** #57 merged (`0aeef06`). ReviewBench onboarding #92 merged (approved 22 Oct). Freeze-2 pulled forward to 23 Oct because of HackerRank Orchestrate (24–25 Oct).
+- **2026-10-23** #57 merged (`0aeef06`). ReviewBench onboarding #92 merged (approved 22 Oct). Freeze-2 pulled forward to 23 Oct because of HackerRank Orchestrate (24–25 Oct). Top-up to $70.69. P008 amendment 5 approved and written (all candidates on image `9b9a5127`, partial results). Smokes on pool-raw/3.5, pool-verify-v1/3.5 (first `ok partial=1/2` live) and pool-raw-x2 all green. **`review-freeze-2` → `0aeef06`**; dogfood (`8712273`) and demo (`88f6721`) re-pinned with `model:` 3.5. Demo #2 on 3.5: no findings, nothing posted (no change made). 069 v2 blind Cal.com brief written.
 
 ## Ahead
 
