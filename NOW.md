@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-24 03:30 IST
+updated: 2026-10-24 10:30 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,17 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 24 Oct 10:30: 070 done, v3 fails P009; PR #62 checked (no HOLD); the final goes to the P008 winner
+- **Relay 070 → draft PR #62** (head `cf55841`, CI green). Relay stopped for Sunny (STOP_FOR_SUNNY, 4 questions). Report: [070 out](prompts/2026-10-23/070-v3-recall-mode.out.md), [relay review](prompts/2026-10-23/070-v3-recall-mode.relay-review.out.md).
+- **Result (dev, v1):** S (3 Super) P 14.0 / R 50.0 / F 21.8 vs floor 20.0; V (3.5) P 20.9 / R 63.5 / F 31.4 vs floor 38.0. **Neither qualifies → no v3 image, smoke or test run.** Lens B and the missed pass buy recall with precision; even V's lens A alone (P 25.7) is under V's floor.
+- **Chat's check of #62:** recomputed both arms and both floors (29.98 → 20.0; 47.95 → 38.0); `.github` change is one options line; `entry.ts`/`adapter.ts` only add recall-v3 branches; P009 rule sections copied verbatim (only the header/disclosure lines differ); `recall-v3.test.ts` 20/20 and `scripts/reviewbench` 87/87 on Node 22; `tsc -p scripts/reviewbench` clean. **No HOLD.**
+- **Rulings (chat):**
+  - Stop rule: **recorded as a departure**, data accepted. The brief's wording was ambiguous (chat's fault, see lessons); arm V was pre-registered and ran once, so its number is valid. Cost $3.33.
+  - Refusal counts: different units (per call vs per chunk/PR), not a data error. Fix the wording and `v3-recall.md:11` in the 26 Oct fill, not a relay cycle now.
+  - **The v3 measurement was hampered** (24% / 36% lens-call failures, mostly truncation → invalid JSON; P009's own $0.12 per-PR cap starved multi-chunk PRs). Results must say so. No rerun: precision fails even on the clean lens-A subset, and there is no time or money.
+- **Measured cost per PR** (v3 S): $0.055 → R16's ~$33 final estimate was low. The P008 final (x2) is still unmeasured; read it from the console delta of #331.
+- **Next:** #333 (candidate 6) result decides the final's config: ≥ 24.3 → candidate 6, else candidate 3 (pool-raw-x2 · 3 Super). Sunny starts the final before 18:00.
 
 ## 24 Oct 03:30: 070 branch progressing; Bugbot on (manual)
 - `build/070-v3-recall` at `8ffc2a6` (02:43): pipeline, CLI, ReviewBench pipeline, tests; **lens prompt shas committed at 02:39, before any v3 call** (P009 rule OK so far). Reasoning-budget probe: neither model honoured the budget, so both arms use the fallback. No PR yet; dev arms running.

@@ -52,3 +52,9 @@ A new pipeline `recall-v3` in the ReviewBench adapter and the analyzer. It's add
 
 ## Disclosure list (results page)
 Config name, model and endpoint, sampling, reasoning budget, chunk cap, lenses, missed pass, no verifier, finding cap, measured cost and time per PR, the dev-set size and its labels' origin, that golden data was never opened, R16's golden-derived citations, the number of configurations tested, and that v3 came after seeing one test-run aggregate.
+
+## Outcome (24 Oct 2026, relay 070, PR #62)
+- Dev, bench-judge-v1: **S** P 14.0 / R 50.0 / F 21.8 (floor 20.0); **V** P 20.9 / R 63.5 / F 31.4 (floor 38.0). **Neither qualifies; v3 stops.** Amendment 7's v3 branch is closed; the P008 winner gets the final.
+- No reasoning budget is honoured on Token Factory for either model; both arms used the 16k + length-retry fallback.
+- **Departure (recorded):** arm V ran after arm S hit the pipeline's own per-PR cap. The brief's stop rule was ambiguous; arm V was pre-registered and ran once, so its result stands.
+- **Caveat for the results page:** lens-call failures S 30/124, V 45/124 (mostly truncation → invalid JSON); 3.5 missed pass failed on 22/40 PRs; the $0.12 per-PR cap was hit on 6 (S) / 11 (V) PRs. Precision fails even on V's lens A alone (25.7 < 38.0).

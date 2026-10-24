@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-24 · 070's stop rule and P009's per-PR cap were written loosely by chat
+- **What:** the 070 brief said stop on "any request error (4xx/5xx, a budget refusal)". It didn't say whether recall-v3's own per-PR cap counts. The builder read it narrowly and ran arm V. Separately, P009 set a $0.12 per-PR cap without checking it against reservation-based budgeting: with 16k max_tokens the missed pass reserves about $0.04, so multi-chunk PRs hit the cap (6 PRs in S, 11 in V) and v3 was measured partly crippled.
+- **Cost:** $3.33 on arm V that a strict stop would have saved; a v3 result that has to carry a "hampered" caveat.
+- **Changed:** stop rules list every refusal source by name (global cap, run cap, the pipeline's own per-PR cap, truncation rate). Any new per-PR cap is checked against the client's worst-case reservation (max_tokens × output price × calls) before it goes in a pre-registration.
+
 ### 2026-10-23 · Two ReviewBench candidates had never been smoke-tested
 - **What:** candidate 3 (pool-raw-x2) had never run on any image, and candidate 4 (pool-verify-v1 on 3.5) had never run on 3.5. The plan was to register them and spend a one-shot test run on each. Chat caught it while rethinking amendment 5.
 - **Cost:** none. Two extra smokes, about $0.10.
