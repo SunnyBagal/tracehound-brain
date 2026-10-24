@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-24 10:35 IST
+updated: 2026-10-24 10:45 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,15 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 24 Oct 10:45: console is $43.52, not ~$60. HOLD the final until #331's cost is measured
+- Console (usage updated 03:45 UTC): **balance $43.52**; 30-day Token Factory subtotal $57.05 + **VAT $10.27 (18%)** = $67.31.
+- **Why the plan was wrong (chat):**
+  1. **$68.09 (02:26) was stale.** From $70.69 (23 Oct 17:06) it implied only $2.60 spent across five test runs. The balance lags billing by hours.
+  2. **VAT.** Every chat estimate and the local ledger are pre-VAT; the balance pays ×1.18.
+  3. **Test runs cost ~2–3× the estimate.** 70.69 − 43.52 = $27.17 gross ≈ $23.0 pre-VAT, minus 070 $5.71, 069 ~$4 and smokes/CI → about $2–2.5 per 25-PR test run, against ~$1.3 assumed. Cross-check: month subtotal $57.05 − ledger $40.24 = $16.8 off-ledger (6 test runs + smokes + dogfood).
+- **Implication:** if a test run is 25 PR executions, the final (657) is ≈ 26 × test-run cost → candidate 3 (x2, the costliest 3-Super config) may need **$70–100 with VAT**. Doesn't fit $43.52.
+- **Action:** Sunny reads #331's agent output (our own log: per-PR spend lines, not golden) → chat computes the final's cost × 1.18 + 15% margin → top-up amount. Selection stays candidate 3; switching to a cheaper config for money would be a departure, and it's Sunny's call only if he won't top up.
 
 ## 24 Oct 10:35: Bugbot on #62 (dry run): 2 real bugs, both in recall-v3, neither changes 070's numbers
 - Bugbot (default effort, manual `bugbot run`, commit `cf55841`) posted 2 Medium findings in `packages/analyzer/src/review/recall/run.ts`. Chat checked both against the code: **both are real.**

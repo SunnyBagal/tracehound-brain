@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-24 · The money plan used a stale balance and left out VAT
+- **What:** chat planned the final against a $68.09 balance that had barely moved after five test runs (it lagged billing), never added 18% VAT to any estimate, and never measured a test run's real cost before sizing the final. The real balance was $43.52.
+- **Cost:** caught before the final started; the final waits for a measurement and probably a top-up.
+- **Changed:** cost estimates are quoted with VAT (×1.18). A balance is only trusted if it moved as expected since the last reading. Before any large run, its cost is measured from a smaller run of the same config (per-PR spend in the agent output), not estimated.
+
 ### 2026-10-24 · 070's stop rule and P009's per-PR cap were written loosely by chat
 - **What:** the 070 brief said stop on "any request error (4xx/5xx, a budget refusal)". It didn't say whether recall-v3's own per-PR cap counts. The builder read it narrowly and ran arm V. Separately, P009 set a $0.12 per-PR cap without checking it against reservation-based budgeting: with 16k max_tokens the missed pass reserves about $0.04, so multi-chunk PRs hit the cap (6 PRs in S, 11 in V) and v3 was measured partly crippled.
 - **Cost:** $3.33 on arm V that a strict stop would have saved; a v3 result that has to carry a "hampered" caveat.
