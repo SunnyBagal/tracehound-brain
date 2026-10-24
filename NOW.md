@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-24 10:30 IST
+updated: 2026-10-24 10:35 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,13 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 24 Oct 10:35: Bugbot on #62 (dry run): 2 real bugs, both in recall-v3, neither changes 070's numbers
+- Bugbot (default effort, manual `bugbot run`, commit `cf55841`) posted 2 Medium findings in `packages/analyzer/src/review/recall/run.ts`. Chat checked both against the code: **both are real.**
+  1. **Guard drops completed lens findings** (l. ~299): when the wall-clock `Promise.race` fires during lens calls, `comments` is still `[]`, so findings already in `raw` are never reduced and the review is empty. Breaks the "findings so far" rule. **Dev impact: none**: guard hit 0 in both arms.
+  2. **Lens findings lose chunk order** (l. 257–260): `raw` is filled in completion order and sorted by producer only, so dedup survivors and the 60-cap depend on timing. Reduce is documented as chunk-ordered. **Dev impact: small** (cap hit on 1 S PR; dedup picks which duplicate's text survives); one sampled run at T 1.0 is noisy anyway. Verdict unchanged.
+- relay's reviewer and the chat's check both missed these. **Not fixed:** v3 never runs again. The 26 Oct fill adds a "known defects (found by Bugbot)" note to `v3-recall.md`. Merge #62 as is.
+- Seeded test: Bugbot works on relay PRs with manual trigger; good sign for 26 Oct.
 
 ## 24 Oct 10:20: #333 candidate 6 = 20.4, so the P008 winner is candidate 3; final = pool-raw-x2 · 3 Super
 | # | candidate | G F1 | G P | G R | A F1 | A P | A R | findings (novel) | avg time |
