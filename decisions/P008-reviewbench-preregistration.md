@@ -113,3 +113,9 @@ Asked for by Sunny at 21:48. Test run #328 (candidate 2) had started but had no 
 - Candidates 1–6, their test runs and this plan's selection rule are unchanged. The P008 winner is picked exactly as before.
 - **There is still exactly one final run.** It goes to P009's v3 only if P009's rule picks it (v3's test-run grounded F1 ≥ the P008 winner's + 3.0, and v3 meets P009's precision floor). Otherwise it goes to the P008 winner.
 - No golden data, judge or classifier prompt is opened; P008's blindness section applies to P009 unchanged.
+
+## Amendment 8 (24 Oct 11:35 IST, after all test runs): no final run; test-run results only
+- **Why:** the measured cost of the selected config (candidate 3, pool-raw-x2 · 3 Super) is $3.45 for one 25-PR round (#331 agent output), so the final (219 × 3 = 657 PR runs) is about $90 before VAT and about $107 with VAT (90% range about $65–160). The Nebius balance is $43.52, and Sunny decided (11:30) not to top up. No cheaper config fits safely either, and running a non-selected config would be a money-driven departure.
+- **So:** there is **no final run and no leaderboard entry.** The six 25-PR test runs (#328–#333, one round each, image `9b9a5127`) are the ReviewBench result, published as "ReviewBench test runs (25 PRs, one round, ReviewBench's judge), not a leaderboard submission". Selection bias from comparing six configs on the same 25 PRs is stated.
+- **Amendment 6 (report-only Ultra row) is dropped:** Ultra isn't free on Token Factory, and the registered egress hosts are Token Factory only. Ultra is measured on our dev set instead (job 071, NVIDIA API, report only).
+- **Amendment 7 (v3) closed by 070:** neither arm met P009's precision floor.

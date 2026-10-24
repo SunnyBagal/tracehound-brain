@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-24 11:25 IST
+updated: 2026-10-24 11:35 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,12 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 24 Oct 11:35: no top-up → no ReviewBench final (P008 amendment 8); Ultra goes to dev via relay 071
+- **Sunny (11:30): no top-up; work with the $43.52.** So no final and no leaderboard row. ReviewBench result = the six 25-PR test runs, labelled as such ([P008 amendment 8](decisions/P008-reviewbench-preregistration.md)). Best: candidate 3 grounded F1 21.3 / P 76.3 / R 12.4.
+- **Ultra on ReviewBench: impossible** (egress locked at registration to Token Factory us-central1/us-north1; Ultra isn't free there). Amendment 6 dropped.
+- **Relay 071 (written):** [071-dev-ultra-nvidia-api](prompts/2026-10-24/071-dev-ultra-nvidia-api.md). pool-verify-v1 (+ derived pool-raw) on Ultra via `integrate.api.nvidia.com`, dev runs 10–11, opt-in provider (`TRACEHOUND_NVIDIA_API=1`), 36 RPM throttle, 429 backoff, $0 price, Nebius cap $3 (judges). Report only. Runs unattended during Orchestrate.
+- **Remaining Nebius uses** of the $43.52: 071 judges (≤ $3), the 26 Oct seeded test (TraceHound on 3.5, about 30 PRs, a few $), dogfood. Comfortable.
 
 ## 24 Oct 11:25: #331 measured: the x2 final costs ~$107 with VAT; it doesn't fit $43.52
 - Source: #331 agent output (Sunny's zip; our own logs only, no golden): **1 round, 25 PRs, all ok** (1 partial 1/4), `cost_usd` sum **$3.45** pre-VAT (≈ $4.07 with VAT, consistent with the balance drop).
