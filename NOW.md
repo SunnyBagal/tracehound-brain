@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-24 11:35 IST
+updated: 2026-10-24 16:05 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,13 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 24 Oct 16:05: 071 run 10 in (PR #63 draft); run 11 running detached; relay stopped for Orchestrate
+- Report: [071 out](prompts/2026-10-24/071-dev-ultra-nvidia-api.out.md). Draft **PR #63** (head `6bd72e1`, CI green), run 10 only. Plan `cb58934` before the probe. Relay reviewer: CONTINUE, numbers recompute.
+- **Run 10 (Ultra, v1):** pool-verify-v1 P 34.8 / R 54.1 / F 42.3 (3 Super mean 42.3, 3.5 mean 50.4); pool-raw P 31.2 / R 64.9 / F 42.1 (3 Super 38.2, 3.5 53.9) — **worse than 3.5 on pool-raw, interval excludes 0**; elsewhere no interval-backed difference. x1: 54.6 / 51.8. Judge spend $0.10. 3 request timeouts at 300 s (rerun).
+- **Run 11** started detached at 09:52Z (`runs/071-chain.sh`, nohup), 4/40 at last check; it scores itself and writes `runs/071-report-final.txt` + `chain done`.
+- Relay's auto-continued follow-up (038: fold run 11 into #63) is **stopped by Sunny** to save Claude tokens for Orchestrate. On 26 Oct chat turns it into brief **071b** (same steps). Check the tree for an untracked `docs/prompts/071-followup-run11.md` first.
+- Small fixes for 071b (from relay's reviewer): "most reliable model" → counts only; commit ref `0dec002`, not `e997359`'s follow-up.
 
 ## 24 Oct 11:35: no top-up → no ReviewBench final (P008 amendment 8); Ultra goes to dev via relay 071
 - **Sunny (11:30): no top-up; work with the $43.52.** So no final and no leaderboard row. ReviewBench result = the six 25-PR test runs, labelled as such ([P008 amendment 8](decisions/P008-reviewbench-preregistration.md)). Best: candidate 3 grounded F1 21.3 / P 76.3 / R 12.4.
