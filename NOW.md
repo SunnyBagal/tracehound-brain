@@ -14,6 +14,14 @@ updated_by: chat
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
 
+## 24 Oct 10:20: #333 candidate 6 = 20.4, so the P008 winner is candidate 3; final = pool-raw-x2 · 3 Super
+| # | candidate | G F1 | G P | G R | A F1 | A P | A R | findings (novel) | avg time |
+|---|---|---|---|---|---|---|---|---|---|
+| 333 | 6 pool-raw-missed · 3 Super | 20.4 | 64.5 | 12.1 | 28.9 | 43.9 | 21.5 | 194 (63) | 4m20s |
+- Candidate 6 needed ≥ 24.3; it scored 20.4, below candidate 3 (21.3) too. The missed pass added findings over candidate 2 (124 → 194) but lost precision.
+- **Selection (P008 + amendment 7, applied by chat):** v3 is closed (070), candidate 6 fails its margin, and candidate 3 leads 1–5 by 5.3 (no tie). **The one final run = candidate 3: `pipeline=pool-raw-x2`, `model=nvidia/nemotron-3-super-120b-a12b`, image `9b9a5127`.**
+- Money: console estimate about $60 (68.09 − #333 − 070's $5.71). The x2 final is unmeasured, estimated at about $40. Sunny reads the console before starting it: ≥ $50 → start; under that → top up first.
+
 ## 24 Oct 10:30: 070 done, v3 fails P009; PR #62 checked (no HOLD); the final goes to the P008 winner
 - **Relay 070 → draft PR #62** (head `cf55841`, CI green). Relay stopped for Sunny (STOP_FOR_SUNNY, 4 questions). Report: [070 out](prompts/2026-10-23/070-v3-recall-mode.out.md), [relay review](prompts/2026-10-23/070-v3-recall-mode.relay-review.out.md).
 - **Result (dev, v1):** S (3 Super) P 14.0 / R 50.0 / F 21.8 vs floor 20.0; V (3.5) P 20.9 / R 63.5 / F 31.4 vs floor 38.0. **Neither qualifies → no v3 image, smoke or test run.** Lens B and the missed pass buy recall with precision; even V's lens A alone (P 25.7) is under V's floor.
