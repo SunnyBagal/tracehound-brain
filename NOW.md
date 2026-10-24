@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-24 10:45 IST
+updated: 2026-10-24 11:25 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,13 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 24 Oct 11:25: #331 measured: the x2 final costs ~$107 with VAT; it doesn't fit $43.52
+- Source: #331 agent output (Sunny's zip; our own logs only, no golden): **1 round, 25 PRs, all ok** (1 partial 1/4), `cost_usd` sum **$3.45** pre-VAT (≈ $4.07 with VAT, consistent with the balance drop).
+- Per PR: mean **$0.138**, median $0.073, max $0.983 (one PR, 1441 s). Heavy tail; bootstrap 90% for the mean $0.083–0.208.
+- **Final = 219 × 3 = 657 PR runs → ~$90 pre-VAT, ~$107 with VAT (90% range ~$65–160).** Balance $43.52.
+- Rough others (scaled, not measured): candidate 2 pool-raw ≈ half → ~$53 with VAT; still over the balance.
+- Options for Sunny: (A) top up and run candidate 3 as selected; (C) candidate 2 with a money-driven departure disclosed (still needs a top-up); (D) no final: publish the 25-PR test-run numbers only, labelled. Chat's recommendation in chat.
 
 ## 24 Oct 10:45: console is $43.52, not ~$60. HOLD the final until #331's cost is measured
 - Console (usage updated 03:45 UTC): **balance $43.52**; 30-day Token Factory subtotal $57.05 + **VAT $10.27 (18%)** = $67.31.
