@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-24 16:05 IST
+updated: 2026-10-27 01:50 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,16 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 01:50: back from Orchestrate; replan for the last 3 days
+- GitHub (01:50): main `36de717` (#62 merged). Open: #54 README (draft), #58 Devpost (draft), #63 071 (draft, head `6bd72e1`, run 10 only). No new `ui/*` branch since 23 Oct. Inbox empty. Run 11 status is on Sunny's Mac (`runs/071-chain.log`).
+- **Not done on 26 Oct:** the seeded test, the fill, the UI redesign merge (was due 27 Oct noon).
+- **Chat's proposed plan** (Sunny to confirm):
+  - 27 Oct: 071b (fold run 11, $0, short) → **the fill** (results.md + viewer + README #54 + Devpost #58: 069, 069b, ReviewBench test runs, 070 negative, 071 Ultra; demo wording) → UI merge if ready.
+  - 28 Oct: video script + recording; Devpost text final; Grok verifier on posts.
+  - 29 Oct: submit. 30 Oct: buffer only.
+  - **Seeded test: cut** (chat's recommendation). No brief exists, tools aren't installed on the mirrors, Greptile consent was never sent, and R14 keeps competitor names out of the video and Devpost anyway. README says it wasn't run.
+  - **Demo risk:** under 3.5 at freeze-2, demo PR #2 posts no findings (24 Oct). Judges need one live PR with a real TraceHound review on the current config. Decide in the fill.
 
 ## 24 Oct 16:05: 071 run 10 in (PR #63 draft); run 11 running detached; relay stopped for Orchestrate
 - Report: [071 out](prompts/2026-10-24/071-dev-ultra-nvidia-api.out.md). Draft **PR #63** (head `6bd72e1`, CI green), run 10 only. Plan `cb58934` before the probe. Relay reviewer: CONTINUE, numbers recompute.
