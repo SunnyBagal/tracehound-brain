@@ -18,7 +18,7 @@ Follow-up to decision **071** (no new decision number). Nebius **$0**: no model 
 - **Devin reviewed #63 and found 4 bugs.** Chat checked them against the code; all are real, and none changes run 10's numbers:
   1. **Baseline mismatch does not stop** (`scripts/bench/dev-ultra.ts:~177`): it logs "DIFFERS BY MORE THAN 0.1: STOP" and keeps printing tables.
   2. **Token Factory Ultra calls bypass spending caps** (`config/prices.json:9`): `nvidia/nemotron-3-ultra-550b-a55b` is priced 0/0 whatever the route, so a request with that id that goes to Token Factory (flag unset) reserves $0.
-  3. **Verifier truncations disappear from run counts** (`dev-ultra.ts:~160`): read Devin's comment on the PR for the exact claim.
+  3. **Verifier truncations disappear from run counts** (`dev-ultra.ts:~160`). **Bugbot found the cause (same PR):** `ledgerWindow` treats a call as a verifier call when `purpose` starts with `verify`, but verify-ctx ledgers as `"review"` (`VERIFY_CTX_PURPOSE`), so every call is checked against the reviewer's 32,000 cap and verifier truncations at 16,000 are never counted. The fix can't use `purpose`; tell verifier calls apart another way (e.g. the attempt records' verdicts, or the request's `max_tokens` if the ledger keeps it) and don't change any ledger format.
   4. **Ultra cache entries cross provider routes** (`packages/analyzer/src/llm/client.ts:~263`, `cache.ts`): the cache key is model + request, not route.
 - A relay session (038) was stopped mid-way on 24 Oct. It may have left `docs/prompts/071-followup-run11.md` untracked.
 
