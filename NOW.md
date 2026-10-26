@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 01:50 IST
+updated: 2026-10-27 02:45 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,20 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 02:45: all-hands plan; lane board
+Sunny: "do everything now", with 6 lanes. Chat's line: the product stays at `review-freeze-2`; improvements ship as report-only levers v2 + "what's next". Single source of truth: [submission/numbers.md](submission/numbers.md).
+| Lane | Job | Brief | State |
+|---|---|---|---|
+| Relay (A) | 071b: run 11 + Devin's 4 fixes on #63 → ready | [071b](prompts/2026-10-27/071b-run11-and-devin-fixes.md) | to start (needs `chain done`) |
+| Relay (A) | the fill: results.md + viewer /benchmark (after 071b) | not written yet | — |
+| Codex | levers v2 offline replay ($0) | [codex-14](prompts/2026-10-27/codex-14-levers-v2-replay.md) | to start |
+| Bunny (B) | README #54 + Devpost #58 + video script | [bunny-06](prompts/2026-10-27/bunny-06-readme-devpost-video.md) | to start |
+| Sunny + Bunny | seeded PRs on the current config, then scoring | [seed-01](prompts/2026-10-27/seed-01-sunny-and-scoring.md) | Sunny's hand steps A1–A5 |
+| Gemini | claims verifier (after bunny-06) | [gemini-01](prompts/2026-10-27/gemini-01-claims-verifier.md) | waits |
+| Cursor | UI (viewer/, not /benchmark tables) | waits for the UI chat's state | — |
+| Devin | reviewer on every PR | — | on (found 4 real bugs on #63) |
+- Devin's #63 findings, checked by chat: baseline mismatch doesn't stop (report script); lowercase Ultra id priced $0 on any route (latent cap bypass); verifier truncations missing from counts; cache key ignores route (latent). None changes run 10's numbers. Fixed in 071b.
 
 ## 27 Oct 01:50: back from Orchestrate; replan for the last 3 days
 - GitHub (01:50): main `36de717` (#62 merged). Open: #54 README (draft), #58 Devpost (draft), #63 071 (draft, head `6bd72e1`, run 10 only). No new `ui/*` branch since 23 Oct. Inbox empty. Run 11 status is on Sunny's Mac (`runs/071-chain.log`).
