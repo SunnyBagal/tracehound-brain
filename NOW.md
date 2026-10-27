@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 17:45 IST
+updated: 2026-10-27 18:00 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,12 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 18:00: handoff Oct27; #63 and #64 checked (OK to merge); bunny-06 done
+- **#63** (071b, `b5a5f2e`): chat checked (9 files, no product paths, llm tests 55/55). Ultra 2-run pool-verify v1 F 47.1 vs 3.5 50.4 (no interval-backed difference); pool-raw −10.2 [−17.7, −3.2] vs 3.5. OK to merge.
+- **#64** (codex-14 levers v2, `a149e17`): $0 replay, 4 new files; no verified-pipeline cap gain; verifier on 3.5 inconclusive; 2-of-3 vote no gain; 35/74 Medium+ missed by both 3.5 runs. OK to merge after CI. numbers.md §5 and §9 filled.
+- **bunny-06** done: #54 `64082a7`, #58 `8184e54`. Open: TBD-SEEDED/ULTRA/LEVERS, 5 SUNNY questions; chat claims check pending; drop "Cursor" from Devpost.
+- Handoff: [Oct27](history/TraceHound_Handoff_Oct27.md).
 
 ## 27 Oct 17:45: lanes rebalanced (all UI on Claude B; Gemini research only)
 - Sunny: all UI on **account B** (`claudeb`), inspired by the Vite / Vite+ sites, with his own hero design pasted into the session. Gemini hallucinates on build tasks → research only.

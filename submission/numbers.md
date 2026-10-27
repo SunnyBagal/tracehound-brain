@@ -6,7 +6,7 @@ Written by chat, 27 Oct 2026. **Every lane copies numbers and claims from this f
 1. Never "beats", "best", "state of the art", "outperforms".
 2. "ahead of / behind X" only where the 069b 95% interval excludes 0 (table §2). Everything else is "statistically tied with X".
 3. "3rd of 6" only with "point estimate" next to it.
-4. **No competitor names or logos in the video or the Devpost text** (R14). Use "five commercial reviewers" / "the leading commercial reviewer". Names are fine in the repo (README, results.md), where the replication material is.
+4. **No competitor names or logos in the video or the Devpost text** (R14). Use "five commercial reviewers" / "the leading commercial reviewer". Names are fine in the repo (README, results.md), where the replication material is. **Don't name Cursor in the Devpost text or video even as a coding tool used** (it's also a benchmarked reviewer); Bugbot's catches are credited to "an automated review".
 5. The product is **pool-verify-v1 on Nemotron 3.5 Super (`nvidia/Nemotron-3.5-Super-VL`) at tag `review-freeze-2` (`0aeef06`)**, via Nebius Token Factory. Every product claim describes that config.
 6. Dev numbers: "on our 40-PR dev set" (tuned on). 3.5 on dev is "2 dev runs".
 7. ReviewBench: "ReviewBench test runs (25 PRs, one round, ReviewBench's own judge); not a leaderboard submission". Never imply a leaderboard rank.
@@ -64,7 +64,7 @@ Allowed: "Across all 50 PRs: behind the leading reviewer, statistically tied wit
 
 ## 5. Ultra (071, report only, free NVIDIA API)
 - Run 10, judge v1: pool-verify-v1 F 42.3 (P 34.8 / R 54.1) vs 3 Super 42.3, 3.5 50.4; pool-raw F 42.1 vs 3.5 53.9 → **worse than 3.5 on pool-raw (−11.8 [−19.6, −4.0])**; no other interval-backed difference. x1: 54.6 / 51.8.
-- Run 11: [[TBD: run 11 + 2-run mean, from 071b]].
+- **2 runs (10, 11), judge v1:** pool-verify-v1 mean P 39.0 / R 59.5 / **F 47.1** (3 Super 42.3, 3.5 50.4); pool-raw mean F 43.6 (3.5 53.9). x1: 54.9 / 51.4. **Only interval excluding 0: pool-raw v1, Ultra − 3.5 = −10.2 [−17.7, −3.2].** Everything else: no interval-backed difference. Run 11: 57 HTTP 429s of 361 NVIDIA requests. Judge spend 071 total $0.19.
 - Allowed: "The 550B Nemotron 3 Ultra did not review better than 3.5 Super on our pipeline (report only)."
 
 ## 6. Losses (state them)
@@ -82,6 +82,8 @@ Allowed: "Across all 50 PRs: behind the leading reviewer, statistically tied wit
 
 ## 9. What's next (honest roadmap, from levers v2 + the 27 Oct review)
 - Recover chunks lost to invalid JSON (JSON repair / schema-constrained output; retry-with-reasoning-off mostly failed in 070).
-- Per-PR comment cap (product noise) — [[TBD: levers v2 replay result]].
-- The verifier doesn't pay on 3.5 (pool-raw ≥ pool-verify on dev and ReviewBench) — [[TBD: levers v2 table]].
+- Per-PR comment cap: replayed on saved dev runs ($0, levers v2, PR #64): **no cap on the shipped (verified) pipeline improves F with an interval excluding 0**; small gains appear only on the unverified pool (k = 4–5). Hypothesis, not adopted.
+- The verifier: on dev, verified beats raw with an excluding interval in 2 of 9 runs (3 Super 2r, Ultra 11); on 3.5 neither run shows a difference (−1.6, −5.4, intervals include 0). On ReviewBench raw scores higher in both models (volume metric). Open question, not a finding.
+- A cheaper 2-of-3 vote across runs: no gain established (levers v2).
+- Where the misses are: both 3.5 runs miss 35 of 74 Medium+ golden comments (v1); none of the 7 Critical ones is missed by both; the most missed repo is sentry (14 of 21 Medium+).
 - Cheaper experiments: run-to-run spread exceeds most effects; replay on saved records before paying for runs.
