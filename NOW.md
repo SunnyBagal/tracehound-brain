@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 22:40 IST
+updated: 2026-10-27 22:50 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,10 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 22:50: #67 merged (main `7bc1731`); ui-11b in the UI session; seed-01 handed to an agent (seed-01a)
+- Sunny merged **#67** (Bugbot never replied; defaults proven identical). ui-11b pasted into the UI session; #65 merges when Sunny's UI changes settle.
+- **seed-01a** ([brief](prompts/2026-10-27/seed-01a-agent-runs-it.md)): Claude Code account A, plain session in `~/Projects/tracehound-seeds`. Sunny only sets `NEBIUS_API_KEY` on both mirrors from `.env` via `gh secret set` (key never passes through an agent). Agent: verify hashes + scorer checks → workflow on both mirrors (pinned `0aeef06`, 3.5) → one PR first, check header model → rest at 90 s → wait/rerun failed once → score → RESULTS.md → inbox (counts + links only). **Bugbot skipped** (disclosed). Mirrors public, 16 branches each; `tracehound-seeds` private.
 
 ## 27 Oct 22:40: codex-16 done (#54 `d762b14`); live /benchmark is v2; **HOLD #54 and #58**
 - **HOLD #54, #58:** #54 is non-draft and still has 2 `[[TBD-SEEDED]]`; #58 has TBD-SEEDED + SUNNY slots. Merge only after seed-01 fills them and chat's final check.
