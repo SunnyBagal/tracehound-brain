@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 18:45 IST
+updated: 2026-10-27 20:00 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,13 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 20:00: devin-01 report in, checked by chat; nothing changes before submission
+- Report: [devin-01 out](prompts/2026-10-27/devin-01-codebase-review.out.md). Relay (fill-01) and Codex (codex-15) running.
+- **Verified against main `5ba60a0`:** (1) the reviewer retry ignores `finishReason` and retries a 32k-cut reply with the same `max_tokens` and reasoning on (`review.ts:178-196`; same loop in `review-ctx.ts`): real; (2) the cache keeps any non-empty reply, so a cut-off reply with partial content replays on cached reruns (`client.ts:296`); **empty-content truncations are not cached**, so the dev failures that were pure reasoning have no body on disk; (3) the fence regex is anchored `^…$` (`review.ts:83`): real; (5) `agrees()` needs both lines non-null, so line-less duplicates both enter the pool (`agree-rule.ts:7-8`): real; cap order is pool order (`action.ts:163`, `findings.slice`): real; VERIFY_FAILED findings are kept (`verify-ctx.ts:90`): real, by design.
+- **Overclaim in the report:** "levers-v2 showed the 3.5 raw pool beats verified output". It didn't: on 3.5 both differences (−1.6, −5.4) have intervals including 0 (numbers.md §9: open question). The two-sample verifier idea stands as an idea, not as a fix for a measured loss.
+- **Not done before 30 Oct** (product frozen at `review-freeze-2`; a fix is a new unmeasured config). Post-hackathon order: (a) $0 cache scan of 3.5 dev bodies: `finish_reason=length` with empty vs partial content (turns "not checked call by call" into a count); (b) finishReason-aware retry + lenient parser + don't cache unparseable replies, one dev run; (c) `response_format` / reasoning-budget smoke on 3.5; (d) T 1.0 self-consistency (≈3× reviewer cost).
+- **For chat's post-fill pass:** add one "known limit" line to README/Devpost (found in review: the retry doesn't distinguish truncation from malformed JSON) and to numbers.md §9. Backlog fix: the merge-base fetch duplicate is not in `viewer/lib/data.ts` (Devin: no such file).
 
 ## 27 Oct 18:45: #63 and #64 merged (main `5ba60a0`); fill-01 and codex-15 written; claims check of #54/#58 done (pre-fill)
 - GitHub: main `5ba60a0` = merge #64 on merge #63. Relay unblocked. ui-11 started by Sunny on account B (`~/Projects/TraceHound-ui`, `ui/v2`).
