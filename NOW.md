@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 23:45 IST
+updated: 2026-10-28 01:45 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,13 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 28 Oct 01:45: seeded test found an Action install bug (pnpm `packageManager`); Devin Review auto-posting on mirrors
+- Gate passed: `recall-seeded#2` (s25) posted a review, header `pool-verify-v1 · nvidia/Nemotron-3.5-Super-VL`, 0 findings (pool 1, kept 0), 182.7 s. `recall-seeded#1` (s15) diff 2 files +4/−3 (not zero-chunk) → result: no post.
+- **Bug (real, judge-facing):** `linea-seeded#1` (s29) red twice: composite action's `pnpm/action-setup@v4` with `version: 11.20.0` fails "Multiple versions of pnpm specified" because Linea's root `package.json` has `packageManager: pnpm@9.0.0`. Any user repo pinning another pnpm can't run the Action. Before any model call.
+- **Fix → review-freeze-2.1** ([devin-03](prompts/2026-10-28/devin-03-action-install-fix.md)): branch from `0aeef06`, one-file diff (`action.yml` install step only, review code byte-identical); proof on main with an install matrix (pnpm 9/10/11, yarn, npm, none; no key, review step skipped); decision 072. Sunny tags after chat check. Then re-pin: linea-seeded workflow, README Try-it (#54), demo repo; numbers.md §0.5 gets "Action at 2.1, pipeline = review-freeze-2".
+- **Devin Review** (account-wide app) auto-reviewed the 3 seeded PRs (model calls by a third party; comments not scored). Sunny removes the app's access to both mirrors before more PRs open. Deviation disclosed.
+- **Plan** ([ruling 2](prompts/2026-10-28/seed-01a-ruling-2.md)): Recall's remaining 13 tonight on `0aeef06`; Linea's 15 after the 2.1 pin (linea#1 re-triggered via draft/ready, not closed). Results per mirror with their Action commit.
 
 ## 27 Oct 23:45: seed-01a stopped at its first-PR gate; ruling: continue with a 3-PR gate
 - Agent: step 0 all pass (hashes, scorer 13/13, ADMIN, secret on both, 15/15 seed branches each). Workflow committed: linea-seeded `3012a54`, recall-seeded `296f8f3`. Script copy `runs/open-prs-seed01a.sh` (`dbd3bdd`): no CodeRabbit comment, 90 s, cd to repo root (disclosed). `recall-seeded#1` (s15): run 40556700220 green, model 3.5 at `0aeef06` in the log, reviewer step 13.5 s, "reviewer returned no findings; nothing posted".
