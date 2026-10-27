@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-28 01:45 IST
+updated: 2026-10-28 03:20 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,13 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 28 Oct 03:20: review-freeze-2.1 ready (#68 OK to merge, tag 86fd5d7); Recall's 15 seeded runs done
+- **Release** `86fd5d796c901cb20177cda28c4925e8c72d0901` on `release/review-freeze-2.1`: chat checked `git diff 0aeef06 86fd5d7` = `action.yml` only (pnpm/action-setup removed; setup-node 24 then `npm install -g pnpm@11.20.0` in the action checkout; later steps unchanged). Untagged until Sunny tags.
+- **#68** (head `f9c669a`, CI 10/10): diff vs main 6 files: action.yml, install-matrix workflow, dogfood workflow pin → 2.1, decision 072, freeze.md, manifest test regex. Matrix: old action.yml fails pnpm@9 **and pnpm@10**; fixed passes all 6. **OK to merge (commit).** Notes for the final pass: (1) at the release commit `action-manifest.test.ts` still expects the old `version:` line (fixed on main only; a test, not behaviour) — add to 072; (2) the dogfood review workflow made paid calls on #68 twice (~cents; it's the dogfood lane, expected).
+- Not proven end to end with a version mismatch: linea-seeded#1's re-trigger on 2.1 is that test.
+- numbers.md §0.5/§7 updated for 2.1. → [codex-17](prompts/2026-10-28/codex-17-pin-2.1.md): pins in #54, #58, demo repo; Devpost "challenges" gets the seeded-test install bug.
+- **Recall seeded (15/15 green, first attempt, no other bots):** review with 1 inline finding: #3, #4, #9, #10, #12; header-only review (0 findings): #2, #6, #7; no post: #1, #5, #8, #11, #13, #14, #15. All headers 3.5. Not scored yet (after Linea).
 
 ## 28 Oct 01:45: seeded test found an Action install bug (pnpm `packageManager`); Devin Review auto-posting on mirrors
 - Gate passed: `recall-seeded#2` (s25) posted a review, header `pool-verify-v1 · nvidia/Nemotron-3.5-Super-VL`, 0 findings (pool 1, kept 0), 182.7 s. `recall-seeded#1` (s15) diff 2 files +4/−3 (not zero-chunk) → result: no post.

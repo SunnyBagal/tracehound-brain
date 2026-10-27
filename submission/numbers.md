@@ -7,7 +7,7 @@ Written by chat, 27 Oct 2026. **Every lane copies numbers and claims from this f
 2. "ahead of / behind X" only where the 069b 95% interval excludes 0 (table §2). Everything else is "statistically tied with X".
 3. "3rd of 6" only with "point estimate" next to it.
 4. **No competitor names or logos in the video or the Devpost text** (R14). Use "five commercial reviewers" / "the leading commercial reviewer". Names are fine in the repo (README, results.md), where the replication material is. **Don't name Cursor in the Devpost text or video even as a coding tool used** (it's also a benchmarked reviewer); Bugbot's catches are credited to "an automated review".
-5. The product is **pool-verify-v1 on Nemotron 3.5 Super (`nvidia/Nemotron-3.5-Super-VL`) at tag `review-freeze-2` (`0aeef06`)**, via Nebius Token Factory. Every product claim describes that config.
+5. The product is **pool-verify-v1 on Nemotron 3.5 Super (`nvidia/Nemotron-3.5-Super-VL`) at tag `review-freeze-2` (`0aeef06`)**, via Nebius Token Factory. Every product claim describes that config. **The Action to pin is `review-freeze-2.1` (`86fd5d7`, decision 072)**: `review-freeze-2` plus one commit that changes only the Action's install step (pnpm via npm, so a reviewed repo's `packageManager` is never read); `git diff 0aeef06 86fd5d7` = `action.yml` only, review code byte-identical. Wording: "the review pipeline at `review-freeze-2`; the Action at `review-freeze-2.1` fixes installation only".
 6. Dev numbers: "on our 40-PR dev set" (tuned on). 3.5 on dev is "2 dev runs".
 7. ReviewBench: "ReviewBench test runs (25 PRs, one round, ReviewBench's own judge); not a leaderboard submission". Never imply a leaderboard rank.
 8. Ultra: "report only, free NVIDIA API, not Token Factory, not the product".
@@ -73,8 +73,8 @@ Allowed: "Across all 50 PRs: behind the leading reviewer, statistically tied wit
 - No ReviewBench final (money).
 
 ## 7. Live demo
-- `SunnyBagal/tracehound-demo`, Action pinned `@0aeef06` with the explicit 3.5 model. **Demo PR #2 under 3.5 posted no findings (24 Oct)**; the older posted reviews were Nano generators and must not be shown as the current config. **Demo PR #6 is never merged.**
-- [[TBD: seeded-PR run on the current config (job seed-01): PRs opened, seeded lines caught / total, links]].
+- `SunnyBagal/tracehound-demo`, Action pinned `@0aeef06` (to move to `86fd5d7`, review-freeze-2.1) with the explicit 3.5 model. **Demo PR #2 under 3.5 posted no findings (24 Oct)**; the older posted reviews were Nano generators and must not be shown as the current config. **Demo PR #6 is never merged.**
+- [[TBD: seeded-PR run on the current config (job seed-01): PRs opened, seeded lines caught / total, links]]. Recall's 15 ran on `0aeef06`, Linea's 15 on `86fd5d7` (same review code). The seeded test found the install bug fixed in 072: state it as a finding.
 
 ## 8. Cost and runtime
 - Product: ~$0.06–0.07 per PR on 3.5 (pre-VAT), ~2 min wall median per PR on dev.
