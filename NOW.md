@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 22:05 IST
+updated: 2026-10-27 22:40 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,11 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 22:40: codex-16 done (#54 `d762b14`); live /benchmark is v2; **HOLD #54 and #58**
+- **HOLD #54, #58:** #54 is non-draft and still has 2 `[[TBD-SEEDED]]`; #58 has TBD-SEEDED + SUNNY slots. Merge only after seed-01 fills them and chat's final check.
+- codex-16 ([out](prompts/2026-10-27/codex-16-readme-first-screen.out.md)): `652bf8e` merge of main (README = branch side), `d762b14` first screen: "See it without a key" (dashboard, demo, numbers.md §1 sentence, local no-key route), key/fork/cost/partial-review note moved before the YAML, `pnpm demo` heuristic-names + `git checkout -- snapshots/`. Chat: PR diff vs main is README only; wording matches numbers.md §1/§8; links 0 broken (Codex).
+- Live `https://tracehound-tau.vercel.app/benchmark` (WebFetch): links `b0f1bc4`, shows v2 (57.1%), no undefined/NaN. Auto-deploys from main.
 
 ## 27 Oct 22:05: #66 merged (main `e278e04`); devin-02b checked; codex-16 stopped on a README conflict → codex-16b
 - **#67** now `b4b65b5` (CI 5/5): `e9c9a6b` cacheTruncated false also misses on read; `b4b65b5` lenient parser takes the last candidate passing the strict check, else strict. Chat: diff 5 files, nothing under `packages/action/test/` changed (identity snapshot untouched), defaults unchanged in code; local post-freeze-options 45/45, action 249/249. **OK to merge (commit)**; Bugbot still silent — if no reply by 28 Oct 10:00, merge anyway (defaults proven identical; Devin Review + chat reviewed).
