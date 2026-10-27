@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 21:20 IST
+updated: 2026-10-27 21:30 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,10 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 21:30: devin-02 report; devin-02b written
+- [devin-02 out](prompts/2026-10-27/devin-02-flagged-fixes-and-research.out.md): #67 CI 5/5 green, `bugbot run` posted (no reply yet). Devin Review found 2 real issues, **both only under non-default options**: `cacheTruncated: false` still serves old cut-off entries on read (`client.ts:253-265`); the lenient parser takes the first fence containing the key, even `{"findings":null}` (`review.ts:111`). → **devin-02b** ([brief](prompts/2026-10-27/devin-02b-two-option-fixes.md)): fix both, identity snapshot unchanged. #67 merge waits for 02b + CI + Bugbot.
+- Research (docs only): Token Factory documents `json_schema`/`json_object` in general, nothing confirming 3.5 VL on us-north1; only `enable_thinking` is documented in `chat_template_kwargs`, no budget on Token Factory (matches our 23 Oct probe); NVIDIA recommends temperature 1.0 / top_p 0.95 for 3.5 text (0.6 for vision); reasoning + JSON together undocumented. Smoke plans in the #67 body, not run.
 
 ## 27 Oct 21:20: fill-01 done (#66 OK to merge); devin-02 = #67 OK to merge after CI + Bugbot; codex-15 in; ui-11's benchmark page breaks on v2 tables
 - **#66** (`docs/fill-results`, head `6c45378`, CI green): chat checked. 6 files, all in scope. results.md v2 (9 tables; table 9 = dev cost); numbers match sources and numbers.md (spot-checked: Cal.com run 4 cost, 13:38:03Z/13:38:51Z, 24 gaps, levers-v2 cap cells incl. the 4 pool-raw cells, vote −4.2/+6.3, verifier +10.9/+6.7). benchmark.ts notes follow §0 ("all 50 PRs" only in titles 3–4, no "3rd of 6"). **OK to merge (commit).** Then check /benchmark on Vercel shows v2.
