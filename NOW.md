@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 20:30 IST
+updated: 2026-10-27 21:20 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,14 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 21:20: fill-01 done (#66 OK to merge); devin-02 = #67 OK to merge after CI + Bugbot; codex-15 in; ui-11's benchmark page breaks on v2 tables
+- **#66** (`docs/fill-results`, head `6c45378`, CI green): chat checked. 6 files, all in scope. results.md v2 (9 tables; table 9 = dev cost); numbers match sources and numbers.md (spot-checked: Cal.com run 4 cost, 13:38:03Z/13:38:51Z, 24 gaps, levers-v2 cap cells incl. the 4 pool-raw cells, vote −4.2/+6.3, verifier +10.9/+6.7). benchmark.ts notes follow §0 ("all 50 PRs" only in titles 3–4, no "3rd of 6"). **OK to merge (commit).** Then check /benchmark on Vercel shows v2.
+- **#54** head `2bb3144`, **#58** head `e596309`: TBD-ULTRA/LEVERS filled, claims fixes in (verified by grep: no names, no 1,305, no "26 dated", no "fails the build", no "doesn't pay"). Still open: TBD-SEEDED, 5 SUNNY. Not ready.
+- **#67** (devin-02, head `12d7f3c`): chat checked. Identity snapshot committed first (`1a7302f`); changed only at `54460b3` and only by additive `attemptsDetail` in stage outputs, never in `posts`. Defaults verified in code (`parser` strict, `retryOnLength` append, `cacheTruncated` true, `capOrder` pool, `poolNullLines` separate). Local Node 22: action 249/249, analyzer 1001 + 7 skipped, viewer 188/188, typecheck green. Devin's own note: `poolNullLines: merge` is a no-op for today's reviewers (null-line findings are dropped as malformed before the pool). **OK to merge after CI green + Bugbot.**
+- **codex-15** ([out](prompts/2026-10-27/codex-15-judge-path-smoke.out.md)): install/test/typecheck/dev server/pages/Action ref/inputs/YAML/missing-key guard pass. Fresh clone: 1,394 passed + 7 skipped (docker/env-gated files skipped; fill's 1,421 is Sunny's machine). **CI and repo are Node 24** (the handoff's "Node 22" note was wrong; chat's local checks on 22 still pass). Real findings: README first screen needs a key before showing anything and has no dashboard URL; `pnpm demo` without a key silently uses heuristic names and overwrites snapshots. Viewer build failure = sandbox (Google Fonts, port), not the repo. Live /benchmark is v1 until #66 deploys. → **codex-16** ([brief](prompts/2026-10-27/codex-16-readme-first-screen.md)).
+- **ui-11 (#65) problem:** its `benchmark/page.tsx` derives tiles by table position and old-note regexes; on #66's tables it would show wrong/undefined values, and its caption "no gap … outside its 95% interval" is false for v2 (CodeRabbit). Textual merge is clean, so CI wouldn't catch it. → **ui-11b** ([brief](prompts/2026-10-27/ui-11b-benchmark-page-v2.md)), after #66 merges.
+- Merge order: **#66 → ui-11b on #65 → codex-16 on #54 → #67 any time.**
 
 ## 27 Oct 20:30: devin-02 written (flagged fixes + docs research, same Devin session)
 - [brief](prompts/2026-10-27/devin-02-flagged-fixes-and-research.md). One PR `devin/post-freeze-fixes`: identity test first (default output byte-identical), observability (default on, additive), then truncation-aware retry, lenient parser, line-less pool merge, agreement-first cap, no caching of cut-off replies (all **opt-in, default off**), a $0 cache-scan script, `docs/post-freeze-fixes.md` ("not measured"). Research: Token Factory JSON schema + reasoning budget for 3.5, NVIDIA sampling for 3.5.
