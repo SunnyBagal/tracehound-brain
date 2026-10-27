@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 20:00 IST
+updated: 2026-10-27 20:30 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,11 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 20:30: devin-02 written (flagged fixes + docs research, same Devin session)
+- [brief](prompts/2026-10-27/devin-02-flagged-fixes-and-research.md). One PR `devin/post-freeze-fixes`: identity test first (default output byte-identical), observability (default on, additive), then truncation-aware retry, lenient parser, line-less pool merge, agreement-first cap, no caching of cut-off replies (all **opt-in, default off**), a $0 cache-scan script, `docs/post-freeze-fixes.md` ("not measured"). Research: Token Factory JSON schema + reasoning budget for 3.5, NVIDIA sampling for 3.5.
+- Files disjoint from fill-01 and ui-11. No Action inputs, no workflow or prompt changes; demo/seeded/README stay pinned to `0aeef06`.
+- **Merge rule:** before submission only if CI + identity test green, chat checked, Bugbot run; else after 30 Oct. Ready by 28 Oct 09:00.
 
 ## 27 Oct 20:00: devin-01 report in, checked by chat; nothing changes before submission
 - Report: [devin-01 out](prompts/2026-10-27/devin-01-codebase-review.out.md). Relay (fill-01) and Codex (codex-15) running.
