@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 22:50 IST
+updated: 2026-10-27 23:35 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,12 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 23:35: Token Factory balance $38.78
+- Sunny (23:31): **$38.78** remaining. Previous reading $43.52 (24 Oct 10:45) → **−$4.74 gross (≈ $4.02 pre-VAT)** since. Expected in that window: 071 judges $0.19, dogfood/CI cents, plus billing lag from 24 Oct (the 24 Oct lesson: the balance trails billing by hours, so late #333 / 070 charges may land here). Not yet explained call by call; check the console's usage by day before reading anything into it.
+- seed-01a (~$3 with VAT) is next; expect ≈ $35–36 after it. If it ends lower than ~$34, stop and look.
+- `nebiusCapUsd` stays 0 (it governs relay only; seed-01a spends in GitHub Actions on the mirrors).
+- numbers.md §4's "$43.52 balance" stays: it is the balance the no-final decision (P008 amendment 8) was made against.
 
 ## 27 Oct 22:50: #67 merged (main `7bc1731`); ui-11b in the UI session; seed-01 handed to an agent (seed-01a)
 - Sunny merged **#67** (Bugbot never replied; defaults proven identical). ui-11b pasted into the UI session; #65 merges when Sunny's UI changes settle.
