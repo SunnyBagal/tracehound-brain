@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 18:00 IST
+updated: 2026-10-27 18:45 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,13 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 18:45: #63 and #64 merged (main `5ba60a0`); fill-01 and codex-15 written; claims check of #54/#58 done (pre-fill)
+- GitHub: main `5ba60a0` = merge #64 on merge #63. Relay unblocked. ui-11 started by Sunny on account B (`~/Projects/TraceHound-ui`, `ui/v2`).
+- **fill-01** ([brief](prompts/2026-10-27/fill-01-results-and-drafts.md), relay A, $0): results.md + `viewer/lib/benchmark.ts` on v2 (8 tables; "all 50 PRs" only in tables 3–4 titles; no "3rd of 6" in the viewer); ReviewBench test runs into `reviewbench.md` (they were only in the brain); v3-recall wording fixes + Bugbot known defects; then #54/#58 TBD-ULTRA/LEVERS and the claims fixes below. Disjoint from ui-11's files; STOP if `benchmark.test.tsx`/`page.tsx` need edits.
+- **Claims check (chat, on #54 `64082a7` / #58 `8184e54`)**, fixes go in fill-01: "verifier doesn't pay on 3.5" is an overclaim → §9 "open question"; "1,305 tests on 23 Oct" not found in the repo → fill's own `pnpm test` count (levers-v2 had 1,371 on 27 Oct); "26 FEEDBACK entries" is 29 at `5ba60a0`; "79 of 624" ✓ (`dev-3.5.md`); "$0.0113 ledger gap" ✓ (results.md §8); "a test fails the build" → CI; drop Cursor from the assistants list. Verified ✓: 067 x1 interval includes 0, 35/35 404s, AISTUDIOSUP-1966, 050's 11 vs 13 / 28 vs 26 / 0 of 80, cc-01's five overclaims, 43 retry-valid chunks, pipeline constants (60k / 40k / 24k chars, us-north1 route). After the fill, chat checks only the new text.
+- **codex-15** ([brief](prompts/2026-10-27/codex-15-judge-path-smoke.md), Codex, $0, report only): fresh clone, follow #54's README as a judge (install/test/viewer/demo-without-key/toy harness/Action block/links/live dashboard).
+- Critical path is **seed-01 part A** (Sunny): the video's shots 2–3 and every `[[TBD-SEEDED]]` wait on it.
 
 ## 27 Oct 18:00: handoff Oct27; #63 and #64 checked (OK to merge); bunny-06 done
 - **#63** (071b, `b5a5f2e`): chat checked (9 files, no product paths, llm tests 55/55). Ultra 2-run pool-verify v1 F 47.1 vs 3.5 50.4 (no interval-backed difference); pool-raw −10.2 [−17.7, −3.2] vs 3.5. OK to merge.
