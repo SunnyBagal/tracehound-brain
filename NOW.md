@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 23:35 IST
+updated: 2026-10-27 23:45 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,12 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 23:45: seed-01a stopped at its first-PR gate; ruling: continue with a 3-PR gate
+- Agent: step 0 all pass (hashes, scorer 13/13, ADMIN, secret on both, 15/15 seed branches each). Workflow committed: linea-seeded `3012a54`, recall-seeded `296f8f3`. Script copy `runs/open-prs-seed01a.sh` (`dbd3bdd`): no CodeRabbit comment, 90 s, cd to repo root (disclosed). `recall-seeded#1` (s15): run 40556700220 green, model 3.5 at `0aeef06` in the log, reviewer step 13.5 s, "reviewer returned no findings; nothing posted".
+- **Chat (read `0aeef06`):** a wrong key/route/model makes every chunk fail → `StageError("reviewers")` → "reviewers failed…" (`pipeline.ts:134`). "returned no findings" (`action.ts:293`) means valid model replies with zero findings, unless the diff made zero chunks. So s15 = result (miss, no post). → [ruling](prompts/2026-10-27/seed-01a-gate-ruling.md): record the diff size, open 2 more; continue if any posts a 3.5 review; STOP if all 3 are no-post under 30 s.
+- The run was 18:05 UTC = 23:35 IST, after Sunny's $38.78 reading (23:31), so the $4.74 drop is not seed-01a.
+- Watch: demo PR #2 also posted nothing under 3.5 (24 Oct). If seeded PRs show the same pattern widely, that is the honest result (3.5's precision comes from saying less).
 
 ## 27 Oct 23:35: Token Factory balance $38.78
 - Sunny (23:31): **$38.78** remaining. Previous reading $43.52 (24 Oct 10:45) → **−$4.74 gross (≈ $4.02 pre-VAT)** since. Expected in that window: 071 judges $0.19, dogfood/CI cents, plus billing lag from 24 Oct (the 24 Oct lesson: the balance trails billing by hours, so late #333 / 070 charges may land here). Not yet explained call by call; check the console's usage by day before reading anything into it.
