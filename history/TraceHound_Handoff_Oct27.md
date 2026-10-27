@@ -35,7 +35,7 @@ Paste this file into a new Claude chat as the first message, with: "Continue Tra
   | Devin | reviewer on every PR | on |
   | Gemini | research only (hallucinates on build tasks) | — |
 - **After seed-01 scoring:** flip ui-11's `recall-seeded` mapping flag on, fill numbers.md §7, then README/Devpost/video `[[TBD-SEEDED]]`.
-- **Relay's open questions (answer for Sunny):** merge #63 yes; ultra-smoke comments → backlog; set `~/Projects/tracehound-ops/ops/lanes.json` total cap 60 and `nebiusCapUsd` 0 for $0 jobs.
+- **Relay's open questions (answered):** merge #63 yes (Devin's duplicate-token thread already fixed in `b5a5f2e`); ultra-smoke dogfood comments → backlog (note: the suggestion on lines 25–26 would break the script, since `apiKey` feeds `buildClients`). `nebiusCapUsd` = 0 (Sunny set it 27 Oct). **There is no total cap in `lanes.json`**: the $45 is the code default `TRACEHOUND_BUDGET_TOTAL_USD`, overridden per command when needed; no remaining job needs it (seed-01 reviews run in GitHub Actions, off the local ledger).
 - **Money:** Nebius balance **$43.52** (24 Oct; minus ~$0.2 judges since). No top-up (Sunny). Estimates always ×1.18 VAT. Remaining uses: seed-01 (~$3), dogfood. No paid experiments.
 - **Recall** head is now `62eaca1` (Sunny deleted orphan `SidebarToggle.tsx`; `Usecontent.tsx` is still an orphan, deliberately kept). Snapshot regenerate either by Sunny in `~/Projects/TraceHound-snap` (instructions given 27 Oct 15:55) or ui-11 task 2.
 - **Live demo problem:** demo PR #2 posts no findings under 3.5; older demo reviews are Nano generators (never present as current). The seeded Recall PRs on the graph are the demo answer.
