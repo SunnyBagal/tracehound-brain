@@ -1,3 +1,5 @@
+> **SUPERSEDED (27 Oct 17:45): replaced by ui-11. Don't run.**
+
 # ui-10: the graph becomes the review surface (PR lane, findings pinned to components) + the dropdown bug
 
 Tool: **Claude Code, Opus 5.5, effort High**, on Sunny's **account A** (`claude`). Start it **after relay's 071b has finished** (or now, if account A has usage headroom). Folder: a new worktree **`~/Projects/TraceHound-ui`**. Paste everything below the line.

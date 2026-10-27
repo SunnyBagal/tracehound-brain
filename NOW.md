@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-27 02:45 IST
+updated: 2026-10-27 17:45 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,14 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 27 Oct 17:45: lanes rebalanced (all UI on Claude B; Gemini research only)
+- Sunny: all UI on **account B** (`claudeb`), inspired by the Vite / Vite+ sites, with his own hero design pasted into the session. Gemini hallucinates on build tasks → research only.
+- **ui-11** ([brief](prompts/2026-10-27/ui-11-ui-v2-claude-b.md)) replaces ui-10 and gemini-02: expand fix → PR lane → pinned findings → redesign (tokens, graph, landing from Sunny's hero, reviews, benchmark) → Recall snapshot. Worktree `~/Projects/TraceHound-ui`, branch `ui/v2`. Due 28 Oct 12:00.
+- **Account A** now carries: 071b → the fill (results.md + viewer benchmark data, after ui-11 merges or coordinated) → seed-01 scoring.
+- gemini-01 dropped: chat does the claims check on bunny-06's PRs.
+- Not doing: a new demo project with planted bugs (staged-demo credibility; the pre-registered seeded mirrors are the honest version).
+- Orphan warnings were not stale: Recall `20ac149` really had 2 unimported files; Sunny deleted `SidebarToggle.tsx` → Recall `62eaca1`.
 
 ## 27 Oct 02:45: all-hands plan; lane board
 Sunny: "do everything now", with 6 lanes. Chat's line: the product stays at `review-freeze-2`; improvements ship as report-only levers v2 + "what's next". Single source of truth: [submission/numbers.md](submission/numbers.md).

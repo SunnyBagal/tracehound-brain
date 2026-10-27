@@ -1,3 +1,5 @@
+> **SUPERSEDED (27 Oct 17:45): replaced by chat (claims check done by chat on the bunny-06 PRs). Don't run.**
+
 # gemini-01: claims verifier for the Devpost text and video script
 
 Tool: **Gemini Pro**, a **new chat**. Use it **after bunny-06 has pushed** (the inbox has `2026-10-27-sunny-bunny-06.md`). Paste the block below, then attach or paste three files: the brain's `submission/numbers.md`, and from the TraceHound repo, on the `docs/devpost-drafts` branch, `docs/devpost/writeup.md` and `docs/devpost/video-script.md`. (In a browser: open each file on GitHub → "Raw" → copy.)

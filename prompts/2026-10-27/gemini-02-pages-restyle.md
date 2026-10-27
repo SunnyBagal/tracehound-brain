@@ -1,3 +1,5 @@
+> **SUPERSEDED (27 Oct 17:45): replaced by ui-11. Don't run.**
+
 # gemini-02: restyle the landing, reviews and benchmark pages (no data changes)
 
 Tool: **Gemini CLI** (Gemini Pro), default effort is fine. Folder: a new worktree **`~/Projects/TraceHound-ui2`**. Can start **now**, in parallel with ui-10.
