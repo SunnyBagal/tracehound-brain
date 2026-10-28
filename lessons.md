@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-28 · A re-pin didn't reach an already-open PR
+- **What:** after linea-seeded's workflow pin moved to review-freeze-2.1, chat told the seed agent to re-trigger the open PR #1 with a draft/ready toggle, claiming a `ready_for_review` run uses the base branch's current workflow. It doesn't: `pull_request` runs use the PR's test-merge commit, which GitHub had not rebuilt after the base moved, so the run used the old pin and failed again. The agent caught it from the downloaded action sha.
+- **Cost:** one wasted run and about an hour.
+- **Changed:** to re-run an open PR on a new workflow, first check `merge_commit_sha`'s parents include the new base head. Briefs say how a run proves which action commit it used (the "Download action" log line).
+
 ### 2026-10-24 · The money plan used a stale balance and left out VAT
 - **What:** chat planned the final against a $68.09 balance that had barely moved after five test runs (it lagged billing), never added 18% VAT to any estimate, and never measured a test run's real cost before sizing the final. The real balance was $43.52.
 - **Cost:** caught before the final started; the final waits for a measurement and probably a top-up.

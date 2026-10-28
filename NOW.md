@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-28 17:15 IST
+updated: 2026-10-28 17:50 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,10 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 28 Oct 17:50: seed stop 3: linea#1's re-trigger ran the old pin (stale test-merge commit); ruling: open the 14 now, retry #1 after
+- Run 40589574980 on linea-seeded#1 downloaded `0aeef06`: the PR's merge_commit_sha `affb271` still had parent `3012a54` (old main); GitHub hadn't rebuilt it after main moved to `6d8771a`. Chat's ruling-2 premise ("ready_for_review uses the base branch's current workflow") was wrong. See lessons.
+- **Ruling (chat):** (1) open the 14 remaining Linea PRs now: they merge against `6d8771a` and run 2.1, which is the real end-to-end test; STOP if the first one fails at install. (2) Meanwhile poll `pulls/1` until `merge_commit_sha`'s parents include `6d8771a`, then toggle draft/ready once more (recorded). (3) If it hasn't rebuilt when the 14 are done, one base re-set to `main` (no content change) is allowed as a disclosed deviation. (4) Then score all 30.
 
 ## 28 Oct 17:15: codex-17 done (pins on 2.1); seeded Linea half not opened yet
 - codex-17 ([out](prompts/2026-10-28/codex-17-pin-2.1.out.md)): #54 `a69d0d0`, #58 `1ea041b`, demo repo `c3ae128`. Chat checked: Try-it pins `86fd5d7`; remaining `0aeef06` mentions all describe the measured pipeline; no competitor names in writeup/video-script (Devin is listed only as a coding assistant: fine, not a benchmarked reviewer). Tests 1,441 + 8 skipped.
