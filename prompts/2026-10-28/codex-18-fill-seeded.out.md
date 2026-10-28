@@ -80,3 +80,40 @@ Local gates ran in plain shells on each branch. The required GIT environment gre
 ## Not done
 
 No merge, publication to Devpost, video recording/upload, dashboard flag verification, hosting verification or new review run. Sunny placeholders remain. Both PRs' readiness states were left untouched. No model calls or new spend. The dashboard has the requested GitHub fallback; its live recall-seeded display was not tested.
+
+
+## Follow-up: restore video benchmark headline and add retry limitation (29 Oct)
+
+Docs only, $0, no model calls. Pushed both requested branches:
+
+- PR #54, `docs/judges-readme`: `7d7b051c7ecd02dafea8ce8c8008566d240f968f`; changed `README.md` only.
+- PR #58, `docs/devpost-drafts`: `a14e3c024ffa0400cebff8f32d496da1a18e3e79`; changed `docs/devpost/video-script.md` and `docs/devpost/writeup.md` only.
+
+New shot 6 row, copied from `8184e54` with only the requested seeded-card substitution; its voice-over is byte-for-byte unchanged:
+
+| 6 | 1:50–2:15 | Title card, TraceHound's numbers only. "Blind test, 10 Cal.com PRs (n = 23): P 63.2% · R 52.2% · F 57.1% (second judge 58.5%). Statistically tied with 4 of 5 commercial reviewers, ahead of 1 (only 10 PRs)." "All 50 PRs (n = 97): F 52.2% (55.4%); 3rd of 6 as a point estimate." "ReviewBench test runs (25 PRs, one round, ReviewBench's own judge): grounded F1 12.2. Not a leaderboard submission." "Seeded test (pre-registered, 30 PRs): 9 of 22 seeded defects caught, 0 of 8 clean controls flagged." Small text: "Compared with five commercial reviewers' recorded reviews. Tables, intervals and limits: docs/bench/results.md". | "We tested it blind, on ten pull requests whose answers we never read while building it, with the plan and the freeze tag committed first. F fifty-seven percent: statistically tied with four of five commercial reviewers, and ahead of one, on only ten PRs. Across all fifty: behind the leading reviewer, statistically tied with the next two, ahead of the last two." |
+
+New first bullet in writeup What's next:
+
+- The reviewer's retry doesn't tell a reply cut off at the token limit from malformed JSON; an automated code review found this. Fixes are on main behind off-by-default options, not measured (docs/post-freeze-fixes.md).
+
+New first bullet in README What's next:
+
+- The reviewer's retry doesn't tell a reply cut off at the token limit from malformed JSON; an automated code review (Devin) found this. Fixes are on main behind off-by-default options, not measured (docs/post-freeze-fixes.md).
+
+Other requested changes: shot 7 now points to `docs/bench/results.md` section 7. The top paragraph now appends the Action at `review-freeze-2.1` (`86fd5d7`). The Before shooting RESULTS.md details bullet is unchanged. Shot 2 and its deterministic split are unchanged. All Sunny placeholders are unchanged.
+
+Checks on the pushed content:
+
+- All 9 shot intervals are continuous; their durations sum to 170 seconds (2:50), satisfying the requested limit.
+- `grep -c "57.1" video-script.md`: 1.
+- `grep -c TBD-SEEDED`: 0 separately in README.md, writeup.md, checklist.md and video-script.md.
+- Requested case-insensitive names grep on #58's writeup.md and video-script.md: no output (exit 1, expected no matches).
+- Exact comparison to the original shot 6 row after the one permitted text replacement: passed. Original voice-over unchanged.
+- RESULTS.md details bullet comparison against `32833ab`: unchanged.
+- `git diff --check`: passed on both changes. Both local heads match their pushed origin branch heads; product worktree clean.
+- Tests and typecheck were not rerun for this docs-only correction; no new test or typecheck counts are claimed. Earlier gate results above apply to the earlier heads, not these follow-up commits.
+
+Inbox handling: `git pull --rebase` succeeded and advanced brain from `52d122f` to `c3f5649`. That upstream change had moved the original inbox report to `prompts/2026-10-28/codex-18-fill-seeded.out.md`. The requested inbox path is recreated with that report's original bytes plus this appended follow-up; the archived copy is untouched. Only `inbox/2026-10-28-codex-18.md` is staged for this report commit.
+
+Not done: no PR merge or readiness change, no recording/upload or publication, no new model/review run. No requested doc edit remains outstanding.

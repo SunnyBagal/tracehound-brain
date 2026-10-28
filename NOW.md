@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-28 22:35 IST
+updated: 2026-10-29 02:40 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,11 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 02:40: codex-18b done → #54 `7d7b051`, #58 `a14e3c0` OK to merge; #65 needs ui-11c first
+- **HOLD on #54/#58 lifted.** Chat checked 18b: shot 6 = `8184e54`'s row + one seeded line (57.1% back), shot 7 → §7, known-limit bullet in both What's next, 0 TBD-SEEDED, names grep empty, timings 2:50. Merge both (commit). Open: SUNNY Q1, Q6, Q7, Q10 now; Q5 after upload.
+- **#65** (`690c6b4`): merge onto main clean; viewer 212/212, typecheck green; build blocked only by Google Fonts in chat's sandbox. Benchmark page now looks tables up by kind (ui-11b done). New deps radix-ui, class-variance-authority, `cn` (shadcn's, verified on npm), tw-animate-css: acceptable. **Problems:** Hero `MARKS` includes a **Cursor** logo (benchmarked competitor; violates the landing rule); unused competitor SVGs (coderabbit, augment, greptile, copilot) ship in `public/icons/brands/`; `recallSeeded` flag still false. → [ui-11c](prompts/2026-10-29/ui-11c-before-merge.md). Merge #65 after it + CI green.
+- Video: don't film the hero (third-party marks; Devpost video rule).
 
 ## 28 Oct 22:35: codex-18 done; chat claims pass on #54 `6c6fb95` / #58 `32833ab`: one real problem → codex-18b
 - README seeded section, losses line, Devpost seeded text and "Trying it without a key" match numbers.md §7 verbatim; no names in writeup/video; 0 TBD-SEEDED.
