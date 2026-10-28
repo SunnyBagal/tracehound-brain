@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-28 03:20 IST
+updated: 2026-10-28 17:15 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,11 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 28 Oct 17:15: codex-17 done (pins on 2.1); seeded Linea half not opened yet
+- codex-17 ([out](prompts/2026-10-28/codex-17-pin-2.1.out.md)): #54 `a69d0d0`, #58 `1ea041b`, demo repo `c3ae128`. Chat checked: Try-it pins `86fd5d7`; remaining `0aeef06` mentions all describe the measured pipeline; no competitor names in writeup/video-script (Devin is listed only as a coding assistant: fine, not a benchmarked reviewer). Tests 1,441 + 8 skipped.
+- GitHub (17:10): linea-seeded workflow pinned to 2.1 (`6d8771a`) but **only 1 PR exists on linea-seeded** (recall-seeded: 15). Seed-01a session state unknown → asked Sunny. Scoring, numbers.md §7 and every TBD-SEEDED wait on it.
+- Schedule slip: the video was planned for this afternoon; its shots 2–3 need the seeded result.
 
 ## 28 Oct 03:20: review-freeze-2.1 ready (#68 OK to merge, tag 86fd5d7); Recall's 15 seeded runs done
 - **Release** `86fd5d796c901cb20177cda28c4925e8c72d0901` on `release/review-freeze-2.1`: chat checked `git diff 0aeef06 86fd5d7` = `action.yml` only (pnpm/action-setup removed; setup-node 24 then `npm install -g pnpm@11.20.0` in the action checkout; later steps unchanged). Untagged until Sunny tags.
