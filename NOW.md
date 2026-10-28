@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-28 19:25 IST
+updated: 2026-10-28 22:35 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,12 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 28 Oct 22:35: codex-18 done; chat claims pass on #54 `6c6fb95` / #58 `32833ab`: one real problem → codex-18b
+- README seeded section, losses line, Devpost seeded text and "Trying it without a key" match numbers.md §7 verbatim; no names in writeup/video; 0 TBD-SEEDED.
+- **Problem:** video shot 6 was replaced wholesale by the seeded sentence, so the video lost the blind Cal.com headline (57.1%, tied with 4 of 5). Cause: chat's brief said "Shot 6 or the closing card gets the allowed sentence". → [codex-18b](prompts/2026-10-28/codex-18b-video-shot6-and-limit.md): restore `8184e54`'s shot 6 with a one-line seeded result; shot 7 §6 → §7; add the devin-01 known-limit bullet to What's next (README + Devpost).
+- After 18b: remaining = Sunny's 5 SUNNY answers (Q5 after upload), merge #54/#58 (HOLD lifts after 18b + chat's last look), #65 UI, record, submit 29 Oct.
+- Backlog: decision 072 should note `action-manifest.test.ts` at the release commit still expects the old `version:` line (fixed on main).
 
 ## 28 Oct 19:25: seed-01 scored: 9/22 caught, 0/8 controls flagged; numbers.md §7 filled; codex-18 fills the drafts
 - Report: [seed-01a out](prompts/2026-10-27/seed-01a-agent-runs-it.out.md). 30/30 final runs green (Recall `0aeef06`, Linea `86fd5d7`). Automatic rule: in-diff 5/6, cross-file typed 2/6, keyed 2/6, semantic 0/4; all 9/22 (Recall 6/11, Linea 3/11); controls 0/8 commented. **3 of the 4 cross-file catches are the deterministic contract check**, 1 the model. 17/30 PRs got no review.
