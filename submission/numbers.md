@@ -1,6 +1,6 @@
 # TraceHound submission: the numbers sheet (single source of truth)
 
-Written by chat, 27 Oct 2026. **Every lane copies numbers and claims from this file only.** If a number isn't here, it isn't published. Sources are TraceHound `docs/bench/*` at main `36de717` and the brain. `[[TBD: …]]` marks the only open slots.
+Written by chat, 27 Oct 2026. **Every lane copies numbers and claims from this file only.** If a number isn't here, it isn't published. Sources are TraceHound `docs/bench/*` at main `36de717` and the brain. No open slots (§7 filled 28 Oct 19:20).
 
 ## 0. Wording rules (hard)
 1. Never "beats", "best", "state of the art", "outperforms".
@@ -74,7 +74,24 @@ Allowed: "Across all 50 PRs: behind the leading reviewer, statistically tied wit
 
 ## 7. Live demo
 - `SunnyBagal/tracehound-demo`, Action pinned `@0aeef06` (to move to `86fd5d7`, review-freeze-2.1) with the explicit 3.5 model. **Demo PR #2 under 3.5 posted no findings (24 Oct)**; the older posted reviews were Nano generators and must not be shown as the current config. **Demo PR #6 is never merged.**
-- [[TBD: seeded-PR run on the current config (job seed-01): PRs opened, seeded lines caught / total, links]]. Recall's 15 ran on `0aeef06`, Linea's 15 on `86fd5d7` (same review code). The seeded test found the install bug fixed in 072: state it as a finding.
+- **Seeded test (seed-01, pre-registered 19 Oct: seeds, key and scorer committed at `a4a6c83`, hashes published before any PR; scored 28 Oct by the committed scorer, automatic rule; `tracehound-seeds` `88a43c6`, RESULTS.md):** 30 PRs on two mirrors of the owner's apps (Recall, Linea): **22 seeded defects + 8 clean controls**. pool-verify-v1 on 3.5; Recall ran the Action at `0aeef06`, Linea at `86fd5d7` (review-freeze-2.1, the install fix this test found).
+  | class | caught | Recall | Linea |
+  |---|---|---|---|
+  | in-diff (D) | **5/6** | 3/3 | 2/3 |
+  | cross-file, typed | 2/6 | 2/3 | 0/3 |
+  | cross-file, keyed | 2/6 | 1/3 | 1/3 |
+  | cross-file, semantic | 0/4 | 0/2 | 0/2 |
+  | **all seeded** | **9/22** | 6/11 | 3/11 |
+  | controls with a comment | **0/8** | 0/4 | 0/4 |
+  - **3 of the 4 cross-file catches came from the deterministic contract check** (no model; the review's "files you didn't edit that depend on this change" section); 1 came from the model. Say so wherever a cross-file catch is shown.
+  - 17 of 30 PRs got no review (green run, nothing to post), including all 8 controls. 21 comments on 30 PRs (0.70 per PR). 0 partial reviews; every final run green.
+  - Manual column: not used (headline = automatic rule only). Two near-misses (the review names the right file and line but not the key symbol) are described in RESULTS.md and not counted.
+  - Not run: CodeRabbit, Greptile, Bugbot (so no comparison with any other reviewer). Model 3.5, not the 3 Super the 19 Oct plan assumed.
+  - Deviations (disclose with the result): Linea opened after the Action fix, same order; open-PR script copy with 4 disclosed changes; linea#1 base re-set once (no content change) and re-triggered twice; a third-party review app auto-commented on the first 3 PRs (not scored; removed); first-PR gate widened to 3 PRs.
+  - **Allowed sentence:** "On 30 pre-registered seeded PRs, TraceHound caught 9 of 22 seeded defects and stayed silent on all 8 clean controls. It caught 5 of 6 bugs inside the diff but only 4 of 16 that break files the PR didn't touch, and 3 of those 4 came from the deterministic contract check, not the model."
+  - Found by this test: the Action couldn't install on repos pinning another pnpm (fixed as review-freeze-2.1, decision 072).
+  - Video: model catch `https://github.com/SunnyBagal/recall-seeded/pull/4#discussion_r4393814033` (check-then-act race); contract-check catches `https://github.com/SunnyBagal/recall-seeded/pull/7#pullrequestreview-5673943375` (renamed route still used in an unedited file) and `https://github.com/SunnyBagal/recall-seeded/pull/6#pullrequestreview-5673929237` (type error at shared.tsx:81); miss `https://github.com/SunnyBagal/recall-seeded/pull/12` (callers now get an exception instead of null).
+  - **Requires `SunnyBagal/tracehound-seeds` to be public** before the README links RESULTS.md.
 
 ## 8. Cost and runtime
 - Product: ~$0.06–0.07 per PR on 3.5 (pre-VAT), ~2 min wall median per PR on dev.

@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-28 17:50 IST
+updated: 2026-10-28 19:25 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,12 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 28 Oct 19:25: seed-01 scored: 9/22 caught, 0/8 controls flagged; numbers.md §7 filled; codex-18 fills the drafts
+- Report: [seed-01a out](prompts/2026-10-27/seed-01a-agent-runs-it.out.md). 30/30 final runs green (Recall `0aeef06`, Linea `86fd5d7`). Automatic rule: in-diff 5/6, cross-file typed 2/6, keyed 2/6, semantic 0/4; all 9/22 (Recall 6/11, Linea 3/11); controls 0/8 commented. **3 of the 4 cross-file catches are the deterministic contract check**, 1 the model. 17/30 PRs got no review.
+- Chat rulings: headline = automatic rule only; manual column unused (Sunny is an interested party; the 2 near-misses are described, not counted). Video: model catch recall#4 first; contract catches (recall#7, #6) narrated as "deterministic, no model".
+- numbers.md §7 filled (allowed sentence, table, deviations, links). → [codex-18](prompts/2026-10-28/codex-18-fill-seeded.md). Needs `tracehound-seeds` public first.
+- UI: ui-11's `recall-seeded` mapping flag can be turned on now (scoring done).
 
 ## 28 Oct 17:50: seed stop 3: linea#1's re-trigger ran the old pin (stale test-merge commit); ruling: open the 14 now, retry #1 after
 - Run 40589574980 on linea-seeded#1 downloaded `0aeef06`: the PR's merge_commit_sha `affb271` still had parent `3012a54` (old main); GitHub hadn't rebuilt it after main moved to `6d8771a`. Chat's ruling-2 premise ("ready_for_review uses the base branch's current workflow") was wrong. See lessons.
