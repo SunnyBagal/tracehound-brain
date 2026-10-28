@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-29 02:40 IST
+updated: 2026-10-29 02:45 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,9 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 02:45: Sunny keeps the hero logos (incl. Cursor); ui-11c revised
+- Sunny's call: the landing page keeps all marks. Chat: OK for the website (nominative use: the agents whose PRs it reviews), with a "trademarks of their owners, no affiliation or endorsement" line under the hero and in CREDITS.md. Unused SVGs stay. The hard rules are unchanged: **no competitor names in Devpost text or video, and the hero is not filmed.** ui-11c now = trademark line + `recallSeeded: true`.
 
 ## 29 Oct 02:40: codex-18b done → #54 `7d7b051`, #58 `a14e3c0` OK to merge; #65 needs ui-11c first
 - **HOLD on #54/#58 lifted.** Chat checked 18b: shot 6 = `8184e54`'s row + one seeded line (57.1% back), shot 7 → §7, known-limit bullet in both What's next, 0 TBD-SEEDED, names grep empty, timings 2:50. Merge both (commit). Open: SUNNY Q1, Q6, Q7, Q10 now; Q5 after upload.
