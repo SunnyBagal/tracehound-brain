@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-29 19:10 IST
+updated: 2026-10-29 19:20 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,9 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 19:20: Q6/Q7 confirmed by Sunny; chat opened PR #69
+- Sunny confirmed: no code before 26 Aug; spec not public; nothing carried over; 30 Sep commits written that day. Chat (push access added this session) filled the 3 SUNNY slots in `docs/devpost/what-changed-since-26-aug.md` on branch `docs/what-changed-q6-q7` (`3773465`), **PR #69**, docs only. Sunny merges (commit).
 
 ## 29 Oct 19:10: final About text, video script v2, Q6/Q7 draft
 - [submission/devpost-about.md](submission/devpost-about.md): Codex's About + graph numbers (050), why 3.5 (+8.1 [+1.4, +14.4], x1 includes 0), all-50 sentence, evidence links; Built with without `bun`.
