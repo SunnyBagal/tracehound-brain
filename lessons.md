@@ -2,6 +2,11 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-10-29 · A paste block pushed after a failing test
+- **What:** chat gave Sunny a multi-line paste where `pnpm test` and the commit/push were separate lines, and the analyzer CLI didn't load `.env`. The snapshot came out with heuristic names, a test failed, and the push still ran.
+- **Cost:** a wrong graph on main for a few minutes; one rerun ($0.0005).
+- **Changed:** in paste blocks, gates and commit/push are one `&&` chain; analyzer runs use `node --env-file=.env`.
+
 ### 2026-10-28 · A re-pin didn't reach an already-open PR
 - **What:** after linea-seeded's workflow pin moved to review-freeze-2.1, chat told the seed agent to re-trigger the open PR #1 with a draft/ready toggle, claiming a `ready_for_review` run uses the base branch's current workflow. It doesn't: `pull_request` runs use the PR's test-merge commit, which GitHub had not rebuilt after the base moved, so the run used the old pin and failed again. The agent caught it from the downloaded action sha.
 - **Cost:** one wasted run and about an hour.

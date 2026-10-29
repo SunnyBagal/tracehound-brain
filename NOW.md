@@ -1,11 +1,11 @@
 ---
-updated: 2026-10-29 22:20 IST
+updated: 2026-10-30 00:15 IST
 updated_by: chat
 ---
 
 # Now
 
-**Latest handoff: [history/TraceHound_Handoff_Oct29.md](history/TraceHound_Handoff_Oct29.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+**Latest handoff: [history/TraceHound_Handoff_Oct30.md](history/TraceHound_Handoff_Oct30.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
 **Schedule change (23 Oct 16:40):** Sunny is in **HackerRank Orchestrate** (24h, 24 Oct 18:00 → 25 Oct 18:00 IST). He's unavailable then.
 - **Freeze-2 must finish before 24 Oct 18:00**, or move to 26 Oct.
@@ -13,6 +13,10 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 30 Oct 00:15: Recall orphans removed (Recall `256513a`), snapshot regenerated (main `b498647`); handoff Oct30
+- First regen ran without the key (heuristic names, a viewer test failed, pushed `c451ace` anyway: chat's paste block put the commit on its own line). Fixed by `node --env-file=.env …` → 4/4 named by Super, 0 warnings, 214/214, `b498647`.
+- Gallery image 1 padded to 3:2. Form answers and AI-tools answer given. [Handoff Oct30](history/TraceHound_Handoff_Oct30.md).
 
 ## 29 Oct 22:20: #69 merged (main `8fbac41`); Devpost form answers; handoff Oct29
 - [devpost-form-answers](submission/devpost-form-answers.md): every form field rewritten from numbers.md (old drafts said "N/A", "Good", bare "10", and an outdated model answer). Demo URL field was empty.
