@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-29 19:20 IST
+updated: 2026-10-29 19:50 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,10 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 19:50: PR #69 green (`79eb40c`): Q6/Q7 + hero/graph mark blur behind `BLUR_THIRD_PARTY_MARKS`
+- First CI attempt on `3773465` failed in 28 s (infra; rerun green). #69 now: what-changed Q6/Q7; `viewer/lib/marks.ts` flag (true) blurs hero agent marks (10px) and graph tech logos (5px; masked ones barely change); benchmark reviewer logos not blurred (a filter can't soften a CSS mask; owner's call). Test `blur-marks.test.ts`. CI green. Merge (commit).
+- Video: Sunny asked the hackathon host (Discord DM) whether the benchmark page's competitor names/logos may be shown. Until answered: film the benchmark top section only. If "blur": wrap `ReviewerMark`'s masked span and blur the wrapper.
 
 ## 29 Oct 19:20: Q6/Q7 confirmed by Sunny; chat opened PR #69
 - Sunny confirmed: no code before 26 Aug; spec not public; nothing carried over; 30 Sep commits written that day. Chat (push access added this session) filled the 3 SUNNY slots in `docs/devpost/what-changed-since-26-aug.md` on branch `docs/what-changed-q6-q7` (`3773465`), **PR #69**, docs only. Sunny merges (commit).
