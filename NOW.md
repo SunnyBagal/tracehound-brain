@@ -1,11 +1,11 @@
 ---
-updated: 2026-10-29 22:05 IST
+updated: 2026-10-29 22:20 IST
 updated_by: chat
 ---
 
 # Now
 
-**Latest handoff: [history/TraceHound_Handoff_Oct24.md](history/TraceHound_Handoff_Oct24.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+**Latest handoff: [history/TraceHound_Handoff_Oct29.md](history/TraceHound_Handoff_Oct29.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
 
 **Schedule change (23 Oct 16:40):** Sunny is in **HackerRank Orchestrate** (24h, 24 Oct 18:00 → 25 Oct 18:00 IST). He's unavailable then.
 - **Freeze-2 must finish before 24 Oct 18:00**, or move to 26 Oct.
@@ -13,6 +13,10 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 22:20: #69 merged (main `8fbac41`); Devpost form answers; handoff Oct29
+- [devpost-form-answers](submission/devpost-form-answers.md): every form field rewritten from numbers.md (old drafts said "N/A", "Good", bare "10", and an outdated model answer). Demo URL field was empty.
+- Left: video → YouTube public → Devpost fields → submit; chat PR for `docs/devpost/writeup.md`. [Handoff Oct29](history/TraceHound_Handoff_Oct29.md).
 
 ## 29 Oct 22:05: #69 green at `cd7fa11`; video script v3
 - #69 now: Q6/Q7; one flag `BLUR_THIRD_PARTY_MARKS` (viewer/lib/marks.ts) blurs hero marks, benchmark reviewer logos (via `.bench-mark-wrap`) and graph tech logos, and shows the five reviewers as **Reviewer A–E** on /benchmark (`lib/benchmark-display.ts`; results.md and benchmark.ts keep the names); Limits under Cost, left-aligned; wolves cut-out (rembg isnet, `viewer/public/wolves-cutout.webp`, credited as owner-supplied) standing on the footer hairline. Viewer 214/214. CI green. Merge (commit).
