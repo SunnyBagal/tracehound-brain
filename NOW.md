@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-29 20:15 IST
+updated: 2026-10-29 22:05 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,12 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 22:05: #69 green at `cd7fa11`; video script v3
+- #69 now: Q6/Q7; one flag `BLUR_THIRD_PARTY_MARKS` (viewer/lib/marks.ts) blurs hero marks, benchmark reviewer logos (via `.bench-mark-wrap`) and graph tech logos, and shows the five reviewers as **Reviewer A–E** on /benchmark (`lib/benchmark-display.ts`; results.md and benchmark.ts keep the names); Limits under Cost, left-aligned; wolves cut-out (rembg isnet, `viewer/public/wolves-cutout.webp`, credited as owner-supplied) standing on the footer hairline. Viewer 214/214. CI green. Merge (commit).
+- Host (Jasmine) only quoted the rule; Izza: blur logos, names asked to team, no answer → Sunny chose A–E.
+- [video-script-v3](submission/video-script-v3.md): whole site filmable; never say a competitor name aloud.
+- Left: record → YouTube public → URL → chat replaces `docs/devpost/writeup.md` with the final About + URL → submit.
 
 ## 29 Oct 20:15: host (Izza, Discord) says blur logos; #69 `bb782ed` green with benchmark logos blurred too
 - Host: official rules restrict third-party trademarks in demo videos without permission; blur logos; she's checking with the team on names. Sunny asked (DM, with the all-50 table screenshot) whether names can stay.
