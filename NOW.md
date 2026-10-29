@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-29 18:50 IST
+updated: 2026-10-29 19:10 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,11 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 19:10: final About text, video script v2, Q6/Q7 draft
+- [submission/devpost-about.md](submission/devpost-about.md): Codex's About + graph numbers (050), why 3.5 (+8.1 [+1.4, +14.4], x1 includes 0), all-50 sentence, evidence links; Built with without `bun`.
+- [submission/video-script-v2.md](submission/video-script-v2.md): Sunny's flow (home → reviewer → benchmark → graph PR lane → sidebar evidence), 2:50. Chat: **blur hero logos and /benchmark names/logos** (Devpost: no third-party trademarks without permission; a disclaimer isn't permission). Disclaimer card reworded: "the reviewer runs only on Nemotron" (Claude Code etc. were used to build it, and the second judge is Qwen, so "none of them are used" would be false).
+- [submission/q6-q7-draft.md](submission/q6-q7-draft.md): drafted from Sunny's own past statements (FixFlow idea, FixFlow V2 spec in Aug, no code before 30 Sep, built with Claude Code). **Sunny confirms 4 facts** before it goes in.
 
 ## 29 Oct 18:50: main `4843cf2` (#54, #58, #65 merged); codex-20 audit; Devpost About checked
 - codex-20 (report not in the brain; pasted in chat): merges, names, pins, links, live site, public repos, About text/topics, clean-clone gates (1,465 + 8 skipped) pass. Must fix: Q5 YouTube URL; Q6/Q7 in `docs/devpost/what-changed-since-26-aug.md` (linked from the writeup, judges will open it; also the "significantly updated" eligibility answer). Numbers "FAIL" = writeup figures sourced from repo docs (60,000 chars, 32,000 tokens, 160 runs …), not numbers.md: not blockers.
