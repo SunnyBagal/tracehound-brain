@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-29 19:50 IST
+updated: 2026-10-29 20:15 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,11 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 20:15: host (Izza, Discord) says blur logos; #69 `bb782ed` green with benchmark logos blurred too
+- Host: official rules restrict third-party trademarks in demo videos without permission; blur logos; she's checking with the team on names. Sunny asked (DM, with the all-50 table screenshot) whether names can stay.
+- #69 now also blurs the benchmark's reviewer logos via a `.bench-mark-wrap` wrapper (a filter on the masked span itself doesn't show). All behind `BLUR_THIRD_PARTY_MARKS`. Viewer 213/213. CI green. Merge (commit), then record.
+- If names are also refused: add a names switch on the same flag, or record the benchmark top section only.
 
 ## 29 Oct 19:50: PR #69 green (`79eb40c`): Q6/Q7 + hero/graph mark blur behind `BLUR_THIRD_PARTY_MARKS`
 - First CI attempt on `3773465` failed in 28 s (infra; rerun green). #69 now: what-changed Q6/Q7; `viewer/lib/marks.ts` flag (true) blurs hero agent marks (10px) and graph tech logos (5px; masked ones barely change); benchmark reviewer logos not blurred (a filter can't soften a CSS mask; owner's call). Test `blur-marks.test.ts`. CI green. Merge (commit).
