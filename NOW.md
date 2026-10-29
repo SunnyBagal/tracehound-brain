@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-29 03:05 IST
+updated: 2026-10-29 18:50 IST
 updated_by: chat
 ---
 
@@ -13,6 +13,11 @@ updated_by: chat
 - **The seeded test moves to 26 Oct** (it needs Sunny).
 - 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
 - **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+
+## 29 Oct 18:50: main `4843cf2` (#54, #58, #65 merged); codex-20 audit; Devpost About checked
+- codex-20 (report not in the brain; pasted in chat): merges, names, pins, links, live site, public repos, About text/topics, clean-clone gates (1,465 + 8 skipped) pass. Must fix: Q5 YouTube URL; Q6/Q7 in `docs/devpost/what-changed-since-26-aug.md` (linked from the writeup, judges will open it; also the "significantly updated" eligibility answer). Numbers "FAIL" = writeup figures sourced from repo docs (60,000 chars, 32,000 tokens, 160 runs …), not numbers.md: not blockers.
+- Devpost "About the project" (Codex's text, pasted in the form): chat found no wrong number or forbidden name. Additions: the all-50 sentence (§2), the graph result's numbers (050), why 3.5 with its interval (§3/067), evidence links (results.md, seeds RESULTS.md, decisions.md), and drop the `bun` Built-with tag (TraceHound isn't built with Bun; only the Recall demo fork is).
+- After submit: replace `docs/devpost/writeup.md` with the final pasted text (its SUNNY slots are visible in the repo).
 
 ## 29 Oct 03:05: submission day plan; Claude at weekly limit until 18:30 → Codex jobs
 - [codex-day-29oct](prompts/2026-10-29/codex-day-29oct.md): **codex-19** ui-11c on #65 (in `~/Projects/TraceHound-ui`); **codex-21** Sunny's answers → Devpost slots (from `inbox/2026-10-29-sunny-answers.md`); **codex-20** pre-flight audit of merged main + live site + public repos, and sets the repo About text/topics; **codex-22** optional $0 truncation scan.
