@@ -1,0 +1,58 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Seeded test</title>
+<style>
+  :root { --bg:#0e0e13; --panel:#14141b; --line:#272731; --text:#e6ebf5; --muted:#a6b1c8; --faint:#8a96b0; --amber:#f5a524; --green:#4ade80; --miss:#3a3a48; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:2400px; height:1600px; background:var(--bg); color:var(--text); font-family:"Inter Display","Inter",sans-serif; }
+  .wrap { padding:96px 120px 0; }
+  h1 { font-size:60px; font-weight:600; letter-spacing:-0.5px; text-align:center; }
+  h1 .hook { color:var(--amber); }
+  .sub { margin-top:22px; text-align:center; font-size:30px; color:var(--muted); }
+  .panel { margin:60px auto 0; width:2000px; background:var(--panel); border:2px solid var(--line); border-radius:22px; padding:44px 64px 40px; }
+  .row { display:grid; grid-template-columns:720px 1fr 170px; align-items:center; padding:20px 0; border-bottom:1px solid var(--line); }
+  .row:last-child { border-bottom:0; }
+  .label { font-size:36px; font-weight:500; }
+  .label small { display:block; font-size:24px; color:var(--faint); font-weight:400; margin-top:6px; }
+  .dots { display:flex; gap:12px; flex-wrap:wrap; }
+  .d { width:30px; height:30px; border-radius:50%; background:var(--amber); }
+  .d.m { background:transparent; border:3px solid var(--miss); }
+  .d.c { background:var(--amber); box-shadow:0 0 0 4px rgba(245,165,36,.25); }
+  .d.q { background:transparent; border:3px solid var(--green); }
+  .n { font-size:44px; font-weight:600; text-align:right; font-variant-numeric:tabular-nums; }
+  .n span { color:var(--faint); font-weight:400; }
+  .total .label, .total .n { color:var(--amber); }
+  .ctrl .n { color:var(--green); }
+  .sep { height:2px; background:var(--line); margin:6px 0; }
+  .legend { display:flex; gap:44px; margin-top:26px; font-size:24px; color:var(--faint); align-items:center; }
+  .legend i { display:inline-block; vertical-align:middle; margin-right:12px; }
+  .note { margin-top:34px; font-size:28px; color:var(--muted); text-align:center; line-height:1.5; }
+  .note b { color:var(--text); font-weight:600; }
+  .cost { margin:26px auto 0; width:fit-content; padding:16px 30px; border:2px solid rgba(245,165,36,.45); border-radius:999px; font-size:28px; color:var(--text); }
+  .cost b { color:var(--amber); }
+  .foot { position:absolute; left:0; right:0; bottom:46px; text-align:center; font-size:32px; color:var(--faint); font-weight:500; }
+</style></head>
+<body>
+<div class="wrap">
+  <h1><span class="hook">30 seeded pull requests.</span> 9 of 22 bugs caught, 0 of 8 clean PRs flagged.</h1>
+  <p class="sub">Pre-registered on 19 Oct: bugs, answer key and scorer committed before any PR opened · TraceHound only, on Nemotron 3.5 Super</p>
+  <div class="panel" id="rows"></div>
+  <p class="note"><b>3 of the 4 cross-file catches came from the deterministic contract check, not the model.</b><br>Two mirrors of my own apps (Recall, Linea) · scored by the committed rule · no other reviewer was run on these PRs</p>
+  <p class="cost">Cost: <b>about $0.06–0.07 per pull request</b> on Nemotron 3.5 Super via Nebius Token Factory, before VAT · about 2 min median</p>
+</div>
+<p class="foot">TraceHound · NVIDIA Nemotron on Nebius Token Factory · tracehound-tau.vercel.app</p>
+<script>
+  // numbers.md §7 (seed-01, scored 28 Oct by the committed scorer)
+  const rows = [
+    ["Inside the diff", "the bug is in the changed lines", 5, 6],
+    ["Cross-file, typed", "a type error in a file the PR didn't touch", 2, 6],
+    ["Cross-file, keyed", "a renamed route, env var or key still used elsewhere", 2, 6],
+    ["Cross-file, semantic", "changed behaviour breaks another file, silently", 0, 4],
+  ];
+  const dots = (hit, n, cls = "") => Array.from({ length: n }, (_, i) => `<i class="d ${i < hit ? cls : "m"}"></i>`).join("");
+  let html = rows.map(([l, s, h, n]) => `<div class="row"><div class="label">${l}<small>${s}</small></div><div class="dots">${dots(h, n)}</div><div class="n">${h}<span> / ${n}</span></div></div>`).join("");
+  html += `<div class="row total"><div class="label">All seeded bugs</div><div class="dots">${dots(9, 22)}</div><div class="n">9<span> / 22</span></div></div>`;
+  html += `<div class="row ctrl"><div class="label">Clean controls with a comment<small>no bug planted: silence is correct</small></div><div class="dots">${Array.from({ length: 8 }, () => '<i class="d q"></i>').join("")}</div><div class="n">0<span> / 8</span></div></div>`;
+  html += `<div class="legend"><span><i class="d"></i>caught</span><span><i class="d m"></i>missed</span><span><i class="d q"></i>clean PR, left alone</span></div>`;
+  document.getElementById("rows").innerHTML = html;
+</script>
+</body></html>
