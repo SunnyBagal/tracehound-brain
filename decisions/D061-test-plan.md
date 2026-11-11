@@ -4,11 +4,11 @@ title: Pre-registered plan for the one Cal.com run, and the code it needs
 date: 2026-10-16
 kind: process
 lane: benchmark
-outcome: pending
-call: too-early
-judged_by:
-judged_on:
-repo_entry: pending
+outcome: win
+call: sound
+judged_by: artu1 (from D062 and the repo record)
+judged_on: 2026-11-11
+repo_entry: https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#061--pre-registered-plan-for-the-one-calcom-test-set-run
 pr:
 ---
 
@@ -25,5 +25,14 @@ pr:
 - **Runs:** Cal.com run 1 is the pre-registered headline. Runs 2–3 on Cal.com and runs 2–3 on dev measure run-to-run spread, with response-cache reads off. They were added 2026-10-17 because the balance is $46. One rerun is allowed only for an infrastructure failure, and the original is kept.
 - **Predictions** are written before the run and scored afterwards. Cap $15 (run 1 is never cut).
 
+## What happened
+Executed as [D062](D062-calcom-result.md) from the tag `review-freeze-1`: Cal.com run 1 (n = 23) gave pool-verify-v1 F 58.3% against review-diff-v1's 53.8%; predictions (a) right, (b) wrong, (c) right; spend $5.31 of the $15 cap. Dev run 2 was void and restarted once as 2r (the 061a amendment); dev run 3 stopped at the cap and was not restarted, as the plan required. Source: [docs/bench/test-results.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/bench/test-results.md).
+
 ## Verdict
-Pending (after 062).
+- **Outcome:** win. The plan did its job: one frozen, pre-registered headline run, scored as written, under the cap, with its spread runs reported beside it. (Whether pool-verify-v1 itself did well is D062's verdict: a tie with the tools inside the intervals.)
+- **Call:** sound. Freezing before the run, fixing the predictions and the cap order in advance, and allowing one infrastructure rerun only kept the result clean; the one rerun (dev 2r) followed the amendment.
+- **Rules out:** tuning on Cal.com after this run. (The one later Cal.com run, [D069](D069-v2-calcom.md), was a separately approved blind second look, not a rerun of this one.)
+
+## Links
+- Repo: [decision 061](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#061--pre-registered-plan-for-the-one-calcom-test-set-run); commands [docs/bench/test-plan.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/bench/test-plan.md).
+- Result: [D062](D062-calcom-result.md); framing [D063](D063-results-page.md).

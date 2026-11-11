@@ -291,3 +291,90 @@ One entry per repo decision, extracted from `docs/decisions.md` on main (`c34b2e
 - **Choice:** **Pre-registered rules** (written before any model call in this job and not changed after the first verifier call; committed in the freeze commit "verify-ctx-v1: pre-registered rules and frozen prompt (058)"): - Verdict rule: a finding is kept if and only if the verifier's valid reply says keep.
 - **Rejected:** (a) Reusing 057's per-chunk block: references reached the model in only 12 of 48 chunks. - (b) Repeated-run voting: costs N reviewer runs; the agreement table gives a first, free signal.
 
+<!-- Entries 059–075 were added by hand on 2026-11-11 (bunny, backfill) from main `cd5525a`, in the same format. Regenerate the whole file when convenient. -->
+
+### 059 · Pooled candidates filtered by the context verifier, pool-verify-v1
+- **Date:** 2026-10-16 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#059--pooled-candidates-filtered-by-the-context-verifier-pool-verify-v1)
+- **Choice:** **Pre-registered rules** (committed in the freeze commit before any verifier call): the pool is every review-diff-v1 Super finding plus every review-ctx-v1 Super finding that agrees with none of them (058's rule: same path, lines within 3). verify-ctx-v1 filters it unchanged, and review-diff-v1 findings reuse their 058 verdicts.
+- **Rejected:** (a) Running review-diff-v1 again N times and pooling: costs N reviewer runs per pull request. - (b) Re-verifying review-diff-v1's findings: 058's verdicts already exist from the same frozen verifier.
+
+### 060 · Scorer checks: a second judge, bench-judge-x1, and augmented precision, validity-v1
+- **Date:** 2026-10-16 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#060--scorer-checks-a-second-judge-bench-judge-x1-and-augmented-precision-validity-v1)
+- **Choice:** **Pre-registered rules** (committed in the freeze commit "060: pre-registered scorer checks, judge-x1 and validity-v1 frozen"). Runs: the five recorded tools and the six TraceHound runs, all Super, re-judged by bench-judge-x1 (Qwen3-235B, same prompt), plus validity-v1 on the deduplicated v1 FPs.
+- **Rejected:** Replacing bench-judge-v1 as the scorer of record: it would move every earlier number after the fact. - A human-labelled validity set: no time before the freeze.
+
+### 061 · Pre-registered plan for the one Cal.com test-set run
+- **Date:** 2026-10-17 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#061--pre-registered-plan-for-the-one-calcom-test-set-run)
+- **Choice:** **Configuration under test:** pool-verify-v1, exactly as in 059, all stages on 3 Super, reasoning on, temperature 0. Run 1 is the headline; runs 2–3 measure spread with cache reads off; three predictions; cap $15. Amended before merge (061a): one restart for a crashed run; fetches before the freeze tag.
+- **Rejected:** Re-running the CLIs for the repeats: they always read the response cache, so a repeat would return run 1's replies. - Judging the five tools in every run: their reviews are fixed. - Letting a crashed run resume in its own directory.
+
+### 062 · Result: the Cal.com test-set run (decision 061, as amended by 061a)
+- **Date:** 2026-10-18 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#062--result-the-calcom-test-set-run-decision-061-as-amended-by-061a)
+- **Choice:** ran 061's plan in order from `review-freeze-1` (`6b4276e`). Cal.com run 1 (n = 23), bench-judge-v1: pool-verify-v1 P 56.0% / R 60.9% / F 58.3%; review-diff-v1 F 53.8%. Predictions (a) right, (b) wrong, (c) right. Spend $5.30959 against $15.
+- **Rejected:** re-running dev run 3 under a fresh allowance: 061's cap order cuts it, and a cap stop is never restarted.
+
+### 063 · Benchmark results page and its framing (docs only)
+- **Date:** 2026-10-18 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#063--benchmark-results-page-and-its-framing-docs-only)
+- **Choice:** one page, `docs/bench/results.md`, with counts copied from the result files: the Cal.com run 1 table under both judges, pool-verify-v1's rank in every run × judge cell, the dev rank and spread, 061's predictions scored, every loss and void run, limits and cost; a short README section.
+- **Rejected:** a headline claim of beating Greptile. The run-to-run spread is larger than the margin.
+
+### 064 · Vote across runs (dev only): a loss
+- **Date:** 2026-10-19 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#064--vote-across-runs-dev-only-a-loss)
+- **Choice:** pre-register the variants, clustering, a fallback and the adoption rule in `docs/bench/vote-plan.md` (`57f0b91`) before any model call; run dev runs 4–6 (cap $8.50); vote over runs 1, 2r, 4, 5, 6. vote-k3of5 passes v1 (+5.5 F) but fails x1 (50.4% vs 51.3%): no variant adopted. Spend $5.41.
+- **Rejected:** adopting vote-k3of5 on the v1 result alone; changing k or the cap after seeing results.
+
+### 065 · Evidence verifier + deterministic gate (dev only): a loss
+- **Date:** 2026-10-19 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#065--evidence-verifier--deterministic-gate-dev-only-a-loss)
+- **Choice:** verify-evidence-v1 (verify-ctx-v1's context, a new system prompt that must quote 1–3 exact lines) and the deterministic `gate`; plan `9bfb3eb` pushed first. Against 5-run means: A F 41.6% (−0.7), B F 38.3% (−4.0), C 0 findings. Neither adopted. Spend $2.65.
+- **Rejected:** tuning the verify-evidence-v1 prompt after seeing scores; requiring a quote on a drop.
+
+### 066 · Results wording fixes, all-50 table, levers tried (docs only)
+- **Date:** 2026-10-20 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#066--results-wording-fixes-all-50-table-levers-tried-docs-only)
+- **Choice:** the published claim becomes "statistically tied with Greptile and Cursor on 10 blind PRs, 4th of 6 across all 50"; "3rd of six" is no longer used; the cc-01 audit's five fixes go in as dated notes; an all-50 table under both judges with two declared rows; a levers table; the viewer's tables must equal results.md.
+- **Rejected:** headlining whichever all-50 row is better; rewriting the old text of 061 or 063; "ahead of CodeRabbit" as a claim (both 95% intervals include 0).
+
+### 067 · Nemotron 3.5 Super as the reviewer and verifier model (dev only): adopted on 2 runs
+- **Date:** 2026-10-22 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#067--nemotron-35-super-as-the-reviewer-and-verifier-model-dev-only-adopted-on-2-runs)
+- **Choice:** plan, rule, baseline and a 2-run fallback frozen in `docs/bench/dev-3.5-plan.md` before the first call; #55 routes the 3.5 id to us-north1; amendment 1 voided run 7 (35 × HTTP 404). Runs 7r and 8: v1 F 50.4%, x1 F 55.1%; all three conditions pass, so 3.5 Super VL becomes the Action's default. Spend $7.98.
+- **Rejected:** raising `max_tokens` or changing the prompt to cut the JSON failures (a new variant); raising the cap to finish run 9.
+
+### 068 · Nemotron 3.5 default with partial reviews on failed chunks
+- **Date:** 2026-10-22 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#068--nemotron-35-default-with-partial-reviews-on-failed-chunks)
+- **Choice:** default the Action's `model` input to `nvidia/Nemotron-3.5-Super-VL`, and keep partial results on failed reviewer chunks to match how 067 was measured; the footer records failed/total chunks; ReviewBench adapters report `status=ok partial=<failed>/<chunks>`. Fixes stay on 3 Super.
+- **Rejected:** keeping all-or-nothing reviews (nothing posted on about 1 in 6 PRs); falling back to 3 Super on failure (unmeasured).
+
+### 069 · The v2 blind Cal.com run (second look at the test set)
+- **Date:** 2026-10-23 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#069--the-v2-blind-calcom-run-second-look-at-the-test-set)
+- **Choice:** one run, `--set cal_dot_com --run 4` with 3.5 Super VL at every stage, gated by `TRACEHOUND_TEST_RUN=069`, cap $3, pre-registered (`b2ec214`) before the first call. Result: v1 P 63.2% / R 52.2% / F 57.1%, x1 F 58.5%, all three predictions right, $0.7228. 069b: PR-level paired bootstrap intervals; "ahead"/"behind" only when the 95% interval excludes 0.
+- **Rejected:** a second v2 Cal.com run or any change based on this one; updating results.md, the README or the viewer in the same job; committing an all-50 script.
+
+### 070 · recall-v3 for ReviewBench: built, dev-selected, neither arm qualifies
+- **Date:** 2026-10-24 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#070--recall-v3-for-reviewbench-built-dev-selected-neither-arm-qualifies-2026-10-24)
+- **Choice:** build `recall-v3` (P009) as an additive pipeline and run it once on dev per arm against P009's **precision** floors: S (3 Super) P 14.0 < 20.0 (F 21.8), V (3.5 Super VL) P 20.9 < 38.0 (F 31.4). Neither qualifies; v3 stops, and the P008 winner gets the final. Token Factory honours no reasoning token budget.
+- **Rejected:** tuning the lenses or the cap after seeing arm S; using `reasoning_effort: "low"` as the "budget".
+
+### 071 · Nemotron 3 Ultra on dev via the free NVIDIA API: report only
+- **Date:** 2026-10-24 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#071--nemotron-3-ultra-on-dev-via-the-free-nvidia-api-report-only-2026-10-24)
+- **Choice:** an opt-in second provider (`TRACEHOUND_NVIDIA_API=1` and the exact Ultra id only; 300 s timeout; ledgered at $0). Dev runs 10–11: pool-verify-v1 v1 F 42.3 and 51.9, mean 47.1, no interval-backed difference from 3 Super or 3.5. Nothing adopted; the Action stays on 3.5.
+- **Rejected:** raising the frozen `max_tokens` or the 300 s timeout after the smoke; Ultra on Token Factory (unaffordable).
+
+### 072 · review-freeze-2.1: the Action's install step only
+- **Date:** 2026-10-27 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#072--review-freeze-21-the-actions-install-step-only-2026-10-27)
+- **Choice:** `review-freeze-2.1` = `review-freeze-2` plus one commit (`86fd5d7`) that changes only the composite action's install step (setup-node, then a global pnpm install in the action's own checkout), so the reviewed repo's `packageManager` pin is never read. An install matrix of six root `package.json` cases fails for pnpm@9 before and passes all six after (#68).
+- **Rejected:** keeping `pnpm/action-setup` with `package_json_file`: its default path resolves in the workspace.
+
+### 073 · Pre-registered dev A/B of the two generation-recovery switches
+- **Date:** 2026-11-08 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#073--pre-registered-dev-ab-of-the-two-generation-recovery-switches-2026-11-08)
+- **Choice:** arms A (both off), B1 (lenient parser), B2 (lenient + fresh retry) on the 40 dev PRs over one replay corpus; exit criteria E2 / E3 (devin's gate) / E4; cap $4. 073a: first run void (Node's 300 s fetch cutoff), one restart, product transport fix, failure audit. Result: B1 passes, B2 fails (7 failed chunks); B1 relabelled "harmless, benefit unproven"; lenient parser default; standing rule: reliability tests bypass the cache. Spend $0.73195.
+- **Rejected:** the research run's E3 (ΔTP ≥ 0 ∧ ΔFP ≤ 0); three independent fresh captures (over the cap, unpaired); a lenient verifier.
+
+### 074 · Pre-registered: recovering empty replies on the hard-chunk set
+- **Date:** 2026-11-08 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#074--pre-registered-recovering-empty-replies-on-the-hard-chunk-set-2026-11-08)
+- **Choice:** the 14 distinct reviewer chunk requests behind runs 7r/8/9's 20 failures, 3 fresh draws each (42 units), cache bypassed; arms A (append retry), D (split in half), E (reasoning off + JSON schema retry); arm C (reasoning budget) dropped as unsupported. Result: E 41 of 42 successes vs A 22 meets the gate; D does not. $3.36463. Nothing adopted.
+- **Rejected:** arm C via `reasoning_effort` (a level, not a budget); drawing each of the 20 failures; separate first draws per arm.
+
+### 075 · Pre-registered: verified quality of 074's A vs E findings
+- **Date:** 2026-11-08 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#075--pre-registered-verified-quality-of-074s-a-vs-e-findings-2026-11-08)
+- **Choice:** verify-ctx-v1 unchanged on each arm's findings, one judge (bench-judge-v1) on the dev goldens, gate P(E) ≥ P(A) and TP(E) − TP(A) ≥ 3, claim wording fixed in advance, cap $1.50. Result: INCONCLUSIVE (one judge HTTP 529), $0.49090; E fails the gate under every completion. Closed 2026-11-09: E dropped, defaults unchanged, empty replies a known limitation.
+- **Rejected:** not stated as a separate list in the entry.
+

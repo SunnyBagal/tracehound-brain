@@ -67,8 +67,20 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | 059 | Pooled candidates filtered by the context verifier, pool-verify-v1 (adopted, PR #29) | [D059-pool-verify](D059-pool-verify.md) |
 | 060 | Scorer checks: second judge Qwen3-235B and augmented precision (report only, PR #31) | [D060-scorer-checks](D060-scorer-checks.md) |
 | 061 | Pre-registered Cal.com run plan and run code (brief written) | [D061-test-plan](D061-test-plan.md) |
-| 064 | Vote across 5 dev runs: a loss; 5-run spread 35.6–48.0 F (PR #46) | repo `docs/decisions.md#064` |
-| 065 | Evidence verifier + deterministic gate: a loss (A −0.7 F, B −4.0 F; PR #48) | repo `docs/decisions.md#065` |
+| 062 | [Result: the Cal.com test-set run (decision 061, as amended by 061a)](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#062--result-the-calcom-test-set-run-decision-061-as-amended-by-061a) (PR #36) | [D062-calcom-result](D062-calcom-result.md) |
+| 063 | [Benchmark results page and its framing (docs only)](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#063--benchmark-results-page-and-its-framing-docs-only) (PR #39) | [D063-results-page](D063-results-page.md) |
+| 064 | Vote across 5 dev runs: a loss; 5-run spread 35.6–48.0 F (PR #46) | [D064-vote](D064-vote.md) |
+| 065 | Evidence verifier + deterministic gate: a loss (A −0.7 F, B −4.0 F; PR #48) | [D065-evidence-gate](D065-evidence-gate.md) |
+| 066 | [Results wording fixes, all-50 table, levers tried (docs only)](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#066--results-wording-fixes-all-50-table-levers-tried-docs-only) (PR #52) | [D066-results-wording](D066-results-wording.md) |
+| 067 | [Nemotron 3.5 Super as the reviewer and verifier model (dev only): adopted on 2 runs](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#067--nemotron-35-super-as-the-reviewer-and-verifier-model-dev-only-adopted-on-2-runs) (PR #56) | [D067-nemotron-35](D067-nemotron-35.md) |
+| 068 | [Nemotron 3.5 default with partial reviews on failed chunks](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#068--nemotron-35-default-with-partial-reviews-on-failed-chunks) (PR #57) | [D068-partial-reviews](D068-partial-reviews.md) |
+| 069 | [The v2 blind Cal.com run (second look at the test set)](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#069--the-v2-blind-calcom-run-second-look-at-the-test-set) (PRs #59, #60) | [D069-v2-calcom](D069-v2-calcom.md) |
+| 070 | [recall-v3 for ReviewBench: built, dev-selected, neither arm qualifies](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#070--recall-v3-for-reviewbench-built-dev-selected-neither-arm-qualifies-2026-10-24) (PR #62) | [D070-recall-v3](D070-recall-v3.md) |
+| 071 | [Nemotron 3 Ultra on dev via the free NVIDIA API: report only](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#071--nemotron-3-ultra-on-dev-via-the-free-nvidia-api-report-only-2026-10-24) (PR #63) | [D071-ultra-dev](D071-ultra-dev.md) |
+| 072 | [review-freeze-2.1: the Action's install step only](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#072--review-freeze-21-the-actions-install-step-only-2026-10-27) (PR #68) | [D072-freeze-2-1](D072-freeze-2-1.md) |
+| 073 | [Pre-registered dev A/B of the two generation-recovery switches](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#073--pre-registered-dev-ab-of-the-two-generation-recovery-switches-2026-11-08) (merge `fd36552`) | [D073-recovery-ab](D073-recovery-ab.md) |
+| 074 | [Pre-registered: recovering empty replies on the hard-chunk set](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#074--pre-registered-recovering-empty-replies-on-the-hard-chunk-set-2026-11-08) (merge `66e3d8a`) | [D074-hard-chunks](D074-hard-chunks.md) |
+| 075 | [Pre-registered: verified quality of 074's A vs E findings](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#075--pre-registered-verified-quality-of-074s-a-vs-e-findings-2026-11-08) (merge `66e3d8a`) | [D075-verify-a-vs-e](D075-verify-a-vs-e.md) |
 
 ## Process decisions (chat, not in the repo)
 
@@ -82,3 +94,4 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | P006 | Reviews dashboard (no backend) + one-click fix suggestions (2026-10-17) | [P006-reviews-dashboard](P006-reviews-dashboard.md) |
 | P008 | ReviewBench: pre-registered config choice (25-PR test runs only; never open golden/) (2026-10-19) | [P008-reviewbench-preregistration](P008-reviewbench-preregistration.md) |
 | P007 | Reviewer v2: gate hard, cross-file contracts, learn from feedback (proposed 2026-10-19) | [P007-v2-architecture](P007-v2-architecture.md) |
+| P010 | A Herdr multi-agent team with fixed lanes and `.done` file handoffs (2026-11-08) | [P010-herdr-team](P010-herdr-team.md) |

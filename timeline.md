@@ -38,7 +38,33 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 - **2026-10-22/23** 067b: 3.5 adopted on 2 dev runs (#56 merged, `8d0fb7a`). The chat caught a bench-vs-product mismatch on failed chunks → codex-12 / decision 068 (#57: 3.5 default + partial reviews), cleared. Handoff Oct23.
 - **2026-10-23** #57 merged (`0aeef06`). ReviewBench onboarding #92 merged (approved 22 Oct). Freeze-2 pulled forward to 23 Oct because of HackerRank Orchestrate (24–25 Oct). Top-up to $70.69. P008 amendment 5 approved and written (all candidates on image `9b9a5127`, partial results). Smokes on pool-raw/3.5, pool-verify-v1/3.5 (first `ok partial=1/2` live) and pool-raw-x2 all green. **`review-freeze-2` → `0aeef06`**; dogfood (`8712273`) and demo (`88f6721`) re-pinned with `model:` 3.5. Demo #2 on 3.5: no findings, nothing posted (no change made). 069 v2 blind Cal.com run done the same evening (#59): v1 F 57.1 / P 63.2 on Cal.com (3 Super run 1: 58.3 / 56.0), all three predictions right; all-50 v2 is 3rd of 6 under both judges as a point estimate. bunny-04 Devpost drafts (#58). codex-13 stopped on test-timeout flakes → 13b; partial audit (filter cut it off), docs fixed in #61. 069b intervals (#60): tied with Cursor and Greptile on all 50. ReviewBench test runs 1–5: x2 leads at 21.3. R16 research → P009 v3 recall mode (relay 070, overnight).
 - **2026-10-24** Handoff Oct24.
+- **2026-10-25/26** Sunny at HackerRank Orchestrate. 071 dev run 11 (Ultra) ran unattended. No merges on main.
+- **2026-10-27** #63 merged: 071 Ultra on dev, report only, nothing adopted ([D071](decisions/D071-ultra-dev.md)). Also merged: #64 (levers-v2), #66 (results filled) and #67 (two default-off recovery switches). Decision 072 written. Seeded test started.
+- **2026-10-28** The seeded test found the Action's pnpm install bug → `review-freeze-2.1`, 6 of 6 install cases pass (#68, [D072](decisions/D072-freeze-2-1.md)). Seeded test scored: 9 of 22 seeded bugs caught, 0 of 8 controls flagged. These totals are from the vault's old NOW (28 Oct entry) and have not been checked against the review runs. The published summary in TraceHound's [docs/devpost/writeup.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/devpost/writeup.md) (lines 104–109) gives the same totals; that corroborates them but is not a run-level record.
+- **2026-10-29** #54, #58, #65 and #69 merged; Devpost form answers. Recall snapshot regenerated (`b498647`).
+- **2026-10-30 → 11-06** No commits on TraceHound main. No CI review run reached the model after 1 Nov (budget.md).
+
+## Phase 5: reliability and a fresh test set
+
+- **2026-11-07** Multi-agent research run: 5 agents, 0 Nebius calls, 24 spot-checks. Verdict: continue with a narrower goal; next task is the recovery A/B ([R17](research/R17-multi-agent-review-2026-11-07.md)).
+- **2026-11-08** Paid runs:
+  - 073 recovery A/B ([D073](decisions/D073-recovery-ab.md)): the first run was void (the [300 s cutoff](project/300s-transport-cutoff.md), now fixed in the product). After the restart the lenient parser became the default and the fresh retry was rejected. $0.73195.
+  - 074 hard chunks ([D074](decisions/D074-hard-chunks.md)): E wins its gate (41 vs 22 of 42). $3.36463.
+  - 075 ([D075](decisions/D075-verify-a-vs-e.md)): INCONCLUSIVE (one judge HTTP 529). $0.49090.
+
+  Also: budget.md written, Herdr lanes added to CLAUDE.md ([P010](decisions/P010-herdr-team.md)), and the Track B pilot run (13 cases, agreement 10/13).
+- **2026-11-09** 074/075 closed: E dropped, and [empty replies](project/empty-replies.md) are a known limitation.
+  - **CI:** reviews made manual. 89 CI runs reached the model after 27 Oct, none after 1 Nov.
+  - **Money:** the console read $19.31, so the old key was revoked and spending frozen. Cause found: [billing lag](ops/ledger-vs-billing.md).
+  - **Track B:** label schema v2 (13/13); split from a universe of 32,233 into dev 40 / held-out 28 ([Track B](benchmark/track-b-testset.md)).
+  - **State files:** `.agents/STATE.md` and `LOG.md` created.
+- **2026-11-10**
+  - **Track B:** held-out final 29 (20 bug, 9 clean), agreement 29/29. Dev: 5 slots replaced (5/5 agreement); attribution 30 / 1 moved / 0 not attributed; 94,091 blobs filled.
+  - **Forks:** Actions off on all 4 forks. Live plan: TraceHound runs locally; held-out PRs open only after a freeze tag; CodeRabbit + Greptile Starter, Bugbot excluded.
+  - **Tools:** the PR opener got GO in round 2. The [local runner](ops/local-runner.md) got GO in round 2 and was merged (`d482d38`).
+  - **Plan:** plan to the held-out run written (`cd5525a`). $0.
+- **2026-11-11** This vault backfilled from the repo by bunny: D062–D075, P010 and 7 topic notes. $0.
 
 ## Ahead
 
-19–23 Oct v2 stages and integration → **24 Oct freeze-2** → 25 Oct one blind Cal.com run of v2 plus the seeded test → 26 Oct results and the judges' README → 27–28 Oct Devpost and video → 29 Oct submit. See [roadmap](project/roadmap.md).
+Spend freeze until Sunny confirms the console usage → TS dev runs on Track B's dev set → `review-freeze-3` and written predictions → one held-out window with every tool → results. See [docs/plan/2026-11-10-plan.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/plan/2026-11-10-plan.md) and [NOW](NOW.md). The hackathon plan that stood here (freeze-2 on 24 Oct → submit 29 Oct) is done.

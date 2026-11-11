@@ -2,6 +2,23 @@
 
 Process mistakes and near-misses, blameless. Each says what happened, what it cost, and what changed. Newest first.
 
+### 2026-11-10 · Two firewall slips on the held-out side
+- **What:** the agents who tune TraceHound must never see held-out test data. On one day, one of them slipped twice:
+  - it ran another agent's script in a dev-only mode before noticing that the script attached the held-out clones as a git alternate object store (counts printed only);
+  - it read a dev agent's screen and saw two candidates that agent had excluded from held-out.
+- **Cost:** no held-out content seen. The two candidates were dropped, and both slips were logged in the repo's `.agents/LOG.md`.
+- **Changed:** held-out reading in that script needs an explicit opt-in flag that tuning agents never pass. The firewall now also says never read the pane of an agent doing held-out work: only numbers-only result files cross over ([track-b-testset](benchmark/track-b-testset.md), [P010](decisions/P010-herdr-team.md)).
+
+### 2026-11-09 · A console reading taken a minute after a job looked like a leak
+- **What:** the owner read the console balance about one minute after job 074 finished. The next day's reading was $3.59 lower than the ledger predicted, which looked like off-ledger spend overnight.
+- **Cost:** the API key was revoked, a leak audit ran, and all paid work was frozen. The real cause was most likely billing lag: 074's $3.36 had not yet reached the first reading, which leaves $0.22 unexplained.
+- **Changed:** compare ledger and console at least 2 h after a paid job ends, and record each reading's UTC time with the balance ([ops/ledger-vs-billing](ops/ledger-vs-billing.md); budget.md rule 5).
+
+### 2026-11-08 · A reliability A/B replayed the cache that hides the failure
+- **What:** 073 tested recovery from failed chunks on a corpus replayed from the response cache. Empty replies are never cached, so its baseline lost 1 chunk where the original runs lost 8 each. Its "pass" could not show a benefit.
+- **Cost:** a $0.73 job with a result relabelled "harmless, benefit unproven", plus a second job (074) to draw the failures fresh.
+- **Changed:** standing rule at the top of decisions.md: reliability tests bypass the cache for the requests under test ([benchmark/cache-survivorship](benchmark/cache-survivorship.md)).
+
 ### 2026-10-29 · A paste block pushed after a failing test
 - **What:** chat gave Sunny a multi-line paste where `pnpm test` and the commit/push were separate lines, and the analyzer CLI didn't load `.env`. The snapshot came out with heuristic names, a test failed, and the push still ran.
 - **Cost:** a wrong graph on main for a few minutes; one rerun ($0.0005).

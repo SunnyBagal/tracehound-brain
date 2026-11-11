@@ -12,6 +12,7 @@ External research, mostly from Grok, checked by the chat before filing. A report
 | R6 | Independent audit of the results (cc-01, #41 draft) | Results wording fixes; public claims | **Filed** ([R6](R6-cc01-audit.md)); numbers correct, 5 wording overclaims |
 | R7 | ReviewBench feasibility (cc-02, #42 draft) | Optional extra held-out test | **Filed** ([R7](R7-cc02-reviewbench.md)); needs Anthropic API credit for the judge |
 | R8 | grok-07: which competitors run free on public repos; how the top tools learn; cross-file claims | Seeded test (cc-04), S8 design | **Filed** ([R8](R8-competitors-learning.md)). The links were lost in the paste, so the kill test couldn't run; the chat checked 6 decision-relevant claims on primary pages: 5 true, 1 date wrong, Bugbot pricing conflicts |
+| R17 | Multi-agent research review (5 agents, 2026-11-07): continue or stop, what "beating" means, the one next task | Decisions 073–075, Track B, `.agents/` state files | **Filed** ([R17](R17-multi-agent-review-2026-11-07.md)) by bunny (backfill). The run's own VERIFY.md has 24 spot-checks; 4 repo citations re-checked, 4/4 hold; no URL opened |
 
 | G1 | Audit of results docs 058–060 | Integrity of the published numbers | **Passed** 2026-10-17: no findings; 6/6 cited lines checked |
 | G2 | Video script, first draft (placeholders for results) | Video, 27–29 Oct | Filed below; needs revising for the dashboard and fix button |

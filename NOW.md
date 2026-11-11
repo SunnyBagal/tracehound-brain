@@ -1,18 +1,44 @@
 ---
-updated: 2026-10-30 00:15 IST
-updated_by: chat
+updated: 2026-11-11
+updated_by: bunny (backfill, from the repo's .agents/STATE.md at main cd5525a; fix round 1 after codex's review, 2026-11-11)
 ---
 
 # Now
 
-**Latest handoff: [history/TraceHound_Handoff_Oct30.md](history/TraceHound_Handoff_Oct30.md).** Verify against GitHub before acting on anything here: `git ls-remote https://github.com/SunnyBagal/TraceHound`, and WebFetch of `https://github.com/SunnyBagal/TraceHound/pull/N` for PR state and comments.
+**The live state is the repo's [`.agents/STATE.md`](https://github.com/SunnyBagal/TraceHound/blob/main/.agents/STATE.md)** (rewritten every session); history is in [`.agents/LOG.md`](https://github.com/SunnyBagal/TraceHound/blob/main/.agents/LOG.md). If they disagree with this page, they win.
 
-**Schedule change (23 Oct 16:40):** Sunny is in **HackerRank Orchestrate** (24h, 24 Oct 18:00 → 25 Oct 18:00 IST). He's unavailable then.
-- **Freeze-2 must finish before 24 Oct 18:00**, or move to 26 Oct.
-- The v2 Cal.com run (relay, unattended) can run during the event if it's launched before 18:00 on the 24th.
-- **The seeded test moves to 26 Oct** (it needs Sunny).
-- 26–27: results + README; 27–28: Devpost + video; submit 29 Oct. No buffer is left.
-- **Token Factory console balance: $20.69** (23 Oct), with a top-up of about $50 planned → about $70. Expected need: ReviewBench test runs ~$8, final ~$20–41, Cal.com v2 run ~$4, CI ~$2. That's tight; choose the final candidate with cost in mind.
+## 11 Nov: where things stand
+- **Goal:** test, on fresh held-out TypeScript PRs (twenty, medusa, payload, bullmq), whether pool-verify-v1 catches real bugs that later fixes repaired ([Track B](benchmark/track-b-testset.md)).
+- **Reviewer:**
+  - pool-verify-v1 on Nemotron 3.5 Super VL, `review-freeze-2` / `2.1`;
+  - lenient parser and append retry since 073 ([D073](decisions/D073-recovery-ab.md));
+  - empty replies are a known limitation ([empty replies](project/empty-replies.md)).
+- **Test set (private):** dev 40 (31 bug, 9 clean); held-out 29 (20 bug, 9 clean). Held-out PRs open only after a final freeze tag, with every tool in one window.
+  - **Dev changes, 2026-11-10:** 5 slots replaced (blind second labels 5/5); attribution 30 attributed / 1 moved / 0 not attributed.
+  - **2026-11-11:** the one dev case flagged "unclear" was ruled on. It was replaced under the same rules plus a new "bug visible at the introducing PR" check, and its blind second label is in progress. Counts stay 40 / 31 / 9.
+- **Tools:**
+  - TraceHound runs locally ([local runner](ops/local-runner.md), merged `d482d38`, never run paid);
+  - CodeRabbit and Greptile Starter by trigger comment; Bugbot excluded;
+  - Actions off on all four forks.
+- **Money:** $19.31 left (budget.md). **Spend freeze:** no paid job until Sunny confirms the hourly console usage ([ledger vs billing](ops/ledger-vs-billing.md)).
+- **Team:** artu1, bunny, codex, devin (out of quota since 10 Nov) and grok, in Herdr ([P010](decisions/P010-herdr-team.md)).
+
+## Waiting on Sunny
+1. The console check that lifts the freeze.
+2. Devin's two label-schema choices. (The "unclear" dev case was ruled on 2026-11-11; see above.)
+3. Before the held-out run, fix in writing: goldens per case, golden severity, comments per case.
+4. Bump the Action pins and create the `tracehound-review` label in the four repos.
+
+## Standing rules (new, 2026-11-11)
+- **Brain at session end:** at the end of every session, add what was done and decided to this vault, alongside the repo's LOG.md. The vault is public: no held-out content and no test-set case details (TraceHound `CLAUDE.md:4`, working tree).
+- **Plans are hypotheses:** plans from any model are hypotheses. Verify a task's premises against repo data (file:line) before executing it, and report contradictions instead of working around them (`CLAUDE.md:5`). For the 10 Nov plan, bunny checks the statistics and budget arithmetic, codex the internal claims, and grok the external ones.
+
+## Next
+Check the plan's premises → the smoke test (one dev case, live-setup.md §5) → TS dev runs → `review-freeze-3` → held-out window. Plan: [docs/plan/2026-11-10-plan.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/plan/2026-11-10-plan.md).
+
+---
+
+*Below: the hackathon-era log, kept as written (newest first). Latest handoff then: [history/TraceHound_Handoff_Oct30.md](history/TraceHound_Handoff_Oct30.md).*
 
 ## 30 Oct 00:15: Recall orphans removed (Recall `256513a`), snapshot regenerated (main `b498647`); handoff Oct30
 - First regen ran without the key (heuristic names, a viewer test failed, pushed `c451ace` anyway: chat's paste block put the commit on its own line). Fixed by `node --env-file=.env …` → 4/4 named by Super, 0 warnings, 214/214, `b498647`.
