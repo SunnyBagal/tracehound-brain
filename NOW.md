@@ -15,7 +15,7 @@ updated_by: bunny (backfill, from the repo's .agents/STATE.md at main cd5525a; f
   - empty replies are a known limitation ([empty replies](project/empty-replies.md)).
 - **Test set (private):** dev 40 (31 bug, 9 clean); held-out 29 (20 bug, 9 clean). Held-out PRs open only after a final freeze tag, with every tool in one window.
   - **Dev changes, 2026-11-10:** 5 slots replaced (blind second labels 5/5); attribution 30 attributed / 1 moved / 0 not attributed.
-  - **2026-11-11:** the one dev case flagged "unclear" was ruled on. It was replaced under the same rules plus a new "bug visible at the introducing PR" check, and its blind second label is in progress. Counts stay 40 / 31 / 9.
+  - **2026-11-11:** the one dev case flagged "unclear" was replaced under the same rules plus a new "bug visible at the introducing PR" check. Blind second label: bug/clean agree; the two labellers chose different files for the same defect (the fix changes it in two places), so strict agreement is 0/1 pending the open multi-file-primary schema choice. Attribution 30 / 1 / 0. Counts stay 40 / 31 / 9.
 - **Tools:**
   - TraceHound runs locally ([local runner](ops/local-runner.md), merged `d482d38`, never run paid);
   - CodeRabbit and Greptile Starter by trigger comment; Bugbot excluded;
@@ -25,7 +25,8 @@ updated_by: bunny (backfill, from the repo's .agents/STATE.md at main cd5525a; f
 
 ## Waiting on Sunny
 1. The console check that lifts the freeze.
-2. Devin's two label-schema choices. (The "unclear" dev case was ruled on 2026-11-11; see above.)
+2. Devin's two label-schema choices (the multi-file primary choice now decides one replaced dev case's strict agreement).
+2b. The plan audit's corrections and its 13 blocked tasks ([audit](project/plan-2026-11-10-audit.md)).
 3. Before the held-out run, fix in writing: goldens per case, golden severity, comments per case.
 4. Bump the Action pins and create the `tracehound-review` label in the four repos.
 
@@ -33,8 +34,11 @@ updated_by: bunny (backfill, from the repo's .agents/STATE.md at main cd5525a; f
 - **Brain at session end:** at the end of every session, add what was done and decided to this vault, alongside the repo's LOG.md. The vault is public: no held-out content and no test-set case details (TraceHound `CLAUDE.md:4`, working tree).
 - **Plans are hypotheses:** plans from any model are hypotheses. Verify a task's premises against repo data (file:line) before executing it, and report contradictions instead of working around them (`CLAUDE.md:5`). For the 10 Nov plan, bunny checks the statistics and budget arithmetic, codex the internal claims, and grok the external ones.
 
+## Plan audit (2026-11-11)
+185 claims checked: 141 verified, 17 contradicted, 21 unsupported, 6 marked guesses; 13 plan tasks blocked until corrected ([audit note](project/plan-2026-11-10-audit.md)).
+
 ## Next
-Check the plan's premises → the smoke test (one dev case, live-setup.md §5) → TS dev runs → `review-freeze-3` → held-out window. Plan: [docs/plan/2026-11-10-plan.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/plan/2026-11-10-plan.md).
+Sunny rules on the audit's corrections → the smoke test (one dev case, live-setup.md §5) → TS dev runs → `review-freeze-3` → held-out window. Plan: [docs/plan/2026-11-10-plan.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/plan/2026-11-10-plan.md).
 
 ---
 

@@ -17,6 +17,7 @@ The project's memory outside any one chat: what was built, what was tried, what 
 | Where is the code, which folder is whose? | [project/architecture](project/architecture.md) |
 | What does the hackathon require, what's missing? | [project/hackathon](project/hackathon.md) |
 | What's planned, what got cut? | [project/roadmap](project/roadmap.md) |
+| Was the latest plan checked before running it? | [project/plan-2026-11-10-audit](project/plan-2026-11-10-audit.md) |
 | What is the reviewer v2 design? | [project/architecture-v2](project/architecture-v2.md), [P007](decisions/P007-v2-architecture.md) |
 | What exactly was each agent told, and what did it say? | `prompts/<date>/<job>.md`, its pasted output in `<job>.out.md` |
 | What happened, in order? | [timeline](timeline.md), [prs](prs.md) |

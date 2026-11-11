@@ -64,6 +64,7 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
   - **Tools:** the PR opener got GO in round 2. The [local runner](ops/local-runner.md) got GO in round 2 and was merged (`d482d38`).
   - **Plan:** plan to the held-out run written (`cd5525a`). $0.
 - **2026-11-11** This vault backfilled from the repo by bunny: D062–D075, P010 and 7 topic notes. $0.
+- **2026-11-11** The plan to the held-out run audited before execution (rule: plans are hypotheses): 185 claims, 141 verified, 17 contradicted, 21 unsupported, 6 marked guesses; 13 tasks blocked ([audit](project/plan-2026-11-10-audit.md)). One more dev case replaced (counts unchanged). New standing rules: brain at session end; plans are hypotheses. $0.
 
 ## Ahead
 
