@@ -7,6 +7,9 @@ All Nebius spend is hackathon credit, recorded in the ledger (`.tracehound/spend
 - **2026-10-17: $46.22 left in the Nebius Token Factory console** (Sunny). The local ledger shows $12.45 spent. Its prices are third-party estimates, so the console figure is the truth.
 - **GitHub Action runs (dogfood, demo) spend from the same key but are not in the local ledger.** Each run starts with a fresh `.tracehound/`. Check the console after demo days.
 
+## The 2026-11-11 split (decision 076)
+$19.31 available (console, 2026-11-09) = $18.31 usable + $1.00 margin. Job caps (Sunny, S0): smoke test $0.45, dev run 1 $4.15, arm scoring $0.40, redraw test $0.80, union report $0.10, dev run 2 $4.15, held-out run $3.15, held-out scoring $0.40, reserve $3.00, unallocated $1.71. The paid context step is cut. Each batch runs with a run cap of min(batch estimate + $0.40, job cap − job spend so far); re-plan above a console ÷ ledger ratio of 1.08; cut the redraw test first, then make dev run 2 a cache replay; the held-out run, its scoring and the reserve are never cut. Every figure is an estimate (TypeScript costs are unmeasured). A check after recording: under a realistic per-case spread the dev runs and the held-out run can still stop before their last cases; Sunny then ruled (decision 076a): batch caps roll with the job (job cap − job spend), dev run 1's cap is $4.68 (unallocated $1.18), and the dev run 2 and held-out caps are recomputed from dev run 1's measured costs before dev run 2 starts. **Spend freeze** until Sunny's console check. Source: [docs/budget.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/budget.md).
+
 ## Caps
 
 | Cap | Value | Where |

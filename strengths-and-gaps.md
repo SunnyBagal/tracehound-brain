@@ -41,3 +41,10 @@ An honest ledger, updated after each result. Last updated: 2026-10-19 (gaps re-m
 - 059 clears F 35%: the first reviewer better than the baseline, at about 2–5 cents per PR.
 - 060 shows that our "false positives" are often valid findings the golden set lacks: precision rises for us more than for the tools.
 - The demo shows readable, useful comments on real PRs: this is what the judges score.
+
+## TypeScript dev audits ($0, 2026-11-11, B3 of the held-out plan)
+Counts on the 40-case private TypeScript dev set, no model calls ([plan](https://github.com/SunnyBagal/TraceHound/blob/main/docs/plan/2026-11-10-plan.md), [decision 076](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076--s0-rulings-and-the-pre-registered-plan-to-the-held-out-run-2026-11-11)):
+- **Reach:** every one of the 31 labelled bugs (and 3 alternate rows) sits on an added line of the diff the reviewers see. The repository-context block shows the labelled lines for 23 of 31.
+- **Size and cost:** 42 review chunks for 40 cases (one case needs 3); a fresh dev run is estimated at about $2.61 by scaling the measured old-dev cost by chunks (an estimate; TypeScript costs are unmeasured).
+- **Contracts (the deterministic cross-file check):** 0 findings in 40 of 40 cases, so by the plan's rule it stays **off** for these runs. Its typed stage ran out of time in 37 of 40 cases on this machine, so this mostly reflects the other stages.
+- **References in the context (the context lever, step 1):** chunks that show the model at least one reference go from 13 of 42 (31%) today to 36 of 42 (86%) with a 10,000-character reserve, but the reserve pushes the labelled lines of 4 more bugs out of the context block. The paid step that would test this was cut by the S0 ruling, so nothing changes.
