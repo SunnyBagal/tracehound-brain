@@ -83,6 +83,7 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | 075 | [Pre-registered: verified quality of 074's A vs E findings](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#075--pre-registered-verified-quality-of-074s-a-vs-e-findings-2026-11-08) (merge `66e3d8a`) | [D075-verify-a-vs-e](D075-verify-a-vs-e.md) |
 | 076 | [S0 rulings and the pre-registered plan to the held-out run](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076--s0-rulings-and-the-pre-registered-plan-to-the-held-out-run-2026-11-11) |  |
 | 076a | [Caps after the caps check, and the protocol's open choices](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076a--caps-after-the-caps-check-and-the-protocols-open-choices-2026-11-11) |  |
+| 076b | [R1/R2 judging envelope, re-trigger slots, CodeRabbit allowance, canary](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076b--r1r2-judging-envelope-re-trigger-slots-coderabbit-allowance-canary-2026-11-11) |  |
 
 ## Process decisions (chat, not in the repo)
 
