@@ -90,6 +90,7 @@ Every decision in the repo's `docs/decisions.md` (the source of truth), plus the
 | 076f | [Dev table target, P1's start, interim table, unnamed bot messages, Mac](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076f--dev-table-target-p1s-start-interim-table-unnamed-bot-messages-mac-2026-11-13) |  |
 | 076g | [Fable's assessment adopted: A0 frozen, Greptile on dev, Claude rows, pooled test, stop/go rule](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076g--fables-assessment-adopted-a0-frozen-greptile-on-dev-claude-rows-pooled-test-stopgo-rule-2026-11-13) |  |
 | 076h | [Apps on the forks since 14 Nov, P1's hold lifted, 3660 s spacing](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076h--apps-on-the-forks-since-14-nov-p1s-hold-lifted-3660-s-spacing-2026-11-14) |  |
+| 076i | [S1 ratio, R1 approved, Greptile expiry, scoring stays inline-only, E1 coverage, P1 opens per slot](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076i--s1-ratio-r1-approved-greptile-expiry-scoring-stays-inline-only-e1-coverage-p1-opens-per-slot-2026-11-14) |  |
 
 ## Process decisions (chat, not in the repo)
 
