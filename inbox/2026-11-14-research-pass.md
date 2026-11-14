@@ -1,0 +1,3 @@
+# Research pass: how other reviewers work (raw)
+
+Research pass on how other reviewers work (read-only; leads, not rulings). The frozen reviewer does not read the component graph; its context is changed files plus grep references. Candidates for after the held-out result, by gain per effort: rank and cap in place of verify and drop (a $0 replay); compiler-resolved context for the generator (backlog C2); a verifier that looks things up before dropping; a second shuffled draw merged by union; an agent loop last. Each needs a pre-registered gate, and a claim needs cases nobody tuned on. Likely differences are cost on open weights and comments that cite a compiler-resolved edge; the second is a hypothesis until the reviewer uses the graph.

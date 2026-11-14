@@ -1,0 +1,3 @@
+# Planner B: outside assessment, second pass (raw)
+
+Outside assessment, second pass (read-only, $0). 24 earlier claims re-derived from files: 12 confirmed, 10 corrected, 1 inference retracted, 1 unverifiable without the forks. Corrections include: the dev PR step had 8 of 38 slots triggered, with outcome readings on disk for 1; the stop/go GO needs 3 conditions, not 1; the freeze runbook has 18 rows, not 17. Model comparison on dev, applied to thresholds written before the results but ruled after: Haiku meets 4 of 4 conditions for a secondary held-out row (catches 14 and 11 of 31 against 12); Sonnet does not (2 of 8 against 3). 2 earlier recommendations withdrawn for conflicting with standing decisions. 4 rulings requested.
