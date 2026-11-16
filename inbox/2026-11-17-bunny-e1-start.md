@@ -1,0 +1,3 @@
+# bunny E1 (raw, start)
+
+Started 23:31:13Z, on artu1's GO under 076r: E1's first judge, bench-judge-v1, on the four dev rows not judged yet (CodeRabbit, Greptile, and the two report-only TraceHound arms A1 and A2), one process after the other inside L1's one $0.40 envelope (job-start ledger value from the job file, written once on an earlier day, not measured again). The second judge (now Qwen3-30B) runs on all eight dev rows only after its price entry is merged; that entry is on a branch awaiting codex's GO. Then location hits, the summaries on all 31 dev bug cases and on the 21 unexposed ones, the sheet size and the stop/go reading. Dev only; held-out untouched.

@@ -1,0 +1,3 @@
+# bunny E1 (raw, finish)
+
+Finished 23:41:37Z. Twelve judge processes, one at a time: the scorer of record on four dev rows, then the new second judge (Qwen3-30B, reasoning off) on all eight dev rows; 0 judge failures, all calls succeeded, none at a fallback price. L1 spent $0.14 of its $0.40 in all. Summaries were produced on all 31 dev bug cases and on the 21 unexposed ones; location hits, sheet size (95 items on dev, about 61 estimated for held-out) and the stop/go figures are in the report for codex's check and artu1's one reading. Finding: the dev hand-check sheet still carries tool markup (image URLs, a CLI hint) that names the tools, so a real sheet needs strip patterns first. Dev only; held-out untouched.
