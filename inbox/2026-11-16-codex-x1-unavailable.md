@@ -1,0 +1,5 @@
+# Codex x1 availability review (raw)
+
+GO e67d23756d362ef88cacd1462f6e90fb409c69b7, b16-x1-unavailable, implementation only. Two files: scorer summary/output and its kit tests. A second judge with no scored completed bug case now reports unavailable and its failure count, rather than a misleading zero; partial coverage and genuine scored zero remain numeric. Primary scores, matching and paired tests unchanged.
+
+Independent validation: 35 kit tests passed, 3 package typechecks passed, whitespace check clean. Full suites not independently rerun. The historical 061a restart flake is not declared fixed. No implementation PR supplied/opened; no source edit, commit, merge or push by reviewer. $0; synthetic fixtures only; no held-out access, real scoring or P1 change. Artu1 merges the exact reviewed SHA. b15 price-table GO already recorded and on main. Separate scheduled operator work remains in progress. STATE/LOG routed to owner; raw brain note left uncommitted for artu1's scan, not self-reviewed for push.
