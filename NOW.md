@@ -29,7 +29,7 @@ updated_by: artu1 (end of the held-out run; from the repo's .agents/STATE.md and
 - Decision: [081](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md) (band D, scoring rule, Haiku not switched).
 
 ## Promo video for the result post
-- The MP4 is `promo/race/renders/tracehound-race.mp4` on TraceHound branch `promo/race-animation` ([PR #79](https://github.com/SunnyBagal/TraceHound/pull/79), not merged), with stills `tracehound-race-first.png` and `tracehound-race-scoreboard.png` beside it. It uses only the published totals.
+- The MP4 is `promo/heldout/renders/tracehound-heldout.mp4` on TraceHound branch `promo/race-animation` ([PR #79](https://github.com/SunnyBagal/TraceHound/pull/79) at `91b243c`, not merged): a 7 s HyperFrames bar chart in the design of Sunny's October benchmark video, with stills `tracehound-heldout-first.png` and `-final.png` beside it. Bars grow from 0 to the published totals (Greptile 12 "Most bugs caught", CodeRabbit 10, TraceHound 4 in red, of 20); the footer gives both p-values and the free plans. It replaces the Remotion race and line-chart versions, which Sunny rejected.
 
 ## What happens now
 - **Maintenance only (decision 080):** fixes, no new arms, no tuning, no model switches. Company work stays paused.

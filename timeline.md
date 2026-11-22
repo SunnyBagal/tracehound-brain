@@ -76,6 +76,7 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 - **2026-11-19** Window opens at 10:00 IST: 29 held-out PRs pushed one per slot, each tool triggered once. A0 and two Haiku draws review all 29.
 - **2026-11-22** Snapshot at 04:30Z (72 h). codex fails at about 04:15Z; grok takes over under a written handover. Judging $0.08; blind sheet of 61 items; Sunny's hand-check in one sitting (3 h 07 min); score committed, firewall lifted. **Result: of 20 bugs, TraceHound 4, CodeRabbit 10, Greptile 12**; pairs p = 0.109 and p = 0.0078; band D (081). The write-up is merged and live (`890943e`). Reviewer work stops (080).
 - **2026-11-22** Promo race animation for result post: a 9 s looping MP4 from the published totals only (Greptile 12, CodeRabbit 10, TraceHound 4 of 20; even one-bug ticks, no per-PR order), Remotion in `promo/race/`, PR #79 (not merged). bunny checked the numbers and stood in for grok's review, after grok hit its weekly limit. $0.
+- **2026-11-22** Sunny rejected the race and a line-chart redesign; the promo became a HyperFrames bar chart in the style of his October benchmark video (`promo/heldout/`, PR #79 @ `91b243c`, `promo/race/` removed). Same totals only; "Most bugs caught", not "winner". $0.
 
 ## Ahead
 
