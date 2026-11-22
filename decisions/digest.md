@@ -427,3 +427,18 @@ One entry per repo decision, extracted from `docs/decisions.md` on main (`c34b2e
 - **Date:** 2026-11-14 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#076i--s1-ratio-r1-approved-greptile-expiry-scoring-stays-inline-only-e1-coverage-p1-opens-per-slot-2026-11-14)
 - **Choice:** the smoke test's billing check passed weakly (console drop $0.03 against $0.0348 on the local ledger, ratio 0.86, at most 1.08; the console shows cents), so the first paid dev run is approved at its $4.68 cap and stops after its first batch for the next console reading. Greptile's 100 credits last past every hand-check date, so Greptile runs on the dev PRs. Findings stay counted from inline comments only; the write-up says summary text was excluded and counts the completed reviews with none. RETHINK stands whatever CodeRabbit's coverage; a GO with fewer than 30 of 40 CodeRabbit reviews is inconclusive. Each dev PR is opened in its own slot just before its trigger, and a bot post before the trigger is flagged. The dev PR step started on 14 Nov: 38 slots, one every 61 minutes.
 - **Rejected:** counting findings from summary comments; opening all dev PRs before the first trigger.
+
+### 079 · Product decision rule, registered before the held-out window
+- **Date:** 2026-11-17 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#079--product-decision-rule-registered-before-t0-2026-11-17)
+- **Choice:** before any held-out number, the product outcome is tied to `D_H`, A0's hand-checked catches minus the competitor's, with the worse of the two registered pairs counting: band A (+4 or more) paid pilot; B (−3 to +3) narrow claim; C (−4 or −5) open source only; D (−6 or worse) stop reviewer work and publish the result and the method. Modifiers: dev demotion, a floor at 3 catches, comment volume, coverage. The rule is void if anything was unblinded before it reached main.
+- **Rejected:** deciding the product after seeing the result.
+
+### 080 · Scope after the held-out result: reviewer work stops
+- **Date:** 2026-11-17 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#080--scope-after-the-held-out-result-reviewer-work-stops-maintenance-after-w1-2026-11-17)
+- **Choice:** after the held-out scoring and write-up, reviewer work stops (no new arms, no tuning, no model switches) and the repo goes into maintenance; company work is paused from 17 Nov. The band from 079 still decides only pricing and the kill dates.
+- **Rejected:** making the reviewer's model a setting after the held-out run (076p), and continuing the side track.
+
+### 081 · Held-out result: band D; prediction scoring rule; Haiku default not switched
+- **Date:** 2026-11-22 · [repo entry](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md#081--held-out-result-079-band-d-prediction-scoring-rule-haiku-default-not-switched-2026-11-22)
+- **Choice:** hand-checked catches of 20: TraceHound 4, CodeRabbit 10, Greptile 12. TraceHound vs CodeRabbit 2 vs 8 (p = 0.109, not rejected); vs Greptile 0 vs 8 (p = 0.0078, rejected). `D_H` −6 and −8 → band D, no modifier applies; this agrees with 080. Haiku met its default-switch condition but nothing switched (080). Predictions scored after the result by a stated rule (range: inside; "about X": ±25%, or ±1 when X ≤ 4; every number in a row must be right): 8 right, 6 wrong.
+- **Rejected:** calling every "about" prediction too vague to score, which would hide three misses.

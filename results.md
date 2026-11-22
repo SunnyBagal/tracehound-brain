@@ -136,3 +136,19 @@ Commercial tools on the same set: [competitors](benchmark/competitors.md).
 | Copilot | 43 | 104 | 29.3 | 44.3 | 35.2 | 6 |
 
 Tools' dev TP/FP are back-computed from P/R with n = 74; Greptile's matches `context.md` exactly. This is the number a critic will compute. TraceHound's dev part was tuned on (4 variants), so it is not a clean test either.
+
+## Held-out TypeScript pull requests (decision 081, 2026-11-22; registered tests; hand-checked)
+
+29 fresh pull requests on forks of medusa (8), payload (10), twenty (10) and bullmq (1), 20 with a bug that a later merged fix repaired, 9 clean. One 72-hour window (19–22 Nov), each tool triggered once, all 29 reviewed by all three. Catches confirmed by Sunny by hand, blind to the tool (61 items, one sitting). Wilson 95% intervals. Page: [ts-heldout.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/bench/ts-heldout.md).
+
+| Tool | bugs caught of 20 [95%] | comments / PR | comments on 9 clean PRs | completed reviews with 0 inline | cost / PR |
+|---|---|---|---|---|---|
+| TraceHound A0 (`review-freeze-3`, pool-verify-v1 on Nemotron 3.5 Super) | 4 [8.1–41.6%] | 0.76 | 2 | 16 of 29 | $0.0603 ledger, $0.0693 console |
+| CodeRabbit | 10 [29.9–70.1%] | 2.83 | 15 | 3 of 29 | free tier |
+| Greptile | 12 [38.7–78.1%] | 2.72 | 13 | 3 of 29 | free tier |
+
+- **Registered pairs (exact sign test, two-sided, 0.05, no correction for two tests):** TraceHound vs CodeRabbit 2 vs 8, p = 0.109375 → no detectable difference at n = 20; TraceHound vs Greptile 0 vs 8, p = 0.0078125 → Greptile caught more on this set. CodeRabbit vs Greptile (counts only) 1 vs 3.
+- **Exposure:** 0 of 20 bugs had their fix visible to a tool at review time.
+- **Product rule (079):** band D. **Verdict: reviewer work stops (080).**
+- **Report-only:** Haiku 5.5 in the same pipeline, two draws, 6 and 7 catches under the first judge (A0 6 under that judge). The dev table (17 Nov, 31 dev bugs, v1 judge, not hand-checked) had A0 12, CodeRabbit 19, Greptile 18, so dev already pointed the same way.
+- **What it means:** the frozen pipeline was quiet (more than half its reviews had no inline comment) and caught fewer labelled bugs than both tools. One run, 20 bugs, four repositories only.

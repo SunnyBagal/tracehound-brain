@@ -1,0 +1,11 @@
+NORMAL COMPLETION — no restart condition
+
+Checked at 2026-11-21T09:23:09.680387+00:00. PID 47297 is gone because the scheduler finished normally at 2026-11-21T09:22:06.512Z. `scheduler_done:true`, `ended:true`, `stopped:false` (raw state null); terminal log event `end` at 09:22:06.503Z and terminal stdout `finished: 53 slot(s) in the log`. The frozen normal-completion branch returns exit code 0; no separate OS wait-status file was recorded. There are zero stop events. This is not evidence of a crash or exit 3.
+
+Counts: 53 elapsed slots assessed (0–52): 29 first-trigger `done`, 24 conditional `nothing-needed`; last assessed slot 52, planned 09:22:00Z, ended 09:22:06.494Z. Last first-trigger slot was 28. All 29/29 first-trigger states are done; all 58/58 tool-handling entries are terminal. No elapsed slot is due-and-unrun (0 unrecorded through slot 52); missed 0, late over 30 minutes 0, boots 1. Remaining 11 slots (53–63) are unused conditional/spare capacity; no queued work remains.
+
+Evidence: private scheduler state, terminal log, completion marker and finished stdout; frozen `scripts/testset/window-scheduler.ts` functions `runScheduler` (`nothingLeft`, loop break, normal end/done/return 0) and `main` at 25151b1d6dbb9d7d8feec92a6b7a76db14107e1f. Under H1 §5 failure 15, a gone process requires restart only without scheduler.done, or when stopped. Neither condition holds. No restart or repair performed. No process signalled, trigger posted, review collected or paid call made during this check.
+
+Fresh registered read-only check: scheduler/watch liveness false/true; caffeinate assertions 3; latest trigger-end lag 251.540 seconds, trigger commands over 15 minutes 0; maximum open/trigger 34/9 seconds. The read-only watch continues. Snapshot remains 2026-11-22T04:30:06Z; §6 collection and hashing and H2 remain pending. Scheduler completion does not complete H1; no terminal H1 .done marker created.
+
+PR: none. Frozen head: 25151b1d6dbb9d7d8feec92a6b7a76db14107e1f. Tests/typecheck: not run (read-only operator diagnosis). Files changed: this comms report, codex.h1-watch.md, codex.ho-run.md, private watch/window checkpoint logs and raw brain inbox report. Please update owned STATE/LOG to distinguish normal scheduler completion from the continuing collection window. Raw brain note remains uncommitted for independent review; no push.

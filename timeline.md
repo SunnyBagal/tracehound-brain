@@ -66,6 +66,16 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 - **2026-11-11** This vault backfilled from the repo by bunny: D062–D075, P010 and 7 topic notes. $0.
 - **2026-11-11** The plan to the held-out run audited before execution (rule: plans are hypotheses): 185 claims, 141 verified, 17 contradicted, 21 unsupported, 6 marked guesses; 13 tasks blocked ([audit](project/plan-2026-11-10-audit.md)). One more dev case replaced (counts unchanged). New standing rules: brain at session end; plans are hypotheses. $0.
 
+## Phase 6: held-out reviewer test (Track B, 12–22 Nov)
+
+- **2026-11-12/13** Planner B's protocol proposals adopted (076c); exposure from case ancestry ruled (076d); the window scheduler, collector and scorer pairs merged on codex GO. Smoke test S1 runs through the scheduler.
+- **2026-11-14** Review apps fixed on the forks (076h). Paid dev run R1 approved ($4.68 cap, $2.82 spent). The dev PR step P1 starts: 38 slots, one every 61 minutes.
+- **2026-11-16** P1 done: CodeRabbit and Greptile each completed 40 of 40 dev reviews. Dev branches deleted from the forks.
+- **2026-11-17** E1, the dev table: **RETHINK** (v1 judge, of 31 dev bugs: A0 12, CodeRabbit 19, Greptile 18). Product rule registered before any held-out number (079); reviewer work to stop after the held-out write-up (080). Predictions made final (078).
+- **2026-11-18** Freeze tag `review-freeze-3` (`25151b1`), codex GO.
+- **2026-11-19** Window opens at 10:00 IST: 29 held-out PRs pushed one per slot, each tool triggered once. A0 and two Haiku draws review all 29.
+- **2026-11-22** Snapshot at 04:30Z (72 h). codex fails at about 04:15Z; grok takes over under a written handover. Judging $0.08; blind sheet of 61 items; Sunny's hand-check in one sitting (3 h 07 min); score committed, firewall lifted. **Result: of 20 bugs, TraceHound 4, CodeRabbit 10, Greptile 12**; pairs p = 0.109 and p = 0.0078; band D (081). The write-up is merged and live (`890943e`). Reviewer work stops (080).
+
 ## Ahead
 
-Spend freeze until Sunny confirms the console usage → TS dev runs on Track B's dev set → `review-freeze-3` and written predictions → one held-out window with every tool → results. See [docs/plan/2026-11-10-plan.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/plan/2026-11-10-plan.md) and [NOW](NOW.md). The hackathon plan that stood here (freeze-2 on 24 Oct → submit 29 Oct) is done.
+Maintenance only (decision 080): fixes, no tuning, no new arms, no model switches. The held-out write-up is [docs/bench/ts-heldout.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/bench/ts-heldout.md); the state is in [NOW](NOW.md).

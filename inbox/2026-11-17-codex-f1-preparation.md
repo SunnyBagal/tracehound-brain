@@ -1,0 +1,11 @@
+# Codex F1 preparation and follow-up reviews (raw)
+
+Docs GO b7fa3dfdd02777b33a38cb0113d89456ddacf186, then delta GO 344910ea7ad786243ae0a5ca1e5e8e8377a0aa62: whole-primary-population fallback, secondary judge-only scope, corrected model sources, current console ruling, superseded historical money condition and write-up wording checked. Whitespace checks on the runbook changes pass. Separate fallback implementation confirmation was deferred by Holt after its stand-in-reviewed merge.
+
+Test-fixture mitigation GO 9ac699b075ba0dc6f5fe8b9ff21556ddeb076313: one test file, assertions and timeouts unchanged. Exact-head gates: 58/58 targeted; analyzer 1062 passed / 8 skipped; three workspace typechecks pass. Sandbox transport binding failed on the first full analyzer attempt; permitted rerun passed. An incidental prior-SHA workspace attempt had one tools-json timeout and is not exact-head evidence. Historical 061a restart timeout remains flaky history; no guarantee of future absence.
+
+F1 private preflight after final predictions were verified pushed: goldens 29 cases / 20 bug / 9 clean / 1 alternate; order 29 / zero out of order / zero ties, equal to prior independently audited order. PR dry runs: 29 paired-base targets, no writes. Scheduler list-only execute-plan check: 64 slots at the registered scheduled start, no scheduler state created; reviewed scheduler bytes and passing eight-slot restart rehearsal unchanged. Owner's availability check reports 3/3 answered; no provider call by codex.
+
+Freeze remains NO-GO: runner planned 29, but all 29 have missing blobs. Authorized object-only materialization stopped after the first failed remote fetch: 225 unique missing blobs still missing; refs, HEAD and config unchanged; other three clones not fetched. No retry without the required ruling. Final hash/independent verification and tag-worktree checks remain pending; no F1 completion marker and no parent-task completion claim.
+
+Counts and method only. No case identities, individual case dates, case text or private source paths. No model spend, push, fork write, case changes, P1 writes, commit or merge by codex. Owner STATE/LOG handoff supplied. This raw note needs independent review before push.
