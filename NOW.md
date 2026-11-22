@@ -28,10 +28,13 @@ updated_by: artu1 (end of the held-out run; from the repo's .agents/STATE.md and
 - Page: [docs/bench/ts-heldout.md](https://github.com/SunnyBagal/TraceHound/blob/main/docs/bench/ts-heldout.md); summary in the repo README and on the live [/benchmark](https://tracehound-tau.vercel.app/benchmark) page.
 - Decision: [081](https://github.com/SunnyBagal/TraceHound/blob/main/docs/decisions.md) (band D, scoring rule, Haiku not switched).
 
+## Promo video for the result post
+- The MP4 is `promo/race/renders/tracehound-race.mp4` on TraceHound branch `promo/race-animation` ([PR #79](https://github.com/SunnyBagal/TraceHound/pull/79), not merged), with stills `tracehound-race-first.png` and `tracehound-race-scoreboard.png` beside it. It uses only the published totals.
+
 ## What happens now
 - **Maintenance only (decision 080):** fixes, no new arms, no tuning, no model switches. Company work stays paused.
 - Kill dates in the product note: the two that apply to band D are met (score files hashed and band computed by 25 Nov; write-up public by 30 Nov). The band A and B rows do not apply.
-- Open: viewer fix PR #77 (maintenance). The 50-stars goal by 31 Dec stands as written.
+- Viewer fix PR #77 (maintenance) merged 22 Nov (`bdc7ed4`). The 50-stars goal by 31 Dec stands as written.
 
 ## Team
 artu1, bunny, codex, grok (devin out of quota), in Herdr ([P010](decisions/P010-herdr-team.md)). codex went into an error state on 22 Nov at about 04:15Z; grok stood in for it on the snapshot, H2 and every review since.
