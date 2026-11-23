@@ -78,6 +78,7 @@ From git history on TraceHound main (merge dates) and decisions made in chat. PR
 - **2026-11-22** Promo race animation for result post: a 9 s looping MP4 from the published totals only (Greptile 12, CodeRabbit 10, TraceHound 4 of 20; even one-bug ticks, no per-PR order), Remotion in `promo/race/`, PR #79 (not merged). bunny checked the numbers and stood in for grok's review, after grok hit its weekly limit. $0.
 - **2026-11-22** Sunny rejected the race and a line-chart redesign; the promo became a HyperFrames bar chart in the style of his October benchmark video (`promo/heldout/`, PR #79 @ `91b243c`, `promo/race/` removed). Same totals only; "Most bugs caught", not "winner". $0.
 - **2026-11-22** Final project handout written for Sunny (kept outside the repos): one Markdown file covering the story, features with status labels, techniques, dead ends, results, costs, architecture from the code, glossary and interview questions. bunny wrote sections 1–7 from the brain, artu1 sections 8–10 from main `cfd740b` and the merge, grok fact-checked. $0.
+- **2026-11-23** Picked one dev-set PR as a public example for an X reply (link kept out per the brain rule: no test-set case details).
 
 ## Ahead
 
